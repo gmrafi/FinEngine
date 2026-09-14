@@ -1,60 +1,114 @@
 # FinEngine
 
-A developer-first fintech website and package-system concept for JavaScript, extended with starter packages and Bangladesh-aware finance education content.
+[![Pages](https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml/badge.svg)](https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml)
+[![Verify](https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml/badge.svg)](https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml)
+[![License](https://img.shields.io/github/license/gmrafi/FinEngine)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/gmrafi/FinEngine)](https://github.com/gmrafi/FinEngine/commits/main)
 
-## Live website
-- Pages URL: https://gmrafi.github.io/FinEngine/
-- Package docs section on homepage: https://gmrafi.github.io/FinEngine/#docs-api
-- Bangladesh learning section: https://gmrafi.github.io/FinEngine/#bangladesh-learning
-- Core docs page: https://gmrafi.github.io/FinEngine/docs/core/
-- Math docs page: https://gmrafi.github.io/FinEngine/docs/math/
-- UI docs page: https://gmrafi.github.io/FinEngine/docs/ui/
-- Release checklist: https://gmrafi.github.io/FinEngine/docs/release/
+**FinEngine** is a documentation-first JavaScript finance toolkit for teams that need lending math, money formatting, ledger validation, UI-ready view models, and Bangladesh-aware product education in one credible open-source surface.
 
-## Active brand
-- Public brand: **FinEngine**
-- Internal switch token: `FINENGINE`
-- Brand text is injected from `assets/js/brand.js`
+## Why this repo exists
 
-## Vendored dependencies
-All external runtime dependencies are stored locally for offline ZIP use:
-- `assets/vendor/chart.umd.min.js` — Chart.js 4.4.3
-- `assets/vendor/dayjs.min.js` — Day.js 1.11.13
-- `assets/vendor/modern-normalize.min.css` — modern-normalize 2.0.0
+Most finance demos look good until they need exact repayment math, deterministic ledger checks, or user-facing numbers that still read clearly in product UI. FinEngine is built to close that gap.
 
-## Workspace packages
-- `packages/core` → `@finengine/core`
-- `packages/math` → `@finengine/math`
-- `packages/ui` → `@finengine/ui`
+It combines:
+- **`@finengine/core`** for money primitives and ledger-safe validation
+- **`@finengine/math`** for EMI, amortization, and return calculations
+- **`@finengine/ui`** for finance-first display models and learning-oriented UI helpers
+- **A live GitHub Pages docs site** with package docs, examples, and an interactive browser demo
 
-Each package includes:
-- scoped `package.json` with exports/types/publishConfig
-- TypeScript source in `src/index.ts`
-- README
-- LICENSE
-- smoke test
-- built `dist/` output after verification
+## Live surfaces
 
-## Verified example outputs
-### @finengine/core
-- `formatMoney(125000)` → `BDT 125,000.00`
-- `validateLedgerEntry(...)` on the included sample → `valid=true`, debit `5000`, credit `5000`
+- **Homepage:** https://gmrafi.github.io/FinEngine/
+- **Examples gallery:** https://gmrafi.github.io/FinEngine/docs/examples/
+- **Core docs:** https://gmrafi.github.io/FinEngine/docs/core/
+- **Math docs:** https://gmrafi.github.io/FinEngine/docs/math/
+- **UI docs:** https://gmrafi.github.io/FinEngine/docs/ui/
+- **Release checklist:** https://gmrafi.github.io/FinEngine/docs/release/
 
-### @finengine/math
-- `monthlyPayment(500000, 13.5, 36)` → `16967.64`
-- `amortize(...)` total interest → `110835.2`
-- `xirr(...)` sample → `0.28`
+## Quick install
 
-## Bangladesh context integrated
-- BDT-denominated code examples
-- Bangla-labeled learning path on the homepage
-- Local finance education framing for MFS, SME cash flow, EMI, savings, and return reasoning
+```bash
+npm install @finengine/core @finengine/math @finengine/ui
+```
 
-## Deployment
-- GitHub Pages-ready static site
-- Uses relative asset paths so everything works correctly under `/FinEngine/`
+## Quick example
 
-## Release workflow
-- GitHub Actions verify workflow: `.github/workflows/verify.yml`
-- Release checklist page: https://gmrafi.github.io/FinEngine/docs/release/
-- Recommended publish order: `@finengine/core` → `@finengine/math` → `@finengine/ui`
+```ts
+import { amortize } from '@finengine/math'
+import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'
+
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+
+const emi = makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
+const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
+```
+
+Expected output highlights:
+- `emi.value` → `BDT 16,967.64`
+- `summary.totalInterest` → `BDT 110,835.20`
+- `summary.totalPayable` → `BDT 618,335.20`
+- `summary.burdenLabel` → `Healthy burden · 20% of income`
+
+## Packages
+
+| Package | Purpose | Highlights |
+| --- | --- | --- |
+| `@finengine/core` | Money primitives and accounting safety rails | `formatMoney`, `validateLedgerEntry`, `sumEntries` |
+| `@finengine/math` | Lending and return calculations | `monthlyPayment`, `amortize`, `xirr` |
+| `@finengine/ui` | UI-ready finance display models | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview`, `makeLearningCards` |
+
+## Local development
+
+```bash
+npm install
+npm run verify:packages
+```
+
+Key workspace scripts:
+- `npm run check` — site JavaScript syntax checks
+- `npm run build:packages` — builds `core`, `math`, and `ui`
+- `npm run test:packages` — runs smoke tests for the starter packages
+- `npm run verify:packages` — full verification plus executed examples
+
+## Repo structure
+
+```text
+assets/                 shared website assets and browser modules
+  js/                   brand config, layout logic, playground logic
+  vendor/               locally vendored runtime dependencies
+docs/                   package docs, examples, and release guides
+packages/
+  core/                 @finengine/core
+  math/                 @finengine/math
+  ui/                   @finengine/ui
+scripts/                verification helpers and executed example scripts
+```
+
+## Open-source credibility
+
+- GitHub Pages-ready static site with relative asset paths
+- Local vendored runtime dependencies for offline-safe review
+- GitHub Actions verification workflow for syntax, builds, tests, and examples
+- Package docs written against executed examples instead of placeholder prose
+
+## Community and contribution
+
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- Issue templates: `.github/ISSUE_TEMPLATE/`
+- Pull request checklist: `.github/pull_request_template.md`
+
+## Release flow
+
+Publish order:
+1. `@finengine/core`
+2. `@finengine/math`
+3. `@finengine/ui`
+
+Release reference:
+- https://gmrafi.github.io/FinEngine/docs/release/
+
+## License
+
+MIT — see [LICENSE](LICENSE)
