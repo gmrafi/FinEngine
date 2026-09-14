@@ -70,6 +70,7 @@ function inferPageType() {
 }
 
 function renderHeader(pageType, homePrefix) {
+  const logoPath = pageType === 'home' ? 'logo-mark.svg' : '../../logo-mark.svg';
   const nav = NAV_ITEMS.map((item) => {
     const href = pageType === 'home' ? item.homeHref : `${homePrefix}${item.homeHref}`;
     const key = item.page || item.homeHref.replace('#', '');
@@ -80,7 +81,7 @@ function renderHeader(pageType, homePrefix) {
     <header class="topbar shared-topbar">
       <div class="shell topbar-inner shared-topbar-inner">
         <a class="brandline brandlink" href="${pageType === 'home' ? '#top' : homePrefix}">
-          <div class="brandmark" data-brand="mark">FE</div>
+          <div class="brandmark" aria-hidden="true"><img src="${logoPath}" alt="" loading="eager" decoding="async" /></div>
           <div>
             <span data-brand="name"></span>
             <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
