@@ -7,7 +7,6 @@ import { initCounters } from './modules/counters.js';
 import { initPackageExplorer } from './modules/packages.js';
 import { initCalculator } from './modules/calculator.js';
 import { initCopyButtons } from './modules/copy.js';
-import { initFormValidation } from './modules/form.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSharedLayout();
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initPackageExplorer();
   initCalculator();
   initCopyButtons();
-  initFormValidation();
 
   const generated = document.querySelector('[data-generated-year]');
   if (generated) generated.textContent = String(new Date().getFullYear());
