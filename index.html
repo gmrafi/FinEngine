@@ -283,26 +283,59 @@ xirr([
       <div class="section-head">
         <div>
           <h2>Interactive JavaScript finance demo</h2>
-          <p>A real browser-side finance demo gives the page more credibility than static brand copy alone. The calculator runs locally and plots an amortization curve from vendored dependencies.</p>
+          <p>The playground now goes beyond a single EMI field set. It includes Bangladesh-aware presets, income-sensitive burden analysis, repayment breakdowns, and a live schedule preview generated in the browser.</p>
         </div>
       </div>
       <div class="calculator-panel" data-reveal>
+        <div class="playground-toolbar">
+          <button class="mini-btn preset-btn" type="button" data-preset="student">Student laptop plan</button>
+          <button class="mini-btn preset-btn" type="button" data-preset="bike">Motorbike loan</button>
+          <button class="mini-btn preset-btn" type="button" data-preset="sme">SME working capital</button>
+          <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant float</button>
+        </div>
         <div class="calc-layout">
           <form class="calc-form" data-calculator-form novalidate>
-            <div class="field"><label for="amount">Loan amount</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
+            <div class="field"><label for="scenario">Scenario label</label><input id="scenario" name="scenario" type="text" value="SME working capital" /></div>
+            <div class="field"><label for="amount">Loan amount (BDT)</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
             <div class="field"><label for="rate">Annual interest rate (%)</label><input id="rate" name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></div>
             <div class="field"><label for="months">Term (months)</label><input id="months" name="months" type="number" min="3" max="120" step="1" value="36" /></div>
+            <div class="field"><label for="income">Monthly income / cash inflow (BDT)</label><input id="income" name="income" type="number" min="0" step="1000" value="85000" /></div>
+            <div class="field"><label for="start-fee">One-time processing fee (%)</label><input id="start-fee" name="startFee" type="number" min="0" max="20" step="0.1" value="1.5" /></div>
             <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
             <div class="errorline" data-result="error"></div>
-            <div class="result-grid">
+            <div class="result-grid result-grid-6">
               <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
               <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
               <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+              <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
+              <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
+              <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
             </div>
-            <p class="inline-note">Generated on <span data-result="generatedAt">—</span> with a local browser-side amortization model.</p>
+            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span> with a local browser-side amortization model.</p>
           </form>
-          <div class="chart-wrap">
-            <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
+          <div>
+            <div class="chart-wrap">
+              <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
+            </div>
+            <div class="grid-2 compact-grid top-space">
+              <div class="info-panel mini-panel">
+                <h3>Repayment reading</h3>
+                <ul class="checklist compact-list">
+                  <li data-result="interestShare">Interest share: —</li>
+                  <li data-result="principalShare">Principal share: —</li>
+                  <li data-result="closingBalance">Closing balance: —</li>
+                </ul>
+              </div>
+              <div class="info-panel mini-panel">
+                <h3>Schedule preview</h3>
+                <div class="schedule-table-wrap">
+                  <table class="schedule-table">
+                    <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+                    <tbody data-schedule-preview></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
