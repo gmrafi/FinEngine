@@ -1,30 +1,16 @@
-# FinEngine
+# CFSBR Intelligence
 
-FinEngine is a financial infrastructure project for JavaScript and TypeScript teams building products where calculation accuracy, validation rules, and reporting consistency matter.
+Public website for the Centre for Fintech & Strategic Business Research (CFSBR).
 
-## What this repository is
+## Scope
+This repository contains the institutional landing site covering research, policy, publishing infrastructure, platforms, and collaboration tracks.
 
-This repository hosts the public website and documentation home for FinEngine.
+## Deployment
+- Repository: https://github.com/gmrafi/FinEngine
+- Public site: https://web.cfsbr.com/
 
-## Positioning
-
-FinEngine sits between lightweight UI kits and heavyweight banking platforms. The goal is to provide focused building blocks for teams shipping lending, repayment, statement, ledger, and payment experiences without hiding the underlying financial logic.
-
-## Intended package map
-
-- `@finengine/core` — shared rules, money types, validation primitives
-- `@finengine/math` — amortization, APR, XIRR, fee logic, schedule generation
-- `@finengine/ui` — repayment tables, amount inputs, statement components
-- `@finengine/pay` — QR payloads, payment formatting, flow helpers
-- `@finengine/reporting` — export schemas and finance-oriented summaries
-
-## Site deployment
-
-- GitHub Pages: `https://gmrafi.github.io/FinEngine/`
-- Planned JS.ORG domain: `https://finengine.js.org`
-
-## Next steps
-
-1. Publish the first package scope.
-2. Add package docs and API references.
-3. Submit the JS.ORG pull request after the Pages site is live.
+## Structure
+- `index.html` — single-page website
+- `styles.css` — visual system and responsive layout
+- `script.js` — lightweight client-side filtering for section blocks
+- `assets/` — local brand assets
