@@ -182,7 +182,7 @@ function renderFooter() {
 
         <div class="footer-bottom-strip">
           <div class="footer-bottom-left">© 2026 FinEngine Labs. Architected and maintained by Md Golam Mubasshir Rafi.</div>
-          <div class="footer-bottom-right">v0.1.0-alpha · finengine.js.org</div>
+          <div class="footer-bottom-right">v0.2.0 · GitHub Pages live</div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source algorithmic computation and simulation toolkit incubated by the <strong>Centre for Fintech &amp; Strategic Business Research (CFSBR)</strong>. It is engineered for workflow automation, academic modeling, and software integration. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited in compliance with applicable central bank regulations and statutory accounting frameworks.</p>
         </div>
       </div>
