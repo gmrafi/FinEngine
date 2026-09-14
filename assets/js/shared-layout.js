@@ -70,7 +70,7 @@ function inferPageType() {
 }
 
 function renderHeader(pageType, homePrefix) {
-  const logoPath = pageType === 'home' ? 'logo-mark.svg' : '../../logo-mark.svg';
+  const logoPath = pageType === 'home' ? 'logo-mark.png' : '../../logo-mark.png';
   const nav = NAV_ITEMS.map((item) => {
     const href = pageType === 'home' ? item.homeHref : `${homePrefix}${item.homeHref}`;
     const key = item.page || item.homeHref.replace('#', '');
