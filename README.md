@@ -1,36 +1,40 @@
-# FinEngine
+# FinKernel / FinEngine Site Upgrade
 
-FinEngine is a financial infrastructure project for JavaScript and TypeScript teams building products where calculation accuracy, validation rules, and reporting consistency matter.
+This repository now behaves like a documentation-first JavaScript fintech flagship site instead of a static landing page.
 
-## What this repository is
+## Default brand
+The current default is **FinKernel** because it feels more distinctive than plain FinEngine while still sounding like a serious computation core.
 
-This repository hosts the public website and documentation home for FinEngine.
+### Brand switch rule
+All visible brand labels are resolved from one file:
+- `assets/js/brand.js`
 
-## Positioning
+If you want to switch back to **FinEngine** or move to another candidate later, start by editing the `SITE_BRAND` constant there.
 
-FinEngine sits between lightweight UI kits and heavyweight banking platforms. The goal is to provide focused building blocks for teams shipping lending, repayment, statement, ledger, and payment experiences without hiding the underlying financial logic.
+## Vendored local libraries
+For offline-safe opening from a downloaded zip, third-party JavaScript is stored locally:
+- `assets/vendor/chart.umd.min.js` — Chart.js 4.4.3
+- `assets/vendor/dayjs.min.js` — Day.js 1.11.13
 
-## Intended package map
+No external CSS framework is used.
 
-- `@finengine/core` — shared rules, money types, validation primitives
-- `@finengine/math` — amortization, APR, XIRR, fee logic, schedule generation
-- `@finengine/ui` — repayment tables, amount inputs, statement components
-- `@finengine/pay` — QR payloads, payment formatting, flow helpers
-- `@finengine/reporting` — export schemas and finance-oriented summaries
+## JavaScript modules
+- `assets/js/main.js`
+- `assets/js/modules/theme.js`
+- `assets/js/modules/nav.js`
+- `assets/js/modules/reveal.js`
+- `assets/js/modules/counters.js`
+- `assets/js/modules/packages.js`
+- `assets/js/modules/calculator.js`
+- `assets/js/modules/copy.js`
 
-## Site deployment
+## Package direction
+- `@finkernel/core`
+- `@finkernel/math`
+- `@finkernel/ui`
+- `@finkernel/pay`
+- `@finkernel/reporting`
+- `@finkernel/ledger`
 
-- GitHub Pages: `https://gmrafi.github.io/FinEngine/`
-- Planned JS.ORG domain: `https://finengine.js.org`
-
-## Next steps
-
-1. Publish the first package scope.
-2. Add package docs and API references.
-3. Submit the JS.ORG pull request after the Pages site is live.
-
-## Credits
-
-Designed and developed by Md Golam Mubasshir Rafi.
-Research context reference: Centre for Fintech & Strategic Business Research (CFSBR).
-
+## Suggested domain
+- `finkernel.js.org`
