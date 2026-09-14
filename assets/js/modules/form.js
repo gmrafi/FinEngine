@@ -44,7 +44,7 @@ export function initFormValidation() {
       status.classList.remove('is-success');
       return;
     }
-    status.textContent = 'Validated successfully. This demo form is ready to be connected to your backend.';
+    status.textContent = 'Validated successfully. This form is ready to be connected to your backend workflow.';
     status.classList.add('is-success');
     status.classList.remove('is-error');
   });
