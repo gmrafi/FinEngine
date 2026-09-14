@@ -230,9 +230,9 @@ html[data-theme='light'] .tab.is-active { color: var(--text); }
 .timeline { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .library-list { display:grid; gap: 14px; }
 .library-item { padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel-soft); }
-.inline-note, .form-status { color: var(--muted); font-size: 0.92rem; }
-.form-status.is-success { color: #86efac; }
-.form-status.is-error { color: #fca5a5; }
+.inline-note, .form-status, .export-status { color: var(--muted); font-size: 0.92rem; }
+.form-status.is-success, .export-status.is-success { color: #86efac; }
+.form-status.is-error, .export-status.is-error { color: #fca5a5; }
 .checklist { margin: 14px 0 0; padding-left: 18px; color: var(--muted); }
 footer { padding: 36px 0 52px; }
 .footer-panel { padding: 24px 26px; }
@@ -293,8 +293,9 @@ html[data-theme='light'] .searchline input, html[data-theme='light'] .field inpu
 .top-space { margin-top: 18px; }
 .mini-panel { padding: 18px; }
 .compact-list { margin-top: 8px; }
-.schedule-table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 16px; }
-.schedule-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.table-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin: 10px 0 12px; }
+.schedule-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
+.schedule-table { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 0.92rem; }
 .schedule-table th, .schedule-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
 .schedule-table thead { background: var(--panel-soft); }
 .schedule-table tbody tr:last-child td { border-bottom: 0; }

@@ -45,7 +45,8 @@
         </div>
         <aside class="code-shell" data-reveal>
           <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-<pre><code id="install-command">npm install @finengine/core @finengine/math @finengine/ui
+<pre><code id="install-command"># install after npm publish
+npm install @finengine/core @finengine/math @finengine/ui
 
 import { amortize, xirr } from '@finengine/math'
 import { validateLedgerEntry } from '@finengine/core'
@@ -123,7 +124,7 @@ import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
           <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">
             <header><h3><span data-brand="npmScope"></span>/math</h3><code>calculation engine</code></header>
             <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>
-            <div class="install-block"><code>npm install <span data-install-scope="math"></span></code></div>
+            <div class="install-block"><code>Workspace publish target: <span data-install-scope="math"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="reporting export statements finance tables audit-ready summaries">
             <header><h3>Reporting surfaces</h3><code>roadmap direction</code></header>
@@ -142,7 +143,7 @@ import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
             <header><h3><span data-brand="npmScope"></span>/ui</h3><code>micro-components</code></header>
             <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
             <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
-            <div class="install-block"><code>npm install <span data-install-scope="ui"></span></code></div>
+            <div class="install-block"><code>Workspace publish target: <span data-install-scope="ui"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="react adapter hooks fintech ui">
             <header><h3>React adapter</h3><code>planned adapter</code></header>
@@ -389,12 +390,18 @@ makeLearningCards()[0].badge
               </div>
               <div class="info-panel mini-panel">
                 <h3>Schedule preview</h3>
+                <div class="table-actions">
+                  <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
+                  <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
+                  <span class="export-status" data-export-status aria-live="polite"></span>
+                </div>
                 <div class="schedule-table-wrap">
                   <table class="schedule-table">
                     <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
                     <tbody data-schedule-preview></tbody>
                   </table>
                 </div>
+                <p class="inline-note">Exports use the current browser-side amortization schedule and rounded BDT figures.</p>
               </div>
             </div>
           </div>

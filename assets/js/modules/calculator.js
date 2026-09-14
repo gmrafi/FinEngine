@@ -33,9 +33,13 @@ export function initCalculator() {
     generatedAt: document.querySelector('[data-result="generatedAt"]'),
     error: document.querySelector('[data-result="error"]'),
     schedule: document.querySelector('[data-schedule-preview]'),
+    exportStatus: document.querySelector('[data-export-status]'),
   };
   const canvas = document.querySelector('#amortization-chart');
   if (!canvas) return;
+
+  const exportButtons = Array.from(document.querySelectorAll('[data-export]'));
+  const state = { schedule: [], scenario: 'Custom scenario' };
 
   document.querySelectorAll('[data-preset]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -51,19 +55,41 @@ export function initCalculator() {
     });
   });
 
+  exportButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      if (!state.schedule.length) {
+        setExportStatus(result, 'Generate a valid schedule before exporting.', 'error');
+        return;
+      }
+      if (button.dataset.export === 'json') {
+        await copyScheduleJson(state, result);
+        return;
+      }
+      if (button.dataset.export === 'csv') {
+        downloadScheduleCsv(state, result);
+      }
+    });
+  });
+
   const render = () => {
     const values = validate(fields);
     if (!values.valid) {
       result.error.textContent = values.message;
-      clearPreview(result);
+      clearPreview(result, exportButtons);
+      state.schedule = [];
+      state.scenario = 'Custom scenario';
       return;
     }
 
     result.error.textContent = '';
+    setExportStatus(result, '', 'neutral');
     const model = buildSchedule(values.amount, values.rate, values.months);
     const upfrontFee = round2(values.amount * (values.startFee / 100));
     const burdenPct = values.income > 0 ? round2((model.emi / values.income) * 100) : null;
     const signal = burdenPct === null ? 'Income not set' : burdenPct > 45 ? 'High' : burdenPct > 30 ? 'Watch' : 'Healthy';
+
+    state.schedule = model.schedule;
+    state.scenario = values.scenario || 'Custom scenario';
 
     result.emi.textContent = formatMoney(model.emi);
     result.totalInterest.textContent = formatMoney(model.totalInterest);
@@ -71,13 +97,14 @@ export function initCalculator() {
     result.burden.textContent = burdenPct === null ? '—' : `${burdenPct}%`;
     result.fee.textContent = formatMoney(upfrontFee);
     result.signal.textContent = signal;
-    result.scenarioTitle.textContent = values.scenario || 'Custom scenario';
+    result.scenarioTitle.textContent = state.scenario;
     result.generatedAt.textContent = dayjs().format('DD MMM YYYY');
     result.interestShare.textContent = `Interest share: ${round2((model.totalInterest / model.totalPayable) * 100)}%`;
     result.principalShare.textContent = `Principal share: ${round2((values.amount / model.totalPayable) * 100)}%`;
     result.closingBalance.textContent = `Closing balance: ${formatMoney(model.schedule.at(-1)?.balance || 0)}`;
     drawChart(canvas, model.schedule);
     renderSchedulePreview(result.schedule, model.schedule);
+    setExportButtonsDisabled(exportButtons, false);
   };
 
   ['input', 'change'].forEach((eventName) => {
@@ -98,7 +125,7 @@ function validate(fields) {
   const startFee = Number(fields.startFee.value || 0);
   const scenario = fields.scenario.value.trim();
   if (!Number.isFinite(amount) || amount < 1000) return { valid: false, message: 'Loan amount must be at least 1,000.' };
-  if (!Number.isFinite(rate) || rate <= 0 || rate > 60) return { valid: false, message: 'Annual rate must be between 0 and 60.' };
+  if (!Number.isFinite(rate) || rate <= 0 || rate > 60) return { valid: false, message: 'Annual rate must be greater than 0 and no more than 60.' };
   if (!Number.isFinite(months) || months < 3 || months > 120) return { valid: false, message: 'Term must be between 3 and 120 months.' };
   if (!Number.isFinite(income) || income < 0) return { valid: false, message: 'Monthly income cannot be negative.' };
   if (!Number.isFinite(startFee) || startFee < 0 || startFee > 20) return { valid: false, message: 'Processing fee must be between 0 and 20%.' };
@@ -118,6 +145,7 @@ function buildSchedule(principal, annualRate, months) {
     totalInterest += interest;
     schedule.push({
       month,
+      payment: round2(emi),
       balance: round2(balance),
       principalPaid: round2(principalPaid),
       interest: round2(interest),
@@ -143,7 +171,7 @@ function renderSchedulePreview(tbody, schedule) {
     </tr>`).join('');
 }
 
-function clearPreview(result) {
+function clearPreview(result, exportButtons) {
   if (result.schedule) result.schedule.innerHTML = '';
   if (result.emi) result.emi.textContent = '—';
   if (result.totalInterest) result.totalInterest.textContent = '—';
@@ -155,6 +183,57 @@ function clearPreview(result) {
   if (result.interestShare) result.interestShare.textContent = 'Interest share: —';
   if (result.principalShare) result.principalShare.textContent = 'Principal share: —';
   if (result.closingBalance) result.closingBalance.textContent = 'Closing balance: —';
+  if (result.generatedAt) result.generatedAt.textContent = '—';
+  setExportStatus(result, '', 'neutral');
+  setExportButtonsDisabled(exportButtons, true);
+  if (chart) {
+    chart.destroy();
+    chart = null;
+  }
+}
+
+async function copyScheduleJson(state, result) {
+  const payload = {
+    scenario: state.scenario,
+    schedule: state.schedule,
+  };
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+    setExportStatus(result, 'JSON copied to clipboard.', 'success');
+  } catch {
+    setExportStatus(result, 'Clipboard copy failed in this browser. Try Export CSV instead.', 'error');
+  }
+}
+
+function downloadScheduleCsv(state, result) {
+  const header = ['month', 'payment', 'principalPaid', 'interestPaid', 'remainingBalance'];
+  const rows = state.schedule.map((row) => [row.month, row.payment, row.principalPaid, row.interest, row.balance]);
+  const csv = [header, ...rows].map((cols) => cols.join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${slugify(state.scenario)}-amortization-schedule.csv`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setExportStatus(result, 'CSV export started.', 'success');
+}
+
+function setExportButtonsDisabled(buttons, disabled) {
+  buttons.forEach((button) => {
+    button.disabled = disabled;
+    button.setAttribute('aria-disabled', String(disabled));
+  });
+}
+
+function setExportStatus(result, message, tone) {
+  if (!result.exportStatus) return;
+  result.exportStatus.textContent = message;
+  result.exportStatus.classList.remove('is-success', 'is-error');
+  if (tone === 'success') result.exportStatus.classList.add('is-success');
+  if (tone === 'error') result.exportStatus.classList.add('is-error');
 }
 
 function drawChart(canvas, schedule) {
@@ -196,4 +275,11 @@ function formatMoney(value) {
 
 function round2(value) {
   return Math.round((value + Number.EPSILON) * 100) / 100;
+}
+
+function slugify(value) {
+  return (value || 'finengine')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'finengine';
 }
