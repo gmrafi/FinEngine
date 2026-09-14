@@ -45,6 +45,34 @@
       <p>Core money primitives and ledger validation helpers for FinEngine. This package is designed to make finance logic explicit and teachable, especially for BDT-denominated flows, MFS settlement examples, and spreadsheet-to-code transitions.</p>
     </section>
     <section class="doc-card">
+      <h2>Precision model</h2>
+      <p>The current starter package uses JavaScript number arithmetic with explicit rounding at public API boundaries. That keeps examples deterministic for BDT-facing demos and documentation. For regulated production ledgers, teams should still consider integer minor-unit storage or a decimal strategy in the surrounding application architecture.</p>
+    </section>
+    <section class="doc-card">
+      <h2>TypeScript shapes</h2>
+<pre class="doc-code"><code>interface Money {
+  amount: number;
+  currency: 'BDT' | 'USD';
+}
+
+interface LedgerEntry {
+  reference: string;
+  currency: 'BDT' | 'USD';
+  lines: Array<{
+    account: string;
+    side: 'debit' | 'credit';
+    amount: number;
+  }>;
+}
+
+interface ValidationResult {
+  valid: boolean;
+  totalDebit: number;
+  totalCredit: number;
+  errors: string[];
+}</code></pre>
+    </section>
+    <section class="doc-card">
       <h2>API</h2>
       <h3>createMoney(amount, currency?)</h3>
       <p>Creates a rounded money object.</p>

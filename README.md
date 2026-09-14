@@ -26,7 +26,9 @@ It combines:
 - **UI docs:** https://gmrafi.github.io/FinEngine/docs/ui/
 - **Release checklist:** https://gmrafi.github.io/FinEngine/docs/release/
 
-## Quick install
+## Install after npm publish
+
+The package names below are the public publish targets for the current workspaces. Keep using the repository directly until the npm release is live.
 
 ```bash
 npm install @finengine/core @finengine/math @finengine/ui
