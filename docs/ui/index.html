@@ -46,7 +46,7 @@
     <section class="doc-card">
       <div class="eyebrow">Package docs</div>
       <h1>@finengine/ui</h1>
-      <p>UI formatting helpers and finance-first view-model builders for FinEngine. The goal is not raw components only — it is to help teams turn calculations, ledger states, and Bangladesh-aware finance education into usable front-end surfaces.</p>
+      <p>UI formatting helpers and finance-first view-model builders for FinEngine. The package helps teams turn calculations, ledger states, and Bangladesh-aware finance education into usable front-end surfaces.</p>
     </section>
     <section class="doc-grid">
       <section class="doc-card">
@@ -69,6 +69,32 @@
           <li><code>makeLearningCards()</code></li>
         </ul>
       </section>
+    </section>
+    <section class="doc-card">
+      <h2>View-model shapes</h2>
+<pre class="doc-code"><code>interface KpiCardModel {
+  label: string;
+  value: string;
+  tone: 'neutral' | 'positive' | 'warning';
+  helper?: string;
+}
+
+interface RepaymentSummaryModel {
+  scenario: string;
+  monthlyPayment: string;
+  totalInterest: string;
+  totalPayable: string;
+  processingFee: string;
+  burdenLabel: string;
+  burdenTone: 'healthy' | 'watch' | 'high' | 'unknown';
+  burdenPct: number | null;
+  schedulePreview: Array<{
+    month: number;
+    principal: string;
+    interest: string;
+    balance: string;
+  }>;
+}</code></pre>
     </section>
     <section class="doc-card">
       <h2>Executed example</h2>
