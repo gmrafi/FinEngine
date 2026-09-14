@@ -144,8 +144,17 @@ function renderSchedulePreview(tbody, schedule) {
 }
 
 function clearPreview(result) {
-  result.schedule && (result.schedule.innerHTML = '');
-  ['emi', 'totalInterest', 'totalPayable', 'burden', 'fee', 'signal', 'scenarioTitle'].forEach(() => {});
+  if (result.schedule) result.schedule.innerHTML = '';
+  if (result.emi) result.emi.textContent = '—';
+  if (result.totalInterest) result.totalInterest.textContent = '—';
+  if (result.totalPayable) result.totalPayable.textContent = '—';
+  if (result.burden) result.burden.textContent = '—';
+  if (result.fee) result.fee.textContent = '—';
+  if (result.signal) result.signal.textContent = 'Needs input';
+  if (result.scenarioTitle) result.scenarioTitle.textContent = 'Waiting for valid values';
+  if (result.interestShare) result.interestShare.textContent = 'Interest share: —';
+  if (result.principalShare) result.principalShare.textContent = 'Principal share: —';
+  if (result.closingBalance) result.closingBalance.textContent = 'Closing balance: —';
 }
 
 function drawChart(canvas, schedule) {
