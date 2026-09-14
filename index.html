@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FinEngine</title>
+  <meta name="description" content="FinEngine is a financial infrastructure project for precise calculations, rule-driven workflows, and reporting-ready web products." />
+  <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="brand" href="#top" aria-label="FinEngine home">
+        <img src="logo-mark.svg" alt="FinEngine mark" width="36" height="36" />
+        <span>FinEngine</span>
+      </a>
+      <nav class="nav">
+        <a href="#why">Why</a>
+        <a href="#modules">Modules</a>
+        <a href="#principles">Principles</a>
+        <a href="#docs">Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Financial infrastructure for JavaScript teams</p>
+        <h1>Build finance products on logic you can inspect.</h1>
+        <p class="lede">FinEngine brings calculation accuracy, validation rules, and reporting structure into a package system that feels native to modern web development.</p>
+        <div class="actions">
+          <a class="button primary" href="#modules">Explore the module map</a>
+          <a class="button secondary" href="#docs">See how the site is structured</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="panel-head">TypeScript example</div>
+        <pre><code>import { amortize, xirr } from '@finengine/math'
+import { validateJournal } from '@finengine/core'
+
+const schedule = amortize({
+  principal: 250000,
+  annualRate: 0.135,
+  months: 36,
+})
+
+const irr = xirr(cashflows)
+const review = validateJournal(entries)</code></pre>
+      </aside>
+    </section>
+
+    <section id="why" class="section shell intro-grid">
+      <article>
+        <p class="section-label">Why it exists</p>
+        <h2>Not a design kit. Not a black-box platform.</h2>
+        <p>Most teams end up choosing between generic component libraries and oversized finance systems that dictate too much architecture. FinEngine is meant for the middle ground: explicit financial logic, packaged cleanly, with room for product teams to build around it.</p>
+      </article>
+      <aside class="note-card">
+        <h3>What the name signals</h3>
+        <p><strong>Fin</strong> keeps the category immediate. <strong>Engine</strong> makes the promise narrower and more credible: structured logic, repeatable outputs, and software that prioritizes correctness over spectacle.</p>
+      </aside>
+    </section>
+
+    <section id="modules" class="section shell">
+      <div class="section-heading">
+        <p class="section-label">Module architecture</p>
+        <h2>A practical package surface</h2>
+      </div>
+      <div class="cards two-up">
+        <article class="card">
+          <h3>@finengine/core</h3>
+          <p>Shared types, money primitives, validation guards, rounding rules, and domain contracts that other packages can depend on.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/math</h3>
+          <p>Amortization schedules, APR helpers, XIRR, fee ladders, penalties, tax rules, and cashflow routines.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/ui</h3>
+          <p>Repayment tables, amount fields, statement blocks, and finance-specific interface patterns that stay compatible with existing apps.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/pay</h3>
+          <p>Payment formatting, QR payload helpers, merchant display logic, and integration-friendly validation utilities.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/reporting</h3>
+          <p>Statement schemas, export-friendly record shapes, and report primitives for internal review and customer-facing outputs.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/ledger</h3>
+          <p>Journal entry helpers, account mapping conventions, and reconciliation-friendly structures for transaction systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="principles" class="section shell split-layout">
+      <div>
+        <p class="section-label">Operating principles</p>
+        <h2>Useful to developers. Defensible to operations.</h2>
+        <ul class="principles-list">
+          <li><strong>Deterministic first.</strong> If two environments run the same logic, the outcome should match.</li>
+          <li><strong>Traceable by design.</strong> Financial outputs should be explainable to reviewers, not just beautiful in demos.</li>
+          <li><strong>Modular adoption.</strong> Teams should be able to start with one package instead of buying a full stack upfront.</li>
+          <li><strong>Stable interfaces.</strong> Finance code gets reused across dashboards, workflows, and exports. Stability matters more than novelty.</li>
+        </ul>
+      </div>
+      <div class="mini-table" role="table" aria-label="Use cases">
+        <div class="row head" role="row"><span>Use case</span><span>Likely starting package</span></div>
+        <div class="row" role="row"><span>Lending app</span><span>@finengine/math</span></div>
+        <div class="row" role="row"><span>Repayment portal</span><span>@finengine/ui</span></div>
+        <div class="row" role="row"><span>Payment QR flow</span><span>@finengine/pay</span></div>
+        <div class="row" role="row"><span>Internal statements</span><span>@finengine/reporting</span></div>
+      </div>
+    </section>
+
+    <section id="docs" class="section shell docs-block">
+      <div class="section-heading">
+        <p class="section-label">Repository setup</p>
+        <h2>Prepared for Pages and JS.ORG</h2>
+      </div>
+      <div class="docs-grid">
+        <div class="card soft">
+          <h3>Public site</h3>
+          <p>This repository is designed to publish as a static documentation home on GitHub Pages first, then move under a JS.ORG domain once the content is live and substantive.</p>
+        </div>
+        <div class="card soft">
+          <h3>Brand usage</h3>
+          <p>Use <strong>FinEngine</strong> as the product name and <strong>FinEngine Labs</strong> as the legal or company wrapper when needed for formal documents.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div>
+        <strong>FinEngine</strong>
+        <p>Financial infrastructure for teams that need precise logic, readable outputs, and room to build.</p>
+      </div>
+      <div class="footer-meta">
+        <a href="https://github.com/gmrafi/FinEngine">GitHub repository</a>
+        <span>Planned domain: finengine.js.org</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
