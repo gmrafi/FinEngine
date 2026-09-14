@@ -227,3 +227,7 @@ footer { padding: 36px 0 52px; }
   .button { width: 100%; }
   .hero { padding-top: 34px; }
 }
+
+.doc-code { margin: 14px 0 0; padding: 16px; border-radius: 18px; background: rgba(2,6,23,0.58); border: 1px solid rgba(255,255,255,0.06); overflow: auto; }
+.learning-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1080px) { .learning-grid { grid-template-columns: 1fr; } }

@@ -36,14 +36,14 @@ export const BRAND_CANDIDATES = Object.freeze([
 export const SITE_BRAND = Object.freeze({
   token: BRAND_TOKEN,
   name: 'FinEngine',
-  mark: 'FK',
+  mark: 'FE',
   legal: 'FinEngine Labs',
   domain: 'finengine.js.org',
   npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Financial logic and reusable tooling for modern JavaScript.',
   heroTitle: 'JavaScript financial tooling for products that cannot afford ambiguous logic.',
-  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, and interactive JavaScript demos into a documentation-first flagship site that still feels lightweight to developers.',
+  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, API examples, and Bangladesh-aware finance learning modules into a documentation-first JavaScript ecosystem.',
 });
 
 export function applyBrand() {
