@@ -92,7 +92,7 @@ function renderHeader(pageType, homePrefix) {
             <span>Star on GitHub</span>
             <img src="https://img.shields.io/github/stars/gmrafi/FinEngine?style=social" alt="GitHub stars for gmrafi/FinEngine" />
           </a>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active"><span aria-hidden="true">☀</span><span>Light mode</span></button>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Light</span></button>
           <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu">Menu</button>
         </div>
       </div>
@@ -116,9 +116,9 @@ function renderProofStrip() {
     <section class="proof-strip shell" aria-label="Open source trust signals">
       <div class="proof-panel">
         <div>
-          <div class="eyebrow">Open-source trust</div>
-          <h2 class="proof-title">Trust signals linked to live repository activity</h2>
-          <p class="proof-copy">Stars, workflow badges, license status, and latest-commit metadata stay tied to the public repository and deployment surface.</p>
+          <div class="eyebrow">Live repo reporter</div>
+          <h2 class="proof-title">Repository activity, deployment badges, and open-source trust in one strip</h2>
+          <p class="proof-copy">Live stars, workflow badges, license state, and recent commit signals stay attached to the public repository so the homepage feels maintained instead of decorative.</p>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>

@@ -39,7 +39,8 @@ function updateLabel(button, theme) {
   if (!button) return;
   button.setAttribute('aria-pressed', String(theme === 'dark'));
   button.setAttribute('aria-label', theme === 'light' ? 'Light mode active' : 'Dark mode active');
-  button.innerHTML = theme === 'light'
-    ? '<span aria-hidden="true">☀</span><span>Light mode</span>'
-    : '<span aria-hidden="true">☾</span><span>Dark mode</span>';
+  button.innerHTML = `
+    <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
+    <span class="theme-toggle-label">${theme === 'light' ? 'Light' : 'Dark'}</span>
+  `;
 }

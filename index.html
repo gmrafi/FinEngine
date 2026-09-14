@@ -25,8 +25,6 @@
 </head>
 <body id="top" data-page="home">
     <div data-site-header></div>
-  <div data-social-proof></div>
-
   <main>
     <section class="hero shell" id="hero">
       <div class="hero-grid">
@@ -42,6 +40,20 @@
             <span class="tag"><span data-brand="npmScope"></span>/core</span>
             <span class="tag"><span data-brand="domain"></span></span>
             <span class="tag"><span data-brand="legal"></span></span>
+          </div>
+          <div class="hero-tools" data-reveal>
+            <div class="hero-tools-head">
+              <div class="eyebrow">JavaScript financial tools</div>
+              <p>Production-minded package families for lending, compliance, risk, analytics, and microfinance workflows.</p>
+            </div>
+            <div class="hero-tools-grid">
+              <article class="hero-tool-card"><strong>@finengine/core</strong><span>Validation, money rules, ledger-safe contracts</span></article>
+              <article class="hero-tool-card"><strong>@finengine/math</strong><span>EMI, amortization, APR, XIRR</span></article>
+              <article class="hero-tool-card"><strong>@finengine/ui</strong><span>Repayment UI helpers and financial micro-components</span></article>
+              <article class="hero-tool-card"><strong>@finengine/risk</strong><span>Altman EM Z-Score, DSCR, ICR, NPL proxy</span></article>
+              <article class="hero-tool-card"><strong>@finengine/ratios</strong><span>Ratios + 3-step and 5-step DuPont</span></article>
+              <article class="hero-tool-card"><strong>@finengine/microfinance</strong><span>Flat vs declining burden transparency</span></article>
+            </div>
           </div>
         </div>
         <aside class="code-shell" data-reveal>
@@ -59,6 +71,8 @@ import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
         </aside>
       </div>
     </section>
+
+    <div data-social-proof></div>
 
     <section class="section shell" id="positioning">
       <div class="section-head">
@@ -100,7 +114,7 @@ import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Package system and library surface area</h2>
-          <p>The live site documents the current FinEngine workspace packages and the browser modules around them, while also showing where future finance surfaces can extend from the same foundation.</p>
+          <p>The full package catalog stays below the hero as a structured reference layer, while the headline module families now surface earlier in the hero so the page feels lighter and more product-like.</p>
         </div>
       </div>
       <div class="searchline">

@@ -241,6 +241,13 @@ function drawChart(canvas, schedule) {
   const balances = schedule.map((row) => row.balance);
   const principals = schedule.map((row) => row.principalPaid);
   const interests = schedule.map((row) => row.interest);
+  const theme = getComputedStyle(document.documentElement);
+  const textColor = theme.getPropertyValue('--text').trim() || '#E5EDF5';
+  const mutedColor = theme.getPropertyValue('--muted').trim() || '#64748B';
+  const gridColor = theme.getPropertyValue('--line').trim() || 'rgba(148,163,184,0.12)';
+  const cyan = theme.getPropertyValue('--cyan').trim() || '#06B6D4';
+  const emerald = theme.getPropertyValue('--emerald').trim() || '#10B981';
+  const amber = theme.getPropertyValue('--amber').trim() || '#F59E0B';
 
   if (chart) chart.destroy();
   chart = new Chart(canvas, {
@@ -248,9 +255,9 @@ function drawChart(canvas, schedule) {
     data: {
       labels,
       datasets: [
-        { label: 'Outstanding balance', data: balances, borderColor: '#06B6D4', backgroundColor: 'rgba(6,182,212,0.12)', fill: true, tension: 0.25 },
-        { label: 'Principal paid', data: principals, borderColor: '#10B981', backgroundColor: 'rgba(16,185,129,0.08)', fill: false, tension: 0.2 },
-        { label: 'Interest paid', data: interests, borderColor: '#F59E0B', backgroundColor: 'rgba(245,158,11,0.08)', fill: false, tension: 0.2 },
+        { label: 'Outstanding balance', data: balances, borderColor: cyan, backgroundColor: 'rgba(6,182,212,0.12)', fill: true, tension: 0.25 },
+        { label: 'Principal paid', data: principals, borderColor: emerald, backgroundColor: 'rgba(16,185,129,0.08)', fill: false, tension: 0.2 },
+        { label: 'Interest paid', data: interests, borderColor: amber, backgroundColor: 'rgba(245,158,11,0.08)', fill: false, tension: 0.2 },
       ],
     },
     options: {
@@ -258,11 +265,11 @@ function drawChart(canvas, schedule) {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       scales: {
-        x: { ticks: { color: '#64748B', maxTicksLimit: 8 }, grid: { color: 'rgba(148,163,184,0.12)' } },
-        y: { ticks: { color: '#64748B' }, grid: { color: 'rgba(148,163,184,0.12)' } },
+        x: { ticks: { color: mutedColor, maxTicksLimit: 8 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { color: gridColor } },
       },
       plugins: {
-        legend: { labels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#E5EDF5' } },
+        legend: { labels: { color: textColor } },
         tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${formatMoney(ctx.parsed.y)}` } },
       },
     },
