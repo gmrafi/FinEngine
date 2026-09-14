@@ -24,5 +24,69 @@
       "remainingBalance": 488657.36
     },
     "xirr": 0.28
+  },
+  "uiExample": {
+    "kpi": {
+      "label": "Monthly EMI",
+      "value": "BDT 16,967.64",
+      "tone": "positive",
+      "helper": "SME working capital"
+    },
+    "summary": {
+      "scenario": "SME working capital",
+      "monthlyPayment": "BDT 16,967.64",
+      "totalInterest": "BDT 110,835.20",
+      "totalPayable": "BDT 618,335.20",
+      "processingFee": "BDT 7,500.00",
+      "burdenLabel": "Healthy burden · 20% of income",
+      "burdenTone": "healthy",
+      "burdenPct": 20,
+      "schedulePreview": [
+        {
+          "month": 1,
+          "principal": "BDT 11,342.64",
+          "interest": "BDT 5,625.00",
+          "balance": "BDT 488,657.36"
+        },
+        {
+          "month": 2,
+          "principal": "BDT 11,470.24",
+          "interest": "BDT 5,497.40",
+          "balance": "BDT 477,187.12"
+        },
+        {
+          "month": 3,
+          "principal": "BDT 11,599.28",
+          "interest": "BDT 5,368.36",
+          "balance": "BDT 465,587.84"
+        },
+        {
+          "month": 4,
+          "principal": "BDT 11,729.78",
+          "interest": "BDT 5,237.86",
+          "balance": "BDT 453,858.06"
+        }
+      ]
+    },
+    "learningCards": [
+      {
+        "title": "BDT money basics",
+        "badge": "Bangladesh · intro",
+        "audience": "Students and first-time builders",
+        "outcome": "Understand currency formatting, rounding, and cash in/out language before building apps."
+      },
+      {
+        "title": "EMI and repayment reading",
+        "badge": "EMI · applied",
+        "audience": "Households, trainers, and SME founders",
+        "outcome": "Read installment burden, total interest, and repayment trade-offs with practical BDT examples."
+      },
+      {
+        "title": "MFS and merchant ledger flow",
+        "badge": "Ledger · advanced",
+        "audience": "Commerce learners and fintech product teams",
+        "outcome": "Map settlement, fees, and balance checks into UI blocks that users can actually understand."
+      }
+    ]
   }
 }
