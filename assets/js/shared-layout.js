@@ -1,13 +1,12 @@
 import { SITE_BRAND } from './brand.js';
 
 const NAV_ITEMS = [
-  { label: 'Positioning', homeHref: '#positioning' },
-  { label: 'Packages', homeHref: '#packages' },
-  { label: 'Docs', homeHref: '#docs-api', page: 'docs' },
-  { label: 'Examples', homeHref: '#examples-gallery' },
-  { label: 'Playground', homeHref: '#playground' },
-  { label: 'বাংলাদেশ', homeHref: '#bangladesh-learning' },
-  { label: 'Collaborate', homeHref: '#collab' },
+  { label: 'Home', path: 'index.html', key: 'home' },
+  { label: 'Product', path: 'product/', key: 'product' },
+  { label: 'Methodology', path: 'methodology/', key: 'methodology' },
+  { label: 'Docs', path: 'docs/', key: 'docs' },
+  { label: 'About', path: 'about/', key: 'about' },
+  { label: 'Contact', path: 'contact/', key: 'contact' },
 ];
 
 const PROOF_BADGES = [
@@ -38,23 +37,22 @@ const PROOF_BADGES = [
   },
 ];
 
-const TRUST_CHIPS = [
-  { label: 'Open source on GitHub', href: 'https://github.com/gmrafi/FinEngine' },
-  { label: 'Live docs on GitHub Pages', href: 'https://gmrafi.github.io/FinEngine/' },
-  { label: 'Examples gallery', href: 'https://gmrafi.github.io/FinEngine/docs/examples/' },
-  { label: 'Structured issue intake', href: 'https://github.com/gmrafi/FinEngine/issues/new/choose' },
-  { label: 'Bangladesh-aware finance learning', href: 'https://gmrafi.github.io/FinEngine/#bangladesh-learning' },
-];
+function toRoot(path = '') {
+  return `${getRootPath()}${path}`;
+}
+
+function getRootPath() {
+  return document.body?.dataset.rootPath || '';
+}
 
 export function initSharedLayout() {
   const pageType = document.body.dataset.page || inferPageType();
-  const homePrefix = pageType === 'home' ? '' : '../../index.html';
   const headerMount = document.querySelector('[data-site-header]');
   const footerMount = document.querySelector('[data-site-footer]');
   const proofMount = document.querySelector('[data-social-proof]');
 
-  if (headerMount) headerMount.innerHTML = renderHeader(pageType, homePrefix);
-  if (proofMount) proofMount.innerHTML = renderProofStrip();
+  if (headerMount) headerMount.innerHTML = renderHeader(pageType);
+  if (proofMount) proofMount.innerHTML = renderProofStrip(pageType);
   if (footerMount) footerMount.innerHTML = renderFooter();
 
   bindMobileMenu();
@@ -69,29 +67,28 @@ function inferPageType() {
   return 'home';
 }
 
-function renderHeader(pageType, homePrefix) {
-  const logoPath = pageType === 'home' ? 'logo-mark.png' : '../../logo-mark.png';
+function renderHeader(pageType) {
+  const root = getRootPath();
+  const logoPath = `${root}logo-mark.png`;
   const nav = NAV_ITEMS.map((item) => {
-    const href = pageType === 'home' ? item.homeHref : `${homePrefix}${item.homeHref}`;
-    const key = item.page || item.homeHref.replace('#', '');
-    return `<a data-nav-link data-nav-key="${key}" href="${href}">${item.label}</a>`;
+    const href = root + item.path;
+    return `<a data-nav-link data-nav-key="${item.key}" href="${href}">${item.label}</a>`;
   }).join('');
 
   return `
     <header class="topbar shared-topbar">
       <div class="shell topbar-inner shared-topbar-inner">
-        <a class="brandline brandlink" href="${pageType === 'home' ? '#top' : homePrefix}">
+        <a class="brandline brandlink" href="${toRoot('index.html')}">
           <div class="brandmark" aria-hidden="true"><img src="${logoPath}" alt="" loading="eager" decoding="async" /></div>
           <div>
             <span data-brand="name"></span>
-            <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
+            <span class="brand-sub">Deterministic finance tooling for modern JavaScript teams</span>
           </div>
         </a>
         <nav class="navlinks" aria-label="Primary navigation">${nav}</nav>
         <div class="toolbar header-actions">
-          <a class="star-cta" href="https://github.com/gmrafi/FinEngine/stargazers" target="_blank" rel="noreferrer">
-            <span>Star on GitHub</span>
-            <img src="https://img.shields.io/github/stars/gmrafi/FinEngine?style=social" alt="GitHub stars for gmrafi/FinEngine" />
+          <a class="star-cta" href="${toRoot('docs/')}">
+            <span>Read the docs</span>
           </a>
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Light</span></button>
           <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu">Menu</button>
@@ -104,22 +101,28 @@ function renderHeader(pageType, homePrefix) {
   `;
 }
 
-function renderProofStrip() {
+function renderProofStrip(pageType) {
+  if (!['home', 'product', 'docs'].includes(pageType)) return '';
   const badges = PROOF_BADGES.map((badge) => `
     <a class="proof-badge" href="${badge.href}" target="_blank" rel="noreferrer">
       <img src="${badge.image}" alt="${badge.alt}" />
     </a>
   `).join('');
 
-  const chips = TRUST_CHIPS.map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
+  const chips = [
+    { label: 'Live product', href: toRoot('product/') },
+    { label: 'Methodology', href: toRoot('methodology/') },
+    { label: 'Package docs', href: toRoot('docs/') },
+    { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
+  ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
 
   return `
     <section class="proof-strip shell" aria-label="Open source trust signals">
-      <div class="proof-panel">
+      <div class="proof-panel compact-proof-panel">
         <div>
-          <div class="eyebrow">Live repo reporter</div>
-          <h2 class="proof-title">Repository activity, deployment badges, and open-source trust in one strip</h2>
-          <p class="proof-copy">Live stars, workflow badges, license state, and recent commit signals stay attached to the public repository so the homepage feels maintained instead of decorative.</p>
+          <div class="eyebrow">Trust signals</div>
+          <h2 class="proof-title">Source, docs, and deploy signals stay visible without overloading the hero.</h2>
+          <p class="proof-copy">The new information architecture keeps proof below the first fold so the homepage feels calmer while still showing real repository activity.</p>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>
@@ -129,61 +132,55 @@ function renderProofStrip() {
 }
 
 function renderFooter() {
+  const root = getRootPath();
   return `
     <footer class="shell site-footer-shell">
       <div class="footer-panel site-footer-panel">
         <div class="site-footer-grid">
           <section class="footer-column footer-column-brand" aria-label="Brand and institution">
-            <a class="footer-brand" href="https://gmrafi.github.io/FinEngine/">FinEngine Labs</a>
-            <p class="footer-intro">Deterministic financial logic, lending calculations, and localized payment tooling for modern JavaScript teams.</p>
+            <a class="footer-brand footer-brandline" href="${root}index.html"><span class="footer-brandmark"><img src="${root}logo-mark.png" alt="" loading="lazy" decoding="async" /></span><span>FinEngine Labs</span></a>
+            <p class="footer-intro">A multi-page JavaScript finance surface for deterministic calculations, explainable demos, and enterprise-facing documentation.</p>
             <div class="footer-highlight-card">
               <div class="footer-card-title">Institutional Research Backing</div>
               <p>An open-source developer initiative incubated by the <a href="https://web.cfsbr.com/"><strong>Centre for Fintech &amp; Strategic Business Research (CFSBR)</strong></a>.</p>
-              <p><strong>Official website:</strong> <a href="https://web.cfsbr.com/">web.cfsbr.com</a></p>
-            </div>
-            <div class="footer-reference-links">
-              <a class="footer-reference-link" href="https://www.gmrafi.com.bd/">Official website · Md Golam Mubasshir Rafi</a>
             </div>
             <div class="footer-license-row">
               <a class="footer-license-badge" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE">MIT Licensed · Free &amp; Open Source</a>
             </div>
           </section>
 
+          <section class="footer-column" aria-label="Explore">
+            <div class="footer-heading">EXPLORE</div>
+            <div class="footer-link-list">
+              <a href="${root}product/"><strong>Product Surface</strong><span>Packages, demo, and example outputs</span></a>
+              <a href="${root}methodology/"><strong>Methodology</strong><span>Positioning, localization, and roadmap logic</span></a>
+              <a href="${root}docs/"><strong>Documentation Hub</strong><span>Package docs, examples, and release notes</span></a>
+            </div>
+          </section>
+
           <section class="footer-column" aria-label="Packages">
             <div class="footer-heading">PACKAGES</div>
             <div class="footer-link-list">
-              <a href="https://gmrafi.github.io/FinEngine/docs/core/"><strong>@finengine/core</strong><span>Validation &amp; Money Kernel</span></a>
-              <a href="https://gmrafi.github.io/FinEngine/docs/math/"><strong>@finengine/math</strong><span>Amortization &amp; XIRR Engine</span></a>
-              <a href="https://gmrafi.github.io/FinEngine/docs/ui/"><strong>@finengine/ui</strong><span>Fintech Micro-Components</span></a>
-              <div class="footer-soon-item"><strong>FinEngine Pro</strong><span class="footer-soon-badge">Coming Soon</span></div>
+              <a href="${root}docs/core/"><strong>@finengine/core</strong><span>Validation &amp; money primitives</span></a>
+              <a href="${root}docs/math/"><strong>@finengine/math</strong><span>Amortization, XIRR, and repayment math</span></a>
+              <a href="${root}docs/ui/"><strong>@finengine/ui</strong><span>Finance-oriented UI helpers</span></a>
             </div>
           </section>
 
-          <section class="footer-column" aria-label="Documentation">
-            <div class="footer-heading">DOCUMENTATION</div>
+          <section class="footer-column" aria-label="Connect">
+            <div class="footer-heading">CONNECT</div>
             <div class="footer-link-list">
-              <a href="https://gmrafi.github.io/FinEngine/#playground"><strong>Amortization Sandbox</strong><span>Interactive loan playground</span></a>
-              <a href="https://gmrafi.github.io/FinEngine/#bangladesh-learning"><strong>BDT Financial Rules</strong><span>Bangladesh finance learning track</span></a>
-              <a href="https://gmrafi.github.io/FinEngine/docs/examples/"><strong>Executed API Docs</strong><span>Code and function reference</span></a>
-              <a href="https://gmrafi.github.io/FinEngine/docs/release/"><strong>Offline Runtime Setup</strong><span>Local and offline guide</span></a>
-            </div>
-          </section>
-
-          <section class="footer-column" aria-label="Ecosystem">
-            <div class="footer-heading">ECOSYSTEM</div>
-            <div class="footer-link-list">
-              <a href="https://github.com/gmrafi/FinEngine"><strong>GitHub Repository</strong><span>Source code and contribution</span></a>
-              <a href="https://github.com/gmrafi/FinEngine/issues/new/choose"><strong>Report an Issue</strong><span>Bug and feature request</span></a>
-              <a href="https://web.cfsbr.com/"><strong>CFSBR Intelligence Hub</strong><span>Research and data background</span></a>
-              <a href="https://www.gmrafi.com.bd/"><strong>Enterprise Inquiry</strong><span>Commercial and custom integration</span></a>
+              <a href="${root}contact/"><strong>Contact</strong><span>Collaboration and implementation pathways</span></a>
+              <a href="https://github.com/gmrafi/FinEngine/issues/new/choose"><strong>Report an Issue</strong><span>Structured bug and feature intake</span></a>
+              <a href="https://www.gmrafi.com.bd/"><strong>Founder Profile</strong><span>Md Golam Mubasshir Rafi</span></a>
             </div>
           </section>
         </div>
 
         <div class="footer-bottom-strip">
           <div class="footer-bottom-left">© 2026 FinEngine Labs. Architected and maintained by Md Golam Mubasshir Rafi.</div>
-          <div class="footer-bottom-right">v0.2.0 · GitHub Pages live</div>
-          <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source algorithmic computation and simulation toolkit incubated by the <strong>Centre for Fintech &amp; Strategic Business Research (CFSBR)</strong>. It is engineered for workflow automation, academic modeling, and software integration. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited in compliance with applicable central bank regulations and statutory accounting frameworks.</p>
+          <div class="footer-bottom-right">v0.3.0 · Multi-page GitHub Pages</div>
+          <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>
       </div>
     </footer>
@@ -204,9 +201,7 @@ function bindMobileMenu() {
 function markActiveNav(pageType) {
   const links = Array.from(document.querySelectorAll('[data-nav-link]'));
   if (!links.length) return;
-  if (pageType === 'docs') {
-    links.forEach((link) => {
-      if (link.dataset.navKey === 'docs') link.classList.add('is-active');
-    });
-  }
+  links.forEach((link) => {
+    if (link.dataset.navKey === pageType) link.classList.add('is-active');
+  });
 }

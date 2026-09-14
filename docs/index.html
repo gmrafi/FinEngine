@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs · FinEngine</title>
+  <meta name="description" content="Documentation hub for FinEngine packages and examples." />
+  <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
+        ? forcedTheme
+        : (savedTheme || 'light');
+      document.documentElement.dataset.theme = theme;
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../logo-mark.png" />
+  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-page="docs" data-root-path="../">
+  <div data-site-header></div>
+
+  <div data-social-proof></div>
+  <main class="doc-shell page-shell">
+    <section class="doc-card page-hero-card">
+      <div class="eyebrow">Documentation hub</div>
+      <h1>Start with the package docs, examples, and release workflow.</h1>
+      <p>The docs hub gives the site a proper documentation entry point instead of forcing engineers through the homepage first.</p>
+    </section>
+    <section class="doc-card">
+      <div class="grid-2 compact-grid">
+        <a class="info-panel link-panel" href="core/"><h3>@finengine/core</h3><p>Money primitives and ledger validation helpers.</p></a>
+        <a class="info-panel link-panel" href="math/"><h3>@finengine/math</h3><p>Repayment math, amortization, and XIRR.</p></a>
+        <a class="info-panel link-panel" href="ui/"><h3>@finengine/ui</h3><p>Finance-oriented UI view-model helpers.</p></a>
+        <a class="info-panel link-panel" href="examples/"><h3>Examples gallery</h3><p>Executed API examples and product-oriented references.</p></a>
+        <a class="info-panel link-panel" href="release/"><h3>Release checklist</h3><p>Offline runtime and package release notes.</p></a>
+        <a class="info-panel link-panel" href="../product/"><h3>Interactive demo</h3><p>Open the browser-side product playground.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script type="module" src="../assets/js/doc-page.js"></script>
+</body>
+</html>

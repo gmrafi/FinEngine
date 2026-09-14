@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact · FinEngine</title>
+  <meta name="description" content="Contact and collaboration pathways for FinEngine." />
+  <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
+        ? forcedTheme
+        : (savedTheme || 'light');
+      document.documentElement.dataset.theme = theme;
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../logo-mark.png" />
+  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-page="contact" data-root-path="../">
+  <div data-site-header></div>
+
+  <main class="doc-shell page-shell">
+    <section class="doc-card page-hero-card">
+      <div class="eyebrow">Contact</div>
+      <h1>Discuss implementation, teaching use-cases, or product collaboration.</h1>
+      <p>This page keeps inquiry routes separate from the homepage so the main product narrative stays focused.</p>
+    </section>
+    <section class="doc-card">
+      <h2>Best paths</h2>
+      <div class="grid-3 compact-grid">
+        <a class="info-panel link-panel" href="https://github.com/gmrafi/FinEngine/issues/new/choose"><h3>Issue intake</h3><p>Use GitHub issue forms for bugs, requests, and structured feedback.</p></a>
+        <a class="info-panel link-panel" href="https://www.gmrafi.com.bd/"><h3>Founder profile</h3><p>Direct professional context for Md Golam Mubasshir Rafi.</p></a>
+        <a class="info-panel link-panel" href="https://web.cfsbr.com/"><h3>CFSBR context</h3><p>Institutional research backdrop for the initiative.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script type="module" src="../assets/js/doc-page.js"></script>
+</body>
+</html>

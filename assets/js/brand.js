@@ -41,9 +41,9 @@ export const SITE_BRAND = Object.freeze({
   domain: 'finengine.js.org',
   npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
-  tagline: 'Financial logic and reusable tooling for modern JavaScript.',
-  heroTitle: 'JavaScript financial tooling for products that cannot afford ambiguous logic.',
-  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, API examples, and Bangladesh-aware finance learning modules into a documentation-first JavaScript ecosystem.',
+  tagline: 'Deterministic JavaScript finance primitives for documentation, demos, and product workflows.',
+  heroTitle: 'Deterministic finance tooling for teams that need clarity before scale.',
+  heroLead: 'FinEngine turns repayment math, validation, localized finance logic, and developer documentation into a cleaner multi-page product surface for product teams, educators, and analysts.',
 });
 
 export function applyBrand() {
@@ -54,9 +54,14 @@ export function applyBrand() {
     const key = node.dataset.brand;
     if (key && SITE_BRAND[key]) node.textContent = SITE_BRAND[key];
   });
-  document.title = SITE_BRAND.name;
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute('content', `${SITE_BRAND.name} is ${SITE_BRAND.tagline}`);
+
+  const page = document.body?.dataset.page || 'home';
+  if (page === 'home') {
+    document.title = SITE_BRAND.name;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', `${SITE_BRAND.name} is ${SITE_BRAND.tagline}`);
+  }
+
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   if (themeMeta) {
     const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';

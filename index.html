@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FinEngine</title>
-  <meta name="description" content="Programmable financial primitives for modern JavaScript." />
+  <meta name="description" content="Deterministic finance tooling for JavaScript teams." />
   <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
@@ -23,50 +23,28 @@
   <link rel="stylesheet" href="assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body id="top" data-page="home">
-    <div data-site-header></div>
+<body data-page="home" data-root-path="">
+  <div data-site-header></div>
+
   <main>
-    <section class="hero shell" id="hero">
-      <div class="hero-grid">
+    <section class="hero shell hero-enterprise" id="hero">
+      <div class="hero-grid hero-grid-lite">
         <div class="hero-copy" data-reveal>
-          <div class="kicker">Open-source finance libraries · offline-safe docs · package-ready demos</div>
+          <div class="kicker">Multi-page JavaScript finance platform</div>
           <h1 data-brand="heroTitle"></h1>
           <p data-brand="heroLead"></p>
-          <div class="hero-actions">
-            <a class="button primary" href="#packages">Browse packages</a>
-            <a class="button secondary" href="#playground">Open the demo</a>
-          </div>
-          <div class="tagrow">
-            <span class="tag"><span data-brand="npmScope"></span>/core</span>
-            <span class="tag"><span data-brand="domain"></span></span>
-            <span class="tag"><span data-brand="legal"></span></span>
-          </div>
-          <div class="hero-tools" data-reveal>
-            <div class="hero-tools-head">
-              <div class="eyebrow">JavaScript financial tools</div>
-              <p>Production-minded package families for lending, compliance, risk, analytics, and microfinance workflows.</p>
-            </div>
-            <div class="hero-tools-grid">
-              <article class="hero-tool-card"><strong>@finengine/core</strong><span>Validation, money rules, ledger-safe contracts</span></article>
-              <article class="hero-tool-card"><strong>@finengine/math</strong><span>EMI, amortization, APR, XIRR</span></article>
-              <article class="hero-tool-card"><strong>@finengine/ui</strong><span>Repayment UI helpers and financial micro-components</span></article>
-              <article class="hero-tool-card"><strong>@finengine/risk</strong><span>Altman EM Z-Score, DSCR, ICR, NPL proxy</span></article>
-              <article class="hero-tool-card"><strong>@finengine/ratios</strong><span>Ratios + 3-step and 5-step DuPont</span></article>
-              <article class="hero-tool-card"><strong>@finengine/microfinance</strong><span>Flat vs declining burden transparency</span></article>
-            </div>
+          <div class="hero-actions hero-actions-tight">
+            <a class="button primary" href="product/">Explore product</a>
+            <a class="button secondary" href="docs/">Open docs</a>
           </div>
         </div>
-        <aside class="code-shell" data-reveal>
-          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-<pre><code id="install-command"># install after npm publish
-npm install @finengine/core @finengine/math @finengine/ui
-
-import { amortize, xirr } from '@finengine/math'
-import { validateLedgerEntry } from '@finengine/core'
-import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
-          <div class="install-row mt-12">
-            <span class="inline-note">Workspace package names match the public publish targets; install becomes live after npm release.</span>
-            <button class="mini-btn" type="button" data-copy="#install-command">Copy install</button>
+        <aside class="panel hero-brief" data-reveal>
+          <div class="eyebrow">Platform brief</div>
+          <h2>Built for teams that need finance logic to be explainable, testable, and presentable.</h2>
+          <div class="hero-proof-grid">
+            <article class="hero-proof-card"><strong>Deterministic math</strong><span>Amortization, XIRR, burden analysis, and audit-safe examples.</span></article>
+            <article class="hero-proof-card"><strong>Localized framing</strong><span>Bangladesh-aware teaching and product scenarios without losing developer clarity.</span></article>
+            <article class="hero-proof-card"><strong>Inspectable output</strong><span>Docs, examples, and repository evidence stay one click away.</span></article>
           </div>
         </aside>
       </div>
@@ -74,530 +52,46 @@ import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
 
     <div data-social-proof></div>
 
-    <section class="section shell" id="positioning">
+    <section class="section shell">
       <div class="section-head">
         <div>
-          <h2>Why FinEngine works as a public JavaScript finance brand</h2>
-          <p>FinEngine is positioned as a deterministic JavaScript finance surface: clear package boundaries, auditable examples, and browser-side tooling that can be inspected before deeper integration.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="info-panel recommended" data-reveal>
-          <div class="eyebrow">Public brand logic</div>
-          <h3>Broad enough to scale</h3>
-          <p><strong>FinEngine</strong> can cover packages, calculators, workflow tools, reporting utilities, and eventually a wider financial platform without sounding too narrow.</p>
-          <div class="metricrow"><span class="metricpill">Clear category signal</span><span class="metricpill">Easy to remember</span></div>
-        </article>
-        <article class="info-panel" data-reveal>
-          <h3>Developer credibility</h3>
-          <p>The name fits a library-first ecosystem where modules, examples, typed utilities, and browser demos matter more than startup-style slogans.</p>
-          <div class="metricrow"><span class="metricpill">Package-friendly</span><span class="metricpill">Docs-first tone</span></div>
-        </article>
-        <article class="info-panel" data-reveal>
-          <h3>Enterprise readability</h3>
-          <p>Decision-makers can quickly understand what the product class is: an engine for financial logic, controls, data handling, and operational consistency.</p>
-          <div class="metricrow"><span class="metricpill">Finance-native</span><span class="metricpill">Corporate-readable</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="signals">
-      <div class="stats-grid">
-        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Public workspaces</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="12">0</strong><span>Browser modules</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="5">0</strong><span>Docs surfaces</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored runtimes</span></article>
-      </div>
-    </section>
-
-    <section class="section shell" id="packages">
-      <div class="section-head">
-        <div>
-          <h2>Package system and library surface area</h2>
-          <p>The full package catalog stays below the hero as a structured reference layer, while the headline module families now surface earlier in the hero so the page feels lighter and more product-like.</p>
-        </div>
-      </div>
-      <div class="searchline">
-        <input type="search" data-package-search placeholder="Filter packages, features, or keywords" aria-label="Filter packages" />
-      </div>
-      <div class="tabs" role="tablist" aria-label="Package groups">
-        <button class="tab" type="button" data-package-tab="core" aria-selected="false">Core</button>
-        <button class="tab" type="button" data-package-tab="ux" aria-selected="false">UI + DX</button>
-        <button class="tab" type="button" data-package-tab="payment" aria-selected="false">Payments</button>
-      </div>
-      <div class="package-panel" data-package-panel="core" data-reveal>
-        <h3>Computation, validation, and reporting foundation</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="validation types ledger audit core money rounding">
-            <header><h3><span data-brand="npmScope"></span>/core</h3><code>validation kernel</code></header>
-            <p>Shared money types, rounding rules, ledger-safe validation, and deterministic domain contracts.</p>
-            <div class="accordion">
-              <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>
-              <div class="accordion-panel" hidden>Without a hard validation core, lending, payment, and statement modules drift apart and audit explanations become weak.</div>
-            </div>
-          </article>
-          <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">
-            <header><h3><span data-brand="npmScope"></span>/math</h3><code>calculation engine</code></header>
-            <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>
-            <div class="install-block"><code>Workspace publish target: <span data-install-scope="math"></span></code></div>
-          </article>
-          <article class="package-card" data-package-card data-keywords="credit risk z-score dscr icr npl banking lending">
-            <header><h3>@finengine/risk</h3><code>credit risk engine</code></header>
-            <p>Altman EM Z-Score, DSCR &amp; ICR stress testing, and NPL probability proxy logic for commercial lending and banking workflows.</p>
-            <div class="accordion">
-              <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>
-              <div class="accordion-panel" hidden>Brings bankruptcy-risk scoring and debt-servicing diagnostics into a browser-first surface instead of a fragile spreadsheet.</div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="package-panel" data-package-panel="ux" hidden data-reveal>
-        <h3>Developer experience and product-facing interface</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">
-            <header><h3><span data-brand="npmScope"></span>/ui</h3><code>micro-components</code></header>
-            <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
-            <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
-            <div class="install-block"><code>Workspace publish target: <span data-install-scope="ui"></span></code></div>
-          </article>
-          <article class="package-card" data-package-card data-keywords="dse portfolio capm beta sharpe markets">
-            <header><h3>@finengine/markets</h3><code>capital markets engine</code></header>
-            <p>DSE-aware portfolio variance, Sharpe ratio, beta, and CAPM helpers for classroom analytics and equity research workflows.</p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="tax nbr tds vds salary slab compliance">
-            <header><h3>@finengine/tax</h3><code>compliance rules engine</code></header>
-            <p>NBR-oriented TDS/VDS and salary-tax calculation helpers for SME, startup, and classroom compliance scenarios.</p>
-          </article>
-        </div>
-      </div>
-      <div class="package-panel" data-package-panel="payment" hidden data-reveal>
-        <h3>Payment rails and ledger adjacency</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="valuation dcf wacc working capital ccc corporate finance">
-            <header><h3>@finengine/corporate</h3><code>valuation simulator</code></header>
-            <p>Headless DCF, WACC, terminal value, enterprise value, and cash-conversion-cycle modeling for corporate finance scenarios.</p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="ratios dupont roe liquidity profitability leverage">
-            <header><h3>@finengine/ratios</h3><code>statement analysis engine</code></header>
-            <p>Financial ratio stacks plus 3-step and 5-step DuPont analysis for classroom demos and statement interpretation.</p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="microfinance mra flat rate declining balance apr">
-            <header><h3>@finengine/microfinance</h3><code>regulatory math engine</code></header>
-            <p>Flat-rate vs declining-balance burden translation for microcredit transparency and borrower education.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="docs-api">
-      <div class="section-head">
-        <div>
-          <h2>Real package docs and executed API examples</h2>
-          <p>These examples map directly to the current workspace packages and docs pages, so engineers can compare the public API surface with the live browser demo and the repository source.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="info-panel" data-reveal>
-          <h3>@finengine/core</h3>
-          <p><a class="mini-btn" href="docs/core/index.html">Open package docs</a></p>
-          <p>Money formatting, ledger validation, and debit-side aggregation for finance workflows that need deterministic checks.</p>
-<pre class="doc-code"><code>import { formatMoney, validateLedgerEntry, sumEntries } from '@finengine/core'
-
-const entry = {
-  reference: 'MFS-SETTLEMENT-01',
-  currency: 'BDT',
-  lines: [
-    { account: '1010-Cash', side: 'debit', amount: 5000 },
-    { account: '2100-Customer-Balance', side: 'credit', amount: 5000 }
-  ]
-}
-
-formatMoney(125000)
-// BDT 125,000.00
-
-validateLedgerEntry(entry)
-// { valid: true, totalDebit: 5000, totalCredit: 5000, errors: [] }
-
-sumEntries([entry])
-// { amount: 5000, currency: 'BDT' }</code></pre>
-          <ul class="checklist">
-            <li><code>createMoney(amount, currency?)</code></li>
-            <li><code>formatMoney(amount, currency?, locale?)</code></li>
-            <li><code>validateLedgerEntry(entry)</code></li>
-            <li><code>sumEntries(entries)</code></li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <h3>@finengine/math</h3>
-          <p><a class="mini-btn" href="docs/math/index.html">Open package docs</a></p>
-          <p>EMI planning, amortization schedules, and irregular cashflow returns for lending, classroom demos, and repayment tools.</p>
-<pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'
-
-monthlyPayment(500000, 13.5, 36)
-// 16967.64
-
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-plan.totalInterest
-// 110835.2
-plan.schedule[0]
-// { month: 1, payment: 16967.64, principalPaid: 11342.64, interestPaid: 5625, remainingBalance: 488657.36 }
-
-xirr([
-  { amount: -100000, date: '2026-01-01' },
-  { amount: 25000, date: '2026-04-01' },
-  { amount: 25000, date: '2026-07-01' },
-  { amount: 70000, date: '2027-01-10' }
-])
-// 0.28</code></pre>
-          <ul class="checklist">
-            <li><code>monthlyPayment(principal, annualRate, months)</code></li>
-            <li><code>amortize({ principal, annualRate, months })</code></li>
-            <li><code>xirr(cashflows, guess?)</code></li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <h3>@finengine/ui</h3>
-          <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a> <a class="mini-btn" href="docs/examples/index.html">View examples gallery</a></p>
-          <p>UI-facing helpers that turn finance numbers into readable cards, burden labels, and learning-oriented presentation blocks.</p>
-<pre class="doc-code"><code>import { amortize } from '@finengine/math'
-import { makeMoneyKpi, makeRepaymentSummary, makeLearningCards } from '@finengine/ui'
-
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-
-makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
-// { label: 'Monthly EMI', value: 'BDT 16,967.64', tone: 'positive', helper: 'SME working capital' }
-
-makeRepaymentSummary('SME working capital', plan, 85000, 1.5).burdenLabel
-// Healthy burden · 20% of income
-
-makeLearningCards()[0].badge
-// Bangladesh · intro</code></pre>
-          <ul class="checklist">
-            <li><code>makeMoneyKpi(label, amount, helper?)</code></li>
-            <li><code>makeRepaymentSummary(scenario, plan, income?, feePct?)</code></li>
-            <li><code>makeSchedulePreview(schedule, limit?)</code></li>
-            <li><code>makeLearningCards()</code></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="examples-gallery">
-      <div class="section-head">
-        <div>
-          <h2>Examples gallery for real product surfaces</h2>
-          <p>Each example ties calculation logic to a concrete product surface, from settlement validation to repayment summaries and finance education flows.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Core validation</div>
-          <h3>Ledger-safe settlement check</h3>
-          <p>Show how balanced debit and credit entries become a reusable validation primitive for settlement, reconciliation, and audit support.</p>
-          <ul class="checklist">
-            <li>Uses <code>validateLedgerEntry</code></li>
-            <li>Outputs deterministic debit/credit totals</li>
-            <li>Fits back-office finance workflows</li>
-          </ul>
-          <p><a class="mini-btn" href="docs/core/index.html">Open core docs</a></p>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Math + UI</div>
-          <h3>Repayment summary for a lending screen</h3>
-          <p>Connect EMI math with a product UI layer: monthly payment, burden label, schedule preview, and total payable all read like real software outputs.</p>
-          <ul class="checklist">
-            <li>Uses <code>amortize</code> + <code>makeRepaymentSummary</code></li>
-            <li>Built for dashboards and application flows</li>
-            <li>Ideal for SME and retail lending demos</li>
-          </ul>
-          <p><a class="mini-btn" href="docs/ui/index.html">Open UI docs</a></p>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Learning surface</div>
-          <h3>Bangladesh-aware finance education</h3>
-          <p>Blend package APIs with local learning context so the site can serve students, trainers, and product teams—not only engineers.</p>
-          <ul class="checklist">
-            <li>BDT-oriented wording and examples</li>
-            <li>MFS, EMI, ledger, and SME framing</li>
-            <li>Ready for workshops and explainers</li>
-          </ul>
-          <p><a class="mini-btn" href="docs/examples/index.html">Browse examples</a></p>
-        </article>
-      </div>
-    </section>
-
-
-    <section class="section shell" id="finance-engines">
-      <div class="section-head">
-        <div>
-          <h2>Emerging-market finance engines for Bangladesh and beyond</h2>
-          <p>These roadmap modules extend FinEngine beyond lending math into capital markets, compliance, credit analysis, valuation, statement analytics, and microfinance transparency. The package names stay English for developer clarity; the problem framing stays grounded in Bangladesh and classroom-to-enterprise use-cases.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Roadmap module</div>
-          <h3>@finengine/markets</h3>
-          <p>বাংলাদেশের বিশ্ববিদ্যালয়, equity research desk, এবং asset-management training-এ DSE-compatible portfolio analytics-এর ঘাটতি পূরণ করার জন্য একটি browser-first markets engine.</p>
-          <ul class="checklist">
-            <li><strong>Portfolio Variance &amp; Sharpe Ratio Calculator:</strong> একাধিক স্টকের return এবং risk-free rate দিলে portfolio weight, variance, এবং risk-return trade-off model করবে.</li>
-            <li><strong>DSE Beta &amp; CAPM Helper:</strong> historical stock return ও market return ইনপুট থেকে beta coefficient এবং expected return estimate করবে.</li>
-            <li><strong>ব্যবহারকারী:</strong> finance শিক্ষার্থী, শিক্ষক, equity analyst, এবং asset manager.</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Roadmap module</div>
-          <h3>@finengine/tax</h3>
-          <p>NBR-facing compliance workflow-এ TDS, VDS, salary tax, rebate logic, এবং rule-based tax reasoning সহজ করার জন্য একটি programmable rules engine.</p>
-          <ul class="checklist">
-            <li><strong>Invoice TDS/VDS Calculator:</strong> service বা merchant type অনুযায়ী gross amount, net payable amount, এবং challan-facing deduction breakdown দেখাবে.</li>
-            <li><strong>Salary Tax Slab Parser:</strong> annual gross salary থেকে slab-wise liability, rebate, এবং step-by-step tax burden explain করবে.</li>
-            <li><strong>ব্যবহারকারী:</strong> SME founder, corporate finance team, taxation শিক্ষক, এবং শিক্ষার্থী.</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Replacement module</div>
-          <h3>@finengine/risk</h3>
-          <p>এই মডিউলটি banking, NBFI, এবং corporate lending reality-র জন্য credit risk ও financial health analytics surface দেয়.</p>
-          <ul class="checklist">
-            <li><strong>Altman Z-Score (Emerging Market version):</strong> manufacturing ও non-manufacturing company data থেকে Safe, Grey, বা Distress zone classify করবে.</li>
-            <li><strong>DSCR &amp; ICR Stress Testing:</strong> income volatility-এর বিপরীতে debt-service coverage এবং interest coverage sensitivity check করবে.</li>
-            <li><strong>NPL Probability Proxy:</strong> loan size, security value, এবং default depth ভিত্তিতে provisioning-margin style proxy বের করবে.</li>
-            <li><strong>ব্যবহারকারী:</strong> commercial banker, credit analyst, lending instructor, এবং banking-course learner.</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Roadmap module</div>
-          <h3>@finengine/corporate</h3>
-          <p>Corporate-finance classroom, CFO scenario planning, এবং business-case simulation-এর জন্য valuation এবং working-capital engine.</p>
-          <ul class="checklist">
-            <li><strong>Headless DCF &amp; WACC Engine:</strong> FCF, cost of equity, debt mix, terminal value, এবং enterprise value simulation চালাবে.</li>
-            <li><strong>Cash Conversion Cycle (CCC) Dashboard:</strong> DSO, DIO, এবং DPO input থেকে working-capital lock-up ও cashflow gap visualize করবে.</li>
-            <li><strong>ব্যবহারকারী:</strong> investment-banking পরীক্ষার্থী, CFO, এবং case competition participant.</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Ecosystem extension</div>
-          <h3>@finengine/ratios</h3>
-          <p>Statement-driven performance analysis-এর জন্য liquidity, profitability, efficiency, leverage, এবং DuPont decomposition engine.</p>
-          <ul class="checklist">
-            <li><strong>Financial Ratio Analysis:</strong> income statement, balance sheet, এবং cashflow inputs থেকে ratio stack generate করবে.</li>
-            <li><strong>DuPont Analysis (3-step &amp; 5-step):</strong> ROE-কে profit margin, asset turnover, leverage, tax burden, interest burden, এবং operating efficiency-তে break down করবে.</li>
-            <li><strong>শিক্ষাগত উপযোগিতা:</strong> accounting ও finance-এর classroom demo, lab exercise, এবং statement interpretation training-এর জন্য আদর্শ.</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Ecosystem extension</div>
-          <h3>@finengine/microfinance</h3>
-          <p>MRA-facing microcredit transparency, rural borrower education, এবং development-economics research-এর জন্য regulatory math helper.</p>
-          <ul class="checklist">
-            <li><strong>Flat Rate vs Declining Balance Converter:</strong> flat-rate loan quote-কে effective declining-balance burden এবং APR-style interpretation-এ translate করবে.</li>
-            <li><strong>Transparent Borrower Burden View:</strong> installment math, total finance cost, এবং real annualized burden explain করবে—কোনো invented regulatory rate ছাড়া.</li>
-            <li><strong>শিক্ষাগত উপযোগিতা:</strong> social business, microfinance, এবং development economics research-এর জন্য অত্যন্ত কার্যকর.</li>
-          </ul>
-        </article>
-      </div>
-      <div class="grid-2 top-space">
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Presentation strategy</div>
-          <h3>View Theory &amp; Proof</h3>
-          <p>প্রতিটি calculator বা analysis surface-এর নিচে একটি expandable “View Theory &amp; Proof” panel রাখা যাবে যেখানে formula, variable definition, এবং academic বা regulatory reference cite থাকবে.</p>
-          <ul class="checklist">
-            <li>Altman (1968) এবং emerging-market adaptation notes</li>
-            <li>NBR Income Tax Act 2023 / relevant finance-law references as text citations</li>
-            <li>MRA guideline references without hard-coded unverified rates</li>
-          </ul>
-        </article>
-        <article class="info-panel" data-reveal>
-          <div class="eyebrow">Privacy posture</div>
-          <h3>Local-first computation assurance</h3>
-          <p><strong>All calculations run 100% locally in your browser. No financial data is sent to external servers.</strong></p>
-          <p>This message is especially important for teachers, researchers, bankers, and corporate users who need confidence before entering real classroom, borrower, or internal finance data.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="bangladesh-learning">
-      <div class="section-head">
-        <div>
-          <h2>বাংলাদেশ ফাইন্যান্স লার্নিং পাথ</h2>
-          <p>এই অংশটা শুধু branding না—বাংলাদেশের learner, developer, trainer, আর SME-focused product builder-দের জন্য practical finance education framing রাখে.</p>
+          <h2>A calmer homepage with clearer next steps</h2>
+          <p>The homepage now acts as an executive front door instead of carrying the entire site. Product details, methodology, documentation, and contact each have their own space.</p>
         </div>
       </div>
       <div class="grid-2">
-        <div class="info-panel" data-reveal>
-          <h3>শিক্ষার মূল ট্র্যাক</h3>
-          <div class="timeline learning-grid">
-            <article class="timeline-step"><h3>01 · BDT money basics</h3><p>রাউন্ডিং, currency formatting, cash in/out, personal budgeting.</p></article>
-            <article class="timeline-step"><h3>02 · EMI & loan logic</h3><p>সুদ, installment, amortization, repayment burden analysis.</p></article>
-            <article class="timeline-step"><h3>03 · MFS & merchant flow</h3><p>Wallet settlement, ledger balance, fee reasoning, account mapping.</p></article>
-            <article class="timeline-step"><h3>04 · SME cash flow</h3><p>Sales, expense buckets, payable/receivable discipline, runway thinking.</p></article>
-          </div>
-        </div>
-        <div class="info-panel" data-reveal>
-          <h3>Local teaching use-cases</h3>
-          <ul class="checklist">
-            <li>BDT-denominated examples for classroom demos and bootcamps</li>
-            <li>Return reasoning for savings, investment, and DSE-style discussions</li>
-            <li>MFS / bank / cash journal examples for commerce and finance students</li>
-            <li>SME repayment and margin planning for founders outside Dhaka-centric tech circles</li>
-          </ul>
-          <p class="inline-note">Goal: make FinEngine useful not only as a toolkit, but also as a bridge between finance education and production-grade JavaScript implementation.</p>
-        </div>
+        <article class="info-panel" data-reveal>
+          <div class="eyebrow">For product teams</div>
+          <h3>Review the platform without wading through every module at once</h3>
+          <p>Use the product page for package families, examples, and the interactive demo.</p>
+          <p><a class="mini-btn" href="product/">Go to product</a></p>
+        </article>
+        <article class="info-panel" data-reveal>
+          <div class="eyebrow">For reviewers</div>
+          <h3>See the logic behind the brand and localization choices</h3>
+          <p>Methodology keeps positioning, Bangladesh-specific framing, and expansion logic separate from the marketing surface.</p>
+          <p><a class="mini-btn" href="methodology/">Read methodology</a></p>
+        </article>
       </div>
     </section>
 
-    <section class="section shell" id="playground">
+    <section class="section shell">
       <div class="section-head">
         <div>
-          <h2>Interactive JavaScript finance demo</h2>
-          <p>The playground combines editable presets, income-sensitive burden analysis, full browser-side amortization, and export-ready schedule data in a single working finance demo.</p>
+          <h2>Choose the page that matches the job</h2>
+          <p>This structure reduces the “single-page busy” feeling and makes the website more enterprise-readable.</p>
         </div>
       </div>
-      <div class="calculator-panel" data-reveal>
-        <div class="playground-toolbar">
-          <button class="mini-btn preset-btn" type="button" data-preset="student">Student laptop plan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="bike">Motorbike loan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="sme">SME working capital</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant float</button>
-        </div>
-        <div class="calc-layout">
-          <form class="calc-form" data-calculator-form novalidate>
-            <div class="field"><label for="scenario">Scenario label</label><input id="scenario" name="scenario" type="text" value="SME working capital" /></div>
-            <div class="field"><label for="amount">Loan amount (BDT)</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
-            <div class="field"><label for="rate">Annual interest rate (%)</label><input id="rate" name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></div>
-            <div class="field"><label for="months">Term (months)</label><input id="months" name="months" type="number" min="3" max="120" step="1" value="36" /></div>
-            <div class="field"><label for="income">Monthly income / cash inflow (BDT)</label><input id="income" name="income" type="number" min="0" step="1000" value="85000" /></div>
-            <div class="field"><label for="start-fee">One-time processing fee (%)</label><input id="start-fee" name="startFee" type="number" min="0" max="20" step="0.1" value="1.5" /></div>
-            <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
-            <div class="errorline" data-result="error"></div>
-            <div class="result-grid result-grid-6">
-              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
-              <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
-              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
-              <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
-              <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
-              <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
-            </div>
-            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span> with a local browser-side amortization model.</p>
-          </form>
-          <div>
-            <div class="chart-wrap">
-              <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
-            </div>
-            <div class="grid-2 compact-grid top-space">
-              <div class="info-panel mini-panel">
-                <h3>Repayment reading</h3>
-                <ul class="checklist compact-list">
-                  <li data-result="interestShare">Interest share: —</li>
-                  <li data-result="principalShare">Principal share: —</li>
-                  <li data-result="closingBalance">Closing balance: —</li>
-                </ul>
-              </div>
-              <div class="info-panel mini-panel">
-                <h3>Schedule preview</h3>
-                <div class="table-actions">
-                  <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
-                  <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
-                  <span class="export-status" data-export-status aria-live="polite"></span>
-                </div>
-                <div class="schedule-table-wrap">
-                  <table class="schedule-table">
-                    <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
-                    <tbody data-schedule-preview></tbody>
-                  </table>
-                </div>
-                <p class="inline-note">Exports use the current browser-side amortization schedule and rounded BDT figures.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="grid-2 page-map-grid">
+        <a class="info-panel link-panel" data-reveal href="product/"><h3>Product</h3><p>Packages, examples, and the interactive JavaScript finance demo.</p></a>
+        <a class="info-panel link-panel" data-reveal href="docs/"><h3>Docs</h3><p>Package docs, examples gallery, and release checklist.</p></a>
+        <a class="info-panel link-panel" data-reveal href="methodology/"><h3>Methodology</h3><p>Positioning, localization rationale, and roadmap logic.</p></a>
+        <a class="info-panel link-panel" data-reveal href="contact/"><h3>Contact</h3><p>Implementation discussions, issue intake, and collaboration pathways.</p></a>
       </div>
     </section>
-
-    <section class="section shell" id="javascript-stack">
-      <div class="section-head">
-        <div>
-          <h2>JavaScript depth that proves the site is not just a landing page</h2>
-          <p>The page includes modular front-end behavior: brand injection, theme state, scroll spy, reveal motion, counters, tabbed docs, accordions, clipboard helpers, a live Cal.com scheduling embed, and a finance calculator with charting.</p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="timeline">
-          <article class="timeline-step" data-reveal><h3>01 · Shared brand config</h3><p>All visible brand labels resolve from <code>assets/js/brand.js</code>, backed by the token <code>FINENGINE</code>.</p></article>
-          <article class="timeline-step" data-reveal><h3>02 · Scroll-aware navigation</h3><p>Scroll spy activates section links as users move through the site.</p></article>
-          <article class="timeline-step" data-reveal><h3>03 · Finance demo logic</h3><p>Loan calculations run client-side and render a chart without CDNs.</p></article>
-          <article class="timeline-step" data-reveal><h3>04 · Documentation behavior</h3><p>Package tabs, filters, accordions, and copy buttons make it feel like a living library site.</p></article>
-        </div>
-        <div class="info-panel" data-reveal>
-          <h3>Vendored libraries</h3>
-          <div class="library-list">
-            <div class="library-item"><strong>Chart.js 4.4.3</strong><p>Stored locally in <code>assets/vendor/chart.umd.min.js</code> for offline-safe chart rendering.</p></div>
-            <div class="library-item"><strong>Day.js 1.11.13</strong><p>Stored locally in <code>assets/vendor/dayjs.min.js</code> for lightweight date formatting in the calculator.</p></div>
-            <div class="library-item"><strong>modern-normalize 2.0.0</strong><p>Stored locally in <code>assets/vendor/modern-normalize.min.css</code> so the ZIP opens with consistent defaults even offline.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="collab">
-      <div class="section-head">
-        <div>
-          <h2>Book a collaboration or implementation session</h2>
-          <p>Use the live booking embed below to schedule a working session for package architecture, lending workflows, risk analytics, or enterprise implementation planning.</p>
-        </div>
-      </div>
-      <div class="grid-2 collab-grid">
-        <div class="info-panel" data-reveal>
-          <h3>Why this matters</h3>
-          <p>This collaboration surface now uses a real scheduling embed instead of a placeholder form, making the site feel closer to a production-ready product and institutional research platform.</p>
-          <ul class="checklist">
-            <li>Live availability through Cal.com</li>
-            <li>Official CFSBR and maintainer website fallbacks</li>
-            <li>Ready for advisory, teaching, and implementation discussions</li>
-            <li>No fake submit flow or dead-end contact form</li>
-          </ul>
-          <p class="inline-note"><strong>Privacy:</strong> All calculations run 100% locally in your browser. No financial data is sent to external servers.</p>
-          <div class="hero-actions">
-            <a class="mini-btn" href="https://web.cfsbr.com/">Official CFSBR website</a>
-            <a class="mini-btn" href="https://www.gmrafi.com.bd/">Official website · Md Golam Mubasshir Rafi</a>
-          </div>
-        </div>
-        <div class="info-panel booking-panel" data-reveal>
-          <h3>Book directly via the official calendar</h3>
-          <div class="cal-embed-shell" style="min-height:760px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:color-mix(in srgb,var(--panel-soft)88%,transparent);">
-            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-meeting"></div>
-          </div>
-          <p class="inline-note">If the embedded scheduler does not load on your network, use the official fallback links above.</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-    <div data-site-footer></div>
-
-
-  <script src="assets/vendor/dayjs.min.js"></script>
-  <script src="assets/vendor/chart.umd.min.js"></script>
-  <script type="module" src="assets/js/main.js"></script>
-
-  <!-- Cal inline embed code begins -->
-  <script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "meeting", {origin:"https://app.cal.com"});
-  Cal.config = Cal.config || {};
-  Cal.config.forwardQueryParams = true;
-
-    Cal.ns.meeting("inline", {
-      elementOrSelector:"#my-cal-inline-meeting",
-      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-      calLink: "gmrafi/meeting",
-    });
-
-    Cal.ns.meeting("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#605be5"},"dark":{"cal-brand":"#605be5"}},"hideEventTypeDetails":false,"layout":"month_view"});
-    </script>
-    <!-- Cal inline embed code ends -->
-
+  <div data-site-footer></div>
+  <script type="module" src="assets/js/doc-page.js"></script>
 </body>
 </html>
