@@ -184,12 +184,13 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Real package docs and executed API examples</h2>
-          <p>These examples now match the starter packages in <code>packages/core</code> and <code>packages/math</code>. The snippets were executed locally before being documented here.</p>
+          <p>These examples now match the starter packages in <code>packages/core</code> and <code>packages/math</code>. The snippets were executed locally before being documented here, and each package now has its own dedicated docs page under the live Pages site.</p>
         </div>
       </div>
       <div class="grid-2">
         <article class="info-panel" data-reveal>
           <h3>@finengine/core</h3>
+          <p><a class="mini-btn" href="docs/core/index.html">Open package docs</a></p>
           <p>Money formatting, ledger validation, and debit-side aggregation for finance workflows that need deterministic checks.</p>
 <pre class="doc-code"><code>import { formatMoney, validateLedgerEntry, sumEntries } from '@finengine/core'
 
@@ -219,6 +220,7 @@ sumEntries([entry])
         </article>
         <article class="info-panel" data-reveal>
           <h3>@finengine/math</h3>
+          <p><a class="mini-btn" href="docs/math/index.html">Open package docs</a></p>
           <p>EMI planning, amortization schedules, and irregular cashflow returns for lending, classroom demos, and repayment tools.</p>
 <pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'
 
