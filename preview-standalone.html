@@ -275,6 +275,23 @@ html[data-theme='light'] .kicker { color: #1d4ed8; }
 html[data-theme='light'] .install-block, html[data-theme='light'] .doc-code { box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
 html[data-theme='light'] .result-card, html[data-theme='light'] .library-item { border-color: var(--line-strong); }
 html[data-theme='light'] .searchline input, html[data-theme='light'] .field input, html[data-theme='light'] .field select, html[data-theme='light'] .field textarea { border-color: var(--line-strong); }
+
+.playground-toolbar { display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 18px; }
+.preset-btn { background: var(--button-secondary-bg); color: var(--button-secondary-text); }
+.preset-btn:hover, .mini-btn:hover { border-color: var(--line-strong); }
+.result-grid-6 { grid-template-columns: repeat(3, 1fr); }
+.compact-grid { margin-top: 16px; }
+.top-space { margin-top: 18px; }
+.mini-panel { padding: 18px; }
+.compact-list { margin-top: 8px; }
+.schedule-table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 16px; }
+.schedule-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.schedule-table th, .schedule-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+.schedule-table thead { background: var(--panel-soft); }
+.schedule-table tbody tr:last-child td { border-bottom: 0; }
+html[data-theme='light'] .schedule-table thead { background: rgba(37,99,235,0.06); }
+html[data-theme='light'] .theme-toggle { background: #ffffff; border-color: var(--line-strong); }
+html[data-theme='light'] .code-shell, html[data-theme='light'] .panel, html[data-theme='light'] .stat, html[data-theme='light'] .package-card, html[data-theme='light'] .package-panel, html[data-theme='light'] .calculator-panel, html[data-theme='light'] .info-panel, html[data-theme='light'] .footer-panel, html[data-theme='light'] .timeline-step { border-color: var(--line-strong); }
 </style>
 </head>
 <body>
@@ -1075,8 +1092,17 @@ function renderSchedulePreview(tbody, schedule) {
 }
 
 function clearPreview(result) {
-  result.schedule && (result.schedule.innerHTML = '');
-  ['emi', 'totalInterest', 'totalPayable', 'burden', 'fee', 'signal', 'scenarioTitle'].forEach(() => {});
+  if (result.schedule) result.schedule.innerHTML = '';
+  if (result.emi) result.emi.textContent = '—';
+  if (result.totalInterest) result.totalInterest.textContent = '—';
+  if (result.totalPayable) result.totalPayable.textContent = '—';
+  if (result.burden) result.burden.textContent = '—';
+  if (result.fee) result.fee.textContent = '—';
+  if (result.signal) result.signal.textContent = 'Needs input';
+  if (result.scenarioTitle) result.scenarioTitle.textContent = 'Waiting for valid values';
+  if (result.interestShare) result.interestShare.textContent = 'Interest share: —';
+  if (result.principalShare) result.principalShare.textContent = 'Principal share: —';
+  if (result.closingBalance) result.closingBalance.textContent = 'Closing balance: —';
 }
 
 function drawChart(canvas, schedule) {
