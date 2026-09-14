@@ -1,0 +1,28 @@
+{
+  "coreExample": {
+    "money": "BDT 125,000.00",
+    "validation": {
+      "valid": true,
+      "totalDebit": 5000,
+      "totalCredit": 5000,
+      "errors": []
+    },
+    "total": {
+      "amount": 5000,
+      "currency": "BDT"
+    }
+  },
+  "mathExample": {
+    "monthlyPayment": 16967.64,
+    "totalInterest": 110835.2,
+    "totalPayable": 610835.2,
+    "firstMonth": {
+      "month": 1,
+      "payment": 16967.64,
+      "principalPaid": 11342.64,
+      "interestPaid": 5625,
+      "remainingBalance": 488657.36
+    },
+    "xirr": 0.28
+  }
+}
