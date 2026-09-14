@@ -77,25 +77,28 @@ function renderHeader(pageType) {
 
   return `
     <header class="topbar shared-topbar">
-      <div class="shell topbar-inner shared-topbar-inner">
+      <div class="shell topbar-inner shared-topbar-inner header-shell">
         <a class="brandline brandlink" href="${toRoot('index.html')}">
-          <div class="brandmark" aria-hidden="true"><img src="${logoPath}" alt="" loading="eager" decoding="async" /></div>
-          <div>
-            <span data-brand="name"></span>
-            <span class="brand-sub">Deterministic finance tooling for modern JavaScript teams</span>
-          </div>
+          <span class="brandmark header-brandmark" aria-hidden="true"><img src="${logoPath}" alt="" loading="eager" decoding="async" /></span>
+          <span class="brand-copy">
+            <span class="brand-row"><span data-brand="name"></span><span class="brand-pill">Open-source JS finance</span></span>
+            <span class="brand-sub">Documentation-first primitives for lending math, validation, and browser-side demos</span>
+          </span>
         </a>
-        <nav class="navlinks" aria-label="Primary navigation">${nav}</nav>
+        <nav class="navlinks navlinks-pill" aria-label="Primary navigation">${nav}</nav>
         <div class="toolbar header-actions">
-          <a class="star-cta" href="${toRoot('docs/')}">
-            <span>Read the docs</span>
+          <a class="star-cta header-primary-cta" href="${toRoot('docs/')}">
+            <span>Get started</span>
           </a>
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Light</span></button>
-          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu">Menu</button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span><span>Menu</span></button>
         </div>
       </div>
       <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
-        <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
+        <div class="mobile-drawer-card">
+          <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
+          <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
+        </div>
       </div>
     </header>
   `;
