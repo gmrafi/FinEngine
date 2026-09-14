@@ -20,6 +20,7 @@
     "test": "node test/smoke.test.mjs"
   },
   "license": "MIT",
+  "homepage": "https://gmrafi.github.io/FinEngine/",
   "dependencies": {
     "@finengine/core": "0.1.0"
   }

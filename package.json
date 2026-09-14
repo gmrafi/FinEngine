@@ -4,6 +4,7 @@
   "version": "0.2.0",
   "type": "module",
   "description": "Offline-safe FinEngine marketing + docs site with starter package skeletons",
+  "homepage": "https://gmrafi.github.io/FinEngine/",
   "workspaces": [
     "packages/core",
     "packages/math"
