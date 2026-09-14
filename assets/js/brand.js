@@ -43,7 +43,7 @@ export const SITE_BRAND = Object.freeze({
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Deterministic JavaScript finance primitives for documentation, demos, and product workflows.',
   heroTitle: 'Deterministic finance tooling for teams that need clarity before scale.',
-  heroLead: 'FinEngine turns repayment math, validation, localized finance logic, and developer documentation into a cleaner multi-page product surface for product teams, educators, and analysts.',
+  heroLead: 'FinEngine packages repayment math, validation, localized finance logic, and developer documentation into a clearer product surface for teams, educators, and analysts.',
 });
 
 export function applyBrand() {

@@ -89,6 +89,33 @@
         <a class="info-panel link-panel" data-reveal href="contact/"><h3>Contact</h3><p>Implementation discussions, issue intake, and collaboration pathways.</p></a>
       </div>
     </section>
+
+    <section class="section shell">
+      <div class="get-started-band" data-reveal>
+        <div class="get-started-copy">
+          <div class="eyebrow">Getting started</div>
+          <h2>Install the packages and ship with real finance primitives.</h2>
+          <p>The homepage now brings back a direct install path so reviewers can see how FinEngine moves from documentation to working code.</p>
+          <div class="hero-actions hero-actions-tight">
+            <a class="button primary" href="docs/">Read the docs</a>
+            <a class="button secondary" href="product/">Explore product</a>
+          </div>
+        </div>
+        <div class="code-shell install-showcase">
+          <div class="install-shell-head">
+            <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="install-shell-meta"><strong>npm</strong><span>Starter install + example usage</span></div>
+          </div>
+          <pre><code>npm install @finengine/core @finengine/math @finengine/ui
+
+import { amortize } from '@finengine/math'
+import { makeRepaymentSummary } from '@finengine/ui'
+
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)</code></pre>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div data-site-footer></div>
