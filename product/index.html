@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Product · FinEngine</title>
-  <meta name="description" content="FinEngine product surface, packages, examples, and demo." />
+  <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />
   <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
@@ -31,11 +31,12 @@
       <div class="hero-grid hero-grid-lite">
         <div class="hero-copy" data-reveal>
           <div class="kicker">Product surface</div>
-          <h1>Packages, examples, and a real browser-side finance demo.</h1>
-          <p>Everything that felt crowded on the old homepage lives here: package families, executed examples, and the interactive lending playground.</p>
-          <div class="hero-actions hero-actions-tight">
+          <h1>Packages, examples, and the product surfaces behind the FinEngine stack.</h1>
+          <p>Everything that felt crowded on the old homepage lives here: package families, executed examples, source docs entry points, and a dedicated route into the simulation lab.</p>
+          <div class="hero-actions hero-actions-tight hero-actions-3up">
             <a class="button primary" href="#packages">Browse packages</a>
-            <a class="button secondary" href="#playground">Open demo</a>
+            <a class="button secondary" href="../docs/">Open docs</a>
+            <a class="button secondary" href="../simulation/">Open demo</a>
           </div>
         </div>
         <aside class="panel hero-brief" data-reveal>
@@ -43,7 +44,7 @@
           <div class="hero-proof-grid">
             <article class="hero-proof-card"><strong>Package taxonomy</strong><span>Core, math, UI, and roadmap modules grouped by job.</span></article>
             <article class="hero-proof-card"><strong>Executed examples</strong><span>API-level examples tied to visible product surfaces.</span></article>
-            <article class="hero-proof-card"><strong>Interactive demo</strong><span>Repayment calculations run locally in the browser.</span></article>
+            <article class="hero-proof-card"><strong>Simulation lab</strong><span>The browser-side repayment demo now lives on its own dedicated page.</span></article>
           </div>
         </aside>
       </div>
@@ -155,71 +156,36 @@
       </div>
     </section>
 
-    <section class="section shell" id="playground">
+    <section class="section shell" id="simulation-entry">
       <div class="section-head">
         <div>
-          <h2>Interactive JavaScript finance demo</h2>
-          <p>The playground now lives on the product page, where it can be evaluated without overpowering the homepage.</p>
+          <h2>Dedicated simulation page</h2>
+          <p>The interactive calculator has been split out so the product page can stay cleaner and easier to scan.</p>
         </div>
       </div>
-      <div class="calculator-panel" data-reveal>
-        <div class="playground-toolbar">
-          <button class="mini-btn preset-btn" type="button" data-preset="student">Student laptop plan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="bike">Motorbike loan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="sme">SME working capital</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant float</button>
-        </div>
-        <div class="calc-layout">
-          <form class="calc-form" data-calculator-form novalidate>
-            <div class="field"><label for="scenario">Scenario label</label><input id="scenario" name="scenario" type="text" value="SME working capital" /></div>
-            <div class="field"><label for="amount">Loan amount (BDT)</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
-            <div class="field"><label for="rate">Annual interest rate (%)</label><input id="rate" name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></div>
-            <div class="field"><label for="months">Term (months)</label><input id="months" name="months" type="number" min="3" max="120" step="1" value="36" /></div>
-            <div class="field"><label for="income">Monthly income / cash inflow (BDT)</label><input id="income" name="income" type="number" min="0" step="1000" value="85000" /></div>
-            <div class="field"><label for="start-fee">One-time processing fee (%)</label><input id="start-fee" name="startFee" type="number" min="0" max="20" step="0.1" value="1.5" /></div>
-            <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
-            <div class="errorline" data-result="error"></div>
-            <div class="result-grid result-grid-6">
-              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
-              <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
-              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
-              <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
-              <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
-              <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
-            </div>
-            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span> with a local browser-side amortization model.</p>
-          </form>
-          <div>
-            <div class="chart-wrap">
-              <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
-            </div>
-            <div class="grid-2 compact-grid top-space">
-              <div class="info-panel mini-panel">
-                <h3>Repayment reading</h3>
-                <ul class="checklist compact-list">
-                  <li data-result="interestShare">Interest share: —</li>
-                  <li data-result="principalShare">Principal share: —</li>
-                  <li data-result="closingBalance">Closing balance: —</li>
-                </ul>
-              </div>
-              <div class="info-panel mini-panel">
-                <h3>Schedule preview</h3>
-                <div class="table-actions">
-                  <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
-                  <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
-                  <span class="export-status" data-export-status aria-live="polite"></span>
-                </div>
-                <div class="schedule-table-wrap">
-                  <table class="schedule-table">
-                    <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
-                    <tbody data-schedule-preview></tbody>
-                  </table>
-                </div>
-                <p class="inline-note">Exports use the current browser-side amortization schedule and rounded BDT figures.</p>
-              </div>
+      <div class="grid-2 simulation-split" data-reveal>
+        <article class="info-panel simulation-summary-card">
+          <div class="eyebrow eyebrow-blue">Simulation lab</div>
+          <h3>Open the amortization and repayment playground on its own route.</h3>
+          <p>Use the dedicated page for scenario presets, recalculation, chart review, schedule preview, and export actions.</p>
+          <div class="hero-actions hero-actions-tight">
+            <a class="button primary" href="../simulation/">Open simulation</a>
+            <a class="button secondary" href="../docs/math/">Open math docs</a>
+          </div>
+        </article>
+        <article class="code-shell simulation-code-card">
+          <div class="install-shell-head hero-install-head">
+            <div>
+              <div class="eyebrow eyebrow-blue">What it demonstrates</div>
+              <strong class="hero-install-title">Repayment logic that stays visual, local, and inspectable.</strong>
             </div>
           </div>
-        </div>
+          <pre><code>const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
+
+summary.totalPayable
+summary.burdenLabel</code></pre>
+        </article>
       </div>
     </section>
   </main>
