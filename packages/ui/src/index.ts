@@ -12,6 +12,13 @@ export interface KpiCardModel {
   helper?: string;
 }
 
+export interface SchedulePreviewRow {
+  month: number;
+  principal: string;
+  interest: string;
+  balance: string;
+}
+
 export interface RepaymentSummaryModel {
   scenario: string;
   monthlyPayment: string;
@@ -22,13 +29,6 @@ export interface RepaymentSummaryModel {
   burdenTone: BurdenTone;
   burdenPct: number | null;
   schedulePreview: SchedulePreviewRow[];
-}
-
-export interface SchedulePreviewRow {
-  month: number;
-  principal: string;
-  interest: string;
-  balance: string;
 }
 
 export interface LearningCardModel {
@@ -74,17 +74,15 @@ export function makeRepaymentSummary(
   monthlyIncome = 0,
   processingFeePct = 0,
 ): RepaymentSummaryModel {
-  const fee = round2(plan.totalPayable - plan.totalInterest - plan.schedule.reduce((sum, row) => sum + row.principalPaid, 0));
-  const feeFallback = fee === 0 ? round2((plan.totalPayable - (plan.totalPayable - plan.totalInterest)) * 0) : fee;
-  const processingFee = round2((plan.totalPayable - plan.totalInterest) * 0 + ((plan.totalPayable - plan.totalInterest - plan.schedule.reduce((sum, row) => sum + row.principalPaid, 0)) || 0));
-  const upfront = round2((plan.totalPayable - plan.totalInterest) * 0 + ((processingFeePct / 100) * (plan.totalPayable - plan.totalInterest)));
-  const burdenPct = monthlyIncome > 0 ? round1((parseMoney(plan.monthlyPayment) / monthlyIncome) * 100) : null;
+  const principal = round2(plan.schedule.reduce((sum, row) => sum + row.principalPaid, 0));
+  const processingFee = round2(principal * (processingFeePct / 100));
+  const burdenPct = monthlyIncome > 0 ? round1((plan.monthlyPayment / monthlyIncome) * 100) : null;
   return {
     scenario,
     monthlyPayment: formatMoney(plan.monthlyPayment),
     totalInterest: formatMoney(plan.totalInterest),
-    totalPayable: formatMoney(plan.totalPayable + upfront),
-    processingFee: formatMoney(upfront || processingFee || feeFallback),
+    totalPayable: formatMoney(plan.totalPayable + processingFee),
+    processingFee: formatMoney(processingFee),
     burdenLabel: burdenPct === null ? 'Income not provided' : formatBurdenLabel(plan.monthlyPayment, monthlyIncome),
     burdenTone: getBurdenTone(burdenPct),
     burdenPct,
@@ -120,10 +118,6 @@ function getBurdenTone(pct: number | null): BurdenTone {
   if (pct > 45) return 'high';
   if (pct > 30) return 'watch';
   return 'healthy';
-}
-
-function parseMoney(value: number): number {
-  return Number(value);
 }
 
 function round1(value: number): number {
