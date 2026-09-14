@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@finengine/ui · FinEngine Docs</title>
+  <meta name="description" content="FinEngine UI package documentation" />
+  <link rel="icon" type="image/svg+xml" href="../../logo-mark.svg" />
+  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    .doc-shell{width:min(960px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
+    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}
+    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
+    .doc-card + .doc-card{margin-top:18px}
+    .doc-card h2,.doc-card h3{margin-top:0}
+    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}
+  </style>
+</head>
+<body>
+  <main class="doc-shell">
+    <div class="doc-nav">
+      <a href="../../index.html">← Back to homepage</a>
+      <a href="../core/index.html">@finengine/core docs</a>
+      <a href="../math/index.html">@finengine/math docs</a>
+    </div>
+    <section class="doc-card">
+      <div class="eyebrow">Package docs</div>
+      <h1>@finengine/ui</h1>
+      <p>UI formatting helpers and small view-model builders for FinEngine. This package bridges finance calculations and usable front-end presentation, with an eye toward Bangladesh-aware learning surfaces.</p>
+    </section>
+    <section class="doc-card">
+      <h2>API</h2>
+      <h3>makeMoneyKpi(label, amount, helper?)</h3>
+      <p>Returns a KPI-card-friendly view model with a formatted BDT value.</p>
+      <h3>formatBurdenLabel(payment, income)</h3>
+      <p>Explains repayment burden in learner-friendly language.</p>
+      <h3>makeLearningBadge(topic, level)</h3>
+      <p>Generates small labels for docs blocks, cards, and teaching surfaces.</p>
+    </section>
+    <section class="doc-card">
+      <h2>Executed example</h2>
+<pre class="doc-code"><code>import { makeMoneyKpi, formatBurdenLabel, makeLearningBadge } from '@finengine/ui'
+
+makeMoneyKpi('Monthly EMI', 16967.64, '36-month SME example')
+// { label: 'Monthly EMI', value: 'BDT 16,968', tone: 'positive', helper: '36-month SME example' }
+
+formatBurdenLabel(16967.64, 85000)
+// Healthy burden · 20% of income
+
+makeLearningBadge('EMI', 'intro')
+// EMI · intro</code></pre>
+    </section>
+  </main>
+</body>
+</html>
