@@ -1781,14 +1781,9 @@ html[data-theme='light'] .footer-license-badge {
   }
 }
 
-@media (max-width: 900px) {
-  .hero-grid-simulation,
+@media (max-width: 899px) {
   .hero-grid-simulation-page {
     grid-template-columns: 1fr;
-  }
-
-  .hero-live-simulation {
-    order: -1;
   }
 }
 
