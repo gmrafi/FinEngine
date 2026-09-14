@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: FinEngine release checklist
+    url: https://gmrafi.github.io/FinEngine/docs/release/
+    about: Review the release and verification guide before publishing or filing release issues.
+  - name: FinEngine live docs
+    url: https://gmrafi.github.io/FinEngine/
+    about: Check the live docs, examples, and playground before reporting UI issues.

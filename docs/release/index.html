@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Release checklist · FinEngine Docs</title>
-  <meta name="description" content="FinEngine release and npm publish checklist" />
-    <meta name="theme-color" content="#0B0F19" />
+  <meta name="description" content="FinEngine release, community, and publish checklist" />
+  <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
@@ -22,10 +22,13 @@
   <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    .doc-shell{width:min(980px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
+    .doc-shell{width:min(1080px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
     .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
     .doc-card + .doc-card{margin-top:18px}
+    .doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     .doc-checklist{display:grid;gap:12px;padding-left:20px}
+    .doc-card h2,.doc-card h3{margin-top:0}
+    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body data-page="docs">
@@ -35,16 +38,50 @@
     <section class="doc-card">
       <div class="eyebrow">Release ops</div>
       <h1>FinEngine publish checklist</h1>
-      <p>Use this before publishing <code>@finengine/core</code>, <code>@finengine/math</code>, and <code>@finengine/ui</code>.</p>
+      <p>Use this page before publishing <code>@finengine/core</code>, <code>@finengine/math</code>, and <code>@finengine/ui</code>, and before announcing the repo more broadly.</p>
     </section>
-    <section class="doc-card">
-      <ol class="doc-checklist">
-        <li>Run <code>npm run verify:packages</code> locally.</li>
-        <li>Check package versions, exports, README, LICENSE, and <code>dist/</code> output for all three packages.</li>
-        <li>Confirm live docs pages and homepage examples match the current APIs.</li>
-        <li>Publish in order: <code>@finengine/core</code> → <code>@finengine/math</code> → <code>@finengine/ui</code>.</li>
-        <li>Tag the release in GitHub and update release notes with Bangladesh finance education additions if changed.</li>
-      </ol>
+
+    <section class="doc-grid">
+      <section class="doc-card">
+        <h2>Verification gates</h2>
+        <ol class="doc-checklist">
+          <li>Run <code>npm run check</code> for site-side JavaScript sanity.</li>
+          <li>Run <code>npm run verify:packages</code> to build, test, and execute package examples.</li>
+          <li>Confirm docs pages and homepage examples still match current APIs.</li>
+          <li>Review responsive behavior on desktop, tablet, and mobile before public sharing.</li>
+        </ol>
+      </section>
+      <section class="doc-card">
+        <h2>Publish order</h2>
+        <ol class="doc-checklist">
+          <li>Check versions, exports, README, LICENSE, and <code>dist/</code> output for <code>@finengine/core</code>.</li>
+          <li>Publish <code>@finengine/core</code>.</li>
+          <li>Publish <code>@finengine/math</code>.</li>
+          <li>Publish <code>@finengine/ui</code>.</li>
+          <li>Tag the GitHub release and summarize any example/output changes.</li>
+        </ol>
+      </section>
+    </section>
+
+    <section class="doc-grid">
+      <section class="doc-card">
+        <h2>Community readiness</h2>
+        <ul class="checklist">
+          <li>Issue forms are available for bugs, features, and docs improvements.</li>
+          <li>Pull requests now have a verification checklist.</li>
+          <li>Contribution and conduct guidance should be visible before wider promotion.</li>
+          <li>If you want GitHub Discussions, enable it manually in repository settings and pin a welcome thread.</li>
+        </ul>
+      </section>
+      <section class="doc-card">
+        <h2>Launch readiness</h2>
+        <ul class="checklist">
+          <li>Keep the website polished first; launch traffic should meet a stable product surface.</li>
+          <li>Prepare Product Hunt assets only when the landing page, screenshots, and positioning are final.</li>
+          <li>Use live GitHub signals, examples, and docs links as proof points.</li>
+          <li>Do not publish until the repo front page and example gallery feel intentional.</li>
+        </ul>
+      </section>
     </section>
   </main>
   <div data-site-footer></div>

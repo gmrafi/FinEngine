@@ -1,0 +1,23 @@
+name: Docs improvement
+description: Suggest a missing example, unclear explanation, or broken documentation surface
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      placeholder: https://gmrafi.github.io/FinEngine/docs/ui/
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What needs improvement
+      placeholder: The page explains the functions but does not show how to combine them into a dashboard card set.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      placeholder: Add a side-by-side example with KPI, burden label, and schedule preview.

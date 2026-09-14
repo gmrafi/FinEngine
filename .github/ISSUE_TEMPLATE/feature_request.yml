@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a new package capability, docs section, or product-facing improvement
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the feature in product terms, not only implementation terms.
+  - type: input
+    id: problem
+    attributes:
+      label: Problem to solve
+      placeholder: Teams need a React adapter for repayment summary cards.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      placeholder: Add @finengine/react with headless hooks and example card wrappers.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Main impact area
+      options:
+        - Developer experience
+        - Product UI
+        - Financial correctness
+        - Documentation quality
+        - Release/readiness
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: Success criteria
+      placeholder: Docs include a working example and the package verifies in CI.
