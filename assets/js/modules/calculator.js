@@ -1,15 +1,28 @@
-let chart;
+const charts = new WeakMap();
 
 const PRESETS = {
   student: { scenario: 'Student laptop plan', amount: 85000, rate: 11.5, months: 18, income: 18000, startFee: 1.0 },
   bike: { scenario: 'Motorbike loan', amount: 220000, rate: 12.9, months: 30, income: 42000, startFee: 1.2 },
   sme: { scenario: 'SME working capital', amount: 500000, rate: 13.5, months: 36, income: 85000, startFee: 1.5 },
   merchant: { scenario: 'Merchant float', amount: 150000, rate: 14.2, months: 12, income: 60000, startFee: 0.8 },
+  agri: { scenario: 'Agri equipment plan', amount: 340000, rate: 10.8, months: 24, income: 52000, startFee: 0.9 },
+  clinic: { scenario: 'Clinic device financing', amount: 680000, rate: 12.1, months: 48, income: 145000, startFee: 1.1 },
 };
 
 export function initCalculator() {
-  const form = document.querySelector('[data-calculator-form]');
-  if (!form || typeof Chart === 'undefined') return;
+  const scopedRoots = Array.from(document.querySelectorAll('[data-simulation]'));
+  if (scopedRoots.length) {
+    scopedRoots.forEach((root) => initSimulation(root));
+    return;
+  }
+
+  const fallbackForm = document.querySelector('[data-calculator-form]');
+  if (fallbackForm) initSimulation(document.body);
+}
+
+function initSimulation(root) {
+  const form = root.querySelector('[data-calculator-form]');
+  if (!form) return;
 
   const fields = {
     scenario: form.querySelector('[name="scenario"]'),
@@ -19,38 +32,39 @@ export function initCalculator() {
     income: form.querySelector('[name="income"]'),
     startFee: form.querySelector('[name="startFee"]'),
   };
-  const result = {
-    emi: document.querySelector('[data-result="emi"]'),
-    totalInterest: document.querySelector('[data-result="interest"]'),
-    totalPayable: document.querySelector('[data-result="total"]'),
-    burden: document.querySelector('[data-result="burden"]'),
-    fee: document.querySelector('[data-result="fee"]'),
-    signal: document.querySelector('[data-result="signal"]'),
-    scenarioTitle: document.querySelector('[data-result="scenarioTitle"]'),
-    interestShare: document.querySelector('[data-result="interestShare"]'),
-    principalShare: document.querySelector('[data-result="principalShare"]'),
-    closingBalance: document.querySelector('[data-result="closingBalance"]'),
-    generatedAt: document.querySelector('[data-result="generatedAt"]'),
-    error: document.querySelector('[data-result="error"]'),
-    schedule: document.querySelector('[data-schedule-preview]'),
-    exportStatus: document.querySelector('[data-export-status]'),
-  };
-  const canvas = document.querySelector('#amortization-chart');
-  if (!canvas) return;
 
-  const exportButtons = Array.from(document.querySelectorAll('[data-export]'));
+  const result = {
+    emi: root.querySelector('[data-result="emi"]'),
+    totalInterest: root.querySelector('[data-result="interest"]'),
+    totalPayable: root.querySelector('[data-result="total"]'),
+    burden: root.querySelector('[data-result="burden"]'),
+    fee: root.querySelector('[data-result="fee"]'),
+    signal: root.querySelector('[data-result="signal"]'),
+    scenarioTitle: root.querySelector('[data-result="scenarioTitle"]'),
+    interestShare: root.querySelector('[data-result="interestShare"]'),
+    principalShare: root.querySelector('[data-result="principalShare"]'),
+    closingBalance: root.querySelector('[data-result="closingBalance"]'),
+    generatedAt: root.querySelector('[data-result="generatedAt"]'),
+    error: root.querySelector('[data-result="error"]'),
+    schedule: root.querySelector('[data-schedule-preview]'),
+    exportStatus: root.querySelector('[data-export-status]'),
+  };
+
+  const canvas = root.querySelector('[data-amortization-chart]');
+  const exportButtons = Array.from(root.querySelectorAll('[data-export]'));
+  const presetButtons = Array.from(root.querySelectorAll('[data-preset]'));
   const state = { schedule: [], scenario: 'Custom scenario' };
 
-  document.querySelectorAll('[data-preset]').forEach((button) => {
+  presetButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const preset = PRESETS[button.dataset.preset];
       if (!preset) return;
-      fields.scenario.value = preset.scenario;
-      fields.amount.value = String(preset.amount);
-      fields.rate.value = String(preset.rate);
-      fields.months.value = String(preset.months);
-      fields.income.value = String(preset.income);
-      fields.startFee.value = String(preset.startFee);
+      if (fields.scenario) fields.scenario.value = preset.scenario;
+      if (fields.amount) fields.amount.value = String(preset.amount);
+      if (fields.rate) fields.rate.value = String(preset.rate);
+      if (fields.months) fields.months.value = String(preset.months);
+      if (fields.income) fields.income.value = String(preset.income);
+      if (fields.startFee) fields.startFee.value = String(preset.startFee);
       render();
     });
   });
@@ -74,14 +88,14 @@ export function initCalculator() {
   const render = () => {
     const values = validate(fields);
     if (!values.valid) {
-      result.error.textContent = values.message;
-      clearPreview(result, exportButtons);
+      if (result.error) result.error.textContent = values.message;
+      clearPreview(root, result, exportButtons);
       state.schedule = [];
       state.scenario = 'Custom scenario';
       return;
     }
 
-    result.error.textContent = '';
+    if (result.error) result.error.textContent = '';
     setExportStatus(result, '', 'neutral');
     const model = buildSchedule(values.amount, values.rate, values.months);
     const upfrontFee = round2(values.amount * (values.startFee / 100));
@@ -91,18 +105,23 @@ export function initCalculator() {
     state.schedule = model.schedule;
     state.scenario = values.scenario || 'Custom scenario';
 
-    result.emi.textContent = formatMoney(model.emi);
-    result.totalInterest.textContent = formatMoney(model.totalInterest);
-    result.totalPayable.textContent = formatMoney(model.totalPayable + upfrontFee);
-    result.burden.textContent = burdenPct === null ? '—' : `${burdenPct}%`;
-    result.fee.textContent = formatMoney(upfrontFee);
-    result.signal.textContent = signal;
-    result.scenarioTitle.textContent = state.scenario;
-    result.generatedAt.textContent = dayjs().format('DD MMM YYYY');
-    result.interestShare.textContent = `Interest share: ${round2((model.totalInterest / model.totalPayable) * 100)}%`;
-    result.principalShare.textContent = `Principal share: ${round2((values.amount / model.totalPayable) * 100)}%`;
-    result.closingBalance.textContent = `Closing balance: ${formatMoney(model.schedule.at(-1)?.balance || 0)}`;
-    drawChart(canvas, model.schedule);
+    setText(result.emi, formatMoney(model.emi));
+    setText(result.totalInterest, formatMoney(model.totalInterest));
+    setText(result.totalPayable, formatMoney(model.totalPayable + upfrontFee));
+    setText(result.burden, burdenPct === null ? '—' : `${burdenPct}%`);
+    setText(result.fee, formatMoney(upfrontFee));
+    setText(result.signal, signal);
+    setText(result.scenarioTitle, state.scenario);
+    setText(result.generatedAt, formatGeneratedAt());
+    setText(result.interestShare, `Interest share: ${round2((model.totalInterest / model.totalPayable) * 100)}%`);
+    setText(result.principalShare, `Principal share: ${round2((values.amount / model.totalPayable) * 100)}%`);
+    setText(result.closingBalance, `Closing balance: ${formatMoney(model.schedule.at(-1)?.balance || 0)}`);
+
+    if (canvas && typeof Chart !== 'undefined') {
+      drawChart(root, canvas, model.schedule);
+    } else {
+      destroyChart(root);
+    }
     renderSchedulePreview(result.schedule, model.schedule);
     setExportButtonsDisabled(exportButtons, false);
   };
@@ -114,16 +133,17 @@ export function initCalculator() {
     event.preventDefault();
     render();
   });
+
   render();
 }
 
 function validate(fields) {
-  const amount = Number(fields.amount.value);
-  const rate = Number(fields.rate.value);
-  const months = Number(fields.months.value);
-  const income = Number(fields.income.value || 0);
-  const startFee = Number(fields.startFee.value || 0);
-  const scenario = fields.scenario.value.trim();
+  const amount = Number(fields.amount?.value);
+  const rate = Number(fields.rate?.value);
+  const months = Number(fields.months?.value);
+  const income = Number(fields.income?.value || 0);
+  const startFee = Number(fields.startFee?.value || 0);
+  const scenario = fields.scenario?.value?.trim() || '';
   if (!Number.isFinite(amount) || amount < 1000) return { valid: false, message: 'Loan amount must be at least 1,000.' };
   if (!Number.isFinite(rate) || rate <= 0 || rate > 60) return { valid: false, message: 'Annual rate must be greater than 0 and no more than 60.' };
   if (!Number.isFinite(months) || months < 3 || months > 120) return { valid: false, message: 'Term must be between 3 and 120 months.' };
@@ -171,24 +191,29 @@ function renderSchedulePreview(tbody, schedule) {
     </tr>`).join('');
 }
 
-function clearPreview(result, exportButtons) {
+function clearPreview(root, result, exportButtons) {
   if (result.schedule) result.schedule.innerHTML = '';
-  if (result.emi) result.emi.textContent = '—';
-  if (result.totalInterest) result.totalInterest.textContent = '—';
-  if (result.totalPayable) result.totalPayable.textContent = '—';
-  if (result.burden) result.burden.textContent = '—';
-  if (result.fee) result.fee.textContent = '—';
-  if (result.signal) result.signal.textContent = 'Needs input';
-  if (result.scenarioTitle) result.scenarioTitle.textContent = 'Waiting for valid values';
-  if (result.interestShare) result.interestShare.textContent = 'Interest share: —';
-  if (result.principalShare) result.principalShare.textContent = 'Principal share: —';
-  if (result.closingBalance) result.closingBalance.textContent = 'Closing balance: —';
-  if (result.generatedAt) result.generatedAt.textContent = '—';
+  setText(result.emi, '—');
+  setText(result.totalInterest, '—');
+  setText(result.totalPayable, '—');
+  setText(result.burden, '—');
+  setText(result.fee, '—');
+  setText(result.signal, 'Needs input');
+  setText(result.scenarioTitle, 'Waiting for valid values');
+  setText(result.interestShare, 'Interest share: —');
+  setText(result.principalShare, 'Principal share: —');
+  setText(result.closingBalance, 'Closing balance: —');
+  setText(result.generatedAt, '—');
   setExportStatus(result, '', 'neutral');
   setExportButtonsDisabled(exportButtons, true);
-  if (chart) {
-    chart.destroy();
-    chart = null;
+  destroyChart(root);
+}
+
+function destroyChart(root) {
+  const existing = charts.get(root);
+  if (existing) {
+    existing.destroy();
+    charts.delete(root);
   }
 }
 
@@ -236,7 +261,7 @@ function setExportStatus(result, message, tone) {
   if (tone === 'error') result.exportStatus.classList.add('is-error');
 }
 
-function drawChart(canvas, schedule) {
+function drawChart(root, canvas, schedule) {
   const labels = schedule.map((row) => `M${row.month}`);
   const balances = schedule.map((row) => row.balance);
   const principals = schedule.map((row) => row.principalPaid);
@@ -247,17 +272,17 @@ function drawChart(canvas, schedule) {
   const gridColor = theme.getPropertyValue('--line').trim() || 'rgba(148,163,184,0.12)';
   const cyan = theme.getPropertyValue('--cyan').trim() || '#06B6D4';
   const emerald = theme.getPropertyValue('--emerald').trim() || '#10B981';
-  const amber = theme.getPropertyValue('--amber').trim() || '#F59E0B';
+  const blue = theme.getPropertyValue('--blue').trim() || '#2563EB';
 
-  if (chart) chart.destroy();
-  chart = new Chart(canvas, {
+  destroyChart(root);
+  const chart = new Chart(canvas, {
     type: 'line',
     data: {
       labels,
       datasets: [
-        { label: 'Outstanding balance', data: balances, borderColor: cyan, backgroundColor: 'rgba(6,182,212,0.12)', fill: true, tension: 0.25 },
+        { label: 'Outstanding balance', data: balances, borderColor: blue, backgroundColor: 'rgba(37,99,235,0.12)', fill: true, tension: 0.25 },
         { label: 'Principal paid', data: principals, borderColor: emerald, backgroundColor: 'rgba(16,185,129,0.08)', fill: false, tension: 0.2 },
-        { label: 'Interest paid', data: interests, borderColor: amber, backgroundColor: 'rgba(245,158,11,0.08)', fill: false, tension: 0.2 },
+        { label: 'Interest paid', data: interests, borderColor: cyan, backgroundColor: 'rgba(6,182,212,0.08)', fill: false, tension: 0.2 },
       ],
     },
     options: {
@@ -274,6 +299,16 @@ function drawChart(canvas, schedule) {
       },
     },
   });
+  charts.set(root, chart);
+}
+
+function setText(node, value) {
+  if (node) node.textContent = value;
+}
+
+function formatGeneratedAt() {
+  if (typeof dayjs === 'function') return dayjs().format('DD MMM YYYY');
+  return new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date());
 }
 
 function formatMoney(value) {

@@ -1,10 +1,25 @@
 import { SITE_BRAND } from './brand.js';
 
+const SPONSOR = Object.freeze({
+  name: 'Centre for Fintech & Strategic Business Research',
+  short: 'CFSBR',
+  url: 'https://web.cfsbr.com/',
+});
+
 const NAV_ITEMS = [
   { label: 'Home', path: 'index.html', key: 'home' },
   { label: 'Product', path: 'product/', key: 'product' },
+  { label: 'Simulations', path: 'simulation/', key: 'simulation' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
-  { label: 'Brand', path: 'brand/', key: 'brand' },
+  { label: 'Methodology', path: 'methodology/', key: 'methodology' },
+  { label: 'Contact', path: 'contact/', key: 'contact' },
+];
+
+const SUB_NAV_ITEMS = [
+  { label: '@finengine/core', path: 'docs/core/' },
+  { label: '@finengine/math', path: 'docs/math/' },
+  { label: '@finengine/ui', path: 'docs/ui/' },
+  { label: 'About', path: 'about/' },
 ];
 
 const PROOF_BADGES = [
@@ -68,38 +83,46 @@ function inferPageType() {
 function renderHeader(pageType) {
   const root = getRootPath();
   const logoPath = `${root}logo-mark.png`;
-  const nav = NAV_ITEMS.map((item) => {
+  const primaryNav = NAV_ITEMS.map((item) => {
     const href = root + item.path;
     return `<a data-nav-link data-nav-key="${item.key}" href="${href}">${item.label}</a>`;
+  }).join('');
+  const secondaryNav = SUB_NAV_ITEMS.map((item) => (`<a class="subnav-link" href="${root + item.path}">${item.label}</a>`)).join('');
+  const mobileNav = [...NAV_ITEMS, ...SUB_NAV_ITEMS].map((item) => {
+    const href = root + item.path;
+    return `<a${item.key ? ` data-nav-link data-nav-key="${item.key}"` : ''} href="${href}">${item.label}</a>`;
   }).join('');
 
   return `
     <header class="topbar shared-topbar">
-      <div class="shell topbar-inner shared-topbar-inner header-shell">
+      <div class="shell topbar-inner shared-topbar-inner header-shell header-shell-expanded">
         <a class="brandline brandlink" href="${toRoot('index.html')}">
           <img class="header-logo" src="${logoPath}" alt="FinEngine logo" loading="eager" decoding="async" />
           <span class="brand-copy">
             <span class="brand-row"><span data-brand="name"></span></span>
-            <span class="brand-sub">Documentation-first finance primitives for packages, demos, and research-backed product surfaces</span>
+            <span class="brand-sub">Documentation-first finance primitives for packages, demos, and simulation-ready product surfaces</span>
           </span>
         </a>
-        <nav class="navlinks navlinks-pill" aria-label="Primary navigation">${nav}</nav>
+        <nav class="navlinks navlinks-pill header-nav-cluster" aria-label="Primary navigation">
+          <div class="header-nav-row header-nav-row-primary">${primaryNav}</div>
+          <div class="header-nav-row header-nav-row-secondary">${secondaryNav}</div>
+        </nav>
         <div class="toolbar header-actions">
           <a class="header-icon-link" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer" aria-label="Open FinEngine GitHub repository">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.17-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.76.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.18 1.17a11.08 11.08 0 0 1 5.79 0c2.2-1.48 3.17-1.17 3.17-1.17.63 1.57.24 2.73.12 3.02.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.08.78 2.18 0 1.58-.01 2.86-.01 3.25 0 .31.21.68.8.56 4.56-1.54 7.84-5.86 7.84-10.95C23.5 5.66 18.35.5 12 .5Z"/></svg>
           </a>
           <button class="theme-toggle theme-toggle-compact" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span></button>
-          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span></button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span></button>
         </div>
       </div>
       <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
         <div class="mobile-drawer-card">
           <div class="mobile-drawer-actions">
             <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
-            <a class="mini-btn mobile-demo-cta" href="${toRoot('simulation/')}">Open simulation</a>
+            <a class="mini-btn mobile-demo-cta" href="${toRoot('simulation/')}">Open simulations</a>
             <a class="mini-btn mobile-demo-cta mobile-external-cta" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
-          <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
+          <nav class="mobile-nav" aria-label="Mobile navigation">${mobileNav}</nav>
         </div>
       </div>
     </header>
@@ -148,7 +171,7 @@ function renderFooter() {
             <p class="footer-intro">Documentation-first JavaScript finance tooling for deterministic calculations, explainable demos, and research-backed product surfaces.</p>
             <div class="footer-highlight-card footer-powered-card footer-static-card">
               <div class="footer-card-title footer-card-title-gold">Powered by</div>
-              <p><a href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer"><strong>Centre for FinTech &amp; Strategic Business Research (CFSBR)</strong></a></p>
+              <p><a href="${SPONSOR.url}" target="_blank" rel="noopener noreferrer"><strong>${SPONSOR.name} (${SPONSOR.short})</strong></a></p>
             </div>
           </section>
 
@@ -195,7 +218,7 @@ function renderFooter() {
         </div>
 
         <div class="footer-bottom-strip">
-          <div class="footer-bottom-left">© 2026 FinEngine · Built by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">CFSBR</span></div>
+          <div class="footer-bottom-left">© 2026 FinEngine · Built by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">${SPONSOR.name}</span></div>
           <div class="footer-bottom-right">v0.3.0 · Multi-page product docs</div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>

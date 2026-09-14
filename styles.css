@@ -1582,3 +1582,238 @@ html[data-theme='light'] .footer-license-badge {
     display: none;
   }
 }
+
+/* Round 5: hero simulation, inline tablet header, multi-simulator page */
+:root {
+  --sponsor-blue: #0b2545;
+}
+
+.header-shell-expanded {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px 18px;
+}
+
+.header-nav-cluster {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.header-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header-nav-row-secondary a {
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--line) 82%, var(--blue) 18%);
+  background: color-mix(in srgb, var(--panel-soft) 88%, transparent);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.header-nav-row-secondary a:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--line-strong) 62%, var(--blue) 38%);
+}
+
+.hero-grid-simulation {
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.98fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.hero-copy-compact {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.hero-proof-grid-home {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hero-live-simulation {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+}
+
+.hero-live-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.hero-live-head h2,
+.simulator-card-head h3 {
+  margin-bottom: 8px;
+}
+
+.hero-preset-toolbar {
+  margin-bottom: 0;
+}
+
+.calc-form-compact {
+  display: grid;
+  gap: 14px;
+}
+
+.sim-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sim-mini-grid .field {
+  margin-bottom: 0;
+}
+
+.sim-mini-grid .field span,
+.calc-form .field span {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.hero-actions-sim {
+  justify-content: flex-start;
+}
+
+.sim-mini-results {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.chart-wrap-hero {
+  min-height: 190px;
+}
+
+.simulator-stack {
+  display: grid;
+  gap: 22px;
+}
+
+.simulator-card {
+  display: grid;
+  gap: 18px;
+}
+
+.simulator-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+}
+
+.hero-grid-simulation-page {
+  align-items: start;
+}
+
+.brand-system-band {
+  align-items: stretch;
+}
+
+.brand-system-card {
+  gap: 20px;
+}
+
+.brand-system-actions {
+  justify-content: flex-start;
+}
+
+.docs-showcase-grid-stack {
+  align-content: stretch;
+}
+
+.footer-card-title-gold,
+.footer-powered-inline {
+  color: var(--sponsor-blue);
+}
+
+.footer-powered-card {
+  background: linear-gradient(180deg, color-mix(in srgb, rgba(11,37,69,0.12) 60%, var(--panel-soft) 40%), var(--panel-soft));
+}
+
+.footer-powered-card a,
+.footer-powered-inline {
+  color: var(--sponsor-blue);
+}
+
+@media (min-width: 768px) {
+  .navlinks-pill {
+    display: grid !important;
+  }
+
+  .menu-toggle,
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1081px) {
+  .header-shell-expanded {
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr) auto;
+    align-items: center;
+  }
+
+  .header-nav-cluster {
+    grid-column: auto;
+    justify-items: end;
+  }
+
+  .header-nav-row {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sim-mini-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-grid-simulation,
+  .hero-grid-simulation-page {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-live-simulation {
+    order: -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .navlinks-pill {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: inline-flex !important;
+  }
+
+  .header-shell-expanded {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero-proof-grid-home,
+  .sim-mini-grid,
+  .sim-mini-results,
+  .mobile-drawer-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-live-head,
+  .simulator-card-head {
+    flex-direction: column;
+  }
+}
