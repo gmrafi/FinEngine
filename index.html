@@ -22,29 +22,9 @@
   <link rel="stylesheet" href="assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <div class="brandline">
-        <div class="brandmark" data-brand="mark">FE</div>
-        <div>
-          <span data-brand="name"></span>
-          <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
-        </div>
-      </div>
-      <nav class="navlinks">
-        <a data-nav-link href="#positioning">Positioning</a>
-        <a data-nav-link href="#packages">Packages</a>
-        <a data-nav-link href="#docs-api">Docs</a>
-        <a data-nav-link href="#playground">Playground</a>
-        <a data-nav-link href="#bangladesh-learning">বাংলাদেশ</a>
-        <a data-nav-link href="#collab">Collaborate</a>
-      </nav>
-      <div class="toolbar">
-        <button class="theme-toggle" type="button" data-theme-toggle>Switch theme</button>
-      </div>
-    </div>
-  </header>
+<body id="top" data-page="home">
+    <div data-site-header></div>
+  <div data-social-proof></div>
 
   <main>
     <section class="hero shell" id="hero">
@@ -109,7 +89,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="stats-grid">
         <article class="stat" data-reveal><strong data-counter data-target="6">0</strong><span>Name directions</span></article>
         <article class="stat" data-reveal><strong data-counter data-target="9">0</strong><span>JavaScript modules</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="2">0</strong><span>Starter packages</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Starter packages</span></article>
         <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored libraries</span></article>
       </div>
     </section>
@@ -452,15 +432,8 @@ makeLearningCards()[0].badge
     </section>
   </main>
 
-  <footer class="shell">
-    <div class="footer-panel">
-      <div class="footer-meta">
-        <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
-        <span><span data-brand="repoPath"></span> · <span data-brand="domain"></span></span>
-        <span>Designed and developed by Md Golam Mubasshir Rafi. Powered by Centre for Fintech &amp; Strategic Business Research (CFSBR).</span>
-      </div>
-    </div>
-  </footer>
+    <div data-site-footer></div>
+
 
   <script src="assets/vendor/dayjs.min.js"></script>
   <script src="assets/vendor/chart.umd.min.js"></script>

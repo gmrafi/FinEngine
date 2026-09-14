@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>@finengine/ui · FinEngine Docs</title>
   <meta name="description" content="FinEngine UI package documentation" />
+    <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
+        ? forcedTheme
+        : (savedTheme || (preferredDark ? 'dark' : 'dark'));
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="../../logo-mark.svg" />
   <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../../styles.css" />
@@ -20,7 +33,9 @@
     @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}
   </style>
 </head>
-<body>
+<body data-page="docs">
+  <div data-site-header></div>
+  <div data-social-proof></div>
   <main class="doc-shell">
     <div class="doc-nav">
       <a href="../../index.html">← Back to homepage</a>
@@ -100,5 +115,7 @@ makeLearningCards()[0]
       </div>
     </section>
   </main>
+  <div data-site-footer></div>
+  <script type="module" src="../../assets/js/doc-page.js"></script>
 </body>
 </html>
