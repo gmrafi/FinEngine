@@ -6,6 +6,18 @@
   <title>FinEngine</title>
   <meta name="description" content="Programmable financial primitives for modern JavaScript." />
   <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
+        ? forcedTheme
+        : (savedTheme || (preferredDark ? 'dark' : 'dark'));
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
   <link rel="stylesheet" href="assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="styles.css" />
