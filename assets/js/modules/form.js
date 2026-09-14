@@ -44,7 +44,7 @@ export function initFormValidation() {
       status.classList.remove('is-success');
       return;
     }
-    status.textContent = 'Validated successfully. This form is ready to be connected to your backend workflow.';
+    status.textContent = 'Request details look valid. This intake flow is ready for backend or CRM wiring when you decide to connect it.';
     status.classList.add('is-success');
     status.classList.remove('is-error');
   });
