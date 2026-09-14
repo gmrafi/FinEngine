@@ -1039,8 +1039,7 @@ html[data-theme='light'] .topbar {
     font-size: 0.76rem;
     max-width: 28ch;
   }
-  .theme-toggle-label,
-  .menu-toggle span:last-child {
+  .theme-toggle-label {
     display: none;
   }
   .theme-toggle,
@@ -1107,7 +1106,7 @@ html[data-theme='light'] .topbar {
   padding: 8px;
   justify-content: center;
 }
-.menu-toggle span:last-child { display: none; }
+.menu-toggle .menu-toggle-lines span:last-child { display: block; }
 .mobile-drawer-actions {
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(0,1fr);
@@ -1512,5 +1511,74 @@ html[data-theme='light'] .footer-license-badge {
   .brand-asset-preview-wide,
   .brand-asset-preview-banner {
     min-height: 96px;
+  }
+}
+
+
+/* Tablet portrait header fix */
+@media (min-width: 841px) and (max-width: 1080px) {
+  .header-shell {
+    grid-template-columns: minmax(0, auto) 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+  .navlinks-pill {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .navlinks-pill a {
+    padding: 0 10px;
+    min-height: 38px;
+    font-size: 0.88rem;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .header-icon-link {
+    display: none;
+  }
+  .header-actions {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .brand-sub {
+    display: none;
+  }
+}
+@media (max-width: 840px) {
+  .header-shell {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .navlinks-pill {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-flex;
+    min-width: 42px;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-toggle-lines {
+    width: 18px;
+  }
+  .menu-toggle-lines span {
+    width: 18px;
+    height: 2px;
+    display: block;
+  }
+  .header-icon-link {
+    display: none;
+  }
+  .header-actions {
+    width: auto;
+    display: flex;
+    gap: 8px;
+  }
+  .brand-sub {
+    display: none;
   }
 }
