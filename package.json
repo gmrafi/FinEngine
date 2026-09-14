@@ -1,0 +1,10 @@
+{
+  "name": "finkernel-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Offline-safe FinKernel marketing + docs site",
+  "scripts": {
+    "check": "node --check assets/js/brand.js && node --check assets/js/main.js && node --check assets/js/modules/nav.js && node --check assets/js/modules/reveal.js && node --check assets/js/modules/counters.js && node --check assets/js/modules/packages.js && node --check assets/js/modules/copy.js && node --check assets/js/modules/theme.js && node --check assets/js/modules/calculator.js && node --check assets/js/modules/form.js"
+  }
+}

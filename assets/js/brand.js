@@ -1,6 +1,42 @@
+export const BRAND_TOKEN = 'FINKERNEL';
+
+export const BRAND_CANDIDATES = Object.freeze([
+  {
+    name: 'FinKernel',
+    verdict: 'recommended',
+    rationale: 'Most natural fit for a developer-first package ecosystem with a strong computation-core metaphor.',
+  },
+  {
+    name: 'FinLayer',
+    verdict: 'strong',
+    rationale: 'Good middleware/platform tone if you want a softer enterprise-facing brand.',
+  },
+  {
+    name: 'FinGrid',
+    verdict: 'strong',
+    rationale: 'Suggests systems, rails, data flow, and infrastructure breadth.',
+  },
+  {
+    name: 'FinScope',
+    verdict: 'situational',
+    rationale: 'Best if the long-term positioning leans toward audit, analytics, and observability.',
+  },
+  {
+    name: 'LedgerForge',
+    verdict: 'memorable',
+    rationale: 'Distinctive for ledger-heavy products, but more category-specific.',
+  },
+  {
+    name: 'FinEngine',
+    verdict: 'fallback',
+    rationale: 'Credible but more generic than the options above.',
+  },
+]);
+
 export const SITE_BRAND = Object.freeze({
-  token: 'FINKERNEL',
+  token: BRAND_TOKEN,
   name: 'FinKernel',
+  mark: 'FK',
   legal: 'FinKernel Labs',
   domain: 'finkernel.js.org',
   npmScope: '@finkernel',
@@ -11,7 +47,9 @@ export const SITE_BRAND = Object.freeze({
 });
 
 export function applyBrand() {
-  document.documentElement.dataset.brandToken = SITE_BRAND.token;
+  document.documentElement.dataset.brandToken = BRAND_TOKEN;
+  document.documentElement.style.setProperty('--brand-token', `'${BRAND_TOKEN}'`);
+  document.documentElement.style.setProperty('--brand-name', `'${SITE_BRAND.name}'`);
   document.querySelectorAll('[data-brand]').forEach((node) => {
     const key = node.dataset.brand;
     if (key && SITE_BRAND[key]) node.textContent = SITE_BRAND[key];
