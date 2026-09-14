@@ -241,7 +241,7 @@ xirr([
         </article>
         <article class="info-panel" data-reveal>
           <h3>@finengine/ui</h3>
-          <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
+          <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a> <a class="mini-btn" href="docs/examples/index.html">View examples gallery</a></p>
           <p>UI-facing helpers that turn finance numbers into readable cards, burden labels, and learning-oriented presentation blocks.</p>
 <pre class="doc-code"><code>import { amortize } from '@finengine/math'
 import { makeMoneyKpi, makeRepaymentSummary, makeLearningCards } from '@finengine/ui'
@@ -262,6 +262,50 @@ makeLearningCards()[0].badge
             <li><code>makeSchedulePreview(schedule, limit?)</code></li>
             <li><code>makeLearningCards()</code></li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="examples-gallery">
+      <div class="section-head">
+        <div>
+          <h2>Examples gallery for real product surfaces</h2>
+          <p>These examples help the repo feel like a practical fintech toolkit instead of a generic demo. Each one ties calculation logic to a product-facing outcome, docs page, and implementation path.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="info-panel" data-reveal>
+          <div class="eyebrow">Core validation</div>
+          <h3>Ledger-safe settlement check</h3>
+          <p>Show how balanced debit and credit entries become a reusable validation primitive for settlement, reconciliation, and audit support.</p>
+          <ul class="checklist">
+            <li>Uses <code>validateLedgerEntry</code></li>
+            <li>Outputs deterministic debit/credit totals</li>
+            <li>Fits back-office finance workflows</li>
+          </ul>
+          <p><a class="mini-btn" href="docs/core/index.html">Open core docs</a></p>
+        </article>
+        <article class="info-panel" data-reveal>
+          <div class="eyebrow">Math + UI</div>
+          <h3>Repayment summary for a lending screen</h3>
+          <p>Connect EMI math with a product UI layer: monthly payment, burden label, schedule preview, and total payable all read like real software outputs.</p>
+          <ul class="checklist">
+            <li>Uses <code>amortize</code> + <code>makeRepaymentSummary</code></li>
+            <li>Built for dashboards and application flows</li>
+            <li>Ideal for SME and retail lending demos</li>
+          </ul>
+          <p><a class="mini-btn" href="docs/ui/index.html">Open UI docs</a></p>
+        </article>
+        <article class="info-panel" data-reveal>
+          <div class="eyebrow">Learning surface</div>
+          <h3>Bangladesh-aware finance education</h3>
+          <p>Blend package APIs with local learning context so the site can serve students, trainers, and product teams—not only engineers.</p>
+          <ul class="checklist">
+            <li>BDT-oriented wording and examples</li>
+            <li>MFS, EMI, ledger, and SME framing</li>
+            <li>Ready for workshops and explainers</li>
+          </ul>
+          <p><a class="mini-btn" href="docs/examples/index.html">Browse examples</a></p>
         </article>
       </div>
     </section>

@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { label: 'Positioning', homeHref: '#positioning' },
   { label: 'Packages', homeHref: '#packages' },
   { label: 'Docs', homeHref: '#docs-api', page: 'docs' },
+  { label: 'Examples', homeHref: '#examples-gallery' },
   { label: 'Playground', homeHref: '#playground' },
   { label: 'বাংলাদেশ', homeHref: '#bangladesh-learning' },
   { label: 'Collaborate', homeHref: '#collab' },
@@ -40,7 +41,8 @@ const PROOF_BADGES = [
 const TRUST_CHIPS = [
   { label: 'Open source on GitHub', href: 'https://github.com/gmrafi/FinEngine' },
   { label: 'Live docs on GitHub Pages', href: 'https://gmrafi.github.io/FinEngine/' },
-  { label: 'Offline-safe vendored runtime', href: 'https://github.com/gmrafi/FinEngine/tree/main/assets/vendor' },
+  { label: 'Examples gallery', href: 'https://gmrafi.github.io/FinEngine/docs/examples/' },
+  { label: 'Structured issue intake', href: 'https://github.com/gmrafi/FinEngine/issues/new/choose' },
   { label: 'Bangladesh-aware finance learning', href: 'https://gmrafi.github.io/FinEngine/#bangladesh-learning' },
 ];
 
@@ -138,7 +140,9 @@ function renderFooter() {
           <a href="https://gmrafi.github.io/FinEngine/docs/core/">Core docs</a>
           <a href="https://gmrafi.github.io/FinEngine/docs/math/">Math docs</a>
           <a href="https://gmrafi.github.io/FinEngine/docs/ui/">UI docs</a>
+          <a href="https://gmrafi.github.io/FinEngine/docs/examples/">Examples gallery</a>
           <a href="https://gmrafi.github.io/FinEngine/docs/release/">Release checklist</a>
+          <a href="https://github.com/gmrafi/FinEngine/issues/new/choose">Open issue</a>
           <a href="https://github.com/gmrafi/FinEngine/stargazers">Star repo</a>
           <span>Static site build · <span data-generated-year></span></span>
         </div>
