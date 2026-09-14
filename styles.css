@@ -98,6 +98,12 @@ html[data-theme='light'] .topbar {
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
   font-weight: 800;
+  overflow: hidden;
+}
+.brandmark img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 .brandline { display: flex; align-items: center; gap: 12px; font-weight: 700; min-width: 0; }
 .brand-sub { display:block; color: var(--muted); font-size: 0.78rem; font-weight: 500; }
@@ -436,8 +442,9 @@ footer { padding: 36px 0 52px; }
   grid-column: 1 / -1;
   font-size: 0.82rem;
 }
-[data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
-[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+[data-reveal] { opacity: 1; transform: none; }
+html.reveal-ready [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 1180px) {
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline, .stats-grid, .result-grid, .result-grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -449,6 +456,37 @@ footer { padding: 36px 0 52px; }
   .header-actions { justify-content: flex-end; flex-wrap: nowrap; }
   .star-cta span { display: none; }
   .grid-2, .calc-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 1024px) {
+  .topbar-inner { gap: 12px; padding: 12px 0; }
+  .brand-sub { display: none; }
+  .header-actions { gap: 8px; }
+  .star-cta { display: none; }
+  .theme-toggle,
+  .menu-toggle {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  .theme-toggle-label {
+    min-width: 42px;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+  .site-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .footer-column-brand { grid-column: 1 / -1; }
+  .footer-column { padding: 18px; }
+  .footer-link-list a,
+  .footer-soon-item,
+  .footer-reference-link,
+  .footer-license-badge {
+    min-height: 56px;
+    align-content: center;
+  }
+  .footer-bottom-strip { grid-template-columns: 1fr; }
+  .footer-bottom-right { text-align: left; }
 }
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
