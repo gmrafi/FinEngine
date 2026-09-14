@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FinKernel</title>
+  <title>FinEngine</title>
   <meta name="description" content="Programmable financial primitives for modern JavaScript." />
   <meta name="theme-color" content="#0B0F19" />
   <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
@@ -14,14 +14,14 @@
   <header class="topbar">
     <div class="shell topbar-inner">
       <div class="brandline">
-        <div class="brandmark" data-brand="mark">FK</div>
+        <div class="brandmark" data-brand="mark">FE</div>
         <div>
           <span data-brand="name"></span>
-          <span class="brand-sub">Switch token: <strong data-brand="token"></strong> · one config file controls the visible brand</span>
+          <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
         </div>
       </div>
       <nav class="navlinks">
-        <a data-nav-link href="#naming">Naming</a>
+        <a data-nav-link href="#positioning">Positioning</a>
         <a data-nav-link href="#packages">Packages</a>
         <a data-nav-link href="#playground">Playground</a>
         <a data-nav-link href="#javascript-stack">JavaScript</a>
@@ -52,11 +52,11 @@
         </div>
         <aside class="code-shell" data-reveal>
           <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-<pre><code id="install-command">npm install @finkernel/core @finkernel/math @finkernel/ui
+<pre><code id="install-command">npm install @finengine/core @finengine/math @finengine/ui
 
-import { amortize, xirr } from '@finkernel/math'
-import { validateLedgerEntry } from '@finkernel/core'
-import { renderStatementCard } from '@finkernel/ui'</code></pre>
+import { amortize, xirr } from '@finengine/math'
+import { validateLedgerEntry } from '@finengine/core'
+import { renderStatementCard } from '@finengine/ui'</code></pre>
           <div class="install-row mt-12">
             <span class="inline-note">Install snippet is copyable and works from the offline zip.</span>
             <button class="mini-btn" type="button" data-copy="#install-command">Copy install</button>
@@ -69,19 +69,19 @@ import { renderStatementCard } from '@finkernel/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Brand directions before “FinEngine” becomes too generic</h2>
-          <p>The default is now more distinctive, but the implementation stays easy to rename later because the brand lives in one JS config plus one CSS token.</p>
+          <p>The implementation stays easy to rename later because the brand lives in one JS config plus one CSS token, but the active public brand is now set to FinEngine.</p>
         </div>
       </div>
       <div class="grid-3">
         <article class="info-panel recommended" data-reveal>
-          <div class="eyebrow">Recommended default</div>
-          <h3>FinKernel</h3>
-          <p><strong>Kernel</strong> signals a finance computation core. It feels technical, modular, and well matched to a library ecosystem rather than a consultancy brand.</p>
+          <div class="eyebrow">Active public brand</div>
+          <h3>FinEngine</h3>
+          <p><strong>Engine</strong> keeps the positioning broad enough for packages, data workflows, and future platform extensions while staying clear and finance-native.</p>
           <div class="metricrow"><span class="metricpill">Best for package families</span><span class="metricpill">Less generic than FinEngine</span></div>
         </article>
         <article class="info-panel" data-reveal>
           <h3>FinLayer</h3>
-          <p>Good if you want a middleware or orchestration position. Slightly softer than FinKernel and less calculation-centric.</p>
+          <p>Good if you want a middleware or orchestration position. Slightly softer than FinEngine and less calculation-centric.</p>
           <div class="metricrow"><span class="metricpill">Platform tone</span><span class="metricpill">Readable for non-dev buyers</span></div>
         </article>
         <article class="info-panel" data-reveal>
@@ -232,7 +232,7 @@ import { renderStatementCard } from '@finkernel/ui'</code></pre>
       </div>
       <div class="grid-2">
         <div class="timeline">
-          <article class="timeline-step" data-reveal><h3>01 · Brand config</h3><p>All visible brand labels resolve from <code>assets/js/brand.js</code>, backed by the token <code>FINKERNEL</code>.</p></article>
+          <article class="timeline-step" data-reveal><h3>01 · Brand config</h3><p>All visible brand labels resolve from <code>assets/js/brand.js</code>, backed by the token <code>FINENGINE</code>.</p></article>
           <article class="timeline-step" data-reveal><h3>02 · Navigation</h3><p>Scroll spy activates section links as users move through the site.</p></article>
           <article class="timeline-step" data-reveal><h3>03 · Demo logic</h3><p>Loan calculations run client-side and render a chart without CDNs.</p></article>
           <article class="timeline-step" data-reveal><h3>04 · Docs behavior</h3><p>Package tabs, filters, accordions, and copy buttons make it feel like a living library site.</p></article>
