@@ -3,81 +3,170 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CFSBR Intelligence</title>
-  <meta name="description" content="CFSBR Intelligence is the public institutional website of the Centre for Fintech & Strategic Business Research, covering research, policy, publishing, and inclusive market systems." />
-  <link rel="canonical" href="https://web.cfsbr.com/" />
-  <meta property="og:title" content="CFSBR Intelligence" />
-  <meta property="og:description" content="Insight · Innovation · Impact" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://web.cfsbr.com/" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f4f1ea" />
-  <link rel="icon" type="image/svg+xml" href="assets/cfsbr-mark.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>FinEngine</title>
+  <meta name="description" content="FinEngine is a financial infrastructure project for precise calculations, rule-driven workflows, and reporting-ready web products." />
+  <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="notice">
-    <div class="shell">
-      <strong>Notice</strong>
-      <span>This website is under construction. The future intelligence section is currently displaying demo data.</span>
-    </div>
-  </div>
   <header class="site-header">
     <div class="shell header-row">
-      <a class="brand" href="#top"><div class="brand-mark">C</div><div class="brand-text"><span class="eyebrow">CFSBR Intelligence</span><span class="title">Insight · Innovation · Impact</span></div></a>
-      <nav class="nav"><a href="#architecture">Architecture</a><a href="#story">About</a><a href="#governance">Governance</a><a href="#platforms">Platforms</a><a href="#contact">Contact</a></nav>
+      <a class="brand" href="#top" aria-label="FinEngine home">
+        <img src="logo-mark.svg" alt="FinEngine mark" width="36" height="36" />
+        <span>FinEngine</span>
+      </a>
+      <nav class="nav">
+        <a href="#why">Why</a>
+        <a href="#modules">Modules</a>
+        <a href="#principles">Principles</a>
+        <a href="#docs">Docs</a>
+      </nav>
     </div>
   </header>
+
   <main id="top">
     <section class="hero shell">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow-line">CFSBR Intelligence</div>
-          <h1>Centre for Fintech &amp; Strategic Business Research (CFSBR)</h1>
-          <p class="hero-kicker">Empowering Financial Horizons through Strategic Intelligence.</p>
-          <p>Bridging economics, computational engineering, business strategy, and policy for credible financial research and inclusive market systems.</p>
-          <div class="hero-actions"><a class="button primary" href="#focus">Our Solutions</a><a class="button secondary" href="#story">View Research</a></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Financial infrastructure for JavaScript teams</p>
+        <h1>Build finance products on logic you can inspect.</h1>
+        <p class="lede">FinEngine brings calculation accuracy, validation rules, and reporting structure into a package system that feels native to modern web development.</p>
+        <div class="actions">
+          <a class="button primary" href="#modules">Explore the module map</a>
+          <a class="button secondary" href="#docs">See how the site is structured</a>
         </div>
-        <aside class="search-panel">
-          <label for="site-search">Search...</label>
-          <input id="site-search" data-search type="search" placeholder="Search..." />
-          <p class="search-hint"><span class="status-dot"></span>WELCOME TO CFSBR INTELLIGENCE</p>
-        </aside>
       </div>
-      <div class="stats-grid">
-        <article class="stats-panel" data-search-item data-keywords="mfs accounts tracked"><strong>239.2M</strong><span>MFS Accounts Tracked</span></article>
-        <article class="stats-panel" data-search-item data-keywords="monthly transactions"><strong>৳1.6T</strong><span>Monthly Transactions</span></article>
-        <article class="stats-panel" data-search-item data-keywords="national data sources"><strong>18+</strong><span>National Data Sources</span></article>
-        <article class="stats-panel" data-search-item data-keywords="crossref doi prefix"><strong>10.67226</strong><span>Crossref DOI Prefix</span></article>
+      <aside class="hero-panel">
+        <div class="panel-head">TypeScript example</div>
+        <pre><code>import { amortize, xirr } from '@finengine/math'
+import { validateJournal } from '@finengine/core'
+
+const schedule = amortize({
+  principal: 250000,
+  annualRate: 0.135,
+  months: 36,
+})
+
+const irr = xirr(cashflows)
+const review = validateJournal(entries)</code></pre>
+      </aside>
+    </section>
+
+    <section id="why" class="section shell intro-grid">
+      <article>
+        <p class="section-label">Why it exists</p>
+        <h2>Not a design kit. Not a black-box platform.</h2>
+        <p>Most teams end up choosing between generic component libraries and oversized finance systems that dictate too much architecture. FinEngine is meant for the middle ground: explicit financial logic, packaged cleanly, with room for product teams to build around it.</p>
+      </article>
+      <aside class="note-card">
+        <h3>What the name signals</h3>
+        <p><strong>Fin</strong> keeps the category immediate. <strong>Engine</strong> makes the promise narrower and more credible: structured logic, repeatable outputs, and software that prioritizes correctness over spectacle.</p>
+      </aside>
+    </section>
+
+    <section id="modules" class="section shell">
+      <div class="section-heading">
+        <p class="section-label">Module architecture</p>
+        <h2>A practical package surface</h2>
+      </div>
+      <div class="cards two-up">
+        <article class="card">
+          <h3>@finengine/core</h3>
+          <p>Shared types, money primitives, validation guards, rounding rules, and domain contracts that other packages can depend on.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/math</h3>
+          <p>Amortization schedules, APR helpers, XIRR, fee ladders, penalties, tax rules, and cashflow routines.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/ui</h3>
+          <p>Repayment tables, amount fields, statement blocks, and finance-specific interface patterns that stay compatible with existing apps.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/pay</h3>
+          <p>Payment formatting, QR payload helpers, merchant display logic, and integration-friendly validation utilities.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/reporting</h3>
+          <p>Statement schemas, export-friendly record shapes, and report primitives for internal review and customer-facing outputs.</p>
+        </article>
+        <article class="card">
+          <h3>@finengine/ledger</h3>
+          <p>Journal entry helpers, account mapping conventions, and reconciliation-friendly structures for transaction systems.</p>
+        </article>
       </div>
     </section>
 
-    <section class="section shell" id="purpose"><div class="split-two"><article class="card" data-search-item data-keywords="purpose mission"><div class="section-label">Purpose</div><h3>Our Mission</h3><p>To decode the complexities of emerging economies through data-driven research and provide actionable fintech strategies that foster financial inclusion and sustainable growth.</p></article><article class="card" data-search-item data-keywords="horizon vision"><div class="section-label">Horizon</div><h3>Our Vision</h3><p>To become the premier hybrid think-tank and innovation lab where the future of inclusive finance is designed for Bangladesh and beyond.</p></article></div></section>
+    <section id="principles" class="section shell split-layout">
+      <div>
+        <p class="section-label">Operating principles</p>
+        <h2>Useful to developers. Defensible to operations.</h2>
+        <ul class="principles-list">
+          <li><strong>Deterministic first.</strong> If two environments run the same logic, the outcome should match.</li>
+          <li><strong>Traceable by design.</strong> Financial outputs should be explainable to reviewers, not just beautiful in demos.</li>
+          <li><strong>Modular adoption.</strong> Teams should be able to start with one package instead of buying a full stack upfront.</li>
+          <li><strong>Stable interfaces.</strong> Finance code gets reused across dashboards, workflows, and exports. Stability matters more than novelty.</li>
+        </ul>
+      </div>
+      <div class="mini-table" role="table" aria-label="Use cases">
+        <div class="row head" role="row"><span>Use case</span><span>Likely starting package</span></div>
+        <div class="row" role="row"><span>Lending app</span><span>@finengine/math</span></div>
+        <div class="row" role="row"><span>Repayment portal</span><span>@finengine/ui</span></div>
+        <div class="row" role="row"><span>Payment QR flow</span><span>@finengine/pay</span></div>
+        <div class="row" role="row"><span>Internal statements</span><span>@finengine/reporting</span></div>
+      </div>
+    </section>
 
-    <section class="section shell" id="infrastructure"><div class="section-heading"><div class="section-number">Trusted Infrastructure</div><div><div class="section-label">Verified rails</div><h2>Scholarly governance, provenance standards, and open infrastructure.</h2><p class="section-intro">GitHub Partner · Prefix 10.67226</p></div></div></section>
+    <section class="section shell" id="adoption">
+      <div class="section-heading">
+        <p class="section-label">Adoption path</p>
+        <h2>Start small, keep the core stable</h2>
+      </div>
+      <div class="cards two-up">
+        <article class="card">
+          <h3>Phase 1 — utility adoption</h3>
+          <p>Ship the math and validation packages first. Let product teams keep their current UI and backend choices.</p>
+        </article>
+        <article class="card">
+          <h3>Phase 2 — reporting and controls</h3>
+          <p>Add structured exports, statements, and reconciliation workflows once the financial model is trusted in production.</p>
+        </article>
+      </div>
+    </section>
 
-    <section class="section shell" id="architecture"><div class="section-heading"><div class="section-number">01</div><div><div class="section-label">Integrated Architecture</div><h2>Cascaded Network</h2><p>A multi-tiered organizational framework connecting international standards, dual-wing research, autonomous platforms, and grassroots field execution.</p></div></div><div class="split-two"><div class="card layer-block" data-search-item data-keywords="crossref c2pa linux foundation"><div class="layer-label">Layer 01</div><h3>Global Governance</h3><p>Scholarly &amp; Provenance Standards</p><ul><li>Cryptographic publication integrity &amp; persistent scholarly identification.</li><li>Crossref DOI Registry (Prefix 10.67226)</li><li>C2PA Content Provenance Standards</li><li>Linux Foundation JDF Hosting</li></ul><span class="layer-status">Node Status: Active</span></div><div class="card layer-block" data-search-item data-keywords="research execution"><div class="layer-label">Layer 02</div><h3>Research × Execution</h3><p>Dual-Wing Operational Core</p><ul><li>Synchronized dual-core architecture converting theory into practical deployment.</li><li>Wing A: Academic Research &amp; Econometric Modeling</li><li>Wing B: Product Development &amp; Business Strategy</li><li>5-Level Vertical Leadership Hierarchy</li></ul><span class="layer-status">Node Status: Active</span></div><div class="card layer-block" data-search-item data-keywords="open repository data bank zenodo"><div class="layer-label">Layer 03</div><h3>Data &amp; Publishing</h3><p>Institutional Platforms</p><ul><li>Autonomous infrastructure anchoring open scholarship and empirical datasets.</li><li>CFSBR Open Repository (open.cfsbr.com)</li><li>CFSBR Data Bank (databank.cfsbr.com)</li><li>Zenodo Long-term Digital Archiving</li></ul><span class="layer-status">Node Status: Active</span></div><div class="card layer-block" data-search-item data-keywords="impact policy action lab"><div class="layer-label">Layer 04</div><h3>Impact &amp; Policy</h3><p>Grassroots &amp; Field Deployment</p><ul><li>Field-testing algorithms and advising central bank &amp; institutional policy.</li><li>CFSBR Action Lab Field Pilots</li><li>Fintech Youth Fellowship Program</li><li>Central Bank &amp; MSME Policy Advisory</li></ul><span class="layer-status">Node Status: Active</span></div></div></section>
-
-    <section class="section shell" id="story"><div class="section-heading"><div class="section-number">02</div><div><div class="section-label">Our Story</div><h2>About CFSBR</h2><p>A research centre working across financial technology, business strategy, and policy.</p></div></div><div class="story-grid"><article class="card" data-search-item data-keywords="about cfsbr"><p>The Centre for Fintech and Strategic Business Research (CFSBR) works at the intersection of economics, computational engineering, business strategy, and law and policy. Its work connects research, publishing infrastructure, and practical programs for financial inclusion.</p></article><div class="values-grid"><article class="card" data-search-item><h3>01<br />Hybrid Intelligence</h3><p>Technical depth + strategic insight.</p></article><article class="card" data-search-item><h3>02<br />Data-First</h3><p>Empirical evidence behind every decision.</p></article><article class="card" data-search-item><h3>03<br />Scalability</h3><p>Solutions designed to serve millions.</p></article><article class="card" data-search-item><h3>04<br />Ethical Innovation</h3><p>C2PA-aligned digital integrity.</p></article></div></div></section>
-
-    <section class="section shell" id="focus"><div class="section-heading"><div class="section-number">03</div><div><div class="section-label">Principles and Focus Areas</div><h2>What We Do</h2><p>Core workstreams across research, advisory, publishing, and capacity building.</p></div></div><article class="feature-paper" data-search-item><div class="meta-label">Flagship Empirical Paper · Central Bank Policy</div><h3>Bangla QR Interoperability &amp; Merchant Adoption Study</h3><p>An in-depth empirical evaluation of Bangladesh Bank's interoperable QR code mandate, fee structures, merchant resistance dynamics, and transaction volume trends across MFS providers.</p><a class="section-link" href="https://open.cfsbr.com/">Read Research Note</a></article><div class="focus-grid"><article class="card" data-search-item><h3>Market Intelligence</h3><p>Data science and economic modeling for emerging markets.</p></article><article class="card" data-search-item><h3>Startup Blueprint</h3><p>Business models, architectures, and validation for founders.</p></article><article class="card" data-search-item><h3>Policy Advisory</h3><p>Aligning fintech with Central Bank and legal frameworks.</p></article><article class="card" data-search-item><h3>Corporate Training</h3><p>Workshops on data analytics, research, and fintech.</p></article><article class="card" data-search-item><h3>R and D as a Service</h3><p>Research, feasibility, and impact analysis for partners.</p></article><article class="card" data-search-item><h3>Fintech Fellowship</h3><p>Mentorship with live fintech projects for students.</p></article></div></section>
-
-    <section class="section shell" id="governance"><div class="section-heading"><div class="section-number">04</div><div><div class="section-label">Standards &amp; Governance</div><h2>Verified Institutional Affiliations</h2><p>CFSBR operates under strict international scientific, open access, and data provenance frameworks.</p></div></div><div class="governance-grid"><article class="card" data-search-item><div class="badge">DOI Member · Prefix 10.67226</div><h3>Crossref Organization Member</h3><p>Minting persistent digital object identifiers (DOIs) for white papers, datasets, and student research.</p><div class="gov-meta"><span>Active Registration · 10.67226</span></div></article><article class="card" data-search-item><div class="badge">Alliance Member · Data Integrity</div><h3>C2PA Metadata Standard</h3><p>Cryptographic content provenance ensuring digital research assets carry verifiable origin metadata.</p><div class="gov-meta"><span>Data Provenance Standard</span></div></article><article class="card" data-search-item><div class="badge">Open Project · Infrastructure</div><h3>Linux Foundation JDF</h3><p>Joint Development Foundation open publishing and open science collaboration standards.</p><div class="gov-meta"><span>Open Standards Protocol</span></div></article><article class="card" data-search-item><div class="badge">GitHub Partner · Open Source</div><h3>GitHub Developer Program</h3><p>Hosting open-access repositories, public datasets, and open source econometric tools.</p><div class="gov-meta"><span>Open Source Codebase</span></div></article></div></section>
-
-    <section class="section shell" id="platforms"><div class="section-heading"><div class="section-number">05</div><div><div class="section-label">Institutional Platforms</div><h2>Owned Infrastructure</h2><p>Three flagship platforms built and operated by CFSBR: anchoring our publishing and data economics on independent, standards-aligned rails.</p></div></div><div class="platform-grid"><article class="platform" data-search-item><div class="badge">Live Platform · Publishing Infrastructure</div><h3>CFSBR Open Repository</h3><p><strong>open.cfsbr.com</strong></p><p>The centre's centralized institutional repository: a production-grade open-access portal governing every peer-reviewed white paper, structured case study, and market analysis under a single autonomous framework.</p><div class="platform-meta"><span>Persistent Identifiers — Crossref DOI prefix 10.67226</span><span>Digital Preservation — Anchored with Zenodo</span></div><a class="section-link" href="https://open.cfsbr.com/">Visit open.cfsbr.com</a></article><article class="platform" data-search-item><div class="badge">Live Platform · Student Case Series</div><h3>CFSBR C.A.S.E. Series</h3><p><strong>case.cfsbr.com</strong></p><p>Class Assignment Series: Edition: a bi-monthly faculty-governed student series transforming outstanding undergraduate coursework across fintech, strategy, and analytics into permanent scholarly records.</p><div class="platform-meta"><span>Governance — Diamond Open Access</span><span>Verification — Turnitin Audit (&lt; 15%)</span></div><a class="section-link" href="https://case.cfsbr.com/">Visit case.cfsbr.com</a></article><article class="platform" data-search-item><div class="badge">Upcoming · Data-as-a-Service</div><h3>CFSBR Data Bank</h3><p><strong>databank.cfsbr.com</strong></p><p>A dedicated DaaS platform delivering econometric-ready fintech intelligence across MFS, digital banking, alternative credit scoring, remittance, and green finance, plus primary datasets.</p><div class="platform-meta"><span>Secondary Data — Cleaned · econometric-ready</span><span>Integrity — C2PA-aligned metadata</span></div><a class="section-link" href="https://databank.cfsbr.com/">DATABANK.CFSBR.COM</a></article></div></section>
-
-    <section class="section shell" id="impact"><div class="section-heading"><div class="section-number">06</div><div><div class="section-label">Our Impact</div><h2>From Data Analytics to Grassroots Reality</h2><p>The Action Lab translates selected research streams into field pilots, community learning tools, and social business incubation.</p></div></div><div class="impact-grid"><article class="card" data-search-item><div class="badge">Active Subsidiary · Grassroots &amp; Incubation Wing</div><h3>CFSBR Action Lab</h3><p>The dedicated execution rail of CFSBR: bridging the gap between high-level econometric models and field-level reality, translating advanced financial research into scalable, community-centric operations.</p><a class="section-link" href="https://web.cfsbr.com/action-lab">Explore Action Lab</a></article><div class="table-panel" data-search-item><h3>Focus Areas</h3><div class="row"><div class="key">01</div><div>Algorithmic Inclusion Sandbox — Field-testing credit-scoring algorithms to eliminate systemic bias against informal merchants.</div></div><div class="row"><div class="key">02</div><div>Sustainable MSME Incubator — Validating and structuring grassroots micro-enterprises into formal digital value chains.</div></div><div class="row"><div class="key">03</div><div>Grassroots Financial Literacy Tools — Localized interactive toolkits simplifying MFS and digital banking for marginal communities.</div></div></div></div></section>
-
-    <section class="section shell" id="explore"><div class="section-heading"><div class="section-number">07</div><div><div class="section-label">Explore Further</div><h2>Dive deeper into CFSBR</h2><p>Featured intelligence, our team, research wings, and the products we ship.</p></div></div><div class="explore-grid"><article class="card" data-search-item><div class="badge">Featured Intelligence</div><h3>Research and Reports</h3><p>White papers, market reports, case studies, policy briefs, and academic contributions.</p><a class="section-link" href="https://open.cfsbr.com/">Read more</a></article><article class="card" data-search-item><div class="badge">The People</div><h3>Our Team</h3><p>Advisors, fellows, leads, associates, and founding members across disciplines.</p><a class="section-link" href="mailto:office@cfsbr.com">Read more</a></article><article class="card" data-search-item><div class="badge">Dual-Wing Hierarchy</div><h3>Research × Innovations</h3><p>Four disciplines working together across theoretical and execution wings.</p><a class="section-link" href="#architecture">Read more</a></article><article class="card" data-search-item><div class="badge">Live Builds</div><h3>Technical Projects</h3><p>Products and platforms built by CFSBR: MFS Inclusion Radar, CCPM, C.A.S.E.</p><a class="section-link" href="#platforms">Read more</a></article></div></section>
-
-    <section class="section shell" id="collaborate"><div class="section-heading"><div class="section-number">08</div><div><div class="section-label">Collaborate</div><h2>Partner with CFSBR</h2><p>Three tracks for students, startups, and institutional partners.</p></div></div><div class="collab-grid"><article class="card" data-search-item><div class="badge">For Students</div><h3>Join as a Fellow</h3><p>Learn research methodology, data analytics, and fintech innovation with hands-on mentorship.</p><ul><li>Structured mentorship program</li><li>Real-world project experience</li><li>Publication opportunities</li></ul><a class="section-link" href="mailto:office@cfsbr.com">Apply Now</a></article><article class="card" data-search-item><div class="badge">For Startups</div><h3>Hire Us for Strategy</h3><p>Build your MVP with data-backed insights, market intelligence, and validated business models.</p><ul><li>Market opportunity analysis</li><li>Business model validation</li><li>Strategic consultancy</li></ul><a class="section-link" href="mailto:office@cfsbr.com">Get Started</a></article><article class="card" data-search-item><div class="badge">For Partners</div><h3>Collaborate on Policy</h3><p>Work with us on policy advocacy, financial inclusion initiatives, and national development projects.</p><ul><li>Policy research and advocacy</li><li>Joint research initiatives</li><li>Knowledge partnerships</li></ul><a class="section-link" href="mailto:office@cfsbr.com">Partner With Us</a></article></div></section>
-
-    <section class="section shell" id="contact"><div class="contact-grid"><article class="contact-panel" data-search-item><div class="section-label">Contact Secretarial Office</div><h3>Get in touch with CFSBR</h3><p>Reach out for research, partnerships, or media inquiries. We respond within two business days.</p><ul class="contact-list"><li>Dhaka Cantonment, Dhaka, Bangladesh</li><li>office@cfsbr.com</li><li>info.cfsbr@gmail.com</li><li>+880 1353-030714</li></ul></article><article class="contact-panel" data-search-item><div class="section-label">CFSBR</div><h3>Innovating Finance, Empowering Minds.</h3><p>Hybrid think-tank and innovation lab building inclusive, data-driven financial solutions for emerging markets.</p><div class="table-panel" style="box-shadow:none;border:none;padding:0;background:transparent;"><div class="row"><div class="key">Quick Links</div><div>Home · About / Values · Focus Areas · Publications · Wings · Our Team · Publish with CFSBR</div></div><div class="row"><div class="key">Resources</div><div>Research Guidelines · Publication Policy · Events Calendar · Join CFSBR · Student Portal</div></div><div class="row"><div class="key">Contact Us</div><div>Dhaka Cantonment, Dhaka, Bangladesh · web.cfsbr.com · (cfsbr.com) · office@cfsbr.com · info.cfsbr@gmail.com · +880 1353-030714</div></div></div></article></div></section>
+    <section id="docs" class="section shell docs-block">
+      <div class="section-heading">
+        <p class="section-label">Repository setup</p>
+        <h2>Prepared for Pages and JS.ORG</h2>
+      </div>
+      <div class="docs-grid">
+        <div class="card soft">
+          <h3>Public site</h3>
+          <p>This repository is designed to publish as a static documentation home on GitHub Pages first, then move under a JS.ORG domain once the content is live and substantive.</p>
+        </div>
+        <div class="card soft">
+          <h3>Brand usage</h3>
+          <p>Use <strong>FinEngine</strong> as the product name and <strong>FinEngine Labs</strong> as the legal or company wrapper when needed for formal documents.</p>
+        </div>
+      </div>
+      <div class="text-block">
+        <h3>Working assumptions</h3>
+        <p>Early documentation should answer three questions clearly: what problem the package solves, which financial rules it encodes, and how a team can verify results when they integrate it.</p>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="shell footer-panel"><div class="footer-grid"><div class="footer-column"><h4>CFSBR</h4><p>Centre for Fintech and Strategic Business Research (CFSBR).</p></div><div class="footer-column"><h4>Resources</h4><ul><li><a href="#focus">Research Guidelines</a></li><li><a href="#platforms">Publication Policy</a></li><li><a href="#collaborate">Events Calendar</a></li><li><a href="#contact">Join CFSBR</a></li><li><a href="#contact">Student Portal</a></li></ul></div><div class="footer-column"><h4>Contact Us</h4><ul><li>Dhaka Cantonment, Dhaka, Bangladesh</li><li><a href="https://web.cfsbr.com/">web.cfsbr.com</a></li><li>(cfsbr.com)</li><li><a href="mailto:office@cfsbr.com">office@cfsbr.com</a></li><li><a href="mailto:info.cfsbr@gmail.com">info.cfsbr@gmail.com</a></li><li><a href="tel:+8801353030714">+880 1353-030714</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Centre for Fintech and Strategic Business Research (CFSBR). All rights reserved.</span><span>Designed and Developed by Md Golam Mubasshir Rafi</span></div></div></footer>
-  <script src="script.js"></script>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div>
+        <strong>FinEngine</strong>
+        <p>Financial infrastructure for teams that need precise logic, readable outputs, and room to build.</p>
+      </div>
+      <div class="footer-meta">
+        <a href="https://github.com/gmrafi/FinEngine">GitHub repository</a>
+        <span>Planned domain: finengine.js.org</span>
+        <span>Designed and developed by Md Golam Mubasshir Rafi · Centre for Fintech &amp; Strategic Business Research (CFSBR)</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
