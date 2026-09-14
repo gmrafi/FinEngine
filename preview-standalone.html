@@ -245,6 +245,10 @@ footer { padding: 36px 0 52px; }
   .button { width: 100%; }
   .hero { padding-top: 34px; }
 }
+
+.doc-code { margin: 14px 0 0; padding: 16px; border-radius: 18px; background: rgba(2,6,23,0.58); border: 1px solid rgba(255,255,255,0.06); overflow: auto; }
+.learning-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1080px) { .learning-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -260,8 +264,9 @@ footer { padding: 36px 0 52px; }
       <nav class="navlinks">
         <a data-nav-link href="#positioning">Positioning</a>
         <a data-nav-link href="#packages">Packages</a>
+        <a data-nav-link href="#docs-api">Docs</a>
         <a data-nav-link href="#playground">Playground</a>
-        <a data-nav-link href="#javascript-stack">JavaScript</a>
+        <a data-nav-link href="#bangladesh-learning">বাংলাদেশ</a>
         <a data-nav-link href="#collab">Collaborate</a>
       </nav>
       <div class="toolbar">
@@ -332,9 +337,9 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
     <section class="section shell" id="signals">
       <div class="stats-grid">
         <article class="stat" data-reveal><strong data-counter data-target="6">0</strong><span>Name directions</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="8">0</strong><span>JavaScript modules</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="9">0</strong><span>JavaScript modules</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="2">0</strong><span>Starter packages</span></article>
         <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored libraries</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="100" data-suffix="%">0</strong><span>Offline asset ownership</span></article>
       </div>
     </section>
 
@@ -412,6 +417,103 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
             <header><h3><span data-brand="npmScope"></span>/signals</h3><code>event intelligence</code></header>
             <p>Threshold checks and event-level flags that can grow into a future risk-monitoring or compliance layer.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="docs-api">
+      <div class="section-head">
+        <div>
+          <h2>Real package docs and executed API examples</h2>
+          <p>These examples now match the starter packages in <code>packages/core</code> and <code>packages/math</code>. The snippets were executed locally before being documented here.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <article class="info-panel" data-reveal>
+          <h3>@finengine/core</h3>
+          <p>Money formatting, ledger validation, and debit-side aggregation for finance workflows that need deterministic checks.</p>
+<pre class="doc-code"><code>import { formatMoney, validateLedgerEntry, sumEntries } from '@finengine/core'
+
+const entry = {
+  reference: 'MFS-SETTLEMENT-01',
+  currency: 'BDT',
+  lines: [
+    { account: '1010-Cash', side: 'debit', amount: 5000 },
+    { account: '2100-Customer-Balance', side: 'credit', amount: 5000 }
+  ]
+}
+
+formatMoney(125000)
+// BDT 125,000.00
+
+validateLedgerEntry(entry)
+// { valid: true, totalDebit: 5000, totalCredit: 5000, errors: [] }
+
+sumEntries([entry])
+// { amount: 5000, currency: 'BDT' }</code></pre>
+          <ul class="checklist">
+            <li><code>createMoney(amount, currency?)</code></li>
+            <li><code>formatMoney(amount, currency?, locale?)</code></li>
+            <li><code>validateLedgerEntry(entry)</code></li>
+            <li><code>sumEntries(entries)</code></li>
+          </ul>
+        </article>
+        <article class="info-panel" data-reveal>
+          <h3>@finengine/math</h3>
+          <p>EMI planning, amortization schedules, and irregular cashflow returns for lending, classroom demos, and repayment tools.</p>
+<pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'
+
+monthlyPayment(500000, 13.5, 36)
+// 16967.64
+
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+plan.totalInterest
+// 110835.2
+plan.schedule[0]
+// { month: 1, payment: 16967.64, principalPaid: 11342.64, interestPaid: 5625, remainingBalance: 488657.36 }
+
+xirr([
+  { amount: -100000, date: '2026-01-01' },
+  { amount: 25000, date: '2026-04-01' },
+  { amount: 25000, date: '2026-07-01' },
+  { amount: 70000, date: '2027-01-10' }
+])
+// 0.28</code></pre>
+          <ul class="checklist">
+            <li><code>monthlyPayment(principal, annualRate, months)</code></li>
+            <li><code>amortize({ principal, annualRate, months })</code></li>
+            <li><code>xirr(cashflows, guess?)</code></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="bangladesh-learning">
+      <div class="section-head">
+        <div>
+          <h2>বাংলাদেশ ফাইন্যান্স লার্নিং পাথ</h2>
+          <p>এই অংশটা শুধু branding না—বাংলাদেশের learner, developer, trainer, আর SME-focused product builder-দের জন্য practical finance education framing রাখে.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="info-panel" data-reveal>
+          <h3>শিক্ষার মূল ট্র্যাক</h3>
+          <div class="timeline learning-grid">
+            <article class="timeline-step"><h3>01 · BDT money basics</h3><p>রাউন্ডিং, currency formatting, cash in/out, personal budgeting.</p></article>
+            <article class="timeline-step"><h3>02 · EMI & loan logic</h3><p>সুদ, installment, amortization, repayment burden analysis.</p></article>
+            <article class="timeline-step"><h3>03 · MFS & merchant flow</h3><p>Wallet settlement, ledger balance, fee reasoning, account mapping.</p></article>
+            <article class="timeline-step"><h3>04 · SME cash flow</h3><p>Sales, expense buckets, payable/receivable discipline, runway thinking.</p></article>
+          </div>
+        </div>
+        <div class="info-panel" data-reveal>
+          <h3>Local teaching use-cases</h3>
+          <ul class="checklist">
+            <li>BDT-denominated examples for classroom demos and bootcamps</li>
+            <li>Return reasoning for savings, investment, and DSE-style discussions</li>
+            <li>MFS / bank / cash journal examples for commerce and finance students</li>
+            <li>SME repayment and margin planning for founders outside Dhaka-centric tech circles</li>
+          </ul>
+          <p class="inline-note">Goal: make FinEngine useful not only as a toolkit, but also as a bridge between finance education and production-grade JavaScript implementation.</p>
         </div>
       </div>
     </section>
@@ -589,14 +691,14 @@ const BRAND_CANDIDATES = Object.freeze([
 const SITE_BRAND = Object.freeze({
   token: BRAND_TOKEN,
   name: 'FinEngine',
-  mark: 'FK',
+  mark: 'FE',
   legal: 'FinEngine Labs',
   domain: 'finengine.js.org',
   npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Financial logic and reusable tooling for modern JavaScript.',
   heroTitle: 'JavaScript financial tooling for products that cannot afford ambiguous logic.',
-  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, and interactive JavaScript demos into a documentation-first flagship site that still feels lightweight to developers.',
+  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, API examples, and Bangladesh-aware finance learning modules into a documentation-first JavaScript ecosystem.',
 });
 
 function applyBrand() {
