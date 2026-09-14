@@ -1,10 +1,10 @@
-export const BRAND_TOKEN = 'FINKERNEL';
+export const BRAND_TOKEN = 'FINENGINE';
 
 export const BRAND_CANDIDATES = Object.freeze([
   {
-    name: 'FinKernel',
+    name: 'FinEngine',
     verdict: 'recommended',
-    rationale: 'Most natural fit for a developer-first package ecosystem with a strong computation-core metaphor.',
+    rationale: 'Direct, credible, and easy to understand for a finance-focused JavaScript toolkit.',
   },
   {
     name: 'FinLayer',
@@ -35,15 +35,15 @@ export const BRAND_CANDIDATES = Object.freeze([
 
 export const SITE_BRAND = Object.freeze({
   token: BRAND_TOKEN,
-  name: 'FinKernel',
+  name: 'FinEngine',
   mark: 'FK',
-  legal: 'FinKernel Labs',
-  domain: 'finkernel.js.org',
-  npmScope: '@finkernel',
+  legal: 'FinEngine Labs',
+  domain: 'finengine.js.org',
+  npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Programmable financial primitives for modern JavaScript.',
   heroTitle: 'Financial infrastructure for web products that cannot afford ambiguous logic.',
-  heroLead: 'FinKernel packages lending math, validation, payment utilities, reporting helpers, and interactive JavaScript demos into a documentation-first flagship site that still feels lightweight to developers.',
+  heroLead: 'FinEngine packages lending math, validation, payment utilities, reporting helpers, and interactive JavaScript demos into a documentation-first flagship site that still feels lightweight to developers.',
 });
 
 export function applyBrand() {
