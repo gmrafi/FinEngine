@@ -1,4 +1,6 @@
 const STORAGE_KEY = 'site-theme-preference';
+const LIGHT_THEME_COLOR = '#F8FBFF';
+const DARK_THEME_COLOR = '#0B0F19';
 
 export function initThemeToggle() {
   const button = document.querySelector('[data-theme-toggle]');
@@ -6,18 +8,19 @@ export function initThemeToggle() {
   const params = new URLSearchParams(window.location.search);
   const forcedTheme = params.get('theme');
   const saved = localStorage.getItem(STORAGE_KEY);
-  const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const initial = (forcedTheme === 'light' || forcedTheme === 'dark')
     ? forcedTheme
-    : (saved || (preferredDark ? 'dark' : 'dark'));
+    : (saved || 'light');
 
   root.dataset.theme = initial;
+  syncThemeMeta(initial);
   updateLabel(button, initial);
 
   button?.addEventListener('click', () => {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     localStorage.setItem(STORAGE_KEY, next);
+    syncThemeMeta(next);
     updateLabel(button, next);
 
     const nextUrl = new URL(window.location.href);
@@ -26,8 +29,17 @@ export function initThemeToggle() {
   });
 }
 
+function syncThemeMeta(theme) {
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (!themeMeta) return;
+  themeMeta.setAttribute('content', theme === 'light' ? LIGHT_THEME_COLOR : DARK_THEME_COLOR);
+}
+
 function updateLabel(button, theme) {
   if (!button) return;
   button.setAttribute('aria-pressed', String(theme === 'dark'));
-  button.textContent = theme === 'dark' ? 'Switch to light' : 'Switch to dark';
+  button.setAttribute('aria-label', theme === 'light' ? 'Light mode active' : 'Dark mode active');
+  button.innerHTML = theme === 'light'
+    ? '<span aria-hidden="true">☀</span><span>Light mode</span>'
+    : '<span aria-hidden="true">☾</span><span>Dark mode</span>';
 }
