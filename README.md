@@ -1,6 +1,11 @@
 # FinEngine
 
-A developer-first fintech website and package-system concept for JavaScript, extended with real starter package skeletons and Bangladesh-aware finance education content.
+A developer-first fintech website and package-system concept for JavaScript, extended with starter packages and Bangladesh-aware finance education content.
+
+## Live website
+- Pages URL: https://gmrafi.github.io/FinEngine/
+- Package docs section on homepage: https://gmrafi.github.io/FinEngine/#docs-api
+- Bangladesh learning section: https://gmrafi.github.io/FinEngine/#bangladesh-learning
 
 ## Active brand
 - Public brand: **FinEngine**
@@ -35,18 +40,6 @@ Each package includes:
 - `amortize(...)` total interest → `110835.2`
 - `xirr(...)` sample → `0.28`
 
-## JavaScript modules
-- `assets/js/main.js`
-- `assets/js/brand.js`
-- `assets/js/modules/nav.js`
-- `assets/js/modules/reveal.js`
-- `assets/js/modules/counters.js`
-- `assets/js/modules/packages.js`
-- `assets/js/modules/copy.js`
-- `assets/js/modules/theme.js`
-- `assets/js/modules/calculator.js`
-- `assets/js/modules/form.js`
-
 ## Bangladesh context integrated
 - BDT-denominated code examples
 - Bangla-labeled learning path on the homepage
@@ -54,4 +47,4 @@ Each package includes:
 
 ## Deployment
 - GitHub Pages-ready static site
-- `CNAME` points to `finengine.js.org`
+- Uses relative asset paths so everything works correctly under `/FinEngine/`
