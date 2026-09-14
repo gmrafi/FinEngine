@@ -1,172 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FinEngine</title>
-  <meta name="description" content="FinEngine is a financial infrastructure project for precise calculations, rule-driven workflows, and reporting-ready web products." />
+  <title>Flagship JavaScript Fintech</title>
+  <meta name="description" content="Programmable financial primitives for modern JavaScript." />
+  <meta name="theme-color" content="#0B0F19" />
   <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="shell header-row">
-      <a class="brand" href="#top" aria-label="FinEngine home">
-        <img src="logo-mark.svg" alt="FinEngine mark" width="36" height="36" />
-        <span>FinEngine</span>
-      </a>
-      <nav class="nav">
-        <a href="#why">Why</a>
-        <a href="#modules">Modules</a>
-        <a href="#principles">Principles</a>
-        <a href="#docs">Docs</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brandline">
+        <div class="brandmark">FK</div>
+        <div>
+          <span data-brand="name"></span>
+          <span class="brand-sub">Token: FINKERNEL · switch from one config file later</span>
+        </div>
+      </div>
+      <nav class="navlinks">
+        <a data-nav-link href="#positioning">Why this name</a>
+        <a data-nav-link href="#packages">Packages</a>
+        <a data-nav-link href="#playground">Playground</a>
+        <a data-nav-link href="#javascript-stack">JavaScript stack</a>
+        <a data-nav-link href="#launch">Launch</a>
       </nav>
+      <div class="toolbar">
+        <button class="theme-toggle" type="button" data-theme-toggle>Switch theme</button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-copy">
-        <p class="eyebrow">Financial infrastructure for JavaScript teams</p>
-        <h1>Build finance products on logic you can inspect.</h1>
-        <p class="lede">FinEngine brings calculation accuracy, validation rules, and reporting structure into a package system that feels native to modern web development.</p>
-        <div class="actions">
-          <a class="button primary" href="#modules">Explore the module map</a>
-          <a class="button secondary" href="#docs">See how the site is structured</a>
+  <main>
+    <section class="hero shell" id="hero">
+      <div class="hero-grid">
+        <div class="hero-copy" data-reveal>
+          <div class="kicker">Open-source weight · enterprise credibility · js.org readiness</div>
+          <h1 data-brand="heroTitle"></h1>
+          <p data-brand="heroLead"></p>
+          <div class="hero-actions">
+            <a class="button primary" href="#packages">See the package system</a>
+            <a class="button secondary" href="#playground">Open the JS sandbox</a>
+          </div>
+          <div class="tagrow">
+            <span class="tag"><span data-brand="npmScope"></span>/core</span>
+            <span class="tag"><span data-brand="domain"></span></span>
+            <span class="tag"><span data-brand="legal"></span></span>
+          </div>
+        </div>
+        <aside class="code-shell" data-reveal>
+          <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+<pre><code id="install-command">npm install @finkernel/core @finkernel/math @finkernel/ui
+
+import { amortize, xirr } from '@finkernel/math'
+import { validateLedgerEntry } from '@finkernel/core'
+import { renderStatementCard } from '@finkernel/ui'</code></pre>
+          <div class="install-row" style="margin-top:12px;">
+            <span class="inline-note">Install snippet is copyable and offline-safe.</span>
+            <button class="mini-btn" type="button" data-copy="#install-command">Copy install</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell" id="positioning">
+      <div class="section-head">
+        <div>
+          <h2>Name direction and why it is stronger than plain FinEngine</h2>
+          <p>The site is reworked around a more distinctive default while keeping the brand switchable from one JavaScript config file if you later decide to return to FinEngine or move to another candidate.</p>
         </div>
       </div>
-      <aside class="hero-panel">
-        <div class="panel-head">TypeScript example</div>
-        <pre><code>import { amortize, xirr } from '@finengine/math'
-import { validateJournal } from '@finengine/core'
-
-const schedule = amortize({
-  principal: 250000,
-  annualRate: 0.135,
-  months: 36,
-})
-
-const irr = xirr(cashflows)
-const review = validateJournal(entries)</code></pre>
-      </aside>
-    </section>
-
-    <section id="why" class="section shell intro-grid">
-      <article>
-        <p class="section-label">Why it exists</p>
-        <h2>Not a design kit. Not a black-box platform.</h2>
-        <p>Most teams end up choosing between generic component libraries and oversized finance systems that dictate too much architecture. FinEngine is meant for the middle ground: explicit financial logic, packaged cleanly, with room for product teams to build around it.</p>
-      </article>
-      <aside class="note-card">
-        <h3>What the name signals</h3>
-        <p><strong>Fin</strong> keeps the category immediate. <strong>Engine</strong> makes the promise narrower and more credible: structured logic, repeatable outputs, and software that prioritizes correctness over spectacle.</p>
-      </aside>
-    </section>
-
-    <section id="modules" class="section shell">
-      <div class="section-heading">
-        <p class="section-label">Module architecture</p>
-        <h2>A practical package surface</h2>
-      </div>
-      <div class="cards two-up">
-        <article class="card">
-          <h3>@finengine/core</h3>
-          <p>Shared types, money primitives, validation guards, rounding rules, and domain contracts that other packages can depend on.</p>
+      <div class="grid-3">
+        <article class="info-panel" data-reveal>
+          <h3>FinKernel — recommended default</h3>
+          <p><strong>Kernel</strong> suggests a finance computation core: precise, composable, and technical without sounding like a generic consultancy. It matches a package ecosystem very naturally.</p>
+          <div class="metricrow"><span class="metricpill">Best fit for JS libraries</span><span class="metricpill">Least generic tone</span></div>
         </article>
-        <article class="card">
-          <h3>@finengine/math</h3>
-          <p>Amortization schedules, APR helpers, XIRR, fee ladders, penalties, tax rules, and cashflow routines.</p>
+        <article class="info-panel" data-reveal>
+          <h3>FinLayer</h3>
+          <p>Softer and more platform-like. Good if you want middleware positioning, but it is less sharp for a math-heavy brand.</p>
+          <div class="metricrow"><span class="metricpill">Platform feel</span><span class="metricpill">Less technical weight</span></div>
         </article>
-        <article class="card">
-          <h3>@finengine/ui</h3>
-          <p>Repayment tables, amount fields, statement blocks, and finance-specific interface patterns that stay compatible with existing apps.</p>
+        <article class="info-panel" data-reveal>
+          <h3>FinAxis</h3>
+          <p>Sounds strategic and corporate, but quick web checks surfaced existing financial-services usage, so it is not my first recommendation.</p>
+          <div class="metricrow"><span class="metricpill">Corporate sound</span><span class="metricpill">Conflictier</span></div>
         </article>
-        <article class="card">
-          <h3>@finengine/pay</h3>
-          <p>Payment formatting, QR payload helpers, merchant display logic, and integration-friendly validation utilities.</p>
+        <article class="info-panel" data-reveal>
+          <h3>FinVector</h3>
+          <p>Powerful technical sound, but it already collides strongly with a well-known biopharma brand, so I would avoid it.</p>
+          <div class="metricrow"><span class="metricpill">Strong engineering tone</span><span class="metricpill">Bad collision</span></div>
         </article>
-        <article class="card">
-          <h3>@finengine/reporting</h3>
-          <p>Statement schemas, export-friendly record shapes, and report primitives for internal review and customer-facing outputs.</p>
+        <article class="info-panel" data-reveal>
+          <h3>LedgerKit</h3>
+          <p>Excellent developer semantics, but the npm signal is already occupied, so it is not efficient for a flagship namespace.</p>
+          <div class="metricrow"><span class="metricpill">Great for docs</span><span class="metricpill">npm conflict</span></div>
         </article>
-        <article class="card">
-          <h3>@finengine/ledger</h3>
-          <p>Journal entry helpers, account mapping conventions, and reconciliation-friendly structures for transaction systems.</p>
+        <article class="info-panel" data-reveal>
+          <h3>FinEngine</h3>
+          <p>Still respectable, but more generic than the default above. It stays easy to restore because every visible brand label now resolves from one config file.</p>
+          <div class="metricrow"><span class="metricpill">Enterprise-safe</span><span class="metricpill">More common</span></div>
         </article>
       </div>
     </section>
 
-    <section id="principles" class="section shell split-layout">
-      <div>
-        <p class="section-label">Operating principles</p>
-        <h2>Useful to developers. Defensible to operations.</h2>
-        <ul class="principles-list">
-          <li><strong>Deterministic first.</strong> If two environments run the same logic, the outcome should match.</li>
-          <li><strong>Traceable by design.</strong> Financial outputs should be explainable to reviewers, not just beautiful in demos.</li>
-          <li><strong>Modular adoption.</strong> Teams should be able to start with one package instead of buying a full stack upfront.</li>
-          <li><strong>Stable interfaces.</strong> Finance code gets reused across dashboards, workflows, and exports. Stability matters more than novelty.</li>
-        </ul>
-      </div>
-      <div class="mini-table" role="table" aria-label="Use cases">
-        <div class="row head" role="row"><span>Use case</span><span>Likely starting package</span></div>
-        <div class="row" role="row"><span>Lending app</span><span>@finengine/math</span></div>
-        <div class="row" role="row"><span>Repayment portal</span><span>@finengine/ui</span></div>
-        <div class="row" role="row"><span>Payment QR flow</span><span>@finengine/pay</span></div>
-        <div class="row" role="row"><span>Internal statements</span><span>@finengine/reporting</span></div>
+    <section class="section shell" id="signals">
+      <div class="stats-grid">
+        <article class="stat" data-reveal><strong data-counter data-target="6">0</strong><span>Flagship package lanes</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="7">0</strong><span>JavaScript modules added</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="2">0</strong><span>Vendored JS libraries</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="100" data-suffix="%">0</strong><span>Offline asset ownership</span></article>
       </div>
     </section>
 
-    <section class="section shell" id="adoption">
-      <div class="section-heading">
-        <p class="section-label">Adoption path</p>
-        <h2>Start small, keep the core stable</h2>
-      </div>
-      <div class="cards two-up">
-        <article class="card">
-          <h3>Phase 1 — utility adoption</h3>
-          <p>Ship the math and validation packages first. Let product teams keep their current UI and backend choices.</p>
-        </article>
-        <article class="card">
-          <h3>Phase 2 — reporting and controls</h3>
-          <p>Add structured exports, statements, and reconciliation workflows once the financial model is trusted in production.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="docs" class="section shell docs-block">
-      <div class="section-heading">
-        <p class="section-label">Repository setup</p>
-        <h2>Prepared for Pages and JS.ORG</h2>
-      </div>
-      <div class="docs-grid">
-        <div class="card soft">
-          <h3>Public site</h3>
-          <p>This repository is designed to publish as a static documentation home on GitHub Pages first, then move under a JS.ORG domain once the content is live and substantive.</p>
-        </div>
-        <div class="card soft">
-          <h3>Brand usage</h3>
-          <p>Use <strong>FinEngine</strong> as the product name and <strong>FinEngine Labs</strong> as the legal or company wrapper when needed for formal documents.</p>
+    <section class="section shell" id="packages">
+      <div class="section-head">
+        <div>
+          <h2>Package system and library surface</h2>
+          <p>This is the part that increases your js.org credibility: the website now behaves like documentation for a real JavaScript ecosystem instead of a static brand poster.</p>
         </div>
       </div>
-      <div class="text-block">
-        <h3>Working assumptions</h3>
-        <p>Early documentation should answer three questions clearly: what problem the package solves, which financial rules it encodes, and how a team can verify results when they integrate it.</p>
+      <div class="searchline">
+        <input type="search" data-package-search placeholder="Filter packages, keywords, or features" aria-label="Filter packages" />
+      </div>
+      <div class="tabs" role="tablist" aria-label="Package groups">
+        <button class="tab" type="button" data-package-tab="core" aria-selected="false">Core</button>
+        <button class="tab" type="button" data-package-tab="ux" aria-selected="false">UI + DX</button>
+        <button class="tab" type="button" data-package-tab="payment" aria-selected="false">Payment</button>
+      </div>
+      <div class="package-panel" data-package-panel="core" data-reveal>
+        <h3>Computation and reporting foundation</h3>
+        <div class="package-grid">
+          <article class="package-card" data-package-card data-keywords="validation types ledger audit core money rounding">
+            <header><h3><span data-brand="npmScope"></span>/core</h3><code>validation kernel</code></header>
+            <p>Shared money types, rounding rules, ledger-safe validation, and deterministic domain contracts.</p>
+            <div class="accordion">
+              <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>
+              <div class="accordion-panel" hidden>Without a hard validation core, lending, payment, and statement modules drift apart and audit explanations become weak.</div>
+            </div>
+          </article>
+          <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">
+            <header><h3><span data-brand="npmScope"></span>/math</h3><code>calculation engine</code></header>
+            <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>
+            <div class="install-block"><code>npm install <span data-install-scope="math"></span></code></div>
+          </article>
+          <article class="package-card" data-package-card data-keywords="reporting export statements finance tables audit-ready summaries">
+            <header><h3><span data-brand="npmScope"></span>/reporting</h3><code>document outputs</code></header>
+            <p>Finance-oriented summaries, statement blocks, export schemas, and traceable audit-ready tables.</p>
+            <div class="accordion">
+              <button type="button" data-accordion-trigger aria-expanded="false">Output focus <span>+</span></button>
+              <div class="accordion-panel" hidden>Prioritize consistency between on-screen previews and PDF/Excel export payloads, even before adding pro features.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="package-panel" data-package-panel="ux" hidden data-reveal>
+        <h3>Developer experience and product interface</h3>
+        <div class="package-grid">
+          <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">
+            <header><h3><span data-brand="npmScope"></span>/ui</h3><code>micro-components</code></header>
+            <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
+            <div class="install-block"><code>npm install <span data-install-scope="ui"></span></code></div>
+          </article>
+          <article class="package-card" data-package-card data-keywords="react adapter hooks fintech ui">
+            <header><h3><span data-brand="npmScope"></span>/react</h3><code>framework adapter</code></header>
+            <p>Headless hooks and framework connectors so the core logic feels native inside a React application.</p>
+          </article>
+          <article class="package-card" data-package-card data-keywords="docs search playground demos examples javascript site">
+            <header><h3><span data-brand="npmScope"></span>/docs-site</h3><code>documentation shell</code></header>
+            <p>The website itself acts like a reusable documentation shell with counters, tabs, reveal motion, and calculator modules.</p>
+          </article>
+        </div>
+      </div>
+      <div class="package-panel" data-package-panel="payment" hidden data-reveal>
+        <h3>Payment rails and ledger adjacency</h3>
+        <div class="package-grid">
+          <article class="package-card" data-package-card data-keywords="qr merchant payload emvco payment utilities rails">
+            <header><h3><span data-brand="npmScope"></span>/pay</h3><code>payment utilities</code></header>
+            <p>Merchant payload helpers, QR structures, display formatting, and interoperability-ready payment utilities.</p>
+          </article>
+          <article class="package-card" data-package-card data-keywords="ledger entries mapping journals reconciliation">
+            <header><h3><span data-brand="npmScope"></span>/ledger</h3><code>journal helpers</code></header>
+            <p>Double-entry helpers, account mapping conventions, and reconciliation-first ledger structures.</p>
+          </article>
+          <article class="package-card" data-package-card data-keywords="fraud flags monitoring signals thresholds event scoring">
+            <header><h3><span data-brand="npmScope"></span>/signals</h3><code>event intelligence</code></header>
+            <p>Threshold checks and event-level flags that can grow into a future risk-monitoring or compliance layer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="playground">
+      <div class="section-head">
+        <div>
+          <h2>Interactive JavaScript playground</h2>
+          <p>A visible calculator and chart make the site feel like a living library, not just a brochure. This section is wired with modular JavaScript and local vendored dependencies.</p>
+        </div>
+      </div>
+      <div class="calculator-panel" data-reveal>
+        <div class="calc-layout">
+          <form class="calc-form" data-calculator-form>
+            <div class="field"><label for="amount">Loan amount</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
+            <div class="field"><label for="rate">Annual interest rate (%)</label><input id="rate" name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></div>
+            <div class="field"><label for="months">Term (months)</label><input id="months" name="months" type="number" min="3" max="120" step="1" value="36" /></div>
+            <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
+            <div class="errorline" data-result="error"></div>
+            <div class="result-grid">
+              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
+              <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
+              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+            </div>
+            <p class="inline-note">Generated on <span data-result="generatedAt">—</span> with a browser-side amortization model.</p>
+          </form>
+          <div class="chart-wrap">
+            <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="javascript-stack">
+      <div class="section-head">
+        <div>
+          <h2>JavaScript depth that improves the site’s legitimacy</h2>
+          <p>The site now contains real front-end behavior: brand injection, theme state, scroll spy, reveal motion, live counters, package filtering, accordion docs, clipboard helpers, and a fintech calculator with charting.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="timeline">
+          <article class="timeline-step" data-reveal><h3>01 · Brand config</h3><p>All visible brand labels are resolved from one file: <code>assets/js/brand.js</code>.</p></article>
+          <article class="timeline-step" data-reveal><h3>02 · Navigation</h3><p>Scroll spy activates section links as users move through the site.</p></article>
+          <article class="timeline-step" data-reveal><h3>03 · Demo logic</h3><p>Loan calculations run client-side and render a chart without external CDNs.</p></article>
+          <article class="timeline-step" data-reveal><h3>04 · Docs behavior</h3><p>Package tabs, filters, accordions, and copy buttons make it behave like a real library site.</p></article>
+        </div>
+        <div class="info-panel" data-reveal>
+          <h3>Vendored libraries</h3>
+          <div class="library-list">
+            <div class="library-item"><strong>Chart.js 4.4.3</strong><p>Stored locally in <code>assets/vendor/chart.umd.min.js</code> for offline-safe chart rendering.</p></div>
+            <div class="library-item"><strong>Day.js 1.11.13</strong><p>Stored locally in <code>assets/vendor/dayjs.min.js</code> for lightweight date formatting in the calculator.</p></div>
+            <div class="library-item"><strong>No external CSS framework</strong><p>Visual design remains fully custom in <code>styles.css</code> so the site keeps its own product identity.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="launch">
+      <div class="section-head">
+        <div>
+          <h2>Launch sequence for js.org credibility</h2>
+          <p>The fastest path is: ship public package stubs, keep examples on the website, and make the homepage feel like docs for a working JavaScript ecosystem rather than a pure marketing surface.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="info-panel" data-reveal><h3>1. Publish package stubs</h3><p>Even a minimal public scope for core, math, and ui makes the website’s claims feel real.</p></article>
+        <article class="info-panel" data-reveal><h3>2. Add examples</h3><p>Every package card should eventually point to a live example or API note.</p></article>
+        <article class="info-panel" data-reveal><h3>3. Submit js.org</h3><p>With docs, examples, and JavaScript behavior in place, the site now better matches a true ecosystem domain request.</p></article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-row">
-      <div>
-        <strong>FinEngine</strong>
-        <p>Financial infrastructure for teams that need precise logic, readable outputs, and room to build.</p>
-      </div>
+  <footer class="shell">
+    <div class="footer-panel">
       <div class="footer-meta">
-        <a href="https://github.com/gmrafi/FinEngine">GitHub repository</a>
-        <span>Planned domain: finengine.js.org</span>
-        <span>Designed and developed by Md Golam Mubasshir Rafi · Centre for Fintech &amp; Strategic Business Research (CFSBR)</span>
+        <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
+        <span><span data-brand="repoPath"></span> · <span data-brand="domain"></span></span>
+        <span>Designed and developed by Md Golam Mubasshir Rafi · CFSBR referenced in the creator credit only</span>
       </div>
     </div>
   </footer>
+
+  <script src="assets/vendor/dayjs.min.js"></script>
+  <script src="assets/vendor/chart.umd.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
