@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a functional, visual, or financial-logic defect
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please be as concrete as possible.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken
+      placeholder: The mobile header wraps into two lines and the star badge overlaps the theme toggle.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: How to reproduce the issue
+      placeholder: |
+        1. Open the homepage on a 390px-wide screen
+        2. Scroll to the hero section
+        3. Observe the overlap in the header actions
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Website layout
+        - Package docs
+        - Playground
+        - @finengine/core
+        - @finengine/math
+        - @finengine/ui
+        - Release workflow
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: Header actions should stack cleanly with no overlap.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or logs
+      description: Paste screenshots, console errors, or output values if relevant
