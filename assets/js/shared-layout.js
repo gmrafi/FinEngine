@@ -3,12 +3,8 @@ import { SITE_BRAND } from './brand.js';
 const NAV_ITEMS = [
   { label: 'Home', path: 'index.html', key: 'home' },
   { label: 'Product', path: 'product/', key: 'product' },
-  { label: 'Simulation', path: 'simulation/', key: 'simulation' },
-  { label: 'Methodology', path: 'methodology/', key: 'methodology' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
   { label: 'Brand', path: 'brand/', key: 'brand' },
-  { label: 'About', path: 'about/', key: 'about' },
-  { label: 'Contact', path: 'contact/', key: 'contact' },
 ];
 
 const PROOF_BADGES = [
@@ -89,7 +85,9 @@ function renderHeader(pageType) {
         </a>
         <nav class="navlinks navlinks-pill" aria-label="Primary navigation">${nav}</nav>
         <div class="toolbar header-actions">
-          <a class="star-cta header-primary-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
+          <a class="header-icon-link" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer" aria-label="Open FinEngine GitHub repository">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.17-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.76.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.18 1.17a11.08 11.08 0 0 1 5.79 0c2.2-1.48 3.17-1.17 3.17-1.17.63 1.57.24 2.73.12 3.02.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.08.78 2.18 0 1.58-.01 2.86-.01 3.25 0 .31.21.68.8.56 4.56-1.54 7.84-5.86 7.84-10.95C23.5 5.66 18.35.5 12 .5Z"/></svg>
+          </a>
           <button class="theme-toggle theme-toggle-compact" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span></button>
           <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span></button>
         </div>
@@ -99,6 +97,7 @@ function renderHeader(pageType) {
           <div class="mobile-drawer-actions">
             <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
             <a class="mini-btn mobile-demo-cta" href="${toRoot('simulation/')}">Open simulation</a>
+            <a class="mini-btn mobile-demo-cta mobile-external-cta" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
           <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
         </div>
@@ -143,51 +142,61 @@ function renderFooter() {
   return `
     <footer class="shell site-footer-shell">
       <div class="footer-panel site-footer-panel">
-        <div class="site-footer-grid">
+        <div class="site-footer-grid site-footer-grid-5">
           <section class="footer-column footer-column-brand" aria-label="Brand and institution">
             <a class="footer-brand footer-brandline" href="${root}index.html"><img class="footer-logo" src="${root}logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" /><span>FinEngine</span></a>
-            <p class="footer-intro">A multi-page JavaScript finance surface for deterministic calculations, explainable demos, and enterprise-facing documentation.</p>
-            <div class="footer-highlight-card footer-powered-card">
+            <p class="footer-intro">Documentation-first JavaScript finance tooling for deterministic calculations, explainable demos, and research-backed product surfaces.</p>
+            <div class="footer-highlight-card footer-powered-card footer-static-card">
               <div class="footer-card-title footer-card-title-gold">Powered by</div>
-              <p><a href="https://web.cfsbr.com/"><strong>Centre for FinTech &amp; Strategic Business Research (CFSBR)</strong></a></p>
-            </div>
-            <div class="footer-license-row">
-              <a class="footer-license-badge" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE">MIT Licensed · Free &amp; Open Source</a>
+              <p><a href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer"><strong>Centre for FinTech &amp; Strategic Business Research (CFSBR)</strong></a></p>
             </div>
           </section>
 
-          <section class="footer-column" aria-label="Explore">
-            <div class="footer-heading">EXPLORE</div>
+          <section class="footer-column" aria-label="Docs">
+            <div class="footer-heading">DOCS</div>
             <div class="footer-link-list">
-              <a href="${root}product/"><strong>Product Surface</strong><span>Packages, product framing, and example outputs</span></a>
-              <a href="${root}simulation/"><strong>Simulation Lab</strong><span>Dedicated amortization and repayment playground</span></a>
               <a href="${root}docs/"><strong>Documentation Hub</strong><span>Package docs, examples, and release notes</span></a>
-              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
-            </div>
-          </section>
-
-          <section class="footer-column" aria-label="Packages">
-            <div class="footer-heading">PACKAGES</div>
-            <div class="footer-link-list">
-              <a href="${root}docs/core/"><strong>@finengine/core</strong><span>Validation &amp; money primitives</span></a>
+              <a href="${root}docs/core/"><strong>@finengine/core</strong><span>Validation and money primitives</span></a>
               <a href="${root}docs/math/"><strong>@finengine/math</strong><span>Amortization, XIRR, and repayment math</span></a>
               <a href="${root}docs/ui/"><strong>@finengine/ui</strong><span>Finance-oriented UI helpers</span></a>
             </div>
           </section>
 
-          <section class="footer-column" aria-label="Connect">
-            <div class="footer-heading">CONNECT</div>
+          <section class="footer-column" aria-label="Resources">
+            <div class="footer-heading">RESOURCES</div>
             <div class="footer-link-list">
+              <a href="${root}product/"><strong>Product Surface</strong><span>Packages, examples, and product framing</span></a>
+              <a href="${root}simulation/"><strong>Simulation Lab</strong><span>Dedicated browser-side amortization demo</span></a>
+              <a href="${root}methodology/"><strong>Methodology</strong><span>Positioning, localization, and roadmap logic</span></a>
+              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Community">
+            <div class="footer-heading">COMMUNITY</div>
+            <div class="footer-link-list">
+              <a href="${root}about/"><strong>About</strong><span>Project framing and institutional context</span></a>
               <a href="${root}contact/"><strong>Contact</strong><span>Collaboration and implementation pathways</span></a>
-              <a href="https://github.com/gmrafi/FinEngine/issues/new/choose"><strong>Report an Issue</strong><span>Structured bug and feature intake</span></a>
-              <a href="https://www.gmrafi.com.bd/"><strong>Founder Profile</strong><span><strong>Md Golam Mubasshir Rafi</strong></span></a>
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer"><strong>GitHub Repository</strong><span>Source, commits, workflows, and issue history</span></a>
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine/issues/new/choose" target="_blank" rel="noopener noreferrer"><strong>Report an Issue</strong><span>Structured bug and feature intake</span></a>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Legal">
+            <div class="footer-heading">LEGAL</div>
+            <div class="footer-link-list">
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><strong>MIT License</strong><span>Free and open-source licensing terms</span></a>
+              <a class="is-external" href="https://www.gmrafi.com.bd/" target="_blank" rel="noopener noreferrer"><strong>Founder Profile</strong><span>Md Golam Mubasshir Rafi</span></a>
+            </div>
+            <div class="footer-license-row">
+              <a class="footer-license-badge is-external" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT Licensed · Free &amp; Open Source</a>
             </div>
           </section>
         </div>
 
         <div class="footer-bottom-strip">
           <div class="footer-bottom-left">© 2026 FinEngine · Built by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">CFSBR</span></div>
-          <div class="footer-bottom-right">v0.3.0 · Multi-page GitHub Pages</div>
+          <div class="footer-bottom-right">v0.3.0 · Multi-page product docs</div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>
       </div>
