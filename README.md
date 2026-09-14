@@ -6,6 +6,9 @@ A developer-first fintech website and package-system concept for JavaScript, ext
 - Pages URL: https://gmrafi.github.io/FinEngine/
 - Package docs section on homepage: https://gmrafi.github.io/FinEngine/#docs-api
 - Bangladesh learning section: https://gmrafi.github.io/FinEngine/#bangladesh-learning
+- Core docs page: https://gmrafi.github.io/FinEngine/docs/core/
+- Math docs page: https://gmrafi.github.io/FinEngine/docs/math/
+- UI docs page: https://gmrafi.github.io/FinEngine/docs/ui/
 
 ## Active brand
 - Public brand: **FinEngine**
@@ -21,6 +24,7 @@ All external runtime dependencies are stored locally for offline ZIP use:
 ## Workspace packages
 - `packages/core` → `@finengine/core`
 - `packages/math` → `@finengine/math`
+- `packages/ui` → `@finengine/ui`
 
 Each package includes:
 - scoped `package.json` with exports/types/publishConfig
