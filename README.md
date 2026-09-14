@@ -1,11 +1,11 @@
-# FinKernel
+# FinEngine
 
 A developer-first fintech website and package-system concept for JavaScript.
 
 ## Default brand
-- Recommended default: **FinKernel**
-- Switch token: `FINKERNEL`
-- Fallback option retained in content: **FinEngine**
+- Active public brand: **FinEngine**
+- Internal switch token: `FINENGINE`
+- Brand text is injected from `assets/js/brand.js`
 
 ## Vendored dependencies
 All external runtime dependencies are stored locally for offline ZIP use:
@@ -38,4 +38,8 @@ All external runtime dependencies are stored locally for offline ZIP use:
 
 ## Deployment
 - GitHub Pages-ready static site
-- `CNAME` points to `finkernel.js.org`
+- `CNAME` points to `finengine.js.org`
+
+
+## Public-site note
+Internal launch checklists and naming debates should stay out of the public homepage. Public-facing pages should show packages, examples, docs behavior, and working JavaScript demos.
