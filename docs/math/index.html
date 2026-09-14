@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@finengine/math · FinEngine Docs</title>
+  <meta name="description" content="FinEngine math package documentation" />
+  <link rel="icon" type="image/svg+xml" href="../../logo-mark.svg" />
+  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    .doc-shell{width:min(960px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
+    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}
+    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
+    .doc-card + .doc-card{margin-top:18px}
+    .doc-card h2,.doc-card h3{margin-top:0}
+    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:rgba(2,6,23,.58);border:1px solid rgba(255,255,255,.06);overflow:auto}
+  </style>
+</head>
+<body>
+  <main class="doc-shell">
+    <div class="doc-nav">
+      <a href="../../index.html">← Back to homepage</a>
+      <a href="../core/index.html">@finengine/core docs</a>
+    </div>
+    <section class="doc-card">
+      <div class="eyebrow">Package docs</div>
+      <h1>@finengine/math</h1>
+      <p>Financial math starter utilities for FinEngine. The current examples focus on EMI planning, amortization schedules, and irregular cashflow return reasoning with Bangladesh-friendly BDT examples and local finance learning context.</p>
+    </section>
+    <section class="doc-card">
+      <h2>API</h2>
+      <h3>monthlyPayment(principal, annualRate, months)</h3>
+      <p>Returns the rounded monthly installment.</p>
+      <h3>amortize({ principal, annualRate, months })</h3>
+      <p>Builds the payment schedule and returns totals plus month-by-month rows.</p>
+      <h3>xirr(cashflows, guess?)</h3>
+      <p>Estimates annualized return for irregular cashflows.</p>
+    </section>
+    <section class="doc-card">
+      <h2>Executed example</h2>
+<pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'
+
+monthlyPayment(500000, 13.5, 36)
+// 16967.64
+
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+plan.totalInterest
+// 110835.2
+plan.schedule[0]
+// { month: 1, payment: 16967.64, principalPaid: 11342.64, interestPaid: 5625, remainingBalance: 488657.36 }
+
+xirr([
+  { amount: -100000, date: '2026-01-01' },
+  { amount: 25000, date: '2026-04-01' },
+  { amount: 25000, date: '2026-07-01' },
+  { amount: 70000, date: '2027-01-10' }
+])
+// 0.28</code></pre>
+    </section>
+  </main>
+</body>
+</html>
