@@ -1,10 +1,20 @@
 {
   "name": "finengine-site",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Offline-safe FinEngine marketing + docs site",
+  "description": "Offline-safe FinEngine marketing + docs site with starter package skeletons",
+  "workspaces": [
+    "packages/core",
+    "packages/math"
+  ],
   "scripts": {
-    "check": "node --check assets/js/brand.js && node --check assets/js/main.js && node --check assets/js/modules/nav.js && node --check assets/js/modules/reveal.js && node --check assets/js/modules/counters.js && node --check assets/js/modules/packages.js && node --check assets/js/modules/copy.js && node --check assets/js/modules/theme.js && node --check assets/js/modules/calculator.js && node --check assets/js/modules/form.js"
+    "check": "node --check assets/js/brand.js && node --check assets/js/main.js && node --check assets/js/modules/nav.js && node --check assets/js/modules/reveal.js && node --check assets/js/modules/counters.js && node --check assets/js/modules/packages.js && node --check assets/js/modules/copy.js && node --check assets/js/modules/theme.js && node --check assets/js/modules/calculator.js && node --check assets/js/modules/form.js",
+    "build:packages": "npm run build -w @finengine/core && npm run build -w @finengine/math",
+    "test:packages": "npm run test -w @finengine/core && npm run test -w @finengine/math",
+    "verify:packages": "npm run build:packages && npm run test:packages && node scripts/run-package-examples.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3"
   }
 }
