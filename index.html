@@ -149,6 +149,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
           <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">
             <header><h3><span data-brand="npmScope"></span>/ui</h3><code>micro-components</code></header>
             <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
+            <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
             <div class="install-block"><code>npm install <span data-install-scope="ui"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="react adapter hooks fintech ui">
@@ -187,7 +188,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
           <p>These examples now match the starter packages in <code>packages/core</code> and <code>packages/math</code>. The snippets were executed locally before being documented here, and each package now has its own dedicated docs page under the live Pages site.</p>
         </div>
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <article class="info-panel" data-reveal>
           <h3>@finengine/core</h3>
           <p><a class="mini-btn" href="docs/core/index.html">Open package docs</a></p>
@@ -244,6 +245,23 @@ xirr([
             <li><code>monthlyPayment(principal, annualRate, months)</code></li>
             <li><code>amortize({ principal, annualRate, months })</code></li>
             <li><code>xirr(cashflows, guess?)</code></li>
+          </ul>
+        </article>
+        <article class="info-panel" data-reveal>
+          <h3>@finengine/ui</h3>
+          <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
+          <p>UI-facing helpers that turn finance numbers into readable cards, burden labels, and learning-oriented presentation blocks.</p>
+<pre class="doc-code"><code>import { makeMoneyKpi, formatBurdenLabel } from '@finengine/ui'
+
+makeMoneyKpi('Monthly EMI', 16967.64, '36-month SME example')
+// { label: 'Monthly EMI', value: 'BDT 16,968', tone: 'positive', helper: '36-month SME example' }
+
+formatBurdenLabel(16967.64, 85000)
+// Healthy burden · 20% of income</code></pre>
+          <ul class="checklist">
+            <li><code>makeMoneyKpi(label, amount, helper?)</code></li>
+            <li><code>formatBurdenLabel(payment, income)</code></li>
+            <li><code>makeLearningBadge(topic, level)</code></li>
           </ul>
         </article>
       </div>
