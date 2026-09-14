@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { formatMoney, sumEntries, validateLedgerEntry } from '../packages/core/dist/index.js';
 import { amortize, xirr } from '../packages/math/dist/index.js';
+import { makeLearningCards, makeMoneyKpi, makeRepaymentSummary } from '../packages/ui/dist/index.js';
 
 const entry = {
   reference: 'MFS-SETTLEMENT-01',
@@ -32,6 +33,12 @@ const mathExample = {
   ]),
 };
 
-const output = { coreExample, mathExample };
+const uiExample = {
+  kpi: makeMoneyKpi('Monthly EMI', mathPlan.monthlyPayment, 'SME working capital'),
+  summary: makeRepaymentSummary('SME working capital', mathPlan, 85000, 1.5),
+  learningCards: makeLearningCards(),
+};
+
+const output = { coreExample, mathExample, uiExample };
 fs.writeFileSync(new URL('../scripts/example-output.json', import.meta.url), JSON.stringify(output, null, 2));
 console.log(JSON.stringify(output, null, 2));

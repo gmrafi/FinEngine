@@ -1,0 +1,27 @@
+name: Verify FinEngine packages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Check site JavaScript
+        run: npm run check
+      - name: Build starter packages
+        run: npm run build:packages
+      - name: Test starter packages
+        run: npm run test:packages
+      - name: Run executed package examples
+        run: node scripts/run-package-examples.mjs
