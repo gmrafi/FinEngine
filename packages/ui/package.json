@@ -1,0 +1,27 @@
+{
+  "name": "@finengine/ui",
+  "version": "0.1.0",
+  "description": "UI formatting helpers and view-model builders for FinEngine",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node test/smoke.test.mjs"
+  },
+  "license": "MIT",
+  "homepage": "https://gmrafi.github.io/FinEngine/",
+  "dependencies": {
+    "@finengine/core": "0.1.0"
+  }
+}
