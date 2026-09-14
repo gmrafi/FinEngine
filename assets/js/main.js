@@ -1,4 +1,5 @@
 import { SITE_BRAND, applyBrand } from './brand.js';
+import { initSharedLayout } from './shared-layout.js';
 import { initThemeToggle } from './modules/theme.js';
 import { initScrollSpy } from './modules/nav.js';
 import { initReveal } from './modules/reveal.js';
@@ -9,6 +10,7 @@ import { initCopyButtons } from './modules/copy.js';
 import { initFormValidation } from './modules/form.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSharedLayout();
   applyBrand();
   initThemeToggle();
   initScrollSpy();
