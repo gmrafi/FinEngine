@@ -1,0 +1,10 @@
+<svg width="880" height="220" viewBox="0 0 880 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="880" height="220" rx="40" fill="#09090B"/>
+  <g transform="translate(34 32) scale(1.6)">
+    <rect x="4" y="4" width="88" height="88" rx="22" fill="#09090B" stroke="#27272A" stroke-width="2"/>
+    <path d="M25 25H69V34H35V45H63V54H35V71H25V25Z" fill="#2563EB"/>
+    <path d="M49 25H69C69 34 63 39 54 39C64 39 71 44 71 53C71 65 61 71 48 71H49V25ZM58 34V45H66C70 45 73 43 73 39.5C73 36.5 70 34 66 34H58ZM58 54V63H67C72 63 75 61 75 58.5C75 56 72 54 67 54H58Z" fill="#3B82F6"/>
+  </g>
+  <text x="210" y="98" fill="#FAFAFA" font-size="66" font-family="Inter,Segoe UI,Arial,sans-serif" font-weight="800">FinEngine</text>
+  <text x="210" y="142" fill="#A1A1AA" font-size="22" font-family="Inter,Segoe UI,Arial,sans-serif" font-weight="500">Deterministic finance tooling for documentation, demos, and product workflows.</text>
+</svg>
