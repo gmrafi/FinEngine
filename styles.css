@@ -60,7 +60,9 @@ body {
     radial-gradient(circle at left 20%, rgba(6,182,212,0.13), transparent 18%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-gradient-end) 100%);
   line-height: 1.62;
+  overflow-x: hidden;
 }
+main { overflow-x: clip; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
 img { display: block; max-width: 100%; }
@@ -200,7 +202,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .stat span { color: var(--muted); font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.info-panel, .package-card, .package-panel, .calculator-panel, .timeline-step, .validate-form { padding: 22px; }
+.info-panel, .package-card, .package-panel, .calculator-panel, .timeline-step, .validate-form { padding: 22px; min-width: 0; }
 .footer-meta span:last-child { flex: 1 1 100%; }
 .info-panel h3, .package-card h3, .package-panel h3, .calculator-panel h3, .timeline-step h3, .validate-form h3 { margin: 0 0 8px; font-size: 1.2rem; }
 .info-panel p, .package-card p, .package-panel p, .timeline-step p, .calculator-panel p, .validate-form p { margin: 0 0 10px; color: color-mix(in srgb, var(--text) 84%, var(--muted) 16%); }
@@ -230,12 +232,15 @@ html[data-theme='light'] .tab.is-active { color: var(--text); }
   background: var(--input-bg);
   color: var(--text);
 }
-.package-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; align-items: stretch; }
-.package-panel { display: grid; gap: 18px; }
+.package-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; align-items: stretch; width: 100%; max-width: 100%; }
+.package-panel { display: grid; gap: 18px; overflow-x: hidden; max-width: 100%; }
 .package-card { display: grid; align-content: start; gap: 12px; min-height: 100%; }
 .package-card header { display:flex; justify-content:space-between; gap:10px; align-items:start; margin-bottom: 0; flex-wrap: wrap; }
 .package-card h3 { margin-bottom: 0; }
 .package-card code { color: color-mix(in srgb, var(--cyan) 72%, var(--text) 28%); }
+
+.package-grid::-webkit-scrollbar { display: none; }
+.package-card { scroll-margin-left: 0; }
 .install-block {
   margin-top: 14px;
   padding: 14px;
@@ -451,7 +456,24 @@ footer { padding: 36px 0 52px; }
   h1 { max-width: none; }
 }
 @media (max-width: 760px) {
-  .package-grid, .timeline, .stats-grid, .grid-3, .result-grid, .result-grid-6, .learning-grid, .hero-tools-grid { grid-template-columns: 1fr; }
+  .timeline, .stats-grid, .grid-3, .result-grid, .result-grid-6, .learning-grid, .hero-tools-grid { grid-template-columns: 1fr; }
+  .package-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding: 2px 2px 8px;
+    margin: 0 -2px;
+    scrollbar-width: none;
+  }
+  .package-grid > .package-card {
+    flex: 0 0 min(84vw, 320px);
+    min-width: min(84vw, 320px);
+    scroll-snap-align: start;
+  }
   .section-head { flex-direction: column; align-items:flex-start; }
   .site-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-column-brand { grid-column: 1 / -1; }
@@ -608,3 +630,21 @@ html[data-theme='light'] .footer-soon-badge { border-color: var(--line-strong); 
 .proof-badges { align-items: center; }
 .proof-badges::-webkit-scrollbar { height: 0; }
 html[data-theme='light'] .hero-grid { box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08); }
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .package-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .package-grid > .package-card {
+    flex: 0 0 min(46vw, 340px);
+    min-width: min(46vw, 340px);
+    scroll-snap-align: start;
+  }
+}
