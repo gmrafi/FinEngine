@@ -117,8 +117,8 @@ function renderProofStrip() {
       <div class="proof-panel">
         <div>
           <div class="eyebrow">Open-source trust</div>
-          <h2 class="proof-title">A SaaS-style credibility strip powered by real GitHub signals</h2>
-          <p class="proof-copy">Live stars, workflow badges, license status, and latest-commit proof make the project feel maintained instead of mock.</p>
+          <h2 class="proof-title">Trust signals linked to live repository activity</h2>
+          <p class="proof-copy">Stars, workflow badges, license status, and latest-commit metadata stay tied to the public repository and deployment surface.</p>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>
@@ -135,6 +135,7 @@ function renderFooter() {
           <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
           <span><a href="https://github.com/gmrafi/FinEngine"><span data-brand="repoPath"></span></a> · <a href="https://gmrafi.github.io/FinEngine/">GitHub Pages</a></span>
           <span>Designed and developed by Md Golam Mubasshir Rafi. Powered by Centre for Fintech &amp; Strategic Business Research (CFSBR).</span>
+          <span>Disclaimer: FinEngine is a deterministic algorithmic engine built for educational, computational, and integration purposes. Production ledgers and statutory regulatory filings should always be cross-audited against central bank guidelines.</span>
         </div>
         <div class="footer-links">
           <a href="https://gmrafi.github.io/FinEngine/docs/core/">Core docs</a>
