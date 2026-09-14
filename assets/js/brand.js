@@ -58,5 +58,8 @@ export function applyBrand() {
   const desc = document.querySelector('meta[name="description"]');
   if (desc) desc.setAttribute('content', `${SITE_BRAND.name} is ${SITE_BRAND.tagline}`);
   const themeMeta = document.querySelector('meta[name="theme-color"]');
-  if (themeMeta) themeMeta.setAttribute('content', '#0B0F19');
+  if (themeMeta) {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+    themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
+  }
 }

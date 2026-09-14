@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,11 +11,12 @@
       const params = new URLSearchParams(window.location.search);
       const forcedTheme = params.get('theme');
       const savedTheme = localStorage.getItem('site-theme-preference');
-      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = forcedTheme === 'light' || forcedTheme === 'dark'
         ? forcedTheme
-        : (savedTheme || (preferredDark ? 'dark' : 'dark'));
+        : (savedTheme || 'light');
       document.documentElement.dataset.theme = theme;
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
     })();
   </script>
   <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />

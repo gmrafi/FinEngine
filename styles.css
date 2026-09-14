@@ -73,6 +73,11 @@ img { display: block; max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 30;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+html[data-theme='light'] .topbar {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 .topbar-inner {
   display: grid;
@@ -98,12 +103,22 @@ img { display: block; max-width: 100%; }
 .navlinks a.is-active { color: var(--text); }
 .toolbar { display:flex; align-items:center; gap: 12px; }
 .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
   border: 1px solid var(--line);
   color: var(--text);
   background: var(--panel);
   border-radius: 999px;
   padding: 10px 14px;
   white-space: nowrap;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.theme-toggle:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
 }
 .hero { padding: 34px 0 28px; }
 .hero-grid { display:grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr); gap: clamp(22px, 3vw, 34px); align-items:stretch; padding: clamp(24px, 3vw, 38px); border: 1px solid var(--line); border-radius: 32px; background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 92%, white 8%), var(--panel-strong)); box-shadow: var(--shadow); overflow: hidden; }
@@ -287,15 +302,23 @@ footer { padding: 36px 0 52px; }
   border: 1px solid var(--line);
   background: var(--panel-soft);
 }
+.footer-highlight-card strong,
+.footer-disclaimer strong {
+  color: var(--text);
+}
 .footer-card-title {
   color: var(--text);
   font-weight: 800;
 }
+.footer-reference-links,
+.footer-reference-links,
 .footer-license-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
+.footer-reference-link,
+.footer-reference-link,
 .footer-license-badge,
 .footer-soon-badge {
   display: inline-flex;
@@ -527,6 +550,7 @@ html[data-theme='light'] .proof-badge,
 html[data-theme='light'] .trust-chip,
 html[data-theme='light'] .footer-column,
 html[data-theme='light'] .footer-highlight-card,
+html[data-theme='light'] .footer-reference-link,
 html[data-theme='light'] .footer-license-badge,
 html[data-theme='light'] .footer-link-list a,
 html[data-theme='light'] .footer-soon-item,
