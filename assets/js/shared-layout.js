@@ -129,23 +129,56 @@ function renderProofStrip() {
 
 function renderFooter() {
   return `
-    <footer class="shell">
-      <div class="footer-panel">
-        <div class="footer-meta">
-          <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
-          <span><a href="https://github.com/gmrafi/FinEngine"><span data-brand="repoPath"></span></a> · <a href="https://gmrafi.github.io/FinEngine/">GitHub Pages</a></span>
-          <span>Designed and developed by Md Golam Mubasshir Rafi. Powered by Centre for Fintech &amp; Strategic Business Research (CFSBR).</span>
-          <span>Disclaimer: FinEngine is a deterministic algorithmic engine built for educational, computational, and integration purposes. Production ledgers and statutory regulatory filings should always be cross-audited against central bank guidelines.</span>
+    <footer class="shell site-footer-shell">
+      <div class="footer-panel site-footer-panel">
+        <div class="site-footer-grid">
+          <section class="footer-column footer-column-brand" aria-label="Brand and institution">
+            <a class="footer-brand" href="https://gmrafi.github.io/FinEngine/">FinEngine Labs</a>
+            <p class="footer-intro">Deterministic financial logic, lending calculations, and localized payment tooling for modern JavaScript teams.</p>
+            <div class="footer-highlight-card">
+              <div class="footer-card-title">Institutional Research Backing</div>
+              <p>An open-source developer initiative incubated by the <a href="https://cfsbr.gmrafi.com.bd/">Centre for Fintech &amp; Strategic Business Research (CFSBR)</a>.</p>
+            </div>
+            <div class="footer-license-row">
+              <a class="footer-license-badge" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE">MIT Licensed · Free &amp; Open Source</a>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Packages">
+            <div class="footer-heading">PACKAGES</div>
+            <div class="footer-link-list">
+              <a href="https://gmrafi.github.io/FinEngine/docs/core/"><strong>@finengine/core</strong><span>Validation &amp; Money Kernel</span></a>
+              <a href="https://gmrafi.github.io/FinEngine/docs/math/"><strong>@finengine/math</strong><span>Amortization &amp; XIRR Engine</span></a>
+              <a href="https://gmrafi.github.io/FinEngine/docs/ui/"><strong>@finengine/ui</strong><span>Fintech Micro-Components</span></a>
+              <div class="footer-soon-item"><strong>FinEngine Pro</strong><span class="footer-soon-badge">Coming Soon</span></div>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Documentation">
+            <div class="footer-heading">DOCUMENTATION</div>
+            <div class="footer-link-list">
+              <a href="https://gmrafi.github.io/FinEngine/#playground"><strong>Amortization Sandbox</strong><span>Interactive loan playground</span></a>
+              <a href="https://gmrafi.github.io/FinEngine/#bangladesh-learning"><strong>BDT Financial Rules</strong><span>Bangladesh finance learning track</span></a>
+              <a href="https://gmrafi.github.io/FinEngine/docs/examples/"><strong>Executed API Docs</strong><span>Code and function reference</span></a>
+              <a href="https://gmrafi.github.io/FinEngine/docs/release/"><strong>Offline Runtime Setup</strong><span>Local and offline guide</span></a>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Ecosystem">
+            <div class="footer-heading">ECOSYSTEM</div>
+            <div class="footer-link-list">
+              <a href="https://github.com/gmrafi/FinEngine"><strong>GitHub Repository</strong><span>Source code and contribution</span></a>
+              <a href="https://github.com/gmrafi/FinEngine/issues/new/choose"><strong>Report an Issue</strong><span>Bug and feature request</span></a>
+              <a href="https://web.cfsbr.com/"><strong>CFSBR Intelligence Hub</strong><span>Research and data background</span></a>
+              <a href="mailto:rafi@gmrafi.com.bd"><strong>Enterprise Inquiry</strong><span>Commercial and custom integration</span></a>
+            </div>
+          </section>
         </div>
-        <div class="footer-links">
-          <a href="https://gmrafi.github.io/FinEngine/docs/core/">Core docs</a>
-          <a href="https://gmrafi.github.io/FinEngine/docs/math/">Math docs</a>
-          <a href="https://gmrafi.github.io/FinEngine/docs/ui/">UI docs</a>
-          <a href="https://gmrafi.github.io/FinEngine/docs/examples/">Examples gallery</a>
-          <a href="https://gmrafi.github.io/FinEngine/docs/release/">Release checklist</a>
-          <a href="https://github.com/gmrafi/FinEngine/issues/new/choose">Open issue</a>
-          <a href="https://github.com/gmrafi/FinEngine/stargazers">Star repo</a>
-          <span>Static site build · <span data-generated-year></span></span>
+
+        <div class="footer-bottom-strip">
+          <div class="footer-bottom-left">© 2026 FinEngine Labs. Architected and maintained by Md Golam Mubasshir Rafi.</div>
+          <div class="footer-bottom-right">v0.1.0-alpha · finengine.js.org</div>
+          <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source algorithmic computation and simulation toolkit incubated by the Centre for Fintech &amp; Strategic Business Research (CFSBR). It is engineered for workflow automation, academic modeling, and software integration. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited in compliance with applicable central bank regulations and statutory accounting frameworks.</p>
         </div>
       </div>
     </footer>
