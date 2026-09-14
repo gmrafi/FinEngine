@@ -49,9 +49,9 @@
 
 import { amortize, xirr } from '@finengine/math'
 import { validateLedgerEntry } from '@finengine/core'
-import { renderStatementCard } from '@finengine/ui'</code></pre>
+import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'</code></pre>
           <div class="install-row mt-12">
-            <span class="inline-note">Install snippet is copyable, local, and ready for offline review.</span>
+            <span class="inline-note">Workspace package names match the public publish targets; install becomes live after npm release.</span>
             <button class="mini-btn" type="button" data-copy="#install-command">Copy install</button>
           </div>
         </aside>
@@ -62,7 +62,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Why FinEngine works as a public JavaScript finance brand</h2>
-          <p>This section now reads like product positioning instead of an internal naming workshop. The public site should sell trust, clarity, and technical depth—not debate possible names in the open.</p>
+          <p>FinEngine is positioned as a deterministic JavaScript finance surface: clear package boundaries, auditable examples, and browser-side tooling that can be inspected before deeper integration.</p>
         </div>
       </div>
       <div class="grid-3">
@@ -87,10 +87,10 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
 
     <section class="section shell" id="signals">
       <div class="stats-grid">
-        <article class="stat" data-reveal><strong data-counter data-target="6">0</strong><span>Name directions</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="9">0</strong><span>JavaScript modules</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Starter packages</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored libraries</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Public workspaces</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="12">0</strong><span>Browser modules</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="5">0</strong><span>Docs surfaces</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored runtimes</span></article>
       </div>
     </section>
 
@@ -98,7 +98,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Package system and library surface area</h2>
-          <p>The site now behaves like live docs for a JavaScript fintech toolkit: tabs, filters, accordions, copy helpers, and a browser-side calculator are all wired with modular JavaScript.</p>
+          <p>The live site documents the current FinEngine workspace packages and the browser modules around them, while also showing where future finance surfaces can extend from the same foundation.</p>
         </div>
       </div>
       <div class="searchline">
@@ -126,8 +126,8 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
             <div class="install-block"><code>npm install <span data-install-scope="math"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="reporting export statements finance tables audit-ready summaries">
-            <header><h3><span data-brand="npmScope"></span>/reporting</h3><code>document outputs</code></header>
-            <p>Finance-oriented summaries, statement blocks, export schemas, and traceable audit-ready tables.</p>
+            <header><h3>Reporting surfaces</h3><code>roadmap direction</code></header>
+            <p>Finance-oriented summaries, statement blocks, export schemas, and traceable audit-ready tables planned beyond the current workspace packages.</p>
             <div class="accordion">
               <button type="button" data-accordion-trigger aria-expanded="false">Output focus <span>+</span></button>
               <div class="accordion-panel" hidden>Prioritize consistency between on-screen previews and PDF or Excel export payloads, even before adding pro features.</div>
@@ -145,12 +145,12 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
             <div class="install-block"><code>npm install <span data-install-scope="ui"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="react adapter hooks fintech ui">
-            <header><h3><span data-brand="npmScope"></span>/react</h3><code>framework adapter</code></header>
-            <p>Headless hooks and framework connectors so the core logic feels native inside a React application.</p>
+            <header><h3>React adapter</h3><code>planned adapter</code></header>
+            <p>Headless hooks and framework connectors so the core logic can feel native inside a React application once the adapter package is formalized.</p>
           </article>
           <article class="package-card" data-package-card data-keywords="docs search playground demos examples javascript site">
-            <header><h3><span data-brand="npmScope"></span>/docs-site</h3><code>documentation shell</code></header>
-            <p>The website itself acts like a reusable documentation shell with counters, tabs, reveal motion, and calculator modules.</p>
+            <header><h3>Docs site shell</h3><code>supporting surface</code></header>
+            <p>The website itself acts like a reusable documentation shell with counters, tabs, reveal motion, and calculator modules around the published workspace story.</p>
           </article>
         </div>
       </div>
@@ -158,15 +158,15 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
         <h3>Payment rails and ledger adjacency</h3>
         <div class="package-grid">
           <article class="package-card" data-package-card data-keywords="qr merchant payload emvco payment utilities rails">
-            <header><h3><span data-brand="npmScope"></span>/pay</h3><code>payment utilities</code></header>
-            <p>Merchant payload helpers, QR structures, display formatting, and interoperability-ready payment utilities.</p>
+            <header><h3>Payment utilities</h3><code>roadmap direction</code></header>
+            <p>Merchant payload helpers, QR structures, display formatting, and interoperability-ready payment utilities in the broader FinEngine roadmap.</p>
           </article>
           <article class="package-card" data-package-card data-keywords="ledger entries mapping journals reconciliation">
-            <header><h3><span data-brand="npmScope"></span>/ledger</h3><code>journal helpers</code></header>
-            <p>Double-entry helpers, account mapping conventions, and reconciliation-first ledger structures.</p>
+            <header><h3>Ledger helpers</h3><code>roadmap direction</code></header>
+            <p>Double-entry helpers, account mapping conventions, and reconciliation-first ledger structures planned around the existing core validation surface.</p>
           </article>
           <article class="package-card" data-package-card data-keywords="fraud flags monitoring signals thresholds event scoring">
-            <header><h3><span data-brand="npmScope"></span>/signals</h3><code>event intelligence</code></header>
+            <header><h3>Signals layer</h3><code>roadmap direction</code></header>
             <p>Threshold checks and event-level flags that can grow into a future risk-monitoring or compliance layer.</p>
           </article>
         </div>
@@ -177,7 +177,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="section-head">
         <div>
           <h2>Real package docs and executed API examples</h2>
-          <p>These examples now match the starter packages in <code>packages/core</code> and <code>packages/math</code>. The snippets were executed locally before being documented here, and each package now has its own dedicated docs page under the live Pages site.</p>
+          <p>These examples map directly to the current workspace packages and docs pages, so engineers can compare the public API surface with the live browser demo and the repository source.</p>
         </div>
       </div>
       <div class="grid-3">
@@ -270,7 +270,7 @@ makeLearningCards()[0].badge
       <div class="section-head">
         <div>
           <h2>Examples gallery for real product surfaces</h2>
-          <p>These examples help the repo feel like a practical fintech toolkit instead of a generic demo. Each one ties calculation logic to a product-facing outcome, docs page, and implementation path.</p>
+          <p>Each example ties calculation logic to a concrete product surface, from settlement validation to repayment summaries and finance education flows.</p>
         </div>
       </div>
       <div class="grid-3">
@@ -344,7 +344,7 @@ makeLearningCards()[0].badge
       <div class="section-head">
         <div>
           <h2>Interactive JavaScript finance demo</h2>
-          <p>The playground now goes beyond a single EMI field set. It includes Bangladesh-aware presets, income-sensitive burden analysis, repayment breakdowns, and a live schedule preview generated in the browser.</p>
+          <p>The playground combines editable presets, income-sensitive burden analysis, full browser-side amortization, and export-ready schedule data in a single working finance demo.</p>
         </div>
       </div>
       <div class="calculator-panel" data-reveal>
@@ -431,13 +431,13 @@ makeLearningCards()[0].badge
       <div class="section-head">
         <div>
           <h2>Collaboration and implementation intake</h2>
-          <p>This form proves there is real front-end validation logic on the site. It does not post to a backend yet, but it behaves like a proper product surface.</p>
+          <p>Use this intake form to capture implementation needs across validation, lending math, UI modeling, and future enterprise integration paths.</p>
         </div>
       </div>
       <div class="grid-2">
         <div class="info-panel" data-reveal>
           <h3>Why this matters</h3>
-          <p>Even without a backend, the site demonstrates structured input handling, client-side validation, and UX states that make the front-end feel intentional.</p>
+          <p>The form demonstrates the interaction quality expected from a technical product surface: structured capture, clear validation, and predictable UX states before backend wiring.</p>
           <ul class="checklist">
             <li>Field-level validation</li>
             <li>Email format checks</li>
@@ -469,7 +469,7 @@ makeLearningCards()[0].badge
             <label for="contact-notes">Use case</label>
             <textarea id="contact-notes" name="contactNotes" rows="5" data-rule="min:20" placeholder="Describe the financial workflow you want to build"></textarea>
           </div>
-          <div class="hero-actions"><button class="button primary" type="submit">Validate request</button></div>
+          <div class="hero-actions"><button class="button primary" type="submit">Request enterprise sandbox</button></div>
           <div class="form-status" data-form-status aria-live="polite"></div>
         </form>
       </div>
