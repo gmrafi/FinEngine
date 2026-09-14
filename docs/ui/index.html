@@ -9,12 +9,15 @@
   <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    .doc-shell{width:min(960px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
+    .doc-shell{width:min(1080px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
     .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}
     .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
     .doc-card + .doc-card{margin-top:18px}
     .doc-card h2,.doc-card h3{margin-top:0}
+    .doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}
+    .api-list{display:grid;gap:10px;margin:0;padding-left:18px}
+    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -27,29 +30,74 @@
     <section class="doc-card">
       <div class="eyebrow">Package docs</div>
       <h1>@finengine/ui</h1>
-      <p>UI formatting helpers and small view-model builders for FinEngine. This package bridges finance calculations and usable front-end presentation, with an eye toward Bangladesh-aware learning surfaces.</p>
+      <p>UI formatting helpers and finance-first view-model builders for FinEngine. The goal is not raw components only — it is to help teams turn calculations, ledger states, and Bangladesh-aware finance education into usable front-end surfaces.</p>
     </section>
-    <section class="doc-card">
-      <h2>API</h2>
-      <h3>makeMoneyKpi(label, amount, helper?)</h3>
-      <p>Returns a KPI-card-friendly view model with a formatted BDT value.</p>
-      <h3>formatBurdenLabel(payment, income)</h3>
-      <p>Explains repayment burden in learner-friendly language.</p>
-      <h3>makeLearningBadge(topic, level)</h3>
-      <p>Generates small labels for docs blocks, cards, and teaching surfaces.</p>
+    <section class="doc-grid">
+      <section class="doc-card">
+        <h2>What it covers</h2>
+        <ul class="api-list">
+          <li>Money KPI cards for dashboards and docs</li>
+          <li>Repayment burden language that non-technical users can understand</li>
+          <li>Schedule preview rows for loan and installment tables</li>
+          <li>Bangladesh-oriented learning cards for EMI, BDT, and MFS education</li>
+        </ul>
+      </section>
+      <section class="doc-card">
+        <h2>API map</h2>
+        <ul class="api-list">
+          <li><code>makeMoneyKpi(label, amount, helper?)</code></li>
+          <li><code>formatBurdenLabel(payment, income)</code></li>
+          <li><code>makeSchedulePreview(schedule, limit?)</code></li>
+          <li><code>makeRepaymentSummary(scenario, plan, monthlyIncome?, processingFeePct?)</code></li>
+          <li><code>makeLearningBadge(topic, level)</code></li>
+          <li><code>makeLearningCards()</code></li>
+        </ul>
+      </section>
     </section>
     <section class="doc-card">
       <h2>Executed example</h2>
-<pre class="doc-code"><code>import { makeMoneyKpi, formatBurdenLabel, makeLearningBadge } from '@finengine/ui'
+<pre class="doc-code"><code>import { amortize } from '@finengine/math'
+import {
+  makeMoneyKpi,
+  makeRepaymentSummary,
+  makeLearningCards,
+} from '@finengine/ui'
 
-makeMoneyKpi('Monthly EMI', 16967.64, '36-month SME example')
-// { label: 'Monthly EMI', value: 'BDT 16,968', tone: 'positive', helper: '36-month SME example' }
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
 
-formatBurdenLabel(16967.64, 85000)
-// Healthy burden · 20% of income
+makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
+// { label: 'Monthly EMI', value: 'BDT 16,967.64', tone: 'positive', helper: 'SME working capital' }
 
-makeLearningBadge('EMI', 'intro')
-// EMI · intro</code></pre>
+makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
+// {
+//   scenario: 'SME working capital',
+//   monthlyPayment: 'BDT 16,967.64',
+//   totalInterest: 'BDT 110,835.20',
+//   totalPayable: 'BDT 618,335.20',
+//   processingFee: 'BDT 7,500.00',
+//   burdenLabel: 'Healthy burden · 20% of income',
+//   burdenTone: 'healthy'
+// }
+
+makeLearningCards()[0]
+// {
+//   title: 'BDT money basics',
+//   badge: 'Bangladesh · intro',
+//   audience: 'Students and first-time builders'
+// }</code></pre>
+    </section>
+    <section class="doc-card">
+      <h2>Best use cases</h2>
+      <div class="doc-grid">
+        <div>
+          <h3>Product UI</h3>
+          <p>Loan calculators, repayment screens, fee cards, and SME dashboards.</p>
+        </div>
+        <div>
+          <h3>Education UI</h3>
+          <p>Bangla-friendly learning surfaces for BDT, EMI, ledger balance, and cashflow literacy.</p>
+        </div>
+      </div>
     </section>
   </main>
 </body>
