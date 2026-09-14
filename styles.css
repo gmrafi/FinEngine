@@ -146,3 +146,6 @@ button, input { font: inherit; }
   .button { width: 100%; }
   .hero { padding-top: 28px; }
 }
+
+.platform strong { font-weight: 700; }
+.hero-copy p:last-of-type { font-size: 1.04rem; color: #403d39; }
