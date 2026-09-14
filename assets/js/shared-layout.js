@@ -3,6 +3,7 @@ import { SITE_BRAND } from './brand.js';
 const NAV_ITEMS = [
   { label: 'Home', path: 'index.html', key: 'home' },
   { label: 'Product', path: 'product/', key: 'product' },
+  { label: 'Simulation', path: 'simulation/', key: 'simulation' },
   { label: 'Methodology', path: 'methodology/', key: 'methodology' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
   { label: 'About', path: 'about/', key: 'about' },
@@ -79,24 +80,25 @@ function renderHeader(pageType) {
     <header class="topbar shared-topbar">
       <div class="shell topbar-inner shared-topbar-inner header-shell">
         <a class="brandline brandlink" href="${toRoot('index.html')}">
-          <span class="brandmark header-brandmark" aria-hidden="true"><img src="${logoPath}" alt="" loading="eager" decoding="async" /></span>
+          <img class="header-logo" src="${logoPath}" alt="FinEngine logo" loading="eager" decoding="async" />
           <span class="brand-copy">
-            <span class="brand-row"><span data-brand="name"></span><span class="brand-pill">Open-source JS finance</span></span>
-            <span class="brand-sub">Documentation-first primitives for lending math, validation, and browser-side demos</span>
+            <span class="brand-row"><span data-brand="name"></span></span>
+            <span class="brand-sub">Documentation-first finance primitives for packages, demos, and research-backed product surfaces</span>
           </span>
         </a>
         <nav class="navlinks navlinks-pill" aria-label="Primary navigation">${nav}</nav>
         <div class="toolbar header-actions">
-          <a class="star-cta header-primary-cta" href="${toRoot('docs/')}">
-            <span>Get started</span>
-          </a>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Light</span></button>
-          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span><span>Menu</span></button>
+          <a class="star-cta header-primary-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
+          <button class="theme-toggle theme-toggle-compact" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span></button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span></button>
         </div>
       </div>
       <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
         <div class="mobile-drawer-card">
-          <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
+          <div class="mobile-drawer-actions">
+            <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}"><span>Open docs</span></a>
+            <a class="mini-btn mobile-demo-cta" href="${toRoot('simulation/')}">Open simulation</a>
+          </div>
           <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
         </div>
       </div>
@@ -114,7 +116,7 @@ function renderProofStrip(pageType) {
 
   const chips = [
     { label: 'Live product', href: toRoot('product/') },
-    { label: 'Methodology', href: toRoot('methodology/') },
+    { label: 'Simulation lab', href: toRoot('simulation/') },
     { label: 'Package docs', href: toRoot('docs/') },
     { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
   ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
@@ -141,11 +143,11 @@ function renderFooter() {
       <div class="footer-panel site-footer-panel">
         <div class="site-footer-grid">
           <section class="footer-column footer-column-brand" aria-label="Brand and institution">
-            <a class="footer-brand footer-brandline" href="${root}index.html"><span class="footer-brandmark"><img src="${root}logo-mark.png" alt="" loading="lazy" decoding="async" /></span><span>FinEngine Labs</span></a>
+            <a class="footer-brand footer-brandline" href="${root}index.html"><img class="footer-logo" src="${root}logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" /><span>FinEngine</span></a>
             <p class="footer-intro">A multi-page JavaScript finance surface for deterministic calculations, explainable demos, and enterprise-facing documentation.</p>
-            <div class="footer-highlight-card">
-              <div class="footer-card-title">Institutional Research Backing</div>
-              <p>An open-source developer initiative incubated by the <a href="https://web.cfsbr.com/"><strong>Centre for Fintech &amp; Strategic Business Research (CFSBR)</strong></a>.</p>
+            <div class="footer-highlight-card footer-powered-card">
+              <div class="footer-card-title footer-card-title-gold">Powered by</div>
+              <p><a href="https://web.cfsbr.com/"><strong>Centre for FinTech &amp; Strategic Business Research (CFSBR)</strong></a></p>
             </div>
             <div class="footer-license-row">
               <a class="footer-license-badge" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE">MIT Licensed · Free &amp; Open Source</a>
@@ -155,8 +157,8 @@ function renderFooter() {
           <section class="footer-column" aria-label="Explore">
             <div class="footer-heading">EXPLORE</div>
             <div class="footer-link-list">
-              <a href="${root}product/"><strong>Product Surface</strong><span>Packages, demo, and example outputs</span></a>
-              <a href="${root}methodology/"><strong>Methodology</strong><span>Positioning, localization, and roadmap logic</span></a>
+              <a href="${root}product/"><strong>Product Surface</strong><span>Packages, product framing, and example outputs</span></a>
+              <a href="${root}simulation/"><strong>Simulation Lab</strong><span>Dedicated amortization and repayment playground</span></a>
               <a href="${root}docs/"><strong>Documentation Hub</strong><span>Package docs, examples, and release notes</span></a>
             </div>
           </section>
@@ -175,13 +177,13 @@ function renderFooter() {
             <div class="footer-link-list">
               <a href="${root}contact/"><strong>Contact</strong><span>Collaboration and implementation pathways</span></a>
               <a href="https://github.com/gmrafi/FinEngine/issues/new/choose"><strong>Report an Issue</strong><span>Structured bug and feature intake</span></a>
-              <a href="https://www.gmrafi.com.bd/"><strong>Founder Profile</strong><span>Md Golam Mubasshir Rafi</span></a>
+              <a href="https://www.gmrafi.com.bd/"><strong>Founder Profile</strong><span><strong>Md Golam Mubasshir Rafi</strong></span></a>
             </div>
           </section>
         </div>
 
         <div class="footer-bottom-strip">
-          <div class="footer-bottom-left">© 2026 FinEngine Labs. Architected and maintained by Md Golam Mubasshir Rafi.</div>
+          <div class="footer-bottom-left">© 2026 FinEngine · Built by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">CFSBR</span></div>
           <div class="footer-bottom-right">v0.3.0 · Multi-page GitHub Pages</div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>

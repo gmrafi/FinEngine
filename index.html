@@ -38,13 +38,25 @@
             <a class="button secondary" href="docs/">Open docs</a>
           </div>
         </div>
-        <aside class="panel hero-brief" data-reveal>
+        <aside class="panel hero-brief hero-quickstart-wrap" data-reveal>
           <div class="eyebrow">Platform brief</div>
           <h2>Built for teams that need finance logic to be explainable, testable, and presentable.</h2>
-          <div class="hero-proof-grid">
+          <div class="hero-proof-grid hero-proof-grid-compact">
             <article class="hero-proof-card"><strong>Deterministic math</strong><span>Amortization, XIRR, burden analysis, and audit-safe examples.</span></article>
-            <article class="hero-proof-card"><strong>Localized framing</strong><span>Bangladesh-aware teaching and product scenarios without losing developer clarity.</span></article>
-            <article class="hero-proof-card"><strong>Inspectable output</strong><span>Docs, examples, and repository evidence stay one click away.</span></article>
+            <article class="hero-proof-card"><strong>Inspectable docs</strong><span>Source documentation, examples, and release surfaces stay one click away.</span></article>
+          </div>
+          <div class="hero-install-card">
+            <div class="install-shell-head hero-install-head">
+              <div>
+                <div class="eyebrow eyebrow-blue">Quick install</div>
+                <strong class="hero-install-title">Use the packages before you even open the full docs.</strong>
+              </div>
+              <a class="mini-btn hero-inline-docs" href="docs/">Source docs</a>
+            </div>
+            <pre><code>npm install @finengine/core @finengine/math @finengine/ui
+
+import { amortize } from '@finengine/math'
+import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
           </div>
         </aside>
       </div>
@@ -82,37 +94,29 @@
           <p>This structure reduces the “single-page busy” feeling and makes the website more enterprise-readable.</p>
         </div>
       </div>
-      <div class="grid-2 page-map-grid">
+      <div class="grid-3 page-map-grid">
         <a class="info-panel link-panel" data-reveal href="product/"><h3>Product</h3><p>Packages, examples, and the interactive JavaScript finance demo.</p></a>
         <a class="info-panel link-panel" data-reveal href="docs/"><h3>Docs</h3><p>Package docs, examples gallery, and release checklist.</p></a>
+        <a class="info-panel link-panel" data-reveal href="simulation/"><h3>Simulation</h3><p>Dedicated browser-side amortization and repayment playground.</p></a>
         <a class="info-panel link-panel" data-reveal href="methodology/"><h3>Methodology</h3><p>Positioning, localization rationale, and roadmap logic.</p></a>
         <a class="info-panel link-panel" data-reveal href="contact/"><h3>Contact</h3><p>Implementation discussions, issue intake, and collaboration pathways.</p></a>
       </div>
     </section>
 
     <section class="section shell">
-      <div class="get-started-band" data-reveal>
-        <div class="get-started-copy">
-          <div class="eyebrow">Getting started</div>
-          <h2>Install the packages and ship with real finance primitives.</h2>
-          <p>The homepage now brings back a direct install path so reviewers can see how FinEngine moves from documentation to working code.</p>
-          <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="docs/">Read the docs</a>
-            <a class="button secondary" href="product/">Explore product</a>
+      <div class="get-started-band docs-band" data-reveal>
+        <div class="brand-showcase-card">
+          <img class="brand-showcase-logo" src="logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" />
+          <div>
+            <div class="eyebrow eyebrow-blue">Brand system</div>
+            <h2>Original logo, cleaner surfaces, and clearer documentation flow.</h2>
+            <p>The larger FinEngine mark is now used as a standalone brand asset so the site does not rely only on tiny header icons.</p>
           </div>
         </div>
-        <div class="code-shell install-showcase">
-          <div class="install-shell-head">
-            <div class="code-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-            <div class="install-shell-meta"><strong>npm</strong><span>Starter install + example usage</span></div>
-          </div>
-          <pre><code>npm install @finengine/core @finengine/math @finengine/ui
-
-import { amortize } from '@finengine/math'
-import { makeRepaymentSummary } from '@finengine/ui'
-
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)</code></pre>
+        <div class="docs-showcase-grid">
+          <a class="info-panel link-panel docs-showcase-card" href="docs/core/"><div class="eyebrow eyebrow-blue">Core docs</div><h3>Validation and money primitives</h3><p>Review the foundation for ledger-safe finance logic.</p></a>
+          <a class="info-panel link-panel docs-showcase-card" href="docs/math/"><div class="eyebrow eyebrow-blue">Math docs</div><h3>Repayment, amortization, and return engines</h3><p>See the formulas and examples behind the calculations.</p></a>
+          <a class="info-panel link-panel docs-showcase-card" href="simulation/"><div class="eyebrow eyebrow-blue">Simulation</div><h3>Open the dedicated demo page</h3><p>Keep experimentation separate from the product overview.</p></a>
         </div>
       </div>
     </section>
