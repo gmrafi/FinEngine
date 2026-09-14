@@ -1036,7 +1036,7 @@ function renderHeader(pageType, homePrefix) {
             <span>Star on GitHub</span>
             <img src="https://img.shields.io/github/stars/gmrafi/FinEngine?style=social" alt="GitHub stars for gmrafi/FinEngine" />
           </a>
-          <button class="theme-toggle" type="button" data-theme-toggle>Switch theme</button>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Light mode active"><span aria-hidden="true">☀</span><span>Light mode</span></button>
           <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu">Menu</button>
         </div>
       </div>
@@ -1245,7 +1245,10 @@ function initThemeToggle() {
 function updateLabel(button, theme) {
   if (!button) return;
   button.setAttribute('aria-pressed', String(theme === 'dark'));
-  button.textContent = theme === 'dark' ? 'Switch to light' : 'Switch to dark';
+  button.setAttribute('aria-label', theme === 'light' ? 'Light mode active' : 'Dark mode active');
+  button.innerHTML = theme === 'light'
+    ? '<span aria-hidden="true">☀</span><span>Light mode</span>'
+    : '<span aria-hidden="true">☾</span><span>Dark mode</span>';
 }
 
 let chart;
