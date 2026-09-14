@@ -1585,7 +1585,7 @@ html[data-theme='light'] .footer-license-badge {
 
 /* Round 5: hero simulation, inline tablet header, multi-simulator page */
 :root {
-  --sponsor-blue: #0b2545;
+  --sponsor-blue: #005f83;
 }
 
 .header-shell-expanded {
