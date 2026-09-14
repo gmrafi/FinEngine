@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { label: 'Simulation', path: 'simulation/', key: 'simulation' },
   { label: 'Methodology', path: 'methodology/', key: 'methodology' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
+  { label: 'Brand', path: 'brand/', key: 'brand' },
   { label: 'About', path: 'about/', key: 'about' },
   { label: 'Contact', path: 'contact/', key: 'contact' },
 ];
@@ -107,7 +108,7 @@ function renderHeader(pageType) {
 }
 
 function renderProofStrip(pageType) {
-  if (!['home', 'product', 'docs'].includes(pageType)) return '';
+  if (!['home', 'product', 'docs', 'brand'].includes(pageType)) return '';
   const badges = PROOF_BADGES.map((badge) => `
     <a class="proof-badge" href="${badge.href}" target="_blank" rel="noreferrer">
       <img src="${badge.image}" alt="${badge.alt}" />
@@ -118,6 +119,7 @@ function renderProofStrip(pageType) {
     { label: 'Live product', href: toRoot('product/') },
     { label: 'Simulation lab', href: toRoot('simulation/') },
     { label: 'Package docs', href: toRoot('docs/') },
+    { label: 'Brand assets', href: toRoot('brand/') },
     { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
   ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
 
@@ -160,6 +162,7 @@ function renderFooter() {
               <a href="${root}product/"><strong>Product Surface</strong><span>Packages, product framing, and example outputs</span></a>
               <a href="${root}simulation/"><strong>Simulation Lab</strong><span>Dedicated amortization and repayment playground</span></a>
               <a href="${root}docs/"><strong>Documentation Hub</strong><span>Package docs, examples, and release notes</span></a>
+              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
             </div>
           </section>
 

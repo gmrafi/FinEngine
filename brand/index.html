@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brand Assets · FinEngine</title>
+  <meta name="description" content="FinEngine brand assets, color palette, logo usage guidance, and download-ready files." />
+  <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark' ? forcedTheme : (savedTheme || 'light');
+      document.documentElement.dataset.theme = theme;
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../brand-assets/finengine-favicon-32.png" />
+  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-page="brand" data-root-path="../">
+  <div data-site-header></div>
+  <main>
+    <section class="hero shell page-hero brand-hero">
+      <div class="hero-grid hero-grid-lite brand-hero-grid">
+        <div class="hero-copy" data-reveal>
+          <div class="kicker">Brand assets</div>
+          <h1>Use one clean FinEngine brand system across docs, demos, GitHub, and product surfaces.</h1>
+          <p>This page keeps the real downloadable marks, color references, spacing rules, and safe usage examples in one place so the site stays professional and consistent.</p>
+          <div class="hero-actions hero-actions-tight">
+            <a class="button primary" href="#downloads">Download assets</a>
+            <a class="button secondary" href="#guidelines">Usage guidance</a>
+          </div>
+        </div>
+        <aside class="panel hero-brief brand-proof-card" data-reveal>
+          <div class="eyebrow eyebrow-blue">Brand rule</div>
+          <h2>Use self-made FinEngine marks only.</h2>
+          <p>Do not mix in third-party product logos unless there is a real integration page and the trademark attribution is valid. The canonical mark on this site remains the FinEngine symbol you already approved.</p>
+          <div class="hero-proof-grid hero-proof-grid-compact">
+            <article class="hero-proof-card"><strong>Primary mark</strong><span>Two-tone FE symbol for site chrome and social cards.</span></article>
+            <article class="hero-proof-card"><strong>Wordmark</strong><span>Horizontal lockup for banners, decks, and documentation headers.</span></article>
+            <article class="hero-proof-card"><strong>Mono variants</strong><span>For single-ink print, embossing, and constrained dark/light use.</span></article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div data-social-proof></div>
+
+    <section class="section shell" id="guidelines">
+      <div class="section-head">
+        <div>
+          <h2>Usage guidance</h2>
+          <p>These rules keep the mark readable, premium, and consistent across the website and documentation.</p>
+        </div>
+      </div>
+      <div class="grid-3 brand-guideline-grid">
+        <article class="info-panel brand-guideline-card">
+          <div class="eyebrow eyebrow-blue">Clear space</div>
+          <h3>Keep one mark-width of breathing room.</h3>
+          <p>At minimum, leave padding equal to the width of the left "F" stem around the logo. Do not squeeze the mark into tight headers or buttons.</p>
+        </article>
+        <article class="info-panel brand-guideline-card">
+          <div class="eyebrow eyebrow-blue">Minimum size</div>
+          <h3>Use the icon at 24 px or larger.</h3>
+          <p>For headers, 40–52 px works best. For favicons and app icons, use the dedicated exported PNG files instead of scaling screenshots.</p>
+        </article>
+        <article class="info-panel brand-guideline-card">
+          <div class="eyebrow eyebrow-blue">Contrast</div>
+          <h3>Match variant to background.</h3>
+          <p>Use dark or original versions on light surfaces, light or mono-light versions on dark surfaces, and avoid placing the logo over noisy gradients.</p>
+        </article>
+      </div>
+      <div class="grid-2 brand-dos-grid">
+        <article class="info-panel brand-do-card">
+          <div class="eyebrow eyebrow-blue">Do</div>
+          <ul class="checklist compact-list">
+            <li>Use the original mark in the header and footer.</li>
+            <li>Use the wordmark for banners, presentations, and profile covers.</li>
+            <li>Use mono variants for single-color print or legal paperwork.</li>
+          </ul>
+        </article>
+        <article class="info-panel brand-dont-card">
+          <div class="eyebrow">Don't</div>
+          <ul class="checklist compact-list">
+            <li>Do not recolor the canonical mark with random greens or reds.</li>
+            <li>Do not stretch, rotate, crop, or outline the logo.</li>
+            <li>Do not place third-party logos beside it unless the page is truly about an integration.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="palette">
+      <div class="section-head">
+        <div>
+          <h2>Palette and typography</h2>
+          <p>The asset set follows the same token family already used across the live site.</p>
+        </div>
+      </div>
+      <div class="grid-2 brand-foundations-grid">
+        <article class="panel brand-palette-panel">
+          <div class="eyebrow eyebrow-blue">Core colors</div>
+          <div class="brand-swatch-grid">
+            <div class="brand-swatch-card"><span class="brand-swatch" style="background:#09090B"></span><strong>Obsidian</strong><code>#09090B</code></div>
+            <div class="brand-swatch-card"><span class="brand-swatch" style="background:#2563EB"></span><strong>FinEngine Blue</strong><code>#2563EB</code></div>
+            <div class="brand-swatch-card"><span class="brand-swatch" style="background:#3B82F6"></span><strong>Accent Blue</strong><code>#3B82F6</code></div>
+            <div class="brand-swatch-card"><span class="brand-swatch" style="background:#FAFAFA;border:1px solid rgba(24,24,27,.12)"></span><strong>Soft White</strong><code>#FAFAFA</code></div>
+            <div class="brand-swatch-card"><span class="brand-swatch" style="background:#F59E0B"></span><strong>Institutional Gold</strong><code>#F59E0B</code></div>
+          </div>
+        </article>
+        <article class="panel brand-type-panel">
+          <div class="eyebrow eyebrow-blue">Typography</div>
+          <div class="brand-type-card">
+            <h3>Inter / system UI</h3>
+            <p>Use Inter, then platform system sans fallbacks, for headers, navigation, and body copy.</p>
+            <pre><code>font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="downloads">
+      <div class="section-head">
+        <div>
+          <h2>Download-ready asset kit</h2>
+          <p>Every link below points to a committed file in this repository preview so design, docs, and deployment surfaces can reuse the same source of truth.</p>
+        </div>
+      </div>
+      <div class="brand-assets-grid">
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-canonical-mark.png" alt="FinEngine canonical mark" class="brand-asset-preview" /><h3>Canonical mark PNG</h3><p>Primary two-tone icon for site chrome and social usage.</p><p><a class="mini-btn" href="../brand-assets/finengine-canonical-mark.png" download>Download PNG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-canonical-mark.svg" alt="FinEngine canonical mark SVG" class="brand-asset-preview" /><h3>Canonical mark SVG</h3><p>Vector version for crisp scaling in docs and print surfaces.</p><p><a class="mini-btn" href="../brand-assets/finengine-canonical-mark.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-icon-dark.svg" alt="FinEngine icon dark" class="brand-asset-preview" /><h3>Icon · dark</h3><p>Best for light canvases where a dark frame is needed.</p><p><a class="mini-btn" href="../brand-assets/finengine-icon-dark.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-icon-light.svg" alt="FinEngine icon light" class="brand-asset-preview" /><h3>Icon · light</h3><p>Best for dark backgrounds and hero overlays.</p><p><a class="mini-btn" href="../brand-assets/finengine-icon-light.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-icon-mono-dark.svg" alt="FinEngine icon mono dark" class="brand-asset-preview" /><h3>Icon · mono dark</h3><p>Single-color white mark for dense dark surfaces.</p><p><a class="mini-btn" href="../brand-assets/finengine-icon-mono-dark.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-icon-mono-light.svg" alt="FinEngine icon mono light" class="brand-asset-preview" /><h3>Icon · mono light</h3><p>Single-color dark mark for bright minimal layouts.</p><p><a class="mini-btn" href="../brand-assets/finengine-icon-mono-light.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-wordmark-dark.svg" alt="FinEngine wordmark dark" class="brand-asset-preview brand-asset-preview-wide" /><h3>Wordmark · dark</h3><p>Horizontal lockup for dark banners, decks, and README headers.</p><p><a class="mini-btn" href="../brand-assets/finengine-wordmark-dark.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-wordmark-light.svg" alt="FinEngine wordmark light" class="brand-asset-preview brand-asset-preview-wide" /><h3>Wordmark · light</h3><p>Horizontal lockup for bright documents and press assets.</p><p><a class="mini-btn" href="../brand-assets/finengine-wordmark-light.svg" download>Download SVG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-favicon-32.png" alt="FinEngine favicon 32" class="brand-asset-preview brand-asset-preview-small" /><h3>Favicon 32</h3><p>For browser tabs and compact web app surfaces.</p><p><a class="mini-btn" href="../brand-assets/finengine-favicon-32.png" download>Download PNG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-icon-192.png" alt="FinEngine app icon 192" class="brand-asset-preview brand-asset-preview-small" /><h3>App icon 192</h3><p>For PWA manifests and launcher icons.</p><p><a class="mini-btn" href="../brand-assets/finengine-icon-192.png" download>Download PNG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-banner-light.png" alt="FinEngine banner light" class="brand-asset-preview brand-asset-preview-banner" /><h3>Banner · light</h3><p>README and repository header banner on light contexts.</p><p><a class="mini-btn" href="../brand-assets/finengine-banner-light.png" download>Download PNG</a></p></article>
+        <article class="package-card brand-asset-card"><img src="../brand-assets/finengine-banner-dark.png" alt="FinEngine banner dark" class="brand-asset-preview brand-asset-preview-banner" /><h3>Banner · dark</h3><p>Dark presentation cover and social header variant.</p><p><a class="mini-btn" href="../brand-assets/finengine-banner-dark.png" download>Download PNG</a></p></article>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="../assets/js/doc-page.js"></script>
+</body>
+</html>
