@@ -251,3 +251,6 @@ code, pre {
   .footer-meta { text-align: left; }
   .button { width: 100%; }
 }
+
+.text-block { max-width: 68ch; margin-top: 18px; color: #c9d5e2; }
+.text-block h3 { margin: 0 0 10px; font-size: 1.1rem; color: var(--white); }
