@@ -547,17 +547,24 @@ xirr([
           <h3>@finengine/ui</h3>
           <p><a class="mini-btn" href="docs/ui/index.html">Open package docs</a></p>
           <p>UI-facing helpers that turn finance numbers into readable cards, burden labels, and learning-oriented presentation blocks.</p>
-<pre class="doc-code"><code>import { makeMoneyKpi, formatBurdenLabel } from '@finengine/ui'
+<pre class="doc-code"><code>import { amortize } from '@finengine/math'
+import { makeMoneyKpi, makeRepaymentSummary, makeLearningCards } from '@finengine/ui'
 
-makeMoneyKpi('Monthly EMI', 16967.64, '36-month SME example')
-// { label: 'Monthly EMI', value: 'BDT 16,968', tone: 'positive', helper: '36-month SME example' }
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
 
-formatBurdenLabel(16967.64, 85000)
-// Healthy burden · 20% of income</code></pre>
+makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
+// { label: 'Monthly EMI', value: 'BDT 16,967.64', tone: 'positive', helper: 'SME working capital' }
+
+makeRepaymentSummary('SME working capital', plan, 85000, 1.5).burdenLabel
+// Healthy burden · 20% of income
+
+makeLearningCards()[0].badge
+// Bangladesh · intro</code></pre>
           <ul class="checklist">
             <li><code>makeMoneyKpi(label, amount, helper?)</code></li>
-            <li><code>formatBurdenLabel(payment, income)</code></li>
-            <li><code>makeLearningBadge(topic, level)</code></li>
+            <li><code>makeRepaymentSummary(scenario, plan, income?, feePct?)</code></li>
+            <li><code>makeSchedulePreview(schedule, limit?)</code></li>
+            <li><code>makeLearningCards()</code></li>
           </ul>
         </article>
       </div>
