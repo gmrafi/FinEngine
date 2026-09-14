@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Release checklist · FinEngine Docs</title>
+  <meta name="description" content="FinEngine release and npm publish checklist" />
+  <link rel="icon" type="image/svg+xml" href="../../logo-mark.svg" />
+  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    .doc-shell{width:min(980px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
+    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
+    .doc-card + .doc-card{margin-top:18px}
+    .doc-checklist{display:grid;gap:12px;padding-left:20px}
+  </style>
+</head>
+<body>
+  <main class="doc-shell">
+    <section class="doc-card">
+      <div class="eyebrow">Release ops</div>
+      <h1>FinEngine publish checklist</h1>
+      <p>Use this before publishing <code>@finengine/core</code>, <code>@finengine/math</code>, and <code>@finengine/ui</code>.</p>
+    </section>
+    <section class="doc-card">
+      <ol class="doc-checklist">
+        <li>Run <code>npm run verify:packages</code> locally.</li>
+        <li>Check package versions, exports, README, LICENSE, and <code>dist/</code> output for all three packages.</li>
+        <li>Confirm live docs pages and homepage examples match the current APIs.</li>
+        <li>Publish in order: <code>@finengine/core</code> → <code>@finengine/math</code> → <code>@finengine/ui</code>.</li>
+        <li>Tag the release in GitHub and update release notes with Bangladesh finance education additions if changed.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

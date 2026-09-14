@@ -9,6 +9,7 @@ A developer-first fintech website and package-system concept for JavaScript, ext
 - Core docs page: https://gmrafi.github.io/FinEngine/docs/core/
 - Math docs page: https://gmrafi.github.io/FinEngine/docs/math/
 - UI docs page: https://gmrafi.github.io/FinEngine/docs/ui/
+- Release checklist: https://gmrafi.github.io/FinEngine/docs/release/
 
 ## Active brand
 - Public brand: **FinEngine**
@@ -52,3 +53,8 @@ Each package includes:
 ## Deployment
 - GitHub Pages-ready static site
 - Uses relative asset paths so everything works correctly under `/FinEngine/`
+
+## Release workflow
+- GitHub Actions verify workflow: `.github/workflows/verify.yml`
+- Release checklist page: https://gmrafi.github.io/FinEngine/docs/release/
+- Recommended publish order: `@finengine/core` → `@finengine/math` → `@finengine/ui`
