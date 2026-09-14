@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Methodology · FinEngine</title>
+  <meta name="description" content="Positioning, localization, and roadmap logic behind FinEngine." />
+  <meta name="theme-color" content="#0B0F19" />
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const forcedTheme = params.get('theme');
+      const savedTheme = localStorage.getItem('site-theme-preference');
+      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
+        ? forcedTheme
+        : (savedTheme || 'light');
+      document.documentElement.dataset.theme = theme;
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../logo-mark.png" />
+  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-page="methodology" data-root-path="../">
+  <div data-site-header></div>
+
+  <main class="doc-shell page-shell">
+    <section class="doc-card page-hero-card">
+      <div class="eyebrow">Methodology</div>
+      <h1>Why the site now reads more like a product platform than a single-page pitch.</h1>
+      <p>FinEngine’s methodology page separates product theory, localization logic, and roadmap rationale from the main product surface so reviewers can judge the system with less visual noise.</p>
+    </section>
+    <section class="doc-card">
+      <h2>Positioning logic</h2>
+      <div class="grid-3 compact-grid">
+        <article class="info-panel"><h3>Broad enough to scale</h3><p>FinEngine can credibly hold packages, calculators, workflow tooling, analytics, and future finance operations modules.</p></article>
+        <article class="info-panel"><h3>Developer credibility</h3><p>The name fits a library-first ecosystem where modules, examples, typed utilities, and browser demos matter more than slogans.</p></article>
+        <article class="info-panel"><h3>Enterprise readability</h3><p>Decision-makers can identify the product class quickly: an engine for financial logic, controls, and operational consistency.</p></article>
+      </div>
+    </section>
+    <section class="doc-card">
+      <h2>Emerging-market roadmap modules</h2>
+      <div class="grid-2 compact-grid">
+        <article class="info-panel"><h3>@finengine/risk</h3><p>Credit risk and financial health analytics for lending, banking, and teaching surfaces.</p></article>
+        <article class="info-panel"><h3>@finengine/ratios</h3><p>Financial ratio stacks and DuPont decomposition for statement analysis and classroom demos.</p></article>
+        <article class="info-panel"><h3>@finengine/microfinance</h3><p>Microcredit transparency logic for flat-rate vs declining-balance interpretation.</p></article>
+        <article class="info-panel"><h3>Local-first assurance</h3><p>All demo calculations run in-browser, which matters for teachers, researchers, and finance teams handling sensitive examples.</p></article>
+      </div>
+    </section>
+    <section class="doc-card">
+      <h2>Bangladesh learning pathway</h2>
+      <div class="timeline learning-grid">
+        <article class="timeline-step"><h3>01 · BDT money basics</h3><p>রাউন্ডিং, currency formatting, cash in/out, personal budgeting.</p></article>
+        <article class="timeline-step"><h3>02 · EMI &amp; loan logic</h3><p>সুদ, installment, amortization, repayment burden analysis.</p></article>
+        <article class="timeline-step"><h3>03 · MFS &amp; merchant flow</h3><p>Wallet settlement, ledger balance, fee reasoning, account mapping.</p></article>
+        <article class="timeline-step"><h3>04 · SME cash flow</h3><p>Sales, expense buckets, payable/receivable discipline, runway thinking.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script type="module" src="../assets/js/doc-page.js"></script>
+</body>
+</html>
