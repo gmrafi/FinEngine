@@ -272,7 +272,9 @@ footer { padding: 36px 0 52px; }
 }
 @media (max-width: 760px) {
   .navlinks { display:none; }
-  .topbar-inner, .footer-meta, .section-head { flex-direction: column; align-items:flex-start; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .star-cta { width: auto; }
+  .topbar-inner, .footer-meta, .section-head, .header-actions { flex-direction: column; align-items:flex-start; }
   .button { width: 100%; }
   .hero { padding-top: 34px; }
 }
@@ -304,31 +306,110 @@ html[data-theme='light'] .searchline input, html[data-theme='light'] .field inpu
 html[data-theme='light'] .schedule-table thead { background: rgba(37,99,235,0.06); }
 html[data-theme='light'] .theme-toggle { background: #ffffff; border-color: var(--line-strong); }
 html[data-theme='light'] .code-shell, html[data-theme='light'] .panel, html[data-theme='light'] .stat, html[data-theme='light'] .package-card, html[data-theme='light'] .package-panel, html[data-theme='light'] .calculator-panel, html[data-theme='light'] .info-panel, html[data-theme='light'] .footer-panel, html[data-theme='light'] .timeline-step { border-color: var(--line-strong); }
+
+.brandlink { color: inherit; }
+.header-actions { flex-wrap: wrap; justify-content: flex-end; }
+.star-cta, .proof-badge, .trust-chip, .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.star-cta {
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.star-cta img, .proof-badge img { display: block; max-height: 20px; }
+.menu-toggle {
+  display: none;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 700;
+}
+.mobile-drawer {
+  padding-bottom: 14px;
+}
+.mobile-nav {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 92%, white 8%), var(--panel-strong));
+  box-shadow: var(--shadow);
+}
+.mobile-nav a {
+  color: var(--text);
+  font-weight: 700;
+}
+.proof-strip {
+  padding: 16px 0 6px;
+}
+.proof-panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 92%, white 8%), var(--panel-strong));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+.proof-title { margin: 4px 0 8px; font-size: clamp(1.2rem, 2vw, 1.7rem); letter-spacing: -0.02em; }
+.proof-copy { margin: 0; color: var(--muted); max-width: 70ch; }
+.proof-badges, .trust-row, .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+}
+.proof-badge {
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+}
+.trust-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--tag-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.footer-links {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.footer-links a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+  color: var(--text);
+}
+html[data-theme='light'] .star-cta,
+html[data-theme='light'] .menu-toggle,
+html[data-theme='light'] .proof-badge,
+html[data-theme='light'] .footer-links a,
+html[data-theme='light'] .trust-chip { border-color: var(--line-strong); }
+@media (max-width: 900px) {
+  .star-cta span { display: none; }
+}
 </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <div class="brandline">
-        <div class="brandmark" data-brand="mark">FE</div>
-        <div>
-          <span data-brand="name"></span>
-          <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
-        </div>
-      </div>
-      <nav class="navlinks">
-        <a data-nav-link href="#positioning">Positioning</a>
-        <a data-nav-link href="#packages">Packages</a>
-        <a data-nav-link href="#docs-api">Docs</a>
-        <a data-nav-link href="#playground">Playground</a>
-        <a data-nav-link href="#bangladesh-learning">বাংলাদেশ</a>
-        <a data-nav-link href="#collab">Collaborate</a>
-      </nav>
-      <div class="toolbar">
-        <button class="theme-toggle" type="button" data-theme-toggle>Switch theme</button>
-      </div>
-    </div>
-  </header>
+<body id="top" data-page="home">
+    <div data-site-header></div>
+  <div data-social-proof></div>
 
   <main>
     <section class="hero shell" id="hero">
@@ -393,7 +474,7 @@ import { renderStatementCard } from '@finengine/ui'</code></pre>
       <div class="stats-grid">
         <article class="stat" data-reveal><strong data-counter data-target="6">0</strong><span>Name directions</span></article>
         <article class="stat" data-reveal><strong data-counter data-target="9">0</strong><span>JavaScript modules</span></article>
-        <article class="stat" data-reveal><strong data-counter data-target="2">0</strong><span>Starter packages</span></article>
+        <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Starter packages</span></article>
         <article class="stat" data-reveal><strong data-counter data-target="3">0</strong><span>Vendored libraries</span></article>
       </div>
     </section>
@@ -736,15 +817,8 @@ makeLearningCards()[0].badge
     </section>
   </main>
 
-  <footer class="shell">
-    <div class="footer-panel">
-      <div class="footer-meta">
-        <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
-        <span><span data-brand="repoPath"></span> · <span data-brand="domain"></span></span>
-        <span>Designed and developed by Md Golam Mubasshir Rafi. Powered by Centre for Fintech &amp; Strategic Business Research (CFSBR).</span>
-      </div>
-    </div>
-  </footer>
+    <div data-site-footer></div>
+
 
   <script>!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t="undefined"!=typeof globalThis?globalThis:t||self).dayjs=e()}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",c="month",f="quarter",h="year",d="date",l="Invalid Date",$=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},v={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,c),s=n-i<0,u=e.clone().add(r+(s?-1:1),c);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:c,y:h,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:f}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},g="en",D={};D[g]=M;var p="$isDayjsObject",S=function(t){return t instanceof _||!(!t||!t[p])},w=function t(e,n,r){var i;if(!e)return g;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(g=i),i||!r&&g},O=function(t,e){if(S(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},b=v;b.l=w,b.i=S,b.w=function(t,e){return O(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=w(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[p]=!0}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(b.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match($);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return b},m.isValid=function(){return!(this.$d.toString()===l)},m.isSame=function(t,e){var n=O(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return O(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<O(t)},m.$g=function(t,e,n){return b.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!b.u(e)||e,f=b.p(t),l=function(t,e){var i=b.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},$=function(t,e){return b.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,v="set"+(this.$u?"UTC":"");switch(f){case h:return r?l(1,0):l(31,11);case c:return r?l(1,M):l(0,M+1);case o:var g=this.$locale().weekStart||0,D=(y<g?y+7:y)-g;return l(r?m-D:m+(6-D),M);case a:case d:return $(v+"Hours",0);case u:return $(v+"Minutes",1);case s:return $(v+"Seconds",2);case i:return $(v+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=b.p(t),f="set"+(this.$u?"UTC":""),l=(n={},n[a]=f+"Date",n[d]=f+"Date",n[c]=f+"Month",n[h]=f+"FullYear",n[u]=f+"Hours",n[s]=f+"Minutes",n[i]=f+"Seconds",n[r]=f+"Milliseconds",n)[o],$=o===a?this.$D+(e-this.$W):e;if(o===c||o===h){var y=this.clone().set(d,1);y.$d[l]($),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else l&&this.$d[l]($);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[b.p(t)]()},m.add=function(r,f){var d,l=this;r=Number(r);var $=b.p(f),y=function(t){var e=O(l);return b.w(e.date(e.date()+Math.round(t*r)),l)};if($===c)return this.set(c,this.$M+r);if($===h)return this.set(h,this.$y+r);if($===a)return y(1);if($===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[$]||1,m=this.$d.getTime()+r*M;return b.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||l;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=b.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,c=n.months,f=n.meridiem,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},d=function(t){return b.s(s%12||12,t,"0")},$=f||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r};return r.replace(y,(function(t,r){return r||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return b.s(e.$y,4,"0");case"M":return a+1;case"MM":return b.s(a+1,2,"0");case"MMM":return h(n.monthsShort,a,c,3);case"MMMM":return h(c,a);case"D":return e.$D;case"DD":return b.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return h(n.weekdaysMin,e.$W,o,2);case"ddd":return h(n.weekdaysShort,e.$W,o,3);case"dddd":return o[e.$W];case"H":return String(s);case"HH":return b.s(s,2,"0");case"h":return d(1);case"hh":return d(2);case"a":return $(s,u,!0);case"A":return $(s,u,!1);case"m":return String(u);case"mm":return b.s(u,2,"0");case"s":return String(e.$s);case"ss":return b.s(e.$s,2,"0");case"SSS":return b.s(e.$ms,3,"0");case"Z":return i}return null}(t)||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,l){var $,y=this,M=b.p(d),m=O(r),v=(m.utcOffset()-this.utcOffset())*e,g=this-m,D=function(){return b.m(y,m)};switch(M){case h:$=D()/12;break;case c:$=D();break;case f:$=D()/3;break;case o:$=(g-v)/6048e5;break;case a:$=(g-v)/864e5;break;case u:$=g/n;break;case s:$=g/e;break;case i:$=g/t;break;default:$=g}return l?$:b.a($)},m.daysInMonth=function(){return this.endOf(c).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=w(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return b.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),k=_.prototype;return O.prototype=k,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",c],["$y",h],["$D",d]].forEach((function(t){k[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),O.extend=function(t,e){return t.$i||(t(e,_,O),t.$i=!0),O},O.locale=w,O.isDayjs=S,O.unix=function(t){return O(1e3*t)},O.en=D[g],O.Ls=D,O.p={},O}));
 </script><script>/**
@@ -829,6 +903,176 @@ function applyBrand() {
   if (desc) desc.setAttribute('content', `${SITE_BRAND.name} is ${SITE_BRAND.tagline}`);
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   if (themeMeta) themeMeta.setAttribute('content', '#0B0F19');
+}
+
+
+
+const NAV_ITEMS = [
+  { label: 'Positioning', homeHref: '#positioning' },
+  { label: 'Packages', homeHref: '#packages' },
+  { label: 'Docs', homeHref: '#docs-api', page: 'docs' },
+  { label: 'Playground', homeHref: '#playground' },
+  { label: 'বাংলাদেশ', homeHref: '#bangladesh-learning' },
+  { label: 'Collaborate', homeHref: '#collab' },
+];
+
+const PROOF_BADGES = [
+  {
+    href: 'https://github.com/gmrafi/FinEngine/stargazers',
+    image: 'https://img.shields.io/github/stars/gmrafi/FinEngine?style=social',
+    alt: 'GitHub stars for gmrafi/FinEngine',
+  },
+  {
+    href: 'https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml',
+    image: 'https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml/badge.svg',
+    alt: 'Verify workflow status',
+  },
+  {
+    href: 'https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml',
+    image: 'https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml/badge.svg',
+    alt: 'Pages deploy workflow status',
+  },
+  {
+    href: 'https://github.com/gmrafi/FinEngine/blob/main/LICENSE',
+    image: 'https://img.shields.io/github/license/gmrafi/FinEngine',
+    alt: 'GitHub license for gmrafi/FinEngine',
+  },
+  {
+    href: 'https://github.com/gmrafi/FinEngine/commits/main',
+    image: 'https://img.shields.io/github/last-commit/gmrafi/FinEngine',
+    alt: 'Last commit for gmrafi/FinEngine',
+  },
+];
+
+const TRUST_CHIPS = [
+  { label: 'Open source on GitHub', href: 'https://github.com/gmrafi/FinEngine' },
+  { label: 'Live docs on GitHub Pages', href: 'https://gmrafi.github.io/FinEngine/' },
+  { label: 'Offline-safe vendored runtime', href: 'https://github.com/gmrafi/FinEngine/tree/main/assets/vendor' },
+  { label: 'Bangladesh-aware finance learning', href: 'https://gmrafi.github.io/FinEngine/#bangladesh-learning' },
+];
+
+function initSharedLayout() {
+  const pageType = document.body.dataset.page || inferPageType();
+  const homePrefix = pageType === 'home' ? '' : '../../index.html';
+  const headerMount = document.querySelector('[data-site-header]');
+  const footerMount = document.querySelector('[data-site-footer]');
+  const proofMount = document.querySelector('[data-social-proof]');
+
+  if (headerMount) headerMount.innerHTML = renderHeader(pageType, homePrefix);
+  if (proofMount) proofMount.innerHTML = renderProofStrip();
+  if (footerMount) footerMount.innerHTML = renderFooter();
+
+  bindMobileMenu();
+  markActiveNav(pageType);
+
+  const yearNode = document.querySelector('[data-generated-year]');
+  if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+}
+
+function inferPageType() {
+  if (window.location.pathname.includes('/docs/')) return 'docs';
+  return 'home';
+}
+
+function renderHeader(pageType, homePrefix) {
+  const nav = NAV_ITEMS.map((item) => {
+    const href = pageType === 'home' ? item.homeHref : `${homePrefix}${item.homeHref}`;
+    const key = item.page || item.homeHref.replace('#', '');
+    return `<a data-nav-link data-nav-key="${key}" href="${href}">${item.label}</a>`;
+  }).join('');
+
+  return `
+    <header class="topbar shared-topbar">
+      <div class="shell topbar-inner shared-topbar-inner">
+        <a class="brandline brandlink" href="${pageType === 'home' ? '#top' : homePrefix}">
+          <div class="brandmark" data-brand="mark">FE</div>
+          <div>
+            <span data-brand="name"></span>
+            <span class="brand-sub">Open-source finance tooling for JavaScript teams</span>
+          </div>
+        </a>
+        <nav class="navlinks" aria-label="Primary navigation">${nav}</nav>
+        <div class="toolbar header-actions">
+          <a class="star-cta" href="https://github.com/gmrafi/FinEngine/stargazers" target="_blank" rel="noreferrer">
+            <span>Star on GitHub</span>
+            <img src="https://img.shields.io/github/stars/gmrafi/FinEngine?style=social" alt="GitHub stars for gmrafi/FinEngine" />
+          </a>
+          <button class="theme-toggle" type="button" data-theme-toggle>Switch theme</button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu">Menu</button>
+        </div>
+      </div>
+      <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
+        <nav class="mobile-nav" aria-label="Mobile navigation">${nav}</nav>
+      </div>
+    </header>
+  `;
+}
+
+function renderProofStrip() {
+  const badges = PROOF_BADGES.map((badge) => `
+    <a class="proof-badge" href="${badge.href}" target="_blank" rel="noreferrer">
+      <img src="${badge.image}" alt="${badge.alt}" />
+    </a>
+  `).join('');
+
+  const chips = TRUST_CHIPS.map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
+
+  return `
+    <section class="proof-strip shell" aria-label="Open source trust signals">
+      <div class="proof-panel">
+        <div>
+          <div class="eyebrow">Open-source trust</div>
+          <h2 class="proof-title">A SaaS-style credibility strip powered by real GitHub signals</h2>
+          <p class="proof-copy">Live stars, workflow badges, license status, and latest-commit proof make the project feel maintained instead of mock.</p>
+        </div>
+        <div class="proof-badges">${badges}</div>
+        <div class="trust-row">${chips}</div>
+      </div>
+    </section>
+  `;
+}
+
+function renderFooter() {
+  return `
+    <footer class="shell">
+      <div class="footer-panel">
+        <div class="footer-meta">
+          <span><span data-brand="legal"></span> · <span data-brand="tagline"></span></span>
+          <span><a href="https://github.com/gmrafi/FinEngine"><span data-brand="repoPath"></span></a> · <a href="https://gmrafi.github.io/FinEngine/">GitHub Pages</a></span>
+          <span>Designed and developed by Md Golam Mubasshir Rafi. Powered by Centre for Fintech &amp; Strategic Business Research (CFSBR).</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://gmrafi.github.io/FinEngine/docs/core/">Core docs</a>
+          <a href="https://gmrafi.github.io/FinEngine/docs/math/">Math docs</a>
+          <a href="https://gmrafi.github.io/FinEngine/docs/ui/">UI docs</a>
+          <a href="https://gmrafi.github.io/FinEngine/docs/release/">Release checklist</a>
+          <a href="https://github.com/gmrafi/FinEngine/stargazers">Star repo</a>
+          <span>Static site build · <span data-generated-year></span></span>
+        </div>
+      </div>
+    </footer>
+  `;
+}
+
+function bindMobileMenu() {
+  const button = document.querySelector('[data-menu-toggle]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  if (!button || !menu) return;
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    menu.hidden = expanded;
+  });
+}
+
+function markActiveNav(pageType) {
+  const links = Array.from(document.querySelectorAll('[data-nav-link]'));
+  if (!links.length) return;
+  if (pageType === 'docs') {
+    links.forEach((link) => {
+      if (link.dataset.navKey === 'docs') link.classList.add('is-active');
+    });
+  }
 }
 
 function initScrollSpy() {
@@ -1237,6 +1481,7 @@ function initFormValidation() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSharedLayout();
   applyBrand();
   initThemeToggle();
   initScrollSpy();
