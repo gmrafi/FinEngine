@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simulation · FinEngine</title>
-  <meta name="description" content="Dedicated browser-side simulation page for FinEngine repayment and amortization workflows." />
+  <title>Simulations · FinEngine</title>
+  <meta name="description" content="Dedicated multi-simulator page for FinEngine repayment and amortization workflows." />
   <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
@@ -28,95 +28,225 @@
 
   <main>
     <section class="hero shell page-hero">
-      <div class="hero-grid hero-grid-lite">
+      <div class="hero-grid hero-grid-lite hero-grid-simulation-page">
         <div class="hero-copy" data-reveal>
           <div class="kicker">Simulation lab</div>
-          <h1>Run repayment scenarios on a dedicated page that stays separate from the product overview.</h1>
-          <p>Use presets, inspect burden signals, review the amortization chart, and export the generated schedule without crowding the main product page.</p>
+          <h1>Use multiple clearly labeled simulators instead of one blurred demo.</h1>
+          <p>This page now keeps several repayment workflows side by side while reusing the same browser-side FinEngine amortization engine underneath.</p>
           <div class="hero-actions hero-actions-tight hero-actions-3up">
-            <a class="button primary" href="#playground">Open simulation</a>
+            <a class="button primary" href="#simulators">Open simulators</a>
             <a class="button secondary" href="../docs/math/">Open math docs</a>
             <a class="button secondary" href="../product/">Back to product</a>
           </div>
         </div>
         <aside class="panel hero-brief" data-reveal>
-          <div class="eyebrow eyebrow-blue">Why this page exists</div>
+          <div class="eyebrow eyebrow-blue">What changed</div>
           <div class="hero-proof-grid hero-proof-grid-compact">
-            <article class="hero-proof-card"><strong>Cleaner product page</strong><span>Packages and examples no longer compete with the live calculator.</span></article>
-            <article class="hero-proof-card"><strong>Faster review</strong><span>Stakeholders can jump directly into simulation without scanning unrelated sections.</span></article>
-            <article class="hero-proof-card"><strong>Exportable output</strong><span>JSON and CSV exports remain available from the dedicated workflow.</span></article>
+            <article class="hero-proof-card"><strong>One engine, many use-cases</strong><span>The same amortization logic now powers multiple distinct simulator cards.</span></article>
+            <article class="hero-proof-card"><strong>Independent controls</strong><span>Each simulator can be recalculated and exported on its own.</span></article>
+            <article class="hero-proof-card"><strong>Clearer labels</strong><span>Every scenario has its own title, context, and CTA so nothing feels mixed together.</span></article>
           </div>
         </aside>
       </div>
     </section>
 
-    <div data-social-proof></div>
-
-    <section class="section shell" id="playground">
+    <section class="section shell" id="simulators">
       <div class="section-head">
         <div>
-          <h2>Interactive JavaScript finance simulation</h2>
-          <p>The browser-side playground now has its own route for presets, chart reading, schedule review, and export actions.</p>
+          <h2>Dedicated simulation set</h2>
+          <p>Pick a scenario, change the inputs, and compare how repayment burden shifts across different borrower contexts.</p>
         </div>
       </div>
-      <div class="calculator-panel" data-reveal>
-        <div class="playground-toolbar">
-          <button class="mini-btn preset-btn" type="button" data-preset="student">Student laptop plan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="bike">Motorbike loan</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="sme">SME working capital</button>
-          <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant float</button>
-        </div>
-        <div class="calc-layout">
-          <form class="calc-form" data-calculator-form novalidate>
-            <div class="field"><label for="scenario">Scenario label</label><input id="scenario" name="scenario" type="text" value="SME working capital" /></div>
-            <div class="field"><label for="amount">Loan amount (BDT)</label><input id="amount" name="amount" type="number" min="1000" step="1000" value="500000" /></div>
-            <div class="field"><label for="rate">Annual interest rate (%)</label><input id="rate" name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></div>
-            <div class="field"><label for="months">Term (months)</label><input id="months" name="months" type="number" min="3" max="120" step="1" value="36" /></div>
-            <div class="field"><label for="income">Monthly income / cash inflow (BDT)</label><input id="income" name="income" type="number" min="0" step="1000" value="85000" /></div>
-            <div class="field"><label for="start-fee">One-time processing fee (%)</label><input id="start-fee" name="startFee" type="number" min="0" max="20" step="0.1" value="1.5" /></div>
-            <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
-            <div class="errorline" data-result="error"></div>
-            <div class="result-grid result-grid-6">
-              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
-              <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
-              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
-              <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
-              <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
-              <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
+
+      <div class="simulator-stack">
+        <section class="calculator-panel simulator-card" data-reveal data-simulation>
+          <div class="simulator-card-head">
+            <div>
+              <div class="eyebrow eyebrow-blue">Simulator 01</div>
+              <h3>Student device installment</h3>
+              <p>Designed for smaller-ticket financing where monthly affordability matters more than long tenor flexibility.</p>
             </div>
-            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span> with a local browser-side amortization model.</p>
-          </form>
-          <div>
-            <div class="chart-wrap">
-              <canvas id="amortization-chart" aria-label="Amortization chart" role="img"></canvas>
-            </div>
-            <div class="grid-2 compact-grid top-space">
-              <div class="info-panel mini-panel">
-                <h3>Repayment reading</h3>
-                <ul class="checklist compact-list">
-                  <li data-result="interestShare">Interest share: —</li>
-                  <li data-result="principalShare">Principal share: —</li>
-                  <li data-result="closingBalance">Closing balance: —</li>
-                </ul>
+            <a class="mini-btn" href="../docs/math/">Math logic</a>
+          </div>
+          <div class="playground-toolbar">
+            <button class="mini-btn preset-btn" type="button" data-preset="student">Student preset</button>
+            <button class="mini-btn preset-btn" type="button" data-preset="bike">Bike preset</button>
+          </div>
+          <div class="calc-layout">
+            <form class="calc-form" data-calculator-form novalidate>
+              <label class="field"><span>Scenario label</span><input name="scenario" type="text" value="Student laptop plan" /></label>
+              <label class="field"><span>Loan amount (BDT)</span><input name="amount" type="number" min="1000" step="1000" value="85000" /></label>
+              <label class="field"><span>Annual interest rate (%)</span><input name="rate" type="number" min="1" max="60" step="0.1" value="11.5" /></label>
+              <label class="field"><span>Term (months)</span><input name="months" type="number" min="3" max="120" step="1" value="18" /></label>
+              <label class="field"><span>Monthly income / inflow (BDT)</span><input name="income" type="number" min="0" step="1000" value="18000" /></label>
+              <label class="field"><span>One-time processing fee (%)</span><input name="startFee" type="number" min="0" max="20" step="0.1" value="1.0" /></label>
+              <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
+              <div class="errorline" data-result="error"></div>
+              <div class="result-grid result-grid-6">
+                <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
+                <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
+                <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+                <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
+                <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
+                <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
               </div>
-              <div class="info-panel mini-panel">
-                <h3>Schedule preview</h3>
-                <div class="table-actions">
-                  <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
-                  <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
-                  <span class="export-status" data-export-status aria-live="polite"></span>
+              <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span>.</p>
+            </form>
+            <div>
+              <div class="chart-wrap"><canvas data-amortization-chart aria-label="Student installment amortization chart" role="img"></canvas></div>
+              <div class="grid-2 compact-grid top-space">
+                <div class="info-panel mini-panel">
+                  <h3>Repayment reading</h3>
+                  <ul class="checklist compact-list">
+                    <li data-result="interestShare">Interest share: —</li>
+                    <li data-result="principalShare">Principal share: —</li>
+                    <li data-result="closingBalance">Closing balance: —</li>
+                  </ul>
                 </div>
-                <div class="schedule-table-wrap">
-                  <table class="schedule-table">
-                    <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
-                    <tbody data-schedule-preview></tbody>
-                  </table>
+                <div class="info-panel mini-panel">
+                  <h3>Schedule preview</h3>
+                  <div class="table-actions">
+                    <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
+                    <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
+                    <span class="export-status" data-export-status aria-live="polite"></span>
+                  </div>
+                  <div class="schedule-table-wrap">
+                    <table class="schedule-table">
+                      <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+                      <tbody data-schedule-preview></tbody>
+                    </table>
+                  </div>
                 </div>
-                <p class="inline-note">Exports use the current browser-side amortization schedule and rounded BDT figures.</p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section class="calculator-panel simulator-card" data-reveal data-simulation>
+          <div class="simulator-card-head">
+            <div>
+              <div class="eyebrow eyebrow-blue">Simulator 02</div>
+              <h3>SME working capital</h3>
+              <p>Good for reviewing installment burden when cashflow is stronger but the principal size and interest share are materially larger.</p>
+            </div>
+            <a class="mini-btn" href="../product/">Product context</a>
+          </div>
+          <div class="playground-toolbar">
+            <button class="mini-btn preset-btn" type="button" data-preset="sme">SME preset</button>
+            <button class="mini-btn preset-btn" type="button" data-preset="clinic">Clinic preset</button>
+          </div>
+          <div class="calc-layout">
+            <form class="calc-form" data-calculator-form novalidate>
+              <label class="field"><span>Scenario label</span><input name="scenario" type="text" value="SME working capital" /></label>
+              <label class="field"><span>Loan amount (BDT)</span><input name="amount" type="number" min="1000" step="1000" value="500000" /></label>
+              <label class="field"><span>Annual interest rate (%)</span><input name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></label>
+              <label class="field"><span>Term (months)</span><input name="months" type="number" min="3" max="120" step="1" value="36" /></label>
+              <label class="field"><span>Monthly income / inflow (BDT)</span><input name="income" type="number" min="0" step="1000" value="85000" /></label>
+              <label class="field"><span>One-time processing fee (%)</span><input name="startFee" type="number" min="0" max="20" step="0.1" value="1.5" /></label>
+              <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
+              <div class="errorline" data-result="error"></div>
+              <div class="result-grid result-grid-6">
+                <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
+                <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
+                <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+                <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
+                <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
+                <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
+              </div>
+              <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span>.</p>
+            </form>
+            <div>
+              <div class="chart-wrap"><canvas data-amortization-chart aria-label="SME capital amortization chart" role="img"></canvas></div>
+              <div class="grid-2 compact-grid top-space">
+                <div class="info-panel mini-panel">
+                  <h3>Repayment reading</h3>
+                  <ul class="checklist compact-list">
+                    <li data-result="interestShare">Interest share: —</li>
+                    <li data-result="principalShare">Principal share: —</li>
+                    <li data-result="closingBalance">Closing balance: —</li>
+                  </ul>
+                </div>
+                <div class="info-panel mini-panel">
+                  <h3>Schedule preview</h3>
+                  <div class="table-actions">
+                    <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
+                    <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
+                    <span class="export-status" data-export-status aria-live="polite"></span>
+                  </div>
+                  <div class="schedule-table-wrap">
+                    <table class="schedule-table">
+                      <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+                      <tbody data-schedule-preview></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="calculator-panel simulator-card" data-reveal data-simulation>
+          <div class="simulator-card-head">
+            <div>
+              <div class="eyebrow eyebrow-blue">Simulator 03</div>
+              <h3>Merchant restock bridge</h3>
+              <p>Useful for short-duration financing where quicker turnover lowers tenor but can still create a sharp monthly burden.</p>
+            </div>
+            <a class="mini-btn" href="../docs/ui/">UI helpers</a>
+          </div>
+          <div class="playground-toolbar">
+            <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant preset</button>
+            <button class="mini-btn preset-btn" type="button" data-preset="agri">Agri preset</button>
+          </div>
+          <div class="calc-layout">
+            <form class="calc-form" data-calculator-form novalidate>
+              <label class="field"><span>Scenario label</span><input name="scenario" type="text" value="Merchant float" /></label>
+              <label class="field"><span>Loan amount (BDT)</span><input name="amount" type="number" min="1000" step="1000" value="150000" /></label>
+              <label class="field"><span>Annual interest rate (%)</span><input name="rate" type="number" min="1" max="60" step="0.1" value="14.2" /></label>
+              <label class="field"><span>Term (months)</span><input name="months" type="number" min="3" max="120" step="1" value="12" /></label>
+              <label class="field"><span>Monthly income / inflow (BDT)</span><input name="income" type="number" min="0" step="1000" value="60000" /></label>
+              <label class="field"><span>One-time processing fee (%)</span><input name="startFee" type="number" min="0" max="20" step="0.1" value="0.8" /></label>
+              <div class="hero-actions"><button class="button primary" type="submit">Recalculate</button></div>
+              <div class="errorline" data-result="error"></div>
+              <div class="result-grid result-grid-6">
+                <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
+                <div class="result-card"><span>Total interest</span><strong data-result="interest">—</strong></div>
+                <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+                <div class="result-card"><span>Income burden</span><strong data-result="burden">—</strong></div>
+                <div class="result-card"><span>Upfront fee</span><strong data-result="fee">—</strong></div>
+                <div class="result-card"><span>Risk signal</span><strong data-result="signal">—</strong></div>
+              </div>
+              <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span>.</p>
+            </form>
+            <div>
+              <div class="chart-wrap"><canvas data-amortization-chart aria-label="Merchant bridge amortization chart" role="img"></canvas></div>
+              <div class="grid-2 compact-grid top-space">
+                <div class="info-panel mini-panel">
+                  <h3>Repayment reading</h3>
+                  <ul class="checklist compact-list">
+                    <li data-result="interestShare">Interest share: —</li>
+                    <li data-result="principalShare">Principal share: —</li>
+                    <li data-result="closingBalance">Closing balance: —</li>
+                  </ul>
+                </div>
+                <div class="info-panel mini-panel">
+                  <h3>Schedule preview</h3>
+                  <div class="table-actions">
+                    <button class="mini-btn" type="button" data-export="json">Copy JSON</button>
+                    <button class="mini-btn" type="button" data-export="csv">Export CSV</button>
+                    <span class="export-status" data-export-status aria-live="polite"></span>
+                  </div>
+                  <div class="schedule-table-wrap">
+                    <table class="schedule-table">
+                      <thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+                      <tbody data-schedule-preview></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>

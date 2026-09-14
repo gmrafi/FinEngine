@@ -28,35 +28,58 @@
 
   <main>
     <section class="hero shell hero-enterprise" id="hero">
-      <div class="hero-grid hero-grid-lite">
-        <div class="hero-copy" data-reveal>
+      <div class="hero-grid hero-grid-lite hero-grid-simulation">
+        <div class="hero-copy hero-copy-compact" data-reveal>
           <div class="kicker">Multi-page JavaScript finance platform</div>
           <h1 data-brand="heroTitle"></h1>
           <p data-brand="heroLead"></p>
           <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="product/">Explore product</a>
+            <a class="button primary" href="simulation/">Open simulations</a>
             <a class="button secondary" href="docs/">Open docs</a>
           </div>
-        </div>
-        <aside class="panel hero-brief hero-quickstart-wrap" data-reveal>
-          <div class="eyebrow">Platform brief</div>
-          <h2>Built for teams that need finance logic to be explainable, testable, and presentable.</h2>
-          <div class="hero-proof-grid hero-proof-grid-compact">
-            <article class="hero-proof-card"><strong>Deterministic math</strong><span>Amortization, XIRR, burden analysis, and audit-safe examples.</span></article>
-            <article class="hero-proof-card"><strong>Inspectable docs</strong><span>Source documentation, examples, and release surfaces stay one click away.</span></article>
+          <div class="hero-proof-grid hero-proof-grid-compact hero-proof-grid-home">
+            <article class="hero-proof-card"><strong>Reusable engines</strong><span>Core, math, and UI helpers stay separately documented and easy to inspect.</span></article>
+            <article class="hero-proof-card"><strong>Above-the-fold demo</strong><span>A live repayment simulation is now visible directly from the homepage hero.</span></article>
           </div>
-          <div class="hero-install-card">
-            <div class="install-shell-head hero-install-head">
-              <div>
-                <div class="eyebrow eyebrow-blue">Quick install</div>
-                <strong class="hero-install-title">Use the packages before you even open the full docs.</strong>
-              </div>
-              <a class="mini-btn hero-inline-docs" href="docs/">Source docs</a>
+        </div>
+        <aside class="panel hero-live-simulation" data-reveal data-simulation>
+          <div class="hero-live-head">
+            <div>
+              <div class="eyebrow eyebrow-blue">Open simulation</div>
+              <h2>Try a repayment plan immediately.</h2>
+              <p>Adjust the key numbers, watch the payment change, then open the full lab for deeper comparison.</p>
             </div>
-            <pre><code>npm install @finengine/core @finengine/math @finengine/ui
-
-import { amortize } from '@finengine/math'
-import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
+            <a class="mini-btn hero-inline-docs" href="simulation/">Full lab</a>
+          </div>
+          <div class="playground-toolbar hero-preset-toolbar">
+            <button class="mini-btn preset-btn" type="button" data-preset="student">Student</button>
+            <button class="mini-btn preset-btn" type="button" data-preset="sme">SME</button>
+            <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant</button>
+          </div>
+          <form class="calc-form calc-form-compact" data-calculator-form novalidate>
+            <input name="scenario" type="hidden" value="SME working capital" />
+            <input name="startFee" type="hidden" value="1.5" />
+            <div class="sim-mini-grid">
+              <label class="field"><span>Amount (BDT)</span><input name="amount" type="number" min="1000" step="1000" value="500000" /></label>
+              <label class="field"><span>Rate (%)</span><input name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></label>
+              <label class="field"><span>Months</span><input name="months" type="number" min="3" max="120" step="1" value="36" /></label>
+              <label class="field"><span>Income (BDT)</span><input name="income" type="number" min="0" step="1000" value="85000" /></label>
+            </div>
+            <div class="hero-actions hero-actions-tight hero-actions-sim">
+              <button class="button primary" type="submit">Recalculate</button>
+              <a class="button secondary" href="simulation/">Compare more simulators</a>
+            </div>
+            <div class="errorline" data-result="error"></div>
+            <div class="result-grid result-grid-4 sim-mini-results">
+              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
+              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
+              <div class="result-card"><span>Burden</span><strong data-result="burden">—</strong></div>
+              <div class="result-card"><span>Signal</span><strong data-result="signal">—</strong></div>
+            </div>
+            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span>.</p>
+          </form>
+          <div class="chart-wrap chart-wrap-hero">
+            <canvas data-amortization-chart aria-label="Hero amortization chart" role="img"></canvas>
           </div>
         </aside>
       </div>
@@ -67,63 +90,46 @@ import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
     <section class="section shell">
       <div class="section-head">
         <div>
-          <h2>A calmer homepage with clearer next steps</h2>
-          <p>The homepage now acts as an executive front door instead of carrying the entire site. Product details, methodology, documentation, and contact each have their own space.</p>
-        </div>
-      </div>
-      <div class="grid-2">
-        <article class="info-panel static-panel" data-reveal>
-          <div class="eyebrow">For product teams</div>
-          <h3>Review the platform without wading through every module at once</h3>
-          <p>Use the product page for package families, examples, and the interactive demo.</p>
-          <p><a class="mini-btn" href="product/">Go to product</a></p>
-        </article>
-        <article class="info-panel static-panel" data-reveal>
-          <div class="eyebrow">For reviewers</div>
-          <h3>See the logic behind the brand and localization choices</h3>
-          <p>Methodology keeps positioning, Bangladesh-specific framing, and expansion logic separate from the marketing surface.</p>
-          <p><a class="mini-btn" href="methodology/">Read methodology</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell">
-      <div class="section-head">
-        <div>
-          <h2>Choose the page that matches the job</h2>
-          <p>This structure reduces the “single-page busy” feeling and makes the website more enterprise-readable.</p>
+          <h2>Choose the next page without guessing</h2>
+          <p>The homepage stays focused, while each major task now has its own dedicated destination.</p>
         </div>
       </div>
       <div class="grid-3 page-map-grid">
-        <a class="info-panel link-panel" data-reveal href="product/" aria-label="Open Product page"><h3>Product</h3><p>Packages, examples, and the interactive JavaScript finance demo.</p></a>
-        <a class="info-panel link-panel" data-reveal href="docs/" aria-label="Open documentation hub"><h3>Docs</h3><p>Package docs, examples gallery, and release checklist.</p></a>
-        <a class="info-panel link-panel" data-reveal href="simulation/" aria-label="Open simulation lab"><h3>Simulation</h3><p>Dedicated browser-side amortization and repayment playground.</p></a>
+        <a class="info-panel link-panel" data-reveal href="product/" aria-label="Open Product page"><h3>Product</h3><p>Packages, examples, and the overall product framing.</p></a>
+        <a class="info-panel link-panel" data-reveal href="simulation/" aria-label="Open simulations page"><h3>Simulations</h3><p>Multiple clearly labeled calculators that reuse the same repayment engine.</p></a>
+        <a class="info-panel link-panel" data-reveal href="docs/" aria-label="Open documentation hub"><h3>Docs</h3><p>Package docs, examples gallery, and release notes.</p></a>
         <a class="info-panel link-panel" data-reveal href="methodology/" aria-label="Open methodology page"><h3>Methodology</h3><p>Positioning, localization rationale, and roadmap logic.</p></a>
         <a class="info-panel link-panel" data-reveal href="contact/" aria-label="Open contact page"><h3>Contact</h3><p>Implementation discussions, issue intake, and collaboration pathways.</p></a>
-        <a class="info-panel link-panel" data-reveal href="brand/" aria-label="Open brand assets page"><h3>Brand</h3><p>Logo kit, palette, typography, and download-ready brand assets.</p></a>
+        <a class="info-panel link-panel" data-reveal href="about/" aria-label="Open about page"><h3>About</h3><p>Institutional context, future direction, and project intent.</p></a>
       </div>
     </section>
 
     <section class="section shell">
-      <div class="get-started-band docs-band" data-reveal>
-        <div class="brand-showcase-card">
+      <div class="get-started-band docs-band brand-system-band" data-reveal>
+        <div class="brand-showcase-card brand-system-card">
           <img class="brand-showcase-logo" src="logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" />
           <div>
             <div class="eyebrow eyebrow-blue">Brand system</div>
-            <h2>Original logo, cleaner surfaces, and clearer documentation flow.</h2>
-            <p>The larger FinEngine mark is now used as a standalone brand asset so the site does not rely only on tiny header icons.</p>
+            <h2>Keep the brand area here, not in the header.</h2>
+            <p>The header now prioritizes product navigation. Brand assets stay here together with the direct external institutional link.</p>
+          </div>
+          <div class="hero-actions hero-actions-tight brand-system-actions">
+            <a class="button secondary" href="brand/">Open brand assets</a>
+            <a class="button primary" href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer">Visit Friend ↗</a>
           </div>
         </div>
-        <div class="docs-showcase-grid">
-          <a class="info-panel link-panel docs-showcase-card" href="docs/core/" aria-label="Open core documentation"><div class="eyebrow eyebrow-blue">Core docs</div><h3>Validation and money primitives</h3><p>Review the foundation for ledger-safe finance logic.</p></a>
+        <div class="docs-showcase-grid docs-showcase-grid-stack">
+          <a class="info-panel link-panel docs-showcase-card" href="docs/core/" aria-label="Open core documentation"><div class="eyebrow eyebrow-blue">Core docs</div><h3>Validation and money primitives</h3><p>Review the deterministic layer behind finance-safe inputs.</p></a>
           <a class="info-panel link-panel docs-showcase-card" href="docs/math/" aria-label="Open math documentation"><div class="eyebrow eyebrow-blue">Math docs</div><h3>Repayment, amortization, and return engines</h3><p>See the formulas and examples behind the calculations.</p></a>
-          <a class="info-panel link-panel docs-showcase-card" href="simulation/" aria-label="Open simulation page"><div class="eyebrow eyebrow-blue">Simulation</div><h3>Open the dedicated demo page</h3><p>Keep experimentation separate from the product overview.</p></a>
+          <a class="info-panel link-panel docs-showcase-card" href="docs/ui/" aria-label="Open UI documentation"><div class="eyebrow eyebrow-blue">UI docs</div><h3>Readable finance components</h3><p>Preview KPI, summary, and learning-card helpers for product surfaces.</p></a>
         </div>
       </div>
     </section>
   </main>
 
   <div data-site-footer></div>
-  <script type="module" src="assets/js/doc-page.js"></script>
+  <script src="assets/vendor/dayjs.min.js"></script>
+  <script src="assets/vendor/chart.umd.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
