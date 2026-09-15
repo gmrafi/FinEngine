@@ -3,8 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Product · FinEngine</title>
+  <title>FinEngine Package Surface — @finengine/core, /math, /ui | FinEngine</title>
   <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />
+  <link rel="canonical" href="https://finengine.js.org/product/" />
+  <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FinEngine Package Surface — @finengine/core, /math, /ui | FinEngine" />
+  <meta property="og:description" content="FinEngine product surface, packages, examples, and simulation entry points." />
+  <meta property="og:url" content="https://finengine.js.org/product/" />
+  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
+  <meta property="og:site_name" content="FinEngine" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FinEngine Package Surface — @finengine/core, /math, /ui | FinEngine" />
+  <meta name="twitter:description" content="FinEngine product surface, packages, examples, and simulation entry points." />
+  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
   <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
@@ -71,21 +83,35 @@
         <h3>Computation, validation, and reporting foundation</h3>
         <div class="package-grid">
           <article class="package-card" data-package-card data-keywords="validation types ledger audit core money rounding">
-            <header><h3><span data-brand="npmScope"></span>/core</h3><code>validation kernel</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
+              <h3><span data-brand="npmScope"></span>/core</h3>
+              <code>validation kernel</code>
+            </header>
             <p>Shared money types, rounding rules, ledger-safe validation, and deterministic domain contracts.</p>
+            <p><a class="mini-btn" href="../docs/core/">Open package docs</a></p>
             <div class="accordion">
               <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>
               <div class="accordion-panel" hidden>Without a hard validation core, lending, payment, and statement modules drift apart and audit explanations become weak.</div>
             </div>
           </article>
           <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">
-            <header><h3><span data-brand="npmScope"></span>/math</h3><code>calculation engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
+              <h3><span data-brand="npmScope"></span>/math</h3>
+              <code>calculation engine</code>
+            </header>
             <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>
-            <div class="install-block"><code>Workspace publish target: <span data-install-scope="math"></span></code></div>
+            <p><a class="mini-btn" href="../docs/math/">Open package docs</a></p>
           </article>
           <article class="package-card" data-package-card data-keywords="credit risk z-score dscr icr npl banking lending">
-            <header><h3>@finengine/risk</h3><code>credit risk engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
+              <h3>@finengine/risk</h3>
+              <code>credit risk engine</code>
+            </header>
             <p>Altman EM Z-Score, DSCR &amp; ICR stress testing, and NPL probability proxy logic for commercial lending and banking workflows.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/risk.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
         </div>
       </div>
@@ -93,18 +119,32 @@
         <h3>Developer experience and product-facing interface</h3>
         <div class="package-grid">
           <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">
-            <header><h3><span data-brand="npmScope"></span>/ui</h3><code>micro-components</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
+              <h3><span data-brand="npmScope"></span>/ui</h3>
+              <code>micro-components</code>
+            </header>
             <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
             <p><a class="mini-btn" href="../docs/ui/">Open package docs</a></p>
             <div class="install-block"><code>Workspace publish target: <span data-install-scope="ui"></span></code></div>
           </article>
           <article class="package-card" data-package-card data-keywords="ratios dupont roe liquidity profitability leverage">
-            <header><h3>@finengine/ratios</h3><code>statement analysis engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
+              <h3>@finengine/ratios</h3>
+              <code>statement analysis engine</code>
+            </header>
             <p>Financial ratio stacks plus 3-step and 5-step DuPont analysis for classroom demos and statement interpretation.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/ratios.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
           <article class="package-card" data-package-card data-keywords="microfinance mra flat rate declining balance apr">
-            <header><h3>@finengine/microfinance</h3><code>regulatory math engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
+              <h3>@finengine/microfinance</h3>
+              <code>regulatory math engine</code>
+            </header>
             <p>Flat-rate vs declining-balance burden translation for microcredit transparency and borrower education.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/microfinance.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
         </div>
       </div>
@@ -112,16 +152,31 @@
         <h3>Product expansion and payment adjacency</h3>
         <div class="package-grid">
           <article class="package-card" data-package-card data-keywords="valuation dcf wacc working capital ccc corporate finance">
-            <header><h3>@finengine/corporate</h3><code>valuation simulator</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
+              <h3>@finengine/corporate</h3>
+              <code>valuation simulator</code>
+            </header>
             <p>Headless DCF, WACC, terminal value, enterprise value, and cash-conversion-cycle modeling for corporate finance scenarios.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/corporate.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
           <article class="package-card" data-package-card data-keywords="markets beta sharpe portfolio dse">
-            <header><h3>@finengine/markets</h3><code>capital markets engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
+              <h3>@finengine/markets</h3>
+              <code>capital markets engine</code>
+            </header>
             <p>DSE-aware portfolio variance, Sharpe ratio, beta, and CAPM helpers for classroom analytics and equity research workflows.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/markets.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
           <article class="package-card" data-package-card data-keywords="tax nbr tds vds salary slab compliance">
-            <header><h3>@finengine/tax</h3><code>compliance rules engine</code></header>
+            <header>
+              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
+              <h3>@finengine/tax</h3>
+              <code>compliance rules engine</code>
+            </header>
             <p>NBR-oriented TDS/VDS and salary-tax calculation helpers for SME, startup, and classroom compliance scenarios.</p>
+            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/tax.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
           </article>
         </div>
       </div>
