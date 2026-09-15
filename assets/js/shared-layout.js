@@ -147,7 +147,7 @@ function renderProofStrip(pageType) {
         <div>
           <div class="eyebrow">Trust signals</div>
           <h2 class="proof-title">Source, docs, and deploy signals stay visible without overloading the hero.</h2>
-          <p class="proof-copy">The credibility layer now stays on the homepage only, while inner pages remain focused on their own task flows.</p>
+          <p class="proof-copy">Repository activity, documentation, and deployment status remain visible on the homepage, while inner pages stay focused on their own purpose.</p>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>
@@ -166,7 +166,7 @@ function renderFooter() {
             <a class="footer-brand footer-brandline" href="${root}index.html"><img class="footer-logo" src="${root}logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" /><span>FinEngine</span></a>
             <p class="footer-intro">Documentation-first JavaScript finance tooling for deterministic calculations, explainable demos, and research-backed product surfaces.</p>
             <div class="footer-highlight-card footer-powered-card footer-static-card">
-              <div class="footer-card-title footer-card-title-gold">Powered by</div>
+              <div class="footer-card-title footer-card-title-gold">Institutional support</div>
               <p><a href="${SPONSOR.url}" target="_blank" rel="noopener noreferrer"><strong>${SPONSOR.name} (${SPONSOR.short})</strong></a></p>
             </div>
           </section>
@@ -214,7 +214,7 @@ function renderFooter() {
         </div>
 
         <div class="footer-bottom-strip">
-          <div class="footer-bottom-left">© 2026 FinEngine · Built by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">${SPONSOR.name}</span></div>
+          <div class="footer-bottom-left">© 2026 FinEngine · Built &amp; Maintained by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">${SPONSOR.name}</span></div>
           <div class="footer-bottom-right">v0.3.0 · Multi-page product docs</div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>
