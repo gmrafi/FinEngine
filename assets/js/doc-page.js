@@ -1,5 +1,5 @@
 import { applyBrand } from './brand.js';
-import { initSharedLayout } from './shared-layout.js?v=20260915c';
+import { initSharedLayout } from './shared-layout.js?v=20260915d';
 import { initThemeToggle } from './modules/theme.js';
 import { initCodeCopy } from './modules/code-copy.js';
 

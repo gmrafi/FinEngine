@@ -39,39 +39,77 @@
   <div data-site-header></div>
 
   <main>
-    <section class="hero shell hero-enterprise" id="hero">
-      <div class="hero-grid hero-grid-lite hero-grid-restored">
-        <div class="hero-copy" data-reveal>
-          <div class="kicker">Multi-page JavaScript finance platform</div>
-          <h1 data-brand="heroTitle"></h1>
-          <p data-brand="heroLead"></p>
-          <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="product/">Explore product</a>
-            <a class="button secondary" href="docs/">Open docs</a>
-            <a class="button secondary" href="simulation/">Simulation lab</a>
+    <section class="hero hero-flagship shell" id="hero">
+      <div class="hero-flagship-inner" data-reveal>
+        <span class="hero-status-badge" data-brand="heroEyebrow">
+          <span class="hero-status-dot" aria-hidden="true"></span>
+          <span class="hero-status-dot-label" data-brand="heroEyebrow">v0.3.0</span>
+          <span data-brand="heroEyebrow">OPEN SOURCE · BROWSER-SAFE FINANCIAL ENGINE</span>
+        </span>
+
+        <h1 class="hero-headline">
+          <span data-brand="heroTitle">Bank-Grade Financial Math for JavaScript.</span>
+          <span class="hero-headline-accent" data-brand="heroTitleAccent">Zero Rounding Errors.</span>
+        </h1>
+
+        <p class="hero-lede" data-brand="heroLead">Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations — with 100% client-side privacy and no backend dependency.</p>
+
+        <div class="hero-cta-row">
+          <a class="hero-btn hero-btn-primary" href="simulation/">Open Simulation Lab <span class="hero-cta-arrow" aria-hidden="true">→</span></a>
+          <a class="hero-btn hero-btn-secondary" href="docs/">Documentation &amp; APIs</a>
+          <a class="hero-btn hero-btn-tertiary" href="product/">View packages</a>
+        </div>
+
+        <div class="hero-terminal-card hero-root-terminal" data-reveal>
+          <div class="hero-terminal-titlebar">
+            <div class="hero-terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="hero-terminal-file">quickstart.sh</span>
+            <div class="hero-terminal-tabs" role="tablist" aria-label="Install / Run">
+              <button type="button" class="hero-terminal-tab is-active" data-hero-tab="shell" role="tab" aria-selected="true">Terminal</button>
+              <button type="button" class="hero-terminal-tab" data-hero-tab="js" role="tab" aria-selected="false">JavaScript</button>
+              <button type="button" class="hero-terminal-tab" data-hero-tab="cdn" role="tab" aria-selected="false">CDN</button>
+            </div>
+          </div>
+
+          <div class="hero-terminal-pane" data-hero-pane="shell" role="tabpanel">
+            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-shell-code">Copy</button>
+<pre class="hero-terminal-pre"><code id="hero-shell-code"><span class="hero-comment"># 1. Install the three foundational packages</span>
+<span class="hero-prompt">$</span> <span class="hero-cmd">npm install @finengine/core @finengine/math @finengine/ui</span>
+
+<span class="hero-comment"># 2. Run a deterministic 36-month amortization</span>
+<span class="hero-prompt">$</span> <span class="hero-cmd">node -e "import('@finengine/math').then(m =&gt; console.log(m.amortize({principal:500000,annualRate:13.5,months:36})))"</span>
+
+<span class="hero-output">→ Monthly EMI: BDT 16,968 · Total Payable: BDT 6,10,835 · Total Interest: BDT 1,10,835</span>
+<span class="hero-output hero-output-muted">// 100% client-side. No backend. Deterministic IEEE-754 rounding.</span></code></pre>
+          </div>
+
+          <div class="hero-terminal-pane" data-hero-pane="js" role="tabpanel" hidden>
+            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-js-code">Copy</button>
+<pre class="hero-terminal-pre"><code id="hero-js-code"><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span><span class="hero-punct">;</span>
+<span class="hero-keyword">import</span> { formatMoney } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/core'</span><span class="hero-punct">;</span>
+
+<span class="hero-keyword">const</span> plan = amortize({
+  principal<span class="hero-punct">:</span> <span class="hero-number">500000</span>,
+  annualRate<span class="hero-punct">:</span> <span class="hero-number">13.5</span>,
+  months<span class="hero-punct">:</span> <span class="hero-number">36</span>,
+}<span class="hero-punct">);</span>
+
+<span class="hero-fn">console</span><span class="hero-punct">.</span><span class="hero-fn">log</span><span class="hero-punct">(</span><span class="hero-fn">formatMoney</span><span class="hero-punct">(</span>plan.monthlyPayment<span class="hero-punct">,</span> <span class="hero-string">'BDT'</span><span class="hero-punct">));</span>
+<span class="hero-comment">// → "BDT 16,968.00" — identical across browsers, locales, timezones.</span></code></pre>
+          </div>
+
+          <div class="hero-terminal-pane" data-hero-pane="cdn" role="tabpanel" hidden>
+            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-cdn-code">Copy</button>
+<pre class="hero-terminal-pre"><code id="hero-cdn-code"><span class="hero-comment">&lt;!-- Vanilla JS — no bundler, no toolchain --&gt;</span>
+<span class="hero-tag">&lt;script</span> <span class="hero-attr">type</span>=<span class="hero-string">"module"</span>
+  <span class="hero-attr">src</span>=<span class="hero-string">"https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js"</span><span class="hero-tag">&gt;&lt;/script&gt;</span>
+
+<span class="hero-tag">&lt;script</span> <span class="hero-attr">type</span>=<span class="hero-string">"module"</span><span class="hero-tag">&gt;</span>
+  <span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span><span class="hero-punct">;</span>
+  <span class="hero-keyword">const</span> r = amortize(<span class="hero-cdata">{ principal: 500000, annualRate: 13.5, months: 36 }</span>);
+<span class="hero-tag">&lt;/script&gt;</span></code></pre>
           </div>
         </div>
-        <aside class="panel hero-brief hero-quickstart-wrap" data-reveal>
-          <div class="eyebrow">Platform brief</div>
-          <h2>Built for teams that need finance logic to be explainable, testable, and presentable.</h2>
-          <div class="hero-proof-grid hero-proof-grid-compact">
-            <article class="hero-proof-card"><strong>Deterministic math</strong><span>Amortization, XIRR, burden analysis, and audit-safe examples.</span></article>
-            <article class="hero-proof-card"><strong>Dedicated simulation lab</strong><span>The interactive calculators stay on their own page so the homepage remains calmer.</span></article>
-          </div>
-          <div class="hero-install-card">
-            <div class="install-shell-head hero-install-head">
-              <div>
-                <div class="eyebrow eyebrow-blue">Quick install</div>
-                <strong class="hero-install-title">Use the packages before you even open the full docs.</strong>
-              </div>
-              <a class="mini-btn hero-inline-docs" href="simulation/">Open simulation lab</a>
-            </div>
-            <pre><code>npm install @finengine/core @finengine/math @finengine/ui
-
-import { amortize } from '@finengine/math'
-import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -137,6 +175,6 @@ import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
   </main>
 
   <div data-site-footer></div>
-  <script type="module" src="assets/js/main.js?v=20260915c"></script>
+  <script type="module" src="assets/js/main.js?v=20260915d"></script>
 </body>
 </html>
