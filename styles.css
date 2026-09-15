@@ -1815,15 +1815,18 @@ html[data-theme='light'] .footer-license-badge {
 
 /* Round 6: restore calmer homepage hero and keep trust signals homepage-only */
 .header-shell-restored {
-  grid-template-columns: minmax(0, auto) 1fr auto;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
   align-items: center;
 }
 
 .header-nav-simple {
-  display: flex;
+  display: flex !important;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   gap: 10px 12px;
+  min-width: 0;
 }
 
 .hero-grid-restored {
@@ -1840,17 +1843,22 @@ html[data-theme='light'] .footer-license-badge {
 
 @media (min-width: 768px) and (max-width: 1080px) {
   .header-shell-restored {
-    grid-template-columns: minmax(0, auto) auto;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
     gap: 14px 18px;
   }
 
   .header-nav-simple {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
+    grid-column: auto;
+    justify-content: flex-end;
+    gap: 8px;
   }
 }
 
 @media (max-width: 767px) {
+  .shared-topbar .shell {
+    width: min(var(--shell), calc(100% - 32px));
+  }
+
   .header-nav-simple {
     display: none !important;
   }
