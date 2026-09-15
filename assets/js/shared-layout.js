@@ -66,7 +66,9 @@ export function initSharedLayout() {
   const proofMount = document.querySelector('[data-social-proof]');
 
   if (headerMount) headerMount.innerHTML = renderHeader(pageType);
-  if (proofMount) proofMount.innerHTML = renderProofStrip(pageType);
+  // Trust-strip removed from homepage (part of the hero-cleanup sprint):
+  // keeping the mount but leaving it empty avoids stale badges re-surfacing.
+  if (proofMount) proofMount.innerHTML = '';
   if (footerMount) footerMount.innerHTML = renderFooter();
 
   bindMobileMenu();
@@ -128,35 +130,12 @@ function renderHeader(pageType) {
   `;
 }
 
-function renderProofStrip(pageType) {
-  if (pageType !== 'home') return '';
-  const badges = PROOF_BADGES.map((badge) => `
-    <a class="proof-badge" href="${badge.href}" target="_blank" rel="noreferrer">
-      <img src="${badge.image}" alt="${badge.alt}" />
-    </a>
-  `).join('');
-
-  const chips = [
-    { label: 'Live product', href: toRoot('product/') },
-    { label: 'Simulation lab', href: toRoot('simulation/') },
-    { label: 'Package docs', href: toRoot('docs/') },
-    { label: 'Brand assets', href: toRoot('brand/') },
-    { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
-  ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
-
-  return `
-    <section class="proof-strip shell" aria-label="Open source trust signals">
-      <div class="proof-panel compact-proof-panel">
-        <div>
-          <div class="eyebrow">Trust signals</div>
-          <h2 class="proof-title">Source, docs, and deploy signals stay visible without overloading the hero.</h2>
-          <p class="proof-copy">Repository activity, documentation, and deployment status remain visible on the homepage, while inner pages stay focused on their own purpose.</p>
-        </div>
-        <div class="proof-badges">${badges}</div>
-        <div class="trust-row">${chips}</div>
-      </div>
-    </section>
-  `;
+// renderProofStrip intentionally disabled — homepage now keeps its focus on
+// the financial-math hero and does not show repo status / outer page chips.
+// Inner pages never rendered this block. We keep the function export undefined
+// to avoid accidental re-use from stale module instances.
+function renderProofStrip(_pageType) {
+  return '';
 }
 
 function renderFooter() {
