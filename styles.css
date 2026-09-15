@@ -641,7 +641,6 @@ html[data-theme='light'] .code-shell, html[data-theme='light'] .panel, html[data
   color: var(--text);
   font-weight: 700;
 }
-.proof-strip:not([hidden]) { display: none !important; }
 .proof-strip {
   padding: 8px 0 10px;
 }
