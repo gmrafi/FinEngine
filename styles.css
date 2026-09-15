@@ -2268,3 +2268,32 @@ html[data-theme='light'] .field-error { color: #dc2626; }
 }
 
 /* === sprint-r10: super-aggressive cache bust (multiple filename forms) === */
+
+/* ===== r13: hero two-column desktop split (copy left / quickstart right) ===== */
+.hero-flagship-copy,
+.hero-flagship-visual {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.hero-flagship-visual { margin-top: 6px; }
+
+@media (min-width: 1025px) {
+  .hero-flagship { text-align: left; }
+  .hero-flagship-inner {
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 56px);
+    text-align: left;
+  }
+  .hero-flagship-copy { align-items: flex-start; gap: 18px; }
+  .hero-flagship-visual { margin-top: 0; align-items: stretch; }
+  .hero-terminal-card { width: 100%; margin: 0; }
+  .hero-cta-row { justify-content: flex-start; }
+  .hero-headline { max-width: 17ch; }
+  .hero-lede { max-width: 52ch; }
+}

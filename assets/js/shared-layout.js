@@ -13,7 +13,6 @@ const NAV_ITEMS = [
   { label: 'Simulations', path: 'simulation/', key: 'simulation' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
   { label: 'Methodology', path: 'methodology/', key: 'methodology' },
-  { label: 'Contact', path: 'contact/', key: 'contact' },
 ];
 
 const MOBILE_EXTRA_ITEMS = [
