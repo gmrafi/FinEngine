@@ -2266,3 +2266,5 @@ html[data-theme='light'] .field-error { color: #dc2626; }
   .hero-terminal-pane { padding: 14px 14px 16px; }
   .hero-terminal-pre { font-size: 12px; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; }
 }
+
+/* === sprint-r10: super-aggressive cache bust (multiple filename forms) === */
