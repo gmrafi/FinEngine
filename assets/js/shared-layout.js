@@ -195,15 +195,24 @@ function renderFooter() {
             </div>
           </section>
 
-          <section class="footer-column" aria-label="Research, methodology, and community">
-            <div class="footer-heading">RESEARCH &amp; COMMUNITY</div>
+          <section class="footer-column" aria-label="Research and methodology">
+            <div class="footer-heading">RESEARCH &amp; METHODOLOGY</div>
             <div class="footer-link-list">
-              <a href="${root}methodology/"><strong>Research &amp; Methodology</strong><span>Positioning, localization, and roadmap logic</span></a>
-              <a href="${root}methodology/#cite-finengine"><strong>Cite FinEngine (BibTeX)</strong><span>Academic citation for papers and theses</span></a>
-              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
+              <a href="${root}methodology/"><strong>Methodology Paper</strong><span>Positioning, localization, and roadmap logic</span></a>
+              <a href="${root}docs/core/#money-primitives"><strong>BDT Money Primitives</strong><span>Deterministic currency ledger math</span></a>
+              <a class="is-external" href="${root}methodology/#cite-finengine"><strong>Academic Citation (BibTeX)</strong><span>Pre-formatted entry for theses &amp; papers</span></a>
+              <a class="is-external" href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer"><strong>CFSBR Working Papers</strong><span>Hosted research home of the lab</span></a>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Community and open source">
+            <div class="footer-heading">COMMUNITY &amp; OPEN SOURCE</div>
+            <div class="footer-link-list">
               <a class="is-external" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer"><strong>GitHub Repository</strong><span>Source, commits, workflows, issues</span></a>
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine/issues/new/choose" target="_blank" rel="noopener noreferrer"><strong>Report an Issue</strong><span>Structured bug and feature intake</span></a>
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><strong>MIT License</strong><span>Free and open-source licensing terms</span></a>
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine/issues/new/choose" target="_blank" rel="noopener noreferrer"><strong>Report an Issue</strong><span>Structured bug &amp; feature intake</span></a>
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><strong>Contributing Guidelines</strong><span>Pull-request flow &amp; review checklist</span></a>
+              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><strong>MIT License</strong><span>Free &amp; open-source licensing terms</span></a>
+              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
             </div>
           </section>
         </div>
