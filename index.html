@@ -28,58 +28,36 @@
 
   <main>
     <section class="hero shell hero-enterprise" id="hero">
-      <div class="hero-grid hero-grid-lite hero-grid-simulation">
-        <div class="hero-copy hero-copy-compact" data-reveal>
+      <div class="hero-grid hero-grid-lite hero-grid-restored">
+        <div class="hero-copy" data-reveal>
           <div class="kicker">Multi-page JavaScript finance platform</div>
           <h1 data-brand="heroTitle"></h1>
           <p data-brand="heroLead"></p>
           <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="simulation/">Open simulations</a>
+            <a class="button primary" href="product/">Explore product</a>
             <a class="button secondary" href="docs/">Open docs</a>
-          </div>
-          <div class="hero-proof-grid hero-proof-grid-compact hero-proof-grid-home">
-            <article class="hero-proof-card"><strong>Reusable engines</strong><span>Core, math, and UI helpers stay separately documented and easy to inspect.</span></article>
-            <article class="hero-proof-card"><strong>Above-the-fold demo</strong><span>A live repayment simulation is now visible directly from the homepage hero.</span></article>
+            <a class="button secondary" href="simulation/">Simulation lab</a>
           </div>
         </div>
-        <aside class="panel hero-live-simulation" data-reveal data-simulation>
-          <div class="hero-live-head">
-            <div>
-              <div class="eyebrow eyebrow-blue">Open simulation</div>
-              <h2>Try a repayment plan immediately.</h2>
-              <p>Adjust the key numbers, watch the payment change, then open the full lab for deeper comparison.</p>
-            </div>
-            <a class="mini-btn hero-inline-docs" href="simulation/">Full lab</a>
+        <aside class="panel hero-brief hero-quickstart-wrap" data-reveal>
+          <div class="eyebrow">Platform brief</div>
+          <h2>Built for teams that need finance logic to be explainable, testable, and presentable.</h2>
+          <div class="hero-proof-grid hero-proof-grid-compact">
+            <article class="hero-proof-card"><strong>Deterministic math</strong><span>Amortization, XIRR, burden analysis, and audit-safe examples.</span></article>
+            <article class="hero-proof-card"><strong>Dedicated simulation lab</strong><span>The interactive calculators stay on their own page so the homepage remains calmer.</span></article>
           </div>
-          <div class="playground-toolbar hero-preset-toolbar">
-            <button class="mini-btn preset-btn" type="button" data-preset="student">Student</button>
-            <button class="mini-btn preset-btn" type="button" data-preset="sme">SME</button>
-            <button class="mini-btn preset-btn" type="button" data-preset="merchant">Merchant</button>
-          </div>
-          <form class="calc-form calc-form-compact" data-calculator-form novalidate>
-            <input name="scenario" type="hidden" value="SME working capital" />
-            <input name="startFee" type="hidden" value="1.5" />
-            <div class="sim-mini-grid">
-              <label class="field"><span>Amount (BDT)</span><input name="amount" type="number" min="1000" step="1000" value="500000" /></label>
-              <label class="field"><span>Rate (%)</span><input name="rate" type="number" min="1" max="60" step="0.1" value="13.5" /></label>
-              <label class="field"><span>Months</span><input name="months" type="number" min="3" max="120" step="1" value="36" /></label>
-              <label class="field"><span>Income (BDT)</span><input name="income" type="number" min="0" step="1000" value="85000" /></label>
+          <div class="hero-install-card">
+            <div class="install-shell-head hero-install-head">
+              <div>
+                <div class="eyebrow eyebrow-blue">Quick install</div>
+                <strong class="hero-install-title">Use the packages before you even open the full docs.</strong>
+              </div>
+              <a class="mini-btn hero-inline-docs" href="simulation/">Open simulation lab</a>
             </div>
-            <div class="hero-actions hero-actions-tight hero-actions-sim">
-              <button class="button primary" type="submit">Recalculate</button>
-              <a class="button secondary" href="simulation/">Compare more simulators</a>
-            </div>
-            <div class="errorline" data-result="error"></div>
-            <div class="result-grid result-grid-4 sim-mini-results">
-              <div class="result-card"><span>Monthly EMI</span><strong data-result="emi">—</strong></div>
-              <div class="result-card"><span>Total payable</span><strong data-result="total">—</strong></div>
-              <div class="result-card"><span>Burden</span><strong data-result="burden">—</strong></div>
-              <div class="result-card"><span>Signal</span><strong data-result="signal">—</strong></div>
-            </div>
-            <p class="inline-note"><strong data-result="scenarioTitle">—</strong> · generated on <span data-result="generatedAt">—</span>.</p>
-          </form>
-          <div class="chart-wrap chart-wrap-hero">
-            <canvas data-amortization-chart aria-label="Hero amortization chart" role="img"></canvas>
+            <pre><code>npm install @finengine/core @finengine/math @finengine/ui
+
+import { amortize } from '@finengine/math'
+import { makeRepaymentSummary } from '@finengine/ui'</code></pre>
           </div>
         </aside>
       </div>
@@ -105,18 +83,37 @@
     </section>
 
     <section class="section shell">
-      <div class="get-started-band docs-band brand-system-band" data-reveal>
-        <div class="brand-showcase-card brand-system-card">
+      <div class="grid-2 home-support-grid" data-reveal>
+        <article class="info-panel simulation-summary-card home-focus-card">
+          <div class="eyebrow eyebrow-blue">Simulation lab</div>
+          <h3>Open the dedicated calculators without crowding the hero.</h3>
+          <p>The multi-simulator workspace remains available on its own route for scenario presets, repayment comparison, and export actions.</p>
+          <div class="hero-actions hero-actions-tight">
+            <a class="button primary" href="simulation/">Open simulations</a>
+            <a class="button secondary" href="docs/math/">Math docs</a>
+          </div>
+        </article>
+        <article class="brand-showcase-card brand-system-card home-focus-card">
           <img class="brand-showcase-logo" src="logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" />
           <div>
             <div class="eyebrow eyebrow-blue">Brand system</div>
             <h2>Keep the brand area here, not in the header.</h2>
-            <p>The header now prioritizes product navigation. Brand assets stay here together with the direct external institutional link.</p>
+            <p>The header now stays focused on real navigation, while the brand assets and direct institutional link sit in their own dedicated block.</p>
           </div>
           <div class="hero-actions hero-actions-tight brand-system-actions">
             <a class="button secondary" href="brand/">Open brand assets</a>
             <a class="button primary" href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer">Visit Friend ↗</a>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="get-started-band docs-band" data-reveal>
+        <div>
+          <div class="eyebrow eyebrow-blue">Docs surfaces</div>
+          <h2>Package docs stay one click away.</h2>
+          <p>The package links now live in content cards instead of turning the header into a storage shelf.</p>
         </div>
         <div class="docs-showcase-grid docs-showcase-grid-stack">
           <a class="info-panel link-panel docs-showcase-card" href="docs/core/" aria-label="Open core documentation"><div class="eyebrow eyebrow-blue">Core docs</div><h3>Validation and money primitives</h3><p>Review the deterministic layer behind finance-safe inputs.</p></a>
@@ -128,8 +125,6 @@
   </main>
 
   <div data-site-footer></div>
-  <script src="assets/vendor/dayjs.min.js"></script>
-  <script src="assets/vendor/chart.umd.min.js"></script>
   <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
