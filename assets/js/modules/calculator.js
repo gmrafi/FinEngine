@@ -53,7 +53,8 @@ function initSimulation(root) {
   const canvas = root.querySelector('[data-amortization-chart]');
   const exportButtons = Array.from(root.querySelectorAll('[data-export]'));
   const presetButtons = Array.from(root.querySelectorAll('[data-preset]'));
-  const state = { schedule: [], scenario: 'Custom scenario' };
+  const expandBtn = root.querySelector('[data-schedule-expand]');
+  const state = { schedule: [], scenario: 'Custom scenario', expanded: false };
 
   presetButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -134,6 +135,19 @@ function initSimulation(root) {
     render();
   });
 
+  if (expandBtn) {
+    expandBtn.addEventListener('click', () => {
+      state.expanded = !state.expanded;
+      if (state.expanded && state.schedule.length) {
+        if (result.schedule) result.schedule.innerHTML = state.schedule.map(scheduleRow).join('');
+        expandBtn.textContent = 'Collapse schedule';
+      } else {
+        renderSchedulePreview(result.schedule, state.schedule);
+        expandBtn.textContent = state.schedule.length > 6 ? `View full ${state.schedule.length}-month schedule` : 'Schedule (≤ 6 months)';
+      }
+    });
+  }
+
   render();
 }
 
@@ -179,16 +193,28 @@ function buildSchedule(principal, annualRate, months) {
   };
 }
 
-function renderSchedulePreview(tbody, schedule) {
-  if (!tbody) return;
-  const previewRows = [schedule[0], schedule[1], schedule[Math.max(0, schedule.length - 2)], schedule[schedule.length - 1]].filter(Boolean);
-  tbody.innerHTML = previewRows.map((row) => `
+function scheduleRow(row) {
+  return `
     <tr>
       <td>M${row.month}</td>
       <td>${formatMoney(row.principalPaid)}</td>
       <td>${formatMoney(row.interest)}</td>
       <td>${formatMoney(row.balance)}</td>
-    </tr>`).join('');
+    </tr>`;
+}
+
+function renderSchedulePreview(tbody, schedule) {
+  if (!tbody) return;
+  if (!schedule.length) { tbody.innerHTML = ''; return; }
+  if (schedule.length <= 6) {
+    tbody.innerHTML = schedule.map(scheduleRow).join('');
+    return;
+  }
+  const head = schedule.slice(0, 2).map(scheduleRow).join('');
+  const tail = schedule.slice(-2).map(scheduleRow).join('');
+  const hidden = schedule.length - 4;
+  const collapsedRow = `<tr class="schedule-row--collapsed"><td colspan="4">… ${hidden} intermediate month${hidden === 1 ? '' : 's'} hidden — click "View full schedule" to expand …</td></tr>`;
+  tbody.innerHTML = `${head}${collapsedRow}${tail}`;
 }
 
 function clearPreview(root, result, exportButtons) {
@@ -224,7 +250,8 @@ async function copyScheduleJson(state, result) {
   };
   try {
     await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
-    setExportStatus(result, 'JSON copied to clipboard.', 'success');
+    announceToast('✓ Schedule copied to clipboard');
+    setExportStatus(result, '✓ Schedule copied to clipboard', 'success');
   } catch {
     setExportStatus(result, 'Clipboard copy failed in this browser. Try Export CSV instead.', 'error');
   }
@@ -238,12 +265,30 @@ function downloadScheduleCsv(state, result) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `${slugify(state.scenario)}-amortization-schedule.csv`;
+  link.download = `finengine-${slugify(state.scenario)}-schedule.csv`;
   document.body.appendChild(link);
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
-  setExportStatus(result, 'CSV export started.', 'success');
+  announceToast(`✓ Exported ${link.download}`);
+  setExportStatus(result, `✓ Downloaded ${link.download}`, 'success');
+}
+
+let toastTimer = null;
+function announceToast(message) {
+  let el = document.getElementById('finengine-toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'finengine-toast';
+    el.className = 'finengine-toast';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  el.textContent = message;
+  el.classList.add('is-visible');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2600);
 }
 
 function setExportButtonsDisabled(buttons, disabled) {

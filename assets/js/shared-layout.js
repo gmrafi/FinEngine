@@ -215,7 +215,7 @@ function renderFooter() {
 
         <div class="footer-bottom-strip">
           <div class="footer-bottom-left">© 2026 FinEngine · Built &amp; Maintained by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">${SPONSOR.name}</span></div>
-          <div class="footer-bottom-right">v0.3.0 · Multi-page product docs</div>
+          <div class="footer-bottom-right"><a class="footer-release-link" href="https://github.com/gmrafi/FinEngine/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer">v0.3.0 · Multi-page product docs</a></div>
           <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
         </div>
       </div>
