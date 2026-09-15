@@ -1,5 +1,24 @@
 const charts = new WeakMap();
 
+function renderFieldErrors(fields, errors) {
+  Object.entries(fields).forEach(([key, el]) => {
+    if (!el) return;
+    let hint = el.parentElement?.querySelector('.field-error');
+    const msg = errors?.[key];
+    if (msg) {
+      if (!hint) {
+        hint = document.createElement('span');
+        hint.className = 'field-error';
+        hint.setAttribute('role', 'alert');
+        el.insertAdjacentElement('afterend', hint);
+      }
+      hint.textContent = msg;
+    } else if (hint) {
+      hint.remove();
+    }
+  });
+}
+
 const PRESETS = {
   student: { scenario: 'Student laptop plan', amount: 85000, rate: 11.5, months: 18, income: 18000, startFee: 1.0 },
   bike: { scenario: 'Motorbike loan', amount: 220000, rate: 12.9, months: 30, income: 42000, startFee: 1.2 },
@@ -66,6 +85,9 @@ function initSimulation(root) {
       if (fields.months) fields.months.value = String(preset.months);
       if (fields.income) fields.income.value = String(preset.income);
       if (fields.startFee) fields.startFee.value = String(preset.startFee);
+      presetButtons.forEach((b) => b.classList.remove('is-active'));
+      button.classList.add('is-active');
+      state.preset = preset.scenario;
       render();
     });
   });
@@ -88,6 +110,7 @@ function initSimulation(root) {
 
   const render = () => {
     const values = validate(fields);
+    renderFieldErrors(fields, values.errors);
     if (!values.valid) {
       if (result.error) result.error.textContent = values.message;
       clearPreview(root, result, exportButtons);
@@ -152,18 +175,29 @@ function initSimulation(root) {
 }
 
 function validate(fields) {
-  const amount = Number(fields.amount?.value);
-  const rate = Number(fields.rate?.value);
-  const months = Number(fields.months?.value);
-  const income = Number(fields.income?.value || 0);
-  const startFee = Number(fields.startFee?.value || 0);
+  const num = (name, fallback = 0) => {
+    const el = fields[name];
+    if (!el || el.value === '') return Number.NaN;
+    const n = Number(el.value);
+    return Number.isFinite(n) ? n : Number.NaN;
+  };
+  const amount = num('amount', NaN);
+  const rate = num('rate', NaN);
+  const months = num('months', NaN);
+  const income = num('income', 0);
+  const startFee = num('startFee', 0);
   const scenario = fields.scenario?.value?.trim() || '';
-  if (!Number.isFinite(amount) || amount < 1000) return { valid: false, message: 'Loan amount must be at least 1,000.' };
-  if (!Number.isFinite(rate) || rate <= 0 || rate > 60) return { valid: false, message: 'Annual rate must be greater than 0 and no more than 60.' };
-  if (!Number.isFinite(months) || months < 3 || months > 120) return { valid: false, message: 'Term must be between 3 and 120 months.' };
-  if (!Number.isFinite(income) || income < 0) return { valid: false, message: 'Monthly income cannot be negative.' };
-  if (!Number.isFinite(startFee) || startFee < 0 || startFee > 20) return { valid: false, message: 'Processing fee must be between 0 and 20%.' };
-  return { valid: true, scenario, amount, rate, months, income, startFee };
+  const errors = {};
+  if (Number.isNaN(amount) || amount < 1000) errors.amount = 'Loan amount must be at least 1,000.';
+  if (Number.isNaN(rate) || rate <= 0) errors.rate = 'Interest rate must be greater than 0%.';
+  else if (rate > 60) errors.rate = 'Annual rate cannot exceed 60%.';
+  if (Number.isNaN(months) || months <= 0) errors.months = 'Term must be greater than 0 months.';
+  else if (months > 120) errors.months = 'Term cannot exceed 120 months.';
+  if (Number.isNaN(income) || income < 0) errors.income = 'Monthly income cannot be negative.';
+  if (Number.isNaN(startFee) || startFee < 0) errors.startFee = 'Processing fee cannot be negative.';
+  else if (startFee > 20) errors.startFee = 'Processing fee cannot exceed 20%.';
+  const message = Object.values(errors)[0] || '';
+  return { valid: Object.keys(errors).length === 0, errors, message, scenario, amount, rate, months, income, startFee };
 }
 
 function buildSchedule(principal, annualRate, months) {
