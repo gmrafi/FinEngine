@@ -203,16 +203,14 @@
       <p>Under this schema, numbers are evaluated as:</p>
       <div class="eq-block"><code>V = (-1)<sup>s</sup> × (1.m)<sub>2</sub> × 2<sup>e - 1023</sup></code></div>
       <p>Because fractional values are expressed as sums of negative powers of two (2<sup>-1</sup> = 0.5, 2<sup>-2</sup> = 0.25, 2<sup>-3</sup> = 0.125, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions 0.1 (1/10) and 0.2 (1/5) result in infinite repeating binary fractions:</p>
-      <div class="eq-block"><code>0.1<sub>10</sub> = 0.00011001100110011...<sub>2</sub>
-0.2<sub>10</sub> = 0.0011001100110011...<sub>2</sub></code></div>
+      <div class="eq-block"><code>0.1<sub>10</sub> = 0.00011001100110011...<sub>2</sub><br>0.2<sub>10</sub> = 0.0011001100110011...<sub>2</sub></code></div>
       <p>Truncating this infinite representation to 53 bits of significand generates an inexact representation in binary storage:</p>
-      <div class="eq-block"><code>0.1<sub>10</sub> ≈ 0.100000000000000005551115123126
-0.2<sub>10</sub> ≈ 0.200000000000000022204460492503</code></div>
+      <div class="eq-block"><code>0.1<sub>10</sub> ≈ 0.100000000000000005551115123126<br>0.2<sub>10</sub> ≈ 0.200000000000000022204460492503</code></div>
       <p>Evaluating simple addition in JavaScript yields the well-documented anomaly:</p>
       <div class="eq-block"><code>0.1 + 0.2 = 0.30000000000000004 ≠ 0.3</code></div>
 
       <h3>1.2 Compounding Propagation in Loan Amortization</h3>
-      <p>While fractional variance on the order of O(10^{-17}) is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over n periods, where the outstanding balance B<sub>t</sub> is defined by the recurrence relation:</p>
+      <p>While fractional variance on the order of O(10<sup>-17</sup>) is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over n periods, where the outstanding balance B<sub>t</sub> is defined by the recurrence relation:</p>
       <div class="eq-block"><code>B<sub>t</sub> = B<sub>t-1</sub>(1 + r) - EMI</code></div>
       <p>When evaluated under floating-point arithmetic, each iteration t ∈ {1, …, n} accumulates representation drift ε<sub>t</sub>:</p>
       <div class="eq-block"><code>B<sub>t</sub><sup>*</sup> = B<sub>t</sub> + ∑<sub>k=1</sub><sup>t</sup> ε<sub>k</sub> (1 + r)<sup>t-k</sup></code></div>
@@ -275,7 +273,7 @@
 
       <h3>2.2 Numerical Safety Boundaries</h3>
       <p>To maintain execution performance across all client engines without forced polyfills, FinEngine operates within the native ECMAScript safe integer boundary:</p>
-      <div class="eq-block"><code>|V<sub>scaled</sub>| ≤ Number.MAX\<sub>S</sub>AFE\<sub>I</sub>NTEGER = 2<sup>53</sup> - 1 = 9,007,199,254,740,991</code></div>
+      <div class="eq-block"><code>|V<sub>scaled</sub>| ≤ Number.MAX<sub>SAFE</sub>INTEGER = 2<sup>53</sup> - 1 = 9,007,199,254,740,991</code></div>
       <p>For BDT (k = 2), this ceiling provides safe deterministic headroom up to:</p>
       <div class="eq-block"><code>V<sub>max</sub> ≈ 90,071,992,547,409.91  BDT    (≈ 90.07  Trillion BDT)</code></div>
       <p>Any arithmetic transaction or ledger verification projected to exceed 2^{53} - 1 triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
@@ -304,18 +302,14 @@
 
       <h3>3.2 Discrete Iteration and Periodic Partitioning</h3>
       <p>For every discrete installment period t ∈ {1, 2, …, n}, the engine derives periodic interest accrual (I<sub>t</sub>), principal liquidation (P<sub>t</sub>), and closing balance (B<sub>t</sub>) via strict integer truncation rules:</p>
-      <div class="eq-block"><code>I<sub>t</sub> = round(B<sub>t-1</sub> · r)
-P<sub>t</sub> = EMI - I<sub>t</sub>
-B<sub>t</sub> = B<sub>t-1</sub> - P<sub>t</sub></code></div>
+      <div class="eq-block"><code>I<sub>t</sub> = round(B<sub>t-1</sub> · r)<br>P<sub>t</sub> = EMI - I<sub>t</sub><br>B<sub>t</sub> = B<sub>t-1</sub> - P<sub>t</sub></code></div>
       <p>Where B<sub>0</sub> = P.</p>
 
       <h3>3.3 The Terminal Reconciliation Rule</h3>
       <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts (± Δ poisha):</p>
       <div class="eq-block"><code>∑<sub>t=1</sub><sup>n</sup> P<sub>t</sub> ≠ P</code></div>
       <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period (t = n):</p>
-      <div class="eq-block"><code>P<sub>n</sub> = B<sub>n-1</sub>
-EMI<sub>n</sub> = P<sub>n</sub> + I<sub>n</sub>
-B<sub>n</sub> = B<sub>n-1</sub> - P<sub>n</sub> ≡ 0</code></div>
+      <div class="eq-block"><code>P<sub>n</sub> = B<sub>n-1</sub><br>EMI<sub>n</sub> = P<sub>n</sub> + I<sub>n</sub><br>B<sub>n</sub> = B<sub>n-1</sub> - P<sub>n</sub> ≡ 0</code></div>
       <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero (B<sub>n</sub> ≡ 0), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
       <hr class="section-divider" />
     </div>
