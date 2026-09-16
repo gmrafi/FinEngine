@@ -196,8 +196,8 @@ h1 { font-size: clamp(2.8rem, 5.4vw, 5rem); line-height: 0.94; letter-spacing: -
 .dot.red { background: #fb7185; }
 .dot.yellow { background: #fbbf24; }
 .dot.green { background: #34d399; }
-pre { margin: 0; overflow: auto; }
-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92rem; color: var(--code-text); }
+pre { margin: 0; overflow: auto; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; }
+code { font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; font-size: 13px; color: var(--code-text); }
 .section { padding: 34px 0; }
 .section-head { display:flex; justify-content:space-between; gap: 18px; align-items:end; margin-bottom: 18px; }
 .section-head h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -0.035em; }
