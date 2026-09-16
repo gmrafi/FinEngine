@@ -34,11 +34,50 @@
   <link rel="icon" type="image/png" href="../logo-mark.png" />
   <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Academic Indexer & Crossref Metadata -->
+  <meta name="citation_title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces">
+  <meta name="citation_author" content="Rafi, Md Golam Mubasshir">
+  <meta name="citation_publication_date" content="2026/09/15">
+  <meta name="citation_technical_report_institution" content="Centre for Fintech & Strategic Business Research">
+  <meta name="citation_technical_report_number" content="CFSBR-FE-2026-001">
+  <meta name="citation_doi" content="10.67226/cfsbr.fe.2026.001.v1">
+  <meta name="dc.identifier" content="doi:10.67226/cfsbr.fe.2026.001.v1">
+  <meta name="dc.relation.ispartof" content="CFSBR Technical Working Paper Series">
+  <meta name="dc.rights" content="https://creativecommons.org/licenses/by/4.0/">
 </head>
 <body data-page="methodology" data-root-path="../">
   <div data-site-header></div>
 
   <main class="doc-shell page-shell">
+    <!-- CFSBR Academic Attribution & DOI Header -->
+    <div class="methodology-header-card" style="border: 1px solid var(--border-color, #e2e8f0); padding: 28px; border-radius: 10px; margin-bottom: 36px; background: var(--surface-bg, #f8fafc);">
+      <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-color, #2563eb); letter-spacing: 0.06em;">
+        CFSBR Technical Working Paper · Computational Methodology Standard
+      </span>
+
+      <h1 style="margin: 14px 0 10px 0; font-size: 26px; font-weight: 700; line-height: 1.3;">
+        FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces
+      </h1>
+
+      <div class="authors" style="margin: 16px 0; font-size: 14px; line-height: 1.7; color: var(--text-color, #334155);">
+        <strong>Lead Author & Architect:</strong> Md Golam Mubasshir Rafi<br />
+        <strong>Institutional Affiliation:</strong> Centre for Fintech & Strategic Business Research (CFSBR)<br />
+        <strong>Publication Date:</strong> September 2026 · <strong>Version:</strong> v0.3.0
+      </div>
+
+      <div class="doi-pill" style="margin: 12px 0 18px 0; padding: 8px 14px; background: rgba(37, 99, 235, 0.08); display: inline-block; border-radius: 6px; font-family: monospace; font-size: 13px;">
+        <strong>DOI:</strong>
+        <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">
+          https://doi.org/10.67226/cfsbr.fe.2026.001.v1
+        </a>
+      </div>
+
+      <div class="abstract" style="font-size: 14px; line-height: 1.6; color: var(--text-muted, #64748b); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 14px;">
+        <strong>Abstract:</strong> This document formalizes the deterministic computation rules, boundary constraints, and floating-point error mitigation heuristics behind FinEngine. It details localized financial engineering specifications for emerging markets—including reducing-balance amortization schedules, BDT sub-unit precision, and client-side debt burden validation for transparent fintech workflows.
+      </div>
+    </div>
+
     <section class="doc-card page-hero-card">
       <div class="eyebrow">Methodology</div>
       <h1>Why the site now reads more like a product platform than a single-page pitch.</h1>
@@ -84,6 +123,29 @@
   note         = {Open-source JavaScript finance toolkit; hosted on GitHub as gmrafi/FinEngine},
 }</code></pre>
       <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">FinEngine repository ↗</a></p>
+    </section>
+
+    <!-- How to Cite Section -->
+    <section class="citation-section" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-color, #e2e8f0);">
+      <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;">How to Cite FinEngine</h3>
+
+      <p style="font-size: 14px; margin-bottom: 8px;"><strong>APA 7th Edition:</strong></p>
+      <div style="background: rgba(0,0,0,0.03); padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
+        Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. 2026-001). Centre for Fintech & Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
+      </div>
+
+      <p style="font-size: 14px; margin-bottom: 8px;"><strong>BibTeX:</strong></p>
+      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 12px; overflow-x: auto;"><code>@techreport{rafi2026finengine,
+  author      = {Rafi, Md Golam Mubasshir},
+  title       = {FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces},
+  institution = {Centre for Fintech \& Strategic Business Research (CFSBR)},
+  year        = {2026},
+  month       = {September},
+  type        = {Technical Working Paper},
+  number      = {CFSBR-FE-2026-001},
+  doi         = {10.67226/cfsbr.fe.2026.001.v1},
+  url         = {https://finengine.js.org/methodology/}
+}</code></pre>
     </section>
   </main>
 

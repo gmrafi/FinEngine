@@ -161,66 +161,166 @@ function renderProofStrip(pageType) {
 function renderFooter() {
   const root = getRootPath();
   return `
-    <footer class="shell site-footer-shell">
-      <div class="footer-panel site-footer-panel">
-        <div class="site-footer-grid site-footer-grid-4">
-          <section class="footer-column footer-column-brand" aria-label="Brand and institution">
-            <a class="footer-brand footer-brandline" href="${root}index.html"><img class="footer-logo" src="${root}logo-mark.png" alt="FinEngine Labs logo" loading="lazy" decoding="async" /><span>FinEngine Labs</span></a>
-            <p class="footer-intro">A computational research and simulation platform for deterministic finance — documentation-first JavaScript tooling for reproducible calculations, explainable demos, and research-backed product surfaces.</p>
-            <div class="footer-highlight-card footer-powered-card footer-static-card">
-              <div class="footer-card-title footer-card-title-gold">A CFSBR Computational Initiative</div>
-              <p><a href="${SPONSOR.url}" target="_blank" rel="noopener noreferrer"><strong>${SPONSOR.name} (${SPONSOR.short})</strong></a></p>
-            </div>
-          </section>
+    <footer style="border-top: 1px solid var(--border-color, #e2e8f0); background: #ffffff; padding: 56px 20px 32px; color: #334155; font-family: inherit;">
+      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; margin-bottom: 40px;">
 
-          <section class="footer-column" aria-label="Labs and simulators">
-            <div class="footer-heading">LABS &amp; SIMULATORS</div>
-            <div class="footer-link-list">
-              <a href="${root}simulation/"><strong>Simulation Lab</strong><span>Installment, SME, and merchant scenarios</span></a>
-              <a href="${root}simulation/#simulator-student"><strong>Student Installment</strong><span>Laptop and study financing plan</span></a>
-              <a href="${root}simulation/#simulator-sme"><strong>SME Working Capital</strong><span>Installment burden under stronger cashflow</span></a>
-              <a href="${root}simulation/#simulator-merchant"><strong>Merchant Restock</strong><span>Short-duration float scenarios</span></a>
-              <a href="${root}product/"><strong>Scenario Playground</strong><span>Package surface and executables</span></a>
+        <section style="display: flex; flex-direction: column; gap: 14px;" aria-label="Brand and institution">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <a href="${root}index.html" style="text-decoration: none; color: inherit;">
+              <span style="font-weight: 800; font-size: 20px; color: #0f172a; letter-spacing: -0.02em;">FinEngine Labs</span>
+            </a>
+          </div>
+          <p style="font-size: 13px; line-height: 1.6; color: #64748b; margin: 0;">
+            A computational research and simulation platform for deterministic finance — documentation-first JavaScript tooling for reproducible calculations, explainable demos, and research-backed product surfaces.
+          </p>
+          <div style="margin-top: 6px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #2563eb; letter-spacing: 0.05em; margin-bottom: 4px;">
+              A CFSBR Computational Initiative
             </div>
-          </section>
+            <div style="font-size: 13px; font-weight: 600; color: #0f172a;">
+              Centre for Fintech &amp; Strategic Business Research (CFSBR)
+            </div>
+          </div>
+        </section>
 
-          <section class="footer-column" aria-label="Documentation">
-            <div class="footer-heading">DOCUMENTATION</div>
-            <div class="footer-link-list">
-              <a href="${root}docs/"><strong>Documentation Hub</strong><span>Package docs, examples, and release notes</span></a>
-              <a href="${root}docs/core/"><strong>@finengine/core</strong><span>Validation and money primitives</span></a>
-              <a href="${root}docs/math/"><strong>@finengine/math</strong><span>Amortization, XIRR, and repayment math</span></a>
-              <a href="${root}docs/ui/"><strong>@finengine/ui</strong><span>Finance-oriented UI helpers</span></a>
-              <a href="${root}docs/release/"><strong>Release Checklist</strong><span>v0.3.0 publish steps</span></a>
-            </div>
-          </section>
+        <section aria-label="Labs and simulators">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 18px;">
+            LABS &amp; SIMULATORS
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li>
+              <a href="${root}simulation/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Simulation Lab</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Installment, SME, and merchant scenarios</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}simulation/#student" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Student Installment</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Laptop and study financing plan</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}simulation/#sme" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">SME Working Capital</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Installment burden under stronger cashflow</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}simulation/#merchant" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Merchant Restock</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Short-duration float scenarios</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}simulation/#playground" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Scenario Playground</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Package surface and executables</div>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-          <section class="footer-column" aria-label="Research and methodology">
-            <div class="footer-heading">RESEARCH &amp; METHODOLOGY</div>
-            <div class="footer-link-list">
-              <a href="${root}methodology/"><strong>Methodology Paper</strong><span>Positioning, localization, and roadmap logic</span></a>
-              <a href="${root}docs/core/#money-primitives"><strong>BDT Money Primitives</strong><span>Deterministic currency ledger math</span></a>
-              <a class="is-external" href="${root}methodology/#cite-finengine"><strong>Academic Citation (BibTeX)</strong><span>Pre-formatted entry for theses &amp; papers</span></a>
-              <a class="is-external" href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer"><strong>CFSBR Working Papers</strong><span>Hosted research home of the lab</span></a>
-            </div>
-          </section>
+        <section aria-label="Documentation">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 18px;">
+            DOCUMENTATION
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li>
+              <a href="${root}docs/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Documentation Hub</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Package docs, examples, and release notes</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}docs/core/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">@finengine/core</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Validation and money primitives</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}docs/math/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">@finengine/math</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Amortization, XIRR, and repayment math</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}docs/ui/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">@finengine/ui</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Finance-oriented UI helpers</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}docs/release/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Release Checklist</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">v0.3.0 publish steps</div>
+              </a>
+            </li>
+          </ul>
+        </section>
 
-          <section class="footer-column" aria-label="Community and open source">
-            <div class="footer-heading">COMMUNITY &amp; OPEN SOURCE</div>
-            <div class="footer-link-list">
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer"><strong>GitHub Repository</strong><span>Source, commits, workflows, issues</span></a>
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine/issues/new/choose" target="_blank" rel="noopener noreferrer"><strong>Report an Issue</strong><span>Structured bug &amp; feature intake</span></a>
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><strong>Contributing Guidelines</strong><span>Pull-request flow &amp; review checklist</span></a>
-              <a class="is-external" href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><strong>MIT License</strong><span>Free &amp; open-source licensing terms</span></a>
-              <a href="${root}brand/"><strong>Brand Assets</strong><span>Logo kit, palette, and usage guidance</span></a>
-            </div>
-          </section>
+        <section aria-label="Research and community">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 18px;">
+            RESEARCH &amp; COMMUNITY
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li>
+              <a href="${root}methodology/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Research &amp; Methodology</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Positioning, localization, and roadmap logic</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}methodology/#cite-finengine" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Cite FinEngine (BibTeX)</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Academic citation for papers and theses</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}brand/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Brand Assets</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Logo kit, palette, and usage guidance</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">GitHub Repository <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Source, commits, workflows, issues</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gmrafi/FinEngine/issues" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Report an Issue <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Structured bug and feature intake</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}license/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">MIT License <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Free and open-source licensing terms</div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <div style="max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 12px; font-size: 12px; color: #64748b; line-height: 1.6;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+          <div>
+            <strong>&#169; 2026 FinEngine Labs</strong> &#183; A CFSBR Computational Initiative
+          </div>
+          <div style="font-family: monospace; font-size: 11px; color: #475569; background: #f1f5f9; padding: 2px 8px; border-radius: 4px;">
+            v0.3.0 &#183; Multi-page product docs
+          </div>
         </div>
 
-        <div class="footer-bottom-strip">
-          <div class="footer-bottom-left">© 2026 <strong>FinEngine Labs</strong> · A CFSBR Computational Initiative<br />Built &amp; Maintained by <strong>Md Golam Mubasshir Rafi</strong> · Powered by <span class="footer-powered-inline">${SPONSOR.name}</span></div>
-          <div class="footer-bottom-right"><a class="footer-release-link" href="https://github.com/gmrafi/FinEngine/releases/tag/v0.3.0" target="_blank" rel="noopener noreferrer">v0.3.0 · Multi-page product docs</a></div>
-          <p class="footer-disclaimer">Disclaimer: FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.</p>
+        <div>
+          Built &amp; Maintained by <strong>Md Golam Mubasshir Rafi</strong> &#183; Powered by <strong>Centre for Fintech &amp; Strategic Business Research</strong>
+        </div>
+
+        <div style="font-size: 11px; color: #94a3b8; line-height: 1.5; border-top: 1px dashed #e2e8f0; padding-top: 10px; margin-top: 4px;">
+          <strong>Disclaimer:</strong> FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.
         </div>
       </div>
     </footer>
