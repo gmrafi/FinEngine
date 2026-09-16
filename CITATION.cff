@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software or methodology, please cite it as below."
+authors:
+  - family-names: "Rafi"
+    given-names: "Md Golam Mubasshir"
+    affiliation: "Centre for Fintech & Strategic Business Research (CFSBR)"
+title: "FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces"
+version: 0.3.0
+doi: 10.67226/cfsbr.fe.2026.001.v1
+date-released: 2026-09-15
+url: "https://finengine.js.org/methodology/"
