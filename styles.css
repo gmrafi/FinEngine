@@ -200,7 +200,7 @@ pre { margin: 0; overflow: auto; font-family: ui-monospace, SFMono-Regular, "Jet
 code { font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; font-size: 13px; color: var(--code-text); }
 .section { padding: 34px 0; }
 .section-head { display:flex; justify-content:space-between; gap: 18px; align-items:end; margin-bottom: 18px; }
-.section-head h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -0.035em; }
+.section-head h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.035em; }
 .section-head p { margin: 8px 0 0; color: var(--muted); max-width: 74ch; }
 .stats-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .stat { padding: 22px; }
