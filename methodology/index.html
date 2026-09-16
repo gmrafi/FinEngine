@@ -35,52 +35,54 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    .mh-card { border: 1px solid var(--line, #e2e8f0); padding: 32px; border-radius: 20px; margin-bottom: 32px; background: linear-gradient(180deg, color-mix(in srgb, var(--panel, #f8fafc) 90%, white 10%), var(--panel-strong, #ffffff)); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
-    .mh-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent-color, #2563eb); letter-spacing: 0.1em; margin-bottom: 12px; }
-    .mh-title { margin: 0 0 14px 0; font-size: 28px; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: var(--text, #18181b); }
-    .mh-meta { font-size: 14px; line-height: 2; color: var(--text-muted, #64748b); }
-    .mh-meta a { color: var(--accent-color, #2563eb); text-decoration: none; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; font-size: 13px; border-bottom: 1px solid rgba(37,99,235,0.2); transition: border-color 0.2s; }
-    .mh-meta a:hover { border-bottom-color: var(--accent-color, #2563eb); }
-    .mh-abstract { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); border-top: 1px solid var(--line, #e2e8f0); padding-top: 18px; margin-top: 16px; }
-    .mh-abstract strong { color: var(--text, #18181b); }
-    .mh-section { margin-bottom: 0; }
-    .mh-section h2 { font-size: 22px; font-weight: 700; margin: 0 0 16px 0; color: var(--text, #18181b); letter-spacing: -0.02em; }
-    .mh-section h3 { font-size: 17px; font-weight: 600; margin: 22px 0 10px 0; color: var(--text, #18181b); }
-    .mh-section p { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); margin: 8px 0; }
-    .mh-section a { color: var(--accent-color, #2563eb); text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.25); transition: border-color 0.2s; }
-    .mh-section a:hover { border-bottom-color: var(--accent-color, #2563eb); }
+    .mh-card { border: 1px solid #e2e8f0; padding: 32px; border-radius: 12px; margin-bottom: 28px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+.mh-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #2563eb; letter-spacing: 0.1em; margin-bottom: 12px; }
+.mh-title { margin: 0 0 14px 0; font-size: 28px; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: #0f172a; }
+    .mh-meta { font-size: 14px; line-height: 2; color: #475569; }
+    .mh-meta a { color: #2563eb; text-decoration: none; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; font-size: 12.5px; padding: 2px 6px; border-radius: 4px; }
+    .mh-meta a:hover { color: #1d4ed8; }
+    .mh-abstract { font-size: 15px; line-height: 1.8; color: #475569; border-top: 1px solid #e2e8f0; padding-top: 18px; margin-top: 16px; }
+    .mh-abstract strong { color: #0f172a; }
+.mh-section h2 { font-size: 24px; font-weight: 700; margin: 0 0 20px 0; color: #0f172a; letter-spacing: -0.02em; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; gap: 12px; }
+.mh-section h2::before { content: counter(section); counter-increment: section; font-size: 14px; font-weight: 800; color: #2563eb; background: #eff6ff; padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; }
+.mh-section { counter-reset: subsection; }
+    .mh-section h3 { font-size: 17px; font-weight: 600; margin: 28px 0 10px 0; color: #1e293b; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; counter-increment: subsection; }
+.mh-section h3::before { content: counter(section) "." counter(subsection) " "; font-size: 12px; font-weight: 700; color: #2563eb; font-family: ui-monospace, monospace; }
+    .mh-section p { font-size: 15px; line-height: 1.85; color: #334155; margin: 10px 0; }
+    .mh-section a { color: #2563eb; text-decoration: none; border-bottom: 1px solid #2563eb; transition: border-color 0.2s, opacity 0.2s; }
+    .mh-section a:hover { opacity: 0.8; }
     .mh-section a[href^="http"]::after { content: " \2197"; font-size: 0.82em; opacity: 0.5; margin-left: 1px; }
     .mh-section ul, .mh-section ol { margin: 10px 0; padding-left: 24px; }
-    .mh-section li { font-size: 15px; line-height: 1.7; color: var(--text-muted, #64748b); margin: 6px 0; }
-    .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; }
-    .eq-block { background: rgba(0,0,0,0.03); color: var(--text, #18181b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13px; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); line-height: 1.7; }
-    .eq-block code { color: var(--text, #18181b); background: none; padding: 0; font-size: 13px; }
-    .diag-block { background: rgba(0,0,0,0.03); color: var(--text-muted, #64748b); padding: 18px 22px; border-radius: 12px; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .mh-section li { font-size: 15px; line-height: 1.75; color: #334155; margin: 8px 0; }
+    .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; background: #f1f5f9; padding: 2px 7px; border-radius: 4px; color: #1e293b; }
+    .eq-block { background: #fafafa; color: #111; padding: 18px 22px; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13.5px; overflow-x: auto; margin: 16px 0; border: 1px solid #ddd; border-left: 4px solid #2563eb; line-height: 1.8; }
+    .eq-block code { color: #111; background: none; padding: 0; font-size: 13.5px; }
+    .diag-block { background: #fafafa; color: #111; padding: 20px 22px; border-radius: 8px; font-size: 12.5px; line-height: 1.5; overflow-x: auto; margin: 18px 0; border: 1px solid #ddd; border-left: 4px solid #2563eb; }
     .diag-block .flow { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-    .diag-block .flow-box { background: rgba(255,255,255,0.7); border: 1px solid var(--line, #d1d5db); border-radius: 8px; padding: 8px 14px; font-size: 12px; color: var(--text, #18181b); text-align: center; width: 85%; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; }
-    .diag-block .flow-box small { display: block; font-size: 11px; color: var(--text-muted, #64748b); margin-top: 2px; }
-    .diag-block .flow-arrow { font-size: 14px; color: var(--accent-color, #2563eb); line-height: 1; margin: 1px 0; }
+    .diag-block .flow-box { background: #fff; border: 1px solid #d1d5db; border-radius: 8px; padding: 8px 14px; font-size: 12px; color: #111; text-align: center; width: 85%; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: box-shadow 0.2s, transform 0.2s; }
+.diag-block .flow-box:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.diag-block .flow-box small { display: block; font-size: 11px; color: #64748b; margin-top: 2px; }
+.diag-block .flow-arrow { font-size: 14px; color: #2563eb; line-height: 1; margin: 1px 0; }
     .diag-block .flow-row { display: flex; gap: 10px; width: 100%; }
     .diag-block .flow-row .flow-box { flex: 1; }
-    .mh-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; border: 1px solid var(--line, #e2e8f0); border-radius: 10px; overflow: hidden; }
-    .mh-table th { text-align: left; padding: 10px 16px; font-weight: 600; color: var(--text, #18181b); background: rgba(37,99,235,0.06); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--accent-color, #2563eb); font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
-    .mh-table td { padding: 10px 16px; border-bottom: 1px solid var(--line, #e2e8f0); color: var(--text-muted, #64748b); }
-    .mh-table tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
-    .mh-table tr:nth-child(even):hover td { background: rgba(37,99,235,0.03); }
-    .mh-table tr:last-child td { border-bottom: none; }
-    .mh-table code { font-size: 12px; background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 3px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
-    .citation-box { background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(16,185,129,0.04)); border: 1px solid rgba(37,99,235,0.15); border-radius: 16px; padding: 24px 28px; margin: 16px 0; }
-    .citation-box h2 { font-size: 20px; font-weight: 700; margin: 0 0 6px 0; color: var(--text, #18181b); }
-    .citation-box h3 { font-size: 15px; font-weight: 600; margin: 16px 0 8px 0; color: var(--accent-color, #2563eb); text-transform: uppercase; letter-spacing: 0.04em; }
-    .citation-text { font-size: 14px; line-height: 1.7; color: var(--text-muted, #64748b); background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 8px; margin: 8px 0 16px 0; }
-    .bibtex-block { background: rgba(0,0,0,0.03); color: var(--text, #18181b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; overflow-x: auto; margin: 10px 0 20px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); line-height: 1.7; }
-    .mh-section .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line, #e2e8f0) 20%, var(--line, #e2e8f0) 80%, transparent); margin: 32px 0; border: none; }
-    .mh-section strong { color: var(--text, #18181b); font-weight: 600; }
-    .mh-card a.mini-btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line, #e2e8f0); background: transparent; color: var(--text, #18181b); font-size: 13px; text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
-    .mh-card a.mini-btn:hover { border-color: var(--accent-color, #2563eb); background: rgba(37,99,235,0.04); }
+.mh-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.mh-table th { text-align: left; padding: 10px 14px; font-weight: 700; color: #0f172a; background: #f8fafc; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #2563eb; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
+.mh-table td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+.mh-table tr:nth-child(even) td { background: #fafafa; }
+.mh-table tr:last-child td { border-bottom: none; }
+.mh-table code { font-size: 12px; background: #f1f5f9; padding: 2px 6px; border-radius: 3px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
+    .citation-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin: 16px 0; }
+.citation-box h2 { font-size: 20px; font-weight: 700; margin: 0 0 6px 0; color: #0f172a; }
+.citation-box h3 { font-size: 15px; font-weight: 600; margin: 16px 0 8px 0; color: #2563eb; text-transform: uppercase; letter-spacing: 0.04em; }
+.citation-text { font-size: 14px; line-height: 1.7; color: #475569; background: #fff; padding: 14px 18px; border-radius: 8px; margin: 8px 0 16px 0; border: 1px solid #e2e8f0; }
+    .bibtex-block { background: #fafafa; color: #111; padding: 18px 22px; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12.5px; overflow-x: auto; margin: 12px 0 20px 0; border: 1px solid #ddd; border-left: 4px solid #2563eb; line-height: 1.7; }
+    .mh-section .section-divider { height: 1px; background: #e2e8f0; margin: 32px 0; border: none; }
+    .mh-section strong { color: #0f172a; font-weight: 700; }
+.mh-card a.mini-btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; color: #18181b; font-size: 13px; text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
+.mh-card a.mini-btn:hover { border-color: #2563eb; background: #eff6ff; }
     @media (max-width: 768px) { .mh-card { padding: 20px; } .mh-title { font-size: 20px; } .mh-section h2 { font-size: 18px; } .eq-block, .bibtex-block, .diag-block { font-size: 11px; padding: 14px 16px; } .mh-table th, .mh-table td { padding: 8px 12px; font-size: 13px; } }
-      .eyebrow { color: var(--accent-color, #2563eb); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
-    .toc-link:hover { border-bottom-color: var(--accent-color, #2563eb) !important; color: var(--text) !important; }
+.eyebrow { color: #2563eb; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+.toc-link:hover { border-bottom-color: #2563eb !important; color: #0f172a !important; }
       html { scroll-padding-top: 80px; }
     @media print {
       .mh-card[aria-label="Table of Contents"], nav { display: none !important; }
@@ -182,13 +184,13 @@
     <nav class="mh-card" style="padding: 24px 28px; margin-bottom: 20px;">
       <div class="eyebrow" style="margin-bottom: 14px;">Contents</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 14px;">
-        <div><a href="#sec1" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">1. IEEE-754 Binary64 Drift</a></div>
-        <div><a href="#sec2" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">2. Deterministic Arithmetic</a></div>
-        <div><a href="#sec3" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">3. Loan Amortization Models</a></div>
-        <div><a href="#sec4" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">4. Advanced Solvers</a></div>
-        <div><a href="#sec5" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">5. Local-First Architecture</a></div>
-        <div><a href="#sec6" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">6. Monorepo and Roadmap</a></div>
-        <div><a href="#cite-finengine" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">Citation</a></div>
+<div><a href="#sec1" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">1. IEEE-754 Binary64 Drift</a></div>
+<div><a href="#sec2" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">2. Deterministic Arithmetic</a></div>
+<div><a href="#sec3" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">3. Loan Amortization Models</a></div>
+<div><a href="#sec4" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">4. Advanced Solvers</a></div>
+<div><a href="#sec5" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">5. Local-First Architecture</a></div>
+<div><a href="#sec6" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">6. Monorepo and Roadmap</a></div>
+<div><a href="#cite-finengine" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">Citation</a></div>
       </div>
     </div>
         <!-- 1. The Numerical Pathology -->
