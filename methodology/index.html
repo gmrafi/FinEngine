@@ -53,9 +53,9 @@
     .mh-section ul, .mh-section ol { margin: 10px 0; padding-left: 24px; }
     .mh-section li { font-size: 15px; line-height: 1.7; color: var(--text-muted, #64748b); margin: 6px 0; }
     .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; }
-    .eq-block { background: var(--code-bg, #0d1117); color: var(--code-text, #e6edf3); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13px; overflow-x: auto; margin: 14px 0; border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid #3b82f6; box-shadow: 0 4px 16px rgba(0,0,0,0.18); line-height: 1.7; }
-    .eq-block code { color: #e2e8f0; background: none; padding: 0; font-size: 13px; }
-    .diag-block { background: var(--code-bg, #0d1117); color: #94a3b8; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid #10b981; box-shadow: 0 4px 16px rgba(0,0,0,0.18); white-space: pre; }
+    .eq-block { background: rgba(0,0,0,0.03); color: var(--text, #18181b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13px; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); line-height: 1.7; }
+    .eq-block code { color: var(--text, #18181b); background: none; padding: 0; font-size: 13px; }
+    .diag-block { background: rgba(0,0,0,0.03); color: var(--text-muted, #64748b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); white-space: pre; }
     .mh-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; border: 1px solid var(--line, #e2e8f0); border-radius: 10px; overflow: hidden; }
     .mh-table th { text-align: left; padding: 10px 16px; font-weight: 600; color: var(--text, #18181b); background: rgba(37,99,235,0.06); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--accent-color, #2563eb); font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
     .mh-table td { padding: 10px 16px; border-bottom: 1px solid var(--line, #e2e8f0); color: var(--text-muted, #64748b); }
@@ -67,7 +67,7 @@
     .citation-box h2 { font-size: 20px; font-weight: 700; margin: 0 0 6px 0; color: var(--text, #18181b); }
     .citation-box h3 { font-size: 15px; font-weight: 600; margin: 16px 0 8px 0; color: var(--accent-color, #2563eb); text-transform: uppercase; letter-spacing: 0.04em; }
     .citation-text { font-size: 14px; line-height: 1.7; color: var(--text-muted, #64748b); background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 8px; margin: 8px 0 16px 0; }
-    .bibtex-block { background: #0f172a; color: #e2e8f0; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; overflow-x: auto; margin: 10px 0 20px 0; border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid #8b5cf6; line-height: 1.7; }
+    .bibtex-block { background: rgba(0,0,0,0.03); color: var(--text, #18181b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; overflow-x: auto; margin: 10px 0 20px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); line-height: 1.7; }
     .mh-section .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line, #e2e8f0) 20%, var(--line, #e2e8f0) 80%, transparent); margin: 32px 0; border: none; }
     .mh-section strong { color: var(--text, #18181b); font-weight: 600; }
     .mh-card a.mini-btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line, #e2e8f0); background: transparent; color: var(--text, #18181b); font-size: 13px; text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
@@ -201,22 +201,22 @@
         </tbody>
       </table>
       <p>Under this schema, numbers are evaluated as:</p>
-      <div class="eq-block"><code>$$V = (-1)^s \times (1.m)_2 \times 2^{e - 1023}$$</code></div>
+      <div class="eq-block"><code>$$V = (-1)^s × (1.m)_2 × 2^{e - 1023}$$</code></div>
       <p>Because fractional values are expressed as sums of negative powers of two ($2^{-1} = 0.5$, $2^{-2} = 0.25$, $2^{-3} = 0.125$, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions $0.1$ ($1/10$) and $0.2$ ($1/5$) result in infinite repeating binary fractions:</p>
       <div class="eq-block"><code>$$0.1_{10} = 0.00011001100110011..._2$$
 $$0.2_{10} = 0.0011001100110011..._2$$</code></div>
       <p>Truncating this infinite representation to 53 bits of significand generates an inexact representation in binary storage:</p>
-      <div class="eq-block"><code>$$0.1_{10} \approx 0.100000000000000005551115123126$$
-$$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
+      <div class="eq-block"><code>$$0.1_{10} ≈ 0.100000000000000005551115123126$$
+$$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
       <p>Evaluating simple addition in JavaScript yields the well-documented anomaly:</p>
-      <div class="eq-block"><code>$$0.1 + 0.2 = 0.30000000000000004 \neq 0.3$$</code></div>
+      <div class="eq-block"><code>$$0.1 + 0.2 = 0.30000000000000004 ≠ 0.3$$</code></div>
 
       <h3>1.2 Compounding Propagation in Loan Amortization</h3>
-      <p>While fractional variance on the order of $\mathcal{O}(10^{-17})$ is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over $n$ periods, where the outstanding balance $B_t$ is defined by the recurrence relation:</p>
+      <p>While fractional variance on the order of $O(10^{-17})$ is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over $n$ periods, where the outstanding balance $B_t$ is defined by the recurrence relation:</p>
       <div class="eq-block"><code>$$B_t = B_{t-1}(1 + r) - EMI$$</code></div>
-      <p>When evaluated under floating-point arithmetic, each iteration $t \in \{1, \dots, n\}$ accumulates representation drift $\epsilon_t$:</p>
-      <div class="eq-block"><code>$$B_t^* = B_t + \sum_{k=1}^t \epsilon_k (1 + r)^{t-k}$$</code></div>
-      <p>In multi-year amortization schedules ($n \ge 60$ months), cumulative rounding drift $\epsilon$ causes the closing terminal balance $B_n$ to fail to liquidate cleanly to zero ($B_n \neq 0.00$). In statutory double-entry bookkeeping, a balance of $+0.02$ or $-0.01$ breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
+      <p>When evaluated under floating-point arithmetic, each iteration $t ∈ \{1, …, n\}$ accumulates representation drift $ε_t$:</p>
+      <div class="eq-block"><code>$$B_t^* = B_t + ∑_{k=1}^t ε_k (1 + r)^{t-k}$$</code></div>
+      <p>In multi-year amortization schedules ($n ≥ 60$ months), cumulative rounding drift $ε$ causes the closing terminal balance $B_n$ to fail to liquidate cleanly to zero ($B_n ≠ 0.00$). In statutory double-entry bookkeeping, a balance of $+0.02$ or $-0.01$ breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
       <hr class="section-divider" />
     </div>
 
@@ -262,22 +262,22 @@ $$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
 &#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
 
       <h3>2.1 Integer Sub-Unit Scaling</h3>
-      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha ($1 \text{ BDT} = 100 \text{ Poisha}$).</p>
-      <p>The transformation bijection $f: \mathbb{Q} \to \mathbb{Z}$ is defined as:</p>
-      <div class="eq-block"><code>$$V_{\text{scaled}} = \left\lfloor V \cdot 10^k + \frac{1}{2} \text{sgn}(V) \right\rfloor$$</code></div>
+      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha ($1  BDT = 100  Poisha$).</p>
+      <p>The transformation bijection $f: ℚ → ℤ$ is defined as:</p>
+      <div class="eq-block"><code>$$V_{scaled} = ⌊ V · 10^k + \frac{1}{2} sgn(V) ⌋$$</code></div>
       <p>Where:</p>
       <ul>
         <li>$V$ is the decimal monetary value.</li>
         <li>$k$ is the currency scale exponent ($k = 2$ for BDT).</li>
-        <li>$\text{sgn}(V)$ preserves directional signs.</li>
+        <li>$sgn(V)$ preserves directional signs.</li>
       </ul>
-      <p>All internal intermediate computations (addition, subtraction, and discrete balance tracking) execute entirely within the closed domain of integers ($\mathbb{Z}$).</p>
+      <p>All internal intermediate computations (addition, subtraction, and discrete balance tracking) execute entirely within the closed domain of integers ($ℤ$).</p>
 
       <h3>2.2 Numerical Safety Boundaries</h3>
       <p>To maintain execution performance across all client engines without forced polyfills, FinEngine operates within the native ECMAScript safe integer boundary:</p>
-      <div class="eq-block"><code>$$|V_{\text{scaled}}| \le \text{Number.MAX\_SAFE\_INTEGER} = 2^{53} - 1 = 9,007,199,254,740,991$$</code></div>
+      <div class="eq-block"><code>$$|V_{scaled}| ≤ Number.MAX\_SAFE\_INTEGER = 2^{53} - 1 = 9,007,199,254,740,991$$</code></div>
       <p>For BDT ($k = 2$), this ceiling provides safe deterministic headroom up to:</p>
-      <div class="eq-block"><code>$$V_{\text{max}} \approx 90,071,992,547,409.91 \text{ BDT} \quad (\approx 90.07 \text{ Trillion BDT})$$</code></div>
+      <div class="eq-block"><code>$$V_{max} ≈ 90,071,992,547,409.91  BDT    (≈ 90.07  Trillion BDT)$$</code></div>
       <p>Any arithmetic transaction or ledger verification projected to exceed $2^{53} - 1$ triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
 
       <h3>2.3 Deterministic Rounding Specifications</h3>
@@ -292,7 +292,7 @@ $$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
 
       <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
       <p>In contrast to flat-rate interest calculations&mdash;which obscure actual borrowing costs and understate the effective annual rate&mdash;FinEngine enforces the actuarial reducing-balance annuity model:</p>
-      <div class="eq-block"><code>$$EMI = P \cdot \frac{r(1 + r)^n}{(1 + r)^n - 1}$$</code></div>
+      <div class="eq-block"><code>$$EMI = P · \frac{r(1 + r)^n}{(1 + r)^n - 1}$$</code></div>
       <table class="mh-table">
         <thead><tr><th>Variable</th><th>Type</th><th>Definition</th></tr></thead>
         <tbody>
@@ -303,20 +303,20 @@ $$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
       </table>
 
       <h3>3.2 Discrete Iteration and Periodic Partitioning</h3>
-      <p>For every discrete installment period $t \in \{1, 2, \dots, n\}$, the engine derives periodic interest accrual ($I_t$), principal liquidation ($P_t$), and closing balance ($B_t$) via strict integer truncation rules:</p>
-      <div class="eq-block"><code>$$I_t = \text{round}(B_{t-1} \cdot r)$$
+      <p>For every discrete installment period $t ∈ \{1, 2, …, n\}$, the engine derives periodic interest accrual ($I_t$), principal liquidation ($P_t$), and closing balance ($B_t$) via strict integer truncation rules:</p>
+      <div class="eq-block"><code>$$I_t = round(B_{t-1} · r)$$
 $$P_t = EMI - I_t$$
 $$B_t = B_{t-1} - P_t$$</code></div>
       <p>Where $B_0 = P$.</p>
 
       <h3>3.3 The Terminal Reconciliation Rule</h3>
-      <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts ($\pm \Delta$ poisha):</p>
-      <div class="eq-block"><code>$$\sum_{t=1}^n P_t \neq P$$</code></div>
+      <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts ($± Δ$ poisha):</p>
+      <div class="eq-block"><code>$$∑_{t=1}^n P_t ≠ P$$</code></div>
       <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period ($t = n$):</p>
       <div class="eq-block"><code>$$P_n = B_{n-1}$$
 $$EMI_n = P_n + I_n$$
-$$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
-      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero ($B_n \equiv 0$), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
+$$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
+      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero ($B_n ≡ 0$), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
       <hr class="section-divider" />
     </div>
 
@@ -327,7 +327,7 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
       <p>For non-periodic, non-uniform digital transactions (such as merchant cash advances and micro-installments), FinEngine solves for internal rate of return via the generalized net present value relation:</p>
-      <div class="eq-block"><code>$$NPV(R) = \sum_{i=1}^m \frac{C_i}{(1 + R)^{\frac{d_i - d_0}{365}}} = 0$$</code></div>
+      <div class="eq-block"><code>$$NPV(R) = ∑_{i=1}^m \frac{C_i}{(1 + R)^{\frac{d_i - d_0}{365}}} = 0$$</code></div>
       <p>Where:</p>
       <ul>
         <li>$C_i$ is the cash flow at date $d_i$.</li>
@@ -337,14 +337,14 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
       <p>Because closed-form solutions do not exist for $m > 4$, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
       <div class="eq-block"><code>$$R_{k+1} = R_k - \frac{NPV(R_k)}{NPV'(R_k)}$$</code></div>
       <ul>
-        <li>Convergence Threshold: $|\Delta R| &lt; 10^{-7}$</li>
+        <li>Convergence Threshold: $|Δ R| &lt; 10^{-7}$</li>
         <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
       </ul>
 
       <h3>4.2 Debt-Burden Ratio (DBR) Stress Testing</h3>
       <p>To prevent predatory micro-lending and ensure compliance with central banking guidelines on responsible consumer lending, <code>@finengine/math</code> evaluates localized debt burden limits:</p>
-      <div class="eq-block"><code>$$DBR = \frac{\sum EMI_{\text{existing}} + EMI_{\text{proposed}}}{Y_{\text{net monthly}}} \times 100$$</code></div>
-      <p>The engine validates transactions against statutory thresholds (e.g., $DBR \le 40\%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
+      <div class="eq-block"><code>$$DBR = \frac{∑ EMI_{existing} + EMI_{proposed}}{Y_{net monthly}} × 100$$</code></div>
+      <p>The engine validates transactions against statutory thresholds (e.g., $DBR ≤ 40\%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
       <hr class="section-divider" />
     </div>
 
