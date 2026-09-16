@@ -61,9 +61,13 @@
       </h1>
 
       <div class="authors" style="margin: 16px 0; font-size: 14px; line-height: 1.7; color: var(--text-color, #334155);">
-        <strong>Lead Author & Architect:</strong> Md Golam Mubasshir Rafi<br />
+        <strong>Document Identifier:</strong> CFSBR-FE-2026-001<br />
+        <strong>Lead Author & Systems Architect:</strong> Md Golam Mubasshir Rafi<br />
         <strong>Institutional Affiliation:</strong> Centre for Fintech & Strategic Business Research (CFSBR)<br />
-        <strong>Publication Date:</strong> September 2026 · <strong>Version:</strong> v0.3.0
+        <strong>Publication Date:</strong> September 2026 · <strong>Monorepo Version:</strong> v0.3.0<br />
+        <strong>Methodology DOI:</strong> https://doi.org/10.67226/cfsbr.fe.2026.001.v1<br />
+        <strong>Permanent Software Archive:</strong> https://doi.org/10.5281/zenodo.22769501<br />
+        <strong>Licensing & Distribution:</strong> MIT Open-Source License
       </div>
 
       <div class="doi-pill" style="margin: 12px 0 18px 0; padding: 8px 14px; background: rgba(37, 99, 235, 0.08); display: inline-block; border-radius: 6px; font-family: monospace; font-size: 13px;">
@@ -74,7 +78,7 @@
       </div>
 
       <div class="abstract" style="font-size: 14px; line-height: 1.6; color: var(--text-muted, #64748b); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 14px;">
-        <strong>Abstract:</strong> This document formalizes the deterministic computation rules, boundary constraints, and floating-point error mitigation heuristics behind FinEngine. It details localized financial engineering specifications for emerging markets—including reducing-balance amortization schedules, BDT sub-unit precision, and client-side debt burden validation for transparent fintech workflows.
+        <strong>Abstract:</strong> Modern financial technology interfaces increasingly offload real-time computational workloads to client-side runtimes. However, execution environments built on standard ECMAScript engines rely on IEEE-754 double-precision floating-point arithmetic, which introduces non-deterministic representation drift in fractional calculations. In statutory accounting, compounding debt repayment models, and high-frequency digital ledgers, this drift compounds non-linearly across time horizons, violating basic audit trail reconciliation standards.<br /><br />This paper specifies the computational architecture of FinEngine, an open-source, non-commercial deterministic mathematical library developed under the Centre for Fintech & Strategic Business Research (CFSBR). FinEngine implements an integer-scaled monetary sub-unit arithmetic model, formalizes localized currency primitives for emerging markets—specifically the Bangladeshi Taka (BDT) and its atomic sub-unit (Poisha)—and introduces zero-knowledge, 100% client-side calculation pipelines for loan amortization schedules, internal rate of return (XIRR) solvers, and debt-burden stress testing.
       </div>
     </div>
 
@@ -131,7 +135,7 @@
 
       <p style="font-size: 14px; margin-bottom: 8px;"><strong>APA 7th Edition:</strong></p>
       <div style="background: rgba(0,0,0,0.03); padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
-        Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. 2026-001). Centre for Fintech & Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
+        Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech & Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
       </div>
 
       <p style="font-size: 14px; margin-bottom: 8px;"><strong>BibTeX:</strong></p>
@@ -145,6 +149,17 @@
   number      = {CFSBR-FE-2026-001},
   doi         = {10.67226/cfsbr.fe.2026.001.v1},
   url         = {https://finengine.js.org/methodology/}
+}</code></pre>
+
+      <p style="font-size: 14px; margin-bottom: 8px; margin-top: 16px;"><strong>Software Archive Citation:</strong></p>
+      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 12px; overflow-x: auto;"><code>@software{finengine_core_v030,
+  author    = {Rafi, Md Golam Mubasshir},
+  title     = {FinEngine: Deterministic financial math and BDT-precision engine},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {v0.3.0},
+  doi       = {10.5281/zenodo.22769501},
+  url       = {https://doi.org/10.5281/zenodo.22769501}
 }</code></pre>
     </section>
   </main>
