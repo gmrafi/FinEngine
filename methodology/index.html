@@ -55,7 +55,13 @@
     .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; }
     .eq-block { background: rgba(0,0,0,0.03); color: var(--text, #18181b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13px; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); line-height: 1.7; }
     .eq-block code { color: var(--text, #18181b); background: none; padding: 0; font-size: 13px; }
-    .diag-block { background: rgba(0,0,0,0.03); color: var(--text-muted, #64748b); padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); white-space: pre; }
+    .diag-block { background: rgba(0,0,0,0.03); color: var(--text-muted, #64748b); padding: 18px 22px; border-radius: 12px; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid var(--line, #e2e8f0); border-left: 3px solid var(--accent-color, #2563eb); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .diag-block .flow { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .diag-block .flow-box { background: rgba(255,255,255,0.7); border: 1px solid var(--line, #d1d5db); border-radius: 8px; padding: 8px 14px; font-size: 12px; color: var(--text, #18181b); text-align: center; width: 85%; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; }
+    .diag-block .flow-box small { display: block; font-size: 11px; color: var(--text-muted, #64748b); margin-top: 2px; }
+    .diag-block .flow-arrow { font-size: 14px; color: var(--accent-color, #2563eb); line-height: 1; margin: 1px 0; }
+    .diag-block .flow-row { display: flex; gap: 10px; width: 100%; }
+    .diag-block .flow-row .flow-box { flex: 1; }
     .mh-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; border: 1px solid var(--line, #e2e8f0); border-radius: 10px; overflow: hidden; }
     .mh-table th { text-align: left; padding: 10px 16px; font-weight: 600; color: var(--text, #18181b); background: rgba(37,99,235,0.06); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--accent-color, #2563eb); font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; }
     .mh-table td { padding: 10px 16px; border-bottom: 1px solid var(--line, #e2e8f0); color: var(--text-muted, #64748b); }
@@ -223,41 +229,24 @@
       <div class="eyebrow">Section 2</div>
       <h2>The Deterministic Arithmetic Framework</h2>
       <p>FinEngine eliminates binary floating-point drift through an integer-scaled monetary sub-unit arithmetic model that avoids arbitrary third-party runtime dependencies.</p>
-      <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;Raw Monetary Input (V)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Scale: V<sub>scaled</sub> = round(V &times; 10<sup>k</sup>)&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;Integer Sub-Unit Space (Poisha)&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;|V<sub>scaled</sub| &le; 2<sup>53</sup> - 1&#9474;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;Core Math Ops: +, -, *&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;Ratio and Division Matrix&#9474;
-&#9474;&emsp;(Exact Integer Space)&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(Banker's Rounding)&#9474;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Terminal Reconciliation:&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sum(P<sub>t</sub>) === Principal&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Zero-Drift Ledger Output&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(B<sub>n</sub> === 0.00)&#9474;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
+      <div class="diag-block">
+        <div class="flow">
+          <div class="flow-box">Raw Monetary Input (V)</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Scale: V<sub>scaled</sub> = round(V &times; 10<sup>k</sup>)</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Integer Sub-Unit Space (Poisha)<small>|V<sub>scaled</sub>| &le; 2<sup>53</sup> - 1</small></div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-row">
+            <div class="flow-box">Core Math Ops: +, -<small>(Exact Integer Space)</small></div>
+            <div class="flow-box">Ratio &amp; Division Matrix<small>(Banker's Rounding)</small></div>
+          </div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Terminal Reconciliation<small>Sum(P<sub>t</sub>) === Principal</small></div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Zero-Drift Ledger Output<small>(B<sub>n</sub> === 0.00)</small></div>
+        </div>
+      </div>
 
       <h3>2.1 Integer Sub-Unit Scaling</h3>
       <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha (1  BDT = 100  Poisha).</p>
@@ -331,7 +320,7 @@
       <p>Because closed-form solutions do not exist for m > 4, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
       <div class="eq-block"><code>R<sub>k+1</sub> = R<sub>k</sub> - NPV(R<sub>k</sub>)/NPV'(R<sub>k</sub>)</code></div>
       <ul>
-        <li>Convergence Threshold: |Δ R| &lt; 10^{-7}</li>
+        <li>Convergence Threshold: |Δ R| &lt; 10<sup>-7</sup></li>
         <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
       </ul>
 
@@ -347,40 +336,24 @@
       <div class="eyebrow">Section 5</div>
       <h2>Architectural Topology: Local-First and Zero-Knowledge</h2>
       <p>FinEngine is structured as a client-side library to protect user data:</p>
-      <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;CLIENT BROWSER ENVIRONMENT&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;User Financial Inputs&emsp;&emsp;&emsp;&#9474;&emsp;&emsp;&#9474;&emsp;Local Form State&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;(Income, Principal, EMI)&emsp;&#9474;&emsp;&emsp;&#9474;&emsp;(No Cloud Transmission)&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;&emsp;&emsp;&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/core&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Fixed-Point Integer Engine&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- BDT Sub-Unit Parser&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Ledger Verification&emsp;&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/math&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Reducing Balance Amort.&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- XIRR / APR Solvers&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- DBR and Stress Testing&emsp;&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/ui&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- UI Micro-Components&emsp;&emsp;&emsp;&#9474;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Schedule and KPI Display&emsp;&emsp;&emsp;&#9474;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;X (Zero-Network Egress)
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
-&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
-&#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
+      <div class="diag-block">
+        <div class="flow">
+          <div class="flow-box">CLIENT BROWSER ENVIRONMENT</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-row">
+            <div class="flow-box">User Financial Inputs<small>(Income, Principal, EMI)</small></div>
+            <div class="flow-box">Local Form State<small>(No Cloud Transmission)</small></div>
+          </div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">@finengine/core<small>Fixed-Point Integer Engine &middot; BDT Sub-Unit Parser &middot; Ledger Verification</small></div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">@finengine/math<small>Reducing Balance Amort. &middot; XIRR / APR Solvers &middot; DBR and Stress Testing</small></div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">@finengine/ui<small>UI Micro-Components &middot; Schedule and KPI Display</small></div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">X (Zero-Network Egress)</div>
+        </div>
+      </div>
 
       <ul>
         <li><strong>Zero-Knowledge Computation:</strong> Financial calculations execute entirely within the local host runtime (V8, SpiderMonkey, JavaScriptCore). No raw loan values, salaries, or accounting data cross the network boundary.</li>
