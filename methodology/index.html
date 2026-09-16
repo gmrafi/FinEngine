@@ -43,7 +43,7 @@
     .mh-meta a:hover { border-bottom-color: var(--accent-color, #2563eb); }
     .mh-abstract { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); border-top: 1px solid var(--line, #e2e8f0); padding-top: 18px; margin-top: 16px; }
     .mh-abstract strong { color: var(--text, #18181b); }
-    .mh-section { margin: 28px 0; }
+    .mh-section { margin-bottom: 0; }
     .mh-section h2 { font-size: 22px; font-weight: 700; margin: 0 0 16px 0; color: var(--text, #18181b); letter-spacing: -0.02em; }
     .mh-section h3 { font-size: 17px; font-weight: 600; margin: 22px 0 10px 0; color: var(--text, #18181b); }
     .mh-section p { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); margin: 8px 0; }
@@ -66,13 +66,13 @@
     .citation-box h3 { font-size: 15px; font-weight: 600; margin: 16px 0 8px 0; color: var(--accent-color, #2563eb); text-transform: uppercase; letter-spacing: 0.04em; }
     .citation-text { font-size: 14px; line-height: 1.7; color: var(--text-muted, #64748b); background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 8px; margin: 8px 0 16px 0; }
     .bibtex-block { background: #0f172a; color: #e2e8f0; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; overflow-x: auto; margin: 10px 0 20px 0; border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid #8b5cf6; line-height: 1.7; }
-    .label-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color, #2563eb); margin-bottom: 6px; }
     .mh-section .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line, #e2e8f0) 20%, var(--line, #e2e8f0) 80%, transparent); margin: 32px 0; border: none; }
     .mh-section strong { color: var(--text, #18181b); font-weight: 600; }
     .mh-card a.mini-btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line, #e2e8f0); background: transparent; color: var(--text, #18181b); font-size: 13px; text-decoration: none; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
     .mh-card a.mini-btn:hover { border-color: var(--accent-color, #2563eb); background: rgba(37,99,235,0.04); }
     @media (max-width: 768px) { .mh-card { padding: 20px; } .mh-title { font-size: 20px; } .mh-section h2 { font-size: 18px; } .eq-block, .bibtex-block, .diag-block { font-size: 11px; padding: 14px 16px; } .mh-table th, .mh-table td { padding: 8px 12px; font-size: 13px; } }
-  </style>
+      .eyebrow { color: var(--accent-color, #2563eb); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+</style>
 
   <!-- Academic Indexer and Crossref Metadata -->
   <meta name="citation_title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces">
@@ -159,8 +159,8 @@
     </div>
 
     <!-- 1. The Numerical Pathology -->
-    <div class="mh-section">
-      <div class="label-tag">Section 1</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 1</div>
       <h2>The Numerical Pathology of Client-Side Web Runtimes</h2>
 
       <h3>1.1 IEEE-754 binary64 Floating-Point Drift</h3>
@@ -194,8 +194,8 @@ $$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
     </div>
 
     <!-- 2. The Deterministic Arithmetic Framework -->
-    <div class="mh-section">
-      <div class="label-tag">Section 2</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 2</div>
       <h2>The Deterministic Arithmetic Framework</h2>
       <p>FinEngine eliminates binary floating-point drift through an integer-scaled monetary sub-unit arithmetic model that avoids arbitrary third-party runtime dependencies.</p>
       <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
@@ -259,8 +259,8 @@ $$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
     </div>
 
     <!-- 3. Computational Loan Amortization Models -->
-    <div class="mh-section">
-      <div class="label-tag">Section 3</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 3</div>
       <h2>Computational Loan Amortization Models</h2>
 
       <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
@@ -294,8 +294,8 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
     </div>
 
     <!-- 4. Advanced Solvers and Actuarial Engines -->
-    <div class="mh-section">
-      <div class="label-tag">Section 4</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 4</div>
       <h2>Advanced Solvers and Actuarial Engines</h2>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
@@ -322,8 +322,8 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
     </div>
 
     <!-- 5. Architectural Topology -->
-    <div class="mh-section">
-      <div class="label-tag">Section 5</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 5</div>
       <h2>Architectural Topology: Local-First and Zero-Knowledge</h2>
       <p>FinEngine is structured as a client-side library to protect user data:</p>
       <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
@@ -369,8 +369,8 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
     </div>
 
     <!-- 6. Monorepo Surface and Emerging Markets Roadmap -->
-    <div class="mh-section">
-      <div class="label-tag">Section 6</div>
+    <div class="doc-card mh-section">
+      <div class="eyebrow">Section 6</div>
       <h2>Monorepo Surface and Emerging Markets Roadmap</h2>
 
       <table class="mh-table">
@@ -398,7 +398,7 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
 
     <!-- Academic Citation Section -->
     <div class="citation-box">
-      <div class="label-tag">Academic citation</div>
+      <div class="eyebrow">Academic citation</div>
       <h2>Cite FinEngine</h2>
       <p>FinEngine is maintained as open computational infrastructure under the Centre for Fintech and Strategic Business Research (CFSBR). To cite this methodology in academic papers, theses, policy briefs, or technical documentation:</p>
 
