@@ -34,6 +34,38 @@
   <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../styles.css" />
 
+  <style>
+    .mh-card { border: 1px solid var(--line, #e2e8f0); padding: 32px; border-radius: 20px; margin-bottom: 32px; background: linear-gradient(180deg, color-mix(in srgb, var(--panel, #f8fafc) 90%, white 10%), var(--panel-strong, #ffffff)); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .mh-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent-color, #2563eb); letter-spacing: 0.1em; margin-bottom: 12px; }
+    .mh-title { margin: 0 0 14px 0; font-size: 28px; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: var(--text, #18181b); }
+    .mh-meta { font-size: 14px; line-height: 2; color: var(--text-muted, #64748b); }
+    .mh-meta a { color: var(--accent-color, #2563eb); text-decoration: none; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; font-size: 13px; }
+    .mh-meta a:hover { text-decoration: underline; }
+    .mh-meta code { font-size: 12px; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; }
+    .mh-abstract { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); border-top: 1px solid var(--line, #e2e8f0); padding-top: 18px; margin-top: 16px; }
+    .mh-abstract strong { color: var(--text, #18181b); }
+    .mh-section { margin: 28px 0; }
+    .mh-section h2 { font-size: 22px; font-weight: 700; margin: 0 0 16px 0; color: var(--text, #18181b); letter-spacing: -0.02em; }
+    .mh-section h3 { font-size: 17px; font-weight: 600; margin: 22px 0 10px 0; color: var(--text, #18181b); }
+    .mh-section p { font-size: 15px; line-height: 1.75; color: var(--text-muted, #64748b); margin: 8px 0; }
+    .mh-section ul, .mh-section ol { margin: 10px 0; padding-left: 24px; }
+    .mh-section li { font-size: 15px; line-height: 1.7; color: var(--text-muted, #64748b); margin: 6px 0; }
+    .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; }
+    .eq-block { background: #0f172a; color: #e2e8f0; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13px; overflow-x: auto; margin: 14px 0; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.15); line-height: 1.7; }
+    .eq-block code { color: #e2e8f0; background: none; padding: 0; font-size: 13px; }
+    .diag-block { background: #0f172a; color: #94a3b8; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; overflow-x: auto; margin: 14px 0; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.15); white-space: pre; }
+    .citation-box { background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(16,185,129,0.04)); border: 1px solid rgba(37,99,235,0.15); border-radius: 16px; padding: 24px 28px; margin: 16px 0; }
+    .citation-box h3 { font-size: 16px; font-weight: 600; margin: 0 0 10px 0; color: var(--text, #18181b); }
+    .citation-text { font-size: 14px; line-height: 1.7; color: var(--text-muted, #64748b); background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 8px; margin: 8px 0 16px 0; }
+    .bibtex-block { background: #0f172a; color: #e2e8f0; padding: 18px 22px; border-radius: 12px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; overflow-x: auto; margin: 10px 0 20px 0; border: 1px solid rgba(255,255,255,0.06); line-height: 1.7; }
+    .label-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color, #2563eb); margin-bottom: 6px; }
+    .mh-section .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line, #e2e8f0) 20%, var(--line, #e2e8f0) 80%, transparent); margin: 32px 0; border: none; }
+    .mh-section strong { color: var(--text, #18181b); font-weight: 600; }
+    .mh-sub-list { margin: 6px 0 6px 0; padding-left: 20px; }
+    .mh-sub-list li { font-size: 14px; line-height: 1.65; color: var(--muted, #71717a); margin: 4px 0; }
+    @media (max-width: 768px) { .mh-card { padding: 20px; } .mh-title { font-size: 20px; } .mh-section h2 { font-size: 18px; } .eq-block, .bibtex-block, .diag-block { font-size: 11px; padding: 14px 16px; } }
+  </style>
+
   <!-- Academic Indexer and Crossref Metadata -->
   <meta name="citation_title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces">
   <meta name="citation_author" content="Rafi, Md Golam Mubasshir">
@@ -50,207 +82,265 @@
   <div data-site-header></div>
 
   <main class="doc-shell page-shell">
-    <!-- CFSBR Academic Attribution and DOI Header -->
-    <div class="methodology-header-card" style="border: 1px solid var(--border-color, #e2e8f0); padding: 28px; border-radius: 10px; margin-bottom: 36px; background: var(--surface-bg, #f8fafc);">
-      <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-color, #2563eb); letter-spacing: 0.06em;">
-        CFSBR Technical Working Paper · Computational Methodology Standard
-      </span>
 
-      <h1 style="margin: 14px 0 10px 0; font-size: 26px; font-weight: 700; line-height: 1.3;">
-        FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces
-      </h1>
-
-      <div class="authors" style="margin: 16px 0; font-size: 14px; line-height: 1.8; color: var(--text-color, #334155);">
+    <div class="mh-card">
+      <div class="mh-tag">CFSBR Technical Working Paper &middot; Computational Methodology Standard</div>
+      <h1 class="mh-title">FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</h1>
+      <div class="mh-meta">
         <strong>Document Identifier:</strong> CFSBR-FE-2026-001<br />
         <strong>Lead Author and Systems Architect:</strong> Md Golam Mubasshir Rafi<br />
         <strong>Institutional Affiliation:</strong> Centre for Fintech and Strategic Business Research (CFSBR)<br />
-        <strong>Publication Date:</strong> September 15, 2026 · <strong>Version:</strong> v0.3.0<br />
-        <strong>Methodology DOI:</strong> <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">https://doi.org/10.67226/cfsbr.fe.2026.001.v1</a><br />
-        <strong>Software Version DOI (Zenodo):</strong> <a href="https://doi.org/10.5281/zenodo.22769502" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">https://doi.org/10.5281/zenodo.22769502</a><br />
-        <strong>Software Concept DOI (All Versions):</strong> <a href="https://doi.org/10.5281/zenodo.22769501" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">https://doi.org/10.5281/zenodo.22769501</a><br />
-        <strong>Software Heritage Archive:</strong> <code style="font-size: 12px; background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px;">swh:1:dir:4da6366919f478fd431b2f9ce1d342620cc8834f</code><br />
-        <strong>Source Repository:</strong> <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">https://github.com/gmrafi/FinEngine</a> (MIT License)
+        <strong>Publication Date:</strong> September 15, 2026 &middot; <strong>Monorepo Version:</strong> v0.3.0<br />
+        <strong>Methodology DOI:</strong> <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener">https://doi.org/10.67226/cfsbr.fe.2026.001.v1</a><br />
+        <strong>Software Version DOI (Zenodo):</strong> <a href="https://doi.org/10.5281/zenodo.22769502" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.22769502</a><br />
+        <strong>Software Concept DOI (All Versions):</strong> <a href="https://doi.org/10.5281/zenodo.22769501" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.22769501</a><br />
+        <strong>Software Heritage Archive:</strong> <code>swh:1:dir:4da6366919f478fd431b2f9ce1d342620cc8834f</code><br />
+        <strong>Licensing and Distribution:</strong> MIT Open-Source License
       </div>
-
-      <div class="doi-pill" style="margin: 12px 0 18px 0; padding: 8px 14px; background: rgba(37, 99, 235, 0.08); display: inline-block; border-radius: 6px; font-family: monospace; font-size: 13px;">
-        <strong>DOI:</strong>
-        <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener" style="color: var(--accent-color, #2563eb); text-decoration: underline;">
-          https://doi.org/10.67226/cfsbr.fe.2026.001.v1
-        </a>
-      </div>
-
-      <div class="abstract" style="font-size: 14px; line-height: 1.7; color: var(--text-muted, #64748b); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 16px;">
-        <strong>Abstract:</strong> Modern financial technology platforms increasingly delegate analytical, amortization, and ledger workflows to client-side runtimes. However, default execution in ECMAScript engines depends upon IEEE-754 double-precision floating-point arithmetic (binary64), which produces representation drift in recurring decimal fractions. In statutory double-entry accounting and long-term amortized debt obligations, this drift compounds non-linearly, resulting in terminal balance mismatches and audit failures.<br /><br />This methodology standard formalizes the computational architecture of <strong>FinEngine</strong> (v0.3.0), an open-source framework developed under the Centre for Fintech and Strategic Business Research (CFSBR). FinEngine implements deterministic, integer-scaled monetary arithmetic, establishes native sub-unit primitives for the Bangladeshi Taka (BDT Poisha), and specifies zero-knowledge client-side algorithms for reducing-balance loan amortization, non-periodic cash flow solvers (XIRR), and debt-burden ratio (DBR) stress modeling.
+      <div class="mh-abstract">
+        <strong>Abstract:</strong> Modern financial technology interfaces increasingly offload real-time computational workloads to client-side runtimes. However, execution environments built on standard ECMAScript engines rely on IEEE-754 double-precision floating-point arithmetic, which introduces non-deterministic representation drift in fractional calculations. In statutory accounting, compounding debt repayment models, and high-frequency digital ledgers, this drift compounds non-linearly across time horizons, violating basic audit trail reconciliation standards.<br /><br />This paper specifies the computational architecture of <strong>FinEngine</strong>, an open-source, non-commercial deterministic mathematical library developed under the Centre for Fintech and Strategic Business Research (CFSBR). FinEngine implements an integer-scaled monetary sub-unit arithmetic model, formalizes localized currency primitives for emerging markets&mdash;specifically the Bangladeshi Taka (BDT) and its atomic sub-unit (Poisha)&mdash;and introduces zero-knowledge, 100% client-side calculation pipelines for loan amortization schedules, internal rate of return (XIRR) solvers, and debt-burden stress testing.
       </div>
     </div>
 
-    <!-- 1. The Numerical Challenge -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 1</div>
-      <h2>The Numerical Challenge: IEEE-754 binary64 Floating-Point Drift</h2>
+    <!-- 1. The Numerical Pathology -->
+    <div class="mh-section">
+      <div class="label-tag">Section 1</div>
+      <h2>The Numerical Pathology of Client-Side Web Runtimes</h2>
 
-      <h3>1.1 Structural Root of Fractional Inaccuracy</h3>
-      <p>Standard JavaScript runtimes implement numbers under the IEEE-754 standard for binary floating-point arithmetic (binary64). Memory allocation comprises:</p>
+      <h3>1.1 IEEE-754 binary64 Floating-Point Drift</h3>
+      <p>ECMAScript standardizes numerical calculation on the IEEE-754 double-precision floating-point format (<code>binary64</code>). Numbers are allocated 64 bits of storage divided into three discrete fields:</p>
       <ul>
-        <li>1 sign bit ($s$)</li>
-        <li>11 biased exponent bits ($e$)</li>
-        <li>52 explicit significand bits ($m$, yielding 53 bits of precision with the implicit leading bit)</li>
+        <li><strong>Sign ($s$):</strong> 1 bit</li>
+        <li><strong>Biased Exponent ($e$):</strong> 11 bits (bias = 1023)</li>
+        <li><strong>Fraction/Significand ($m$):</strong> 52 bits (53 bits implicit precision)</li>
       </ul>
-      <p>Numerical evaluation follows:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$V = (-1)^s \times (1.m)_2 \times 2^{e - 1023}$$</code></pre>
-      <p>Because fractional evaluation relies on sums of negative powers of two ($2^{-1} = 0.5$, $2^{-2} = 0.25$, $2^{-3} = 0.125$, ...), standard decimal values such as $0.1$ and $0.2$ generate non-terminating binary fractions:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$0.1_{10} = 0.00011001100110011..._2$$
-$$0.2_{10} = 0.0011001100110011..._2$$</code></pre>
-      <p>Truncation at 53 bits produces standard floating-point representation drift:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$0.1 + 0.2 = 0.30000000000000004 \neq 0.3$$</code></pre>
+      <p>Under this schema, numbers are evaluated as:</p>
+      <div class="eq-block"><code>$$V = (-1)^s \times (1.m)_2 \times 2^{e - 1023}$$</code></div>
+      <p>Because fractional values are expressed as sums of negative powers of two ($2^{-1} = 0.5$, $2^{-2} = 0.25$, $2^{-3} = 0.125$, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions $0.1$ ($1/10$) and $0.2$ ($1/5$) result in infinite repeating binary fractions:</p>
+      <div class="eq-block"><code>$$0.1_{10} = 0.00011001100110011..._2$$
+$$0.2_{10} = 0.0011001100110011..._2$$</code></div>
+      <p>Truncating this infinite representation to 53 bits of significand generates an inexact representation in binary storage:</p>
+      <div class="eq-block"><code>$$0.1_{10} \approx 0.100000000000000005551115123126$$
+$$0.2_{10} \approx 0.200000000000000022204460492503$$</code></div>
+      <p>Evaluating simple addition in JavaScript yields the well-documented anomaly:</p>
+      <div class="eq-block"><code>$$0.1 + 0.2 = 0.30000000000000004 \neq 0.3$$</code></div>
 
       <h3>1.2 Compounding Propagation in Loan Amortization</h3>
-      <p>In multi-period loan repayment schedules, balance recursion is expressed as:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$B_t = B_{t-1}(1 + r) - EMI$$</code></pre>
+      <p>While fractional variance on the order of $\mathcal{O}(10^{-17})$ is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over $n$ periods, where the outstanding balance $B_t$ is defined by the recurrence relation:</p>
+      <div class="eq-block"><code>$$B_t = B_{t-1}(1 + r) - EMI$$</code></div>
+      <p>When evaluated under floating-point arithmetic, each iteration $t \in \{1, \dots, n\}$ accumulates representation drift $\epsilon_t$:</p>
+      <div class="eq-block"><code>$$B_t^* = B_t + \sum_{k=1}^t \epsilon_k (1 + r)^{t-k}$$</code></div>
+      <p>In multi-year amortization schedules ($n \ge 60$ months), cumulative rounding drift $\epsilon$ causes the closing terminal balance $B_n$ to fail to liquidate cleanly to zero ($B_n \neq 0.00$). In statutory double-entry bookkeeping, a balance of $+0.02$ or $-0.01$ breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- 2. The Deterministic Arithmetic Framework -->
+    <div class="mh-section">
+      <div class="label-tag">Section 2</div>
+      <h2>The Deterministic Arithmetic Framework</h2>
+      <p>FinEngine eliminates binary floating-point drift through an integer-scaled monetary sub-unit arithmetic model that avoids arbitrary third-party runtime dependencies.</p>
+      <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;Raw Monetary Input (V)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Scale: V<sub>scaled</sub> = round(V &times; 10<sup>k</sup>)&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;Integer Sub-Unit Space (Poisha)&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;|V<sub>scaled</sub| &le; 2<sup>53</sup> - 1&#9474;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;Core Math Ops: +, -, *&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;Ratio and Division Matrix&#9474;
+&#9474;&emsp;(Exact Integer Space)&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(Banker's Rounding)&#9474;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Terminal Reconciliation:&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sum(P<sub>t</sub>) === Principal&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Zero-Drift Ledger Output&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(B<sub>n</sub> === 0.00)&#9474;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
+
+      <h3>2.1 Integer Sub-Unit Scaling</h3>
+      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha ($1 \text{ BDT} = 100 \text{ Poisha}$).</p>
+      <p>The transformation bijection $f: \mathbb{Q} \to \mathbb{Z}$ is defined as:</p>
+      <div class="eq-block"><code>$$V_{\text{scaled}} = \left\lfloor V \cdot 10^k + \frac{1}{2} \text{sgn}(V) \right\rfloor$$</code></div>
       <p>Where:</p>
       <ul>
-        <li>$B_t$ is the closing principal balance at period $t$.</li>
-        <li>$r$ is the periodic interest rate.</li>
-        <li>$EMI$ is the equated monthly installment.</li>
+        <li>$V$ is the decimal monetary value.</li>
+        <li>$k$ is the currency scale exponent ($k = 2$ for BDT).</li>
+        <li>$\text{sgn}(V)$ preserves directional signs.</li>
       </ul>
-      <p>Under unmitigated floating-point arithmetic, representation errors accumulate over discrete repayment horizons ($n \ge 60$ months):</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$B_t^* = B_t + \sum_{k=1}^t \epsilon_k (1 + r)^{t-k}$$</code></pre>
-      <p>This cumulative drift causes the terminal principal balance ($B_n$) to fail to liquidate cleanly to zero ($B_n \neq 0.00$), creating statutory reconciliation discrepancies across accounting records.</p>
-    </section>
+      <p>All internal intermediate computations (addition, subtraction, and discrete balance tracking) execute entirely within the closed domain of integers ($\mathbb{Z}$).</p>
 
-    <!-- 2. Deterministic Arithmetic and BDT Primitives -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 2</div>
-      <h2>Deterministic Arithmetic and BDT Primitives</h2>
-      <p>FinEngine replaces floating-point calculations with integer-scaled arithmetic executed within an immutable sub-unit space.</p>
+      <h3>2.2 Numerical Safety Boundaries</h3>
+      <p>To maintain execution performance across all client engines without forced polyfills, FinEngine operates within the native ECMAScript safe integer boundary:</p>
+      <div class="eq-block"><code>$$|V_{\text{scaled}}| \le \text{Number.MAX\_SAFE\_INTEGER} = 2^{53} - 1 = 9,007,199,254,740,991$$</code></div>
+      <p>For BDT ($k = 2$), this ceiling provides safe deterministic headroom up to:</p>
+      <div class="eq-block"><code>$$V_{\text{max}} \approx 90,071,992,547,409.91 \text{ BDT} \quad (\approx 90.07 \text{ Trillion BDT})$$</code></div>
+      <p>Any arithmetic transaction or ledger verification projected to exceed $2^{53} - 1$ triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
 
-      <h3>2.1 Integer Scaling Transformation</h3>
-      <p>All financial inputs are mapped to their lowest statutory atomic sub-unit. For the Bangladeshi Taka (BDT), the atomic sub-unit is the <strong>Poisha</strong> ($1 \text{ BDT} = 100 \text{ Poisha}$).</p>
-      <p>The scaling function $f: \mathbb{Q} \to \mathbb{Z}$ is defined as:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$V_{\text{scaled}} = \left\lfloor V \cdot 10^k + \frac{1}{2} \text{sgn}(V) \right\rfloor$$</code></pre>
+      <h3>2.3 Deterministic Rounding Specifications</h3>
+      <p>When division or compound multiplication leaves the integer domain, FinEngine employs Half-Away-From-Zero (Symmetric Rounding) for consumer-facing installment calculations, or Half-To-Even (Banker's Rounding / IEEE-754 default) for balanced institutional ledgers to prevent positive cumulative drift over large sample sizes:</p>
+      <hr class="section-divider" />
+    </div>
+
+    <!-- 3. Computational Loan Amortization Models -->
+    <div class="mh-section">
+      <div class="label-tag">Section 3</div>
+      <h2>Computational Loan Amortization Models</h2>
+
+      <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
+      <p>In contrast to flat-rate interest calculations&mdash;which obscure actual borrowing costs and understate the effective annual rate&mdash;FinEngine enforces the actuarial reducing-balance annuity model:</p>
+      <div class="eq-block"><code>$$EMI = P \cdot \frac{r(1 + r)^n}{(1 + r)^n - 1}$$</code></div>
       <p>Where:</p>
       <ul>
-        <li>$V$ is the decimal currency figure.</li>
-        <li>$k$ is the sub-unit scale exponent ($k = 2$ for BDT).</li>
-        <li>$\text{sgn}(V)$ maintains directional parity for negative entries.</li>
-      </ul>
-      <p>All subsequent additions, subtractions, and balance tracking routines execute strictly in whole-number integer space ($\mathbb{Z}$).</p>
-
-      <h3>2.2 Boundary Limits and Overflow Handling</h3>
-      <p>To preserve zero-dependency compatibility across all ECMAScript environments, FinEngine bounds integer execution within:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$|V_{\text{scaled}}| \le \text{Number.MAX\_SAFE\_INTEGER} = 2^{53} - 1 = 9,007,199,254,740,991$$</code></pre>
-      <p>For BDT ($k = 2$), this provides deterministic capacity up to:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$V_{\text{max}} \approx 90,071,992,547,409.91 \text{ BDT} \quad (\approx 90.07 \text{ Trillion BDT})$$</code></pre>
-      <p>Calculations exceeding this boundary raise a deterministic runtime exception rather than degrading into floating-point approximation.</p>
-
-      <h3>2.3 Deterministic Rounding Schemes</h3>
-      <p>When division or compound multiplication produces fractional sub-units, FinEngine utilizes:</p>
-      <ol>
-        <li><strong>Half-Away-From-Zero (Commercial Rounding):</strong> Standard for consumer debt and retail installment schedules.</li>
-        <li><strong>Half-To-Even (Banker's Rounding):</strong> Applied to high-frequency ledgers to eliminate upward statistical drift across multi-account reconciliation.</li>
-      </ol>
-    </section>
-
-    <!-- 3. Actuarial Amortization and Terminal Balancing -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 3</div>
-      <h2>Actuarial Amortization and Terminal Balancing</h2>
-
-      <h3>3.1 Reducing-Balance Annuity Equation</h3>
-      <p>FinEngine implements true reducing-balance loan amortization:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$EMI = P \cdot \frac{r(1 + r)^n}{(1 + r)^n - 1}$$</code></pre>
-      <p>Where:</p>
-      <ul>
-        <li>$P \in \mathbb{Z}^+$ is the principal scaled in Poisha ($P = \text{Amount} \times 100$).</li>
-        <li>$r \in \mathbb{R}^+$ is the monthly interest rate ($r = \frac{\text{Annual Rate}}{12 \times 100}$).</li>
-        <li>$n \in \mathbb{Z}^+$ is the total duration in months.</li>
+        <li>$P \in \mathbb{Z}^+$: Principal loan amount scaled in integer poisha ($P = \text{Principal} \times 100$).</li>
+        <li>$r \in \mathbb{R}^+$: Periodic monthly nominal rate, defined as $r = \frac{\text{Annual Interest Rate}}{12 \times 100}$.</li>
+        <li>$n \in \mathbb{Z}^+$: Total repayment terms in months ($n \ge 1$).</li>
       </ul>
 
-      <h3>3.2 Discrete Allocation Mechanics</h3>
-      <p>For each discrete installment period $t \in \{1, 2, \dots, n\}$:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$I_t = \text{round}(B_{t-1} \cdot r)$$
+      <h3>3.2 Discrete Iteration and Periodic Partitioning</h3>
+      <p>For every discrete installment period $t \in \{1, 2, \dots, n\}$, the engine derives periodic interest accrual ($I_t$), principal liquidation ($P_t$), and closing balance ($B_t$) via strict integer truncation rules:</p>
+      <div class="eq-block"><code>$$I_t = \text{round}(B_{t-1} \cdot r)$$
 $$P_t = EMI - I_t$$
-$$B_t = B_{t-1} - P_t$$</code></pre>
+$$B_t = B_{t-1} - P_t$$</code></div>
       <p>Where $B_0 = P$.</p>
 
       <h3>3.3 The Terminal Reconciliation Rule</h3>
-      <p>Because periodic rounding rounds interest to integer sub-units, minor variances ($\pm \Delta$ Poisha) can emerge between original principal and total principal deductions:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$\sum_{t=1}^n P_t \neq P$$</code></pre>
-      <p>FinEngine enforces strict ledger reconciliation at terminal period $t = n$:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$P_n = B_{n-1}$$
+      <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts ($\pm \Delta$ poisha):</p>
+      <div class="eq-block"><code>$$\sum_{t=1}^n P_t \neq P$$</code></div>
+      <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period ($t = n$):</p>
+      <div class="eq-block"><code>$$P_n = B_{n-1}$$
 $$EMI_n = P_n + I_n$$
-$$B_n = B_{n-1} - P_n \equiv 0$$</code></pre>
-      <p>This guarantees that the loan closes with an exact zero balance ($B_n \equiv 0$) without lingering fractional Poisha.</p>
-    </section>
+$$B_n = B_{n-1} - P_n \equiv 0$$</code></div>
+      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero ($B_n \equiv 0$), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
+      <hr class="section-divider" />
+    </div>
 
-    <!-- 4. Advanced Actuarial Solvers -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 4</div>
-      <h2>Advanced Actuarial Solvers</h2>
+    <!-- 4. Advanced Solvers and Actuarial Engines -->
+    <div class="mh-section">
+      <div class="label-tag">Section 4</div>
+      <h2>Advanced Solvers and Actuarial Engines</h2>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
-      <p>For non-uniform cash flows, FinEngine solves the net present value relation:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$NPV(R) = \sum_{i=1}^m \frac{C_i}{(1 + R)^{\frac{d_i - d_0}{365}}} = 0$$</code></pre>
-      <p>Roots are identified using an accelerated <strong>Newton-Raphson</strong> iterative solver:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$R_{k+1} = R_k - \frac{NPV(R_k)}{NPV'(R_k)}$$</code></pre>
+      <p>For non-periodic, non-uniform digital transactions (such as merchant cash advances and micro-installments), FinEngine solves for internal rate of return via the generalized net present value relation:</p>
+      <div class="eq-block"><code>$$NPV(R) = \sum_{i=1}^m \frac{C_i}{(1 + R)^{\frac{d_i - d_0}{365}}} = 0$$</code></div>
+      <p>Where:</p>
       <ul>
-        <li>Convergence criteria: $|\Delta R| &lt; 10^{-7}$</li>
-        <li>Maximum iteration ceiling: 100 cycles, with automatic bisection fallback to prevent client CPU lockup.</li>
+        <li>$C_i$ is the cash flow at date $d_i$.</li>
+        <li>$d_0$ is the initial disbursement timestamp.</li>
+        <li>$R$ is the annualized discount factor.</li>
+      </ul>
+      <p>Because closed-form solutions do not exist for $m > 4$, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
+      <div class="eq-block"><code>$$R_{k+1} = R_k - \frac{NPV(R_k)}{NPV'(R_k)}$$</code></div>
+      <ul>
+        <li>Convergence Threshold: $|\Delta R| &lt; 10^{-7}$</li>
+        <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
       </ul>
 
-      <h3>4.2 Debt-Burden Ratio (DBR) Validation</h3>
-      <p>To support responsible lending standards, <code>@finengine/math</code> evaluates localized borrower affordability:</p>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 13px; overflow-x: auto; margin: 12px 0;"><code>$$DBR = \frac{\sum EMI_{\text{existing}} + EMI_{\text{proposed}}}{Y_{\text{net monthly}}} \times 100$$</code></pre>
-      <p>Transactions are checked against regulatory caps (such as central bank guidelines where $DBR \le 40\%$) via client-side stress testing routines.</p>
-    </section>
+      <h3>4.2 Debt-Burden Ratio (DBR) Stress Testing</h3>
+      <p>To prevent predatory micro-lending and ensure compliance with central banking guidelines on responsible consumer lending, <code>@finengine/math</code> evaluates localized debt burden limits:</p>
+      <div class="eq-block"><code>$$DBR = \frac{\sum EMI_{\text{existing}} + EMI_{\text{proposed}}}{Y_{\text{net monthly}}} \times 100$$</code></div>
+      <p>The engine validates transactions against statutory thresholds (e.g., $DBR \le 40\%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
+      <hr class="section-divider" />
+    </div>
 
-    <!-- 5. Local-First and Zero-Knowledge Architecture -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 5</div>
-      <h2>Local-First and Zero-Knowledge Architecture</h2>
-      <p>FinEngine operates entirely within the user's local browser runtime:</p>
+    <!-- 5. Architectural Topology -->
+    <div class="mh-section">
+      <div class="label-tag">Section 5</div>
+      <h2>Architectural Topology: Local-First and Zero-Knowledge</h2>
+      <p>FinEngine is structured as a client-side library to protect user data:</p>
+      <div class="diag-block">&#9484;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;CLIENT BROWSER ENVIRONMENT&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;User Financial Inputs&emsp;&emsp;&emsp;&#9474;&emsp;&emsp;&#9474;&emsp;Local Form State&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;(Income, Principal, EMI)&emsp;&#9474;&emsp;&emsp;&#9474;&emsp;(No Cloud Transmission)&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;&emsp;&emsp;&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/core&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Fixed-Point Integer Engine&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- BDT Sub-Unit Parser&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Ledger Verification&emsp;&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/math&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Reducing Balance Amort.&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- XIRR / APR Solvers&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- DBR & Stress Testing&emsp;&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;@finengine/ui&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- UI Micro-Components&emsp;&emsp;&emsp;&#9474;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;&emsp;- Schedule & KPI Display&emsp;&emsp;&emsp;&#9474;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9488;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9474;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9474;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;X (Zero-Network Egress)
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9472;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9472;
+&#9480;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9484;
+&#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
+
       <ul>
-        <li><strong>Zero External Telemetry:</strong> Computation runs locally inside V8, SpiderMonkey, or JavaScriptCore.</li>
-        <li><strong>Data Sovereignty:</strong> Financial figures, borrower profiles, and ledger lines are never transmitted over external networks.</li>
-        <li><strong>Offline Resiliency:</strong> Core calculations function without internet connectivity, ensuring consistent reliability for offline accounting systems.</li>
+        <li><strong>Zero-Knowledge Computation:</strong> Financial calculations execute entirely within the local host runtime (V8, SpiderMonkey, JavaScriptCore). No raw loan values, salaries, or accounting data cross the network boundary.</li>
+        <li><strong>Offline-First Reliability:</strong> The engine runs without external API handshakes, keeping loan assessments, installment schedules, and merchant reconciliations fully operational in low-bandwidth or offline environments.</li>
       </ul>
-    </section>
+      <hr class="section-divider" />
+    </div>
 
-    <!-- 6. Published Monorepo Surface and Pipeline -->
-    <section class="doc-card">
-      <div class="eyebrow">Section 6</div>
-      <h2>Published Monorepo Surface and Pipeline</h2>
+    <!-- 6. Monorepo Surface and Emerging Markets Roadmap -->
+    <div class="mh-section">
+      <div class="label-tag">Section 6</div>
+      <h2>Monorepo Surface and Emerging Markets Roadmap</h2>
 
-      <h3>Released Packages (v0.3.0)</h3>
+      <h3>Current Production Packages (v0.3.0)</h3>
       <ul>
-        <li><code>@finengine/core</code>: Integer conversion engine, localized BDT formatting (3-2-2 grouping), and double-entry balance validation.</li>
-        <li><code>@finengine/math</code>: Reducing-balance amortization, APR and XIRR solvers, and DBR assessment logic.</li>
-        <li><code>@finengine/ui</code>: Unstyled UI components and KPI helpers (<code>makeMoneyKpi</code>, <code>makeRepaymentSummary</code>).</li>
+        <li><code>@finengine/core</code>: Integer conversion, arithmetic primitives, BDT localized formatting (3-2-2 South Asian grouping: 1,00,000.00), and double-entry ledger balance checks.</li>
+        <li><code>@finengine/math</code>: Amortization schedule builders, terminal balancing logic, XIRR and APR algorithms, and affordability metrics.</li>
+        <li><code>@finengine/ui</code>: Accessible, unstyled React/TypeScript UI elements for financial schedules, repayment summaries, and debt ratio gauges.</li>
       </ul>
 
-      <h3>Future Research Modules (CFSBR Lab Pipeline)</h3>
+      <h3>Emerging Market Research Roadmap (CFSBR Lab Pipeline)</h3>
       <ul>
-        <li><code>@finengine/risk</code>: Altman EM Z-score, DSCR and ICR stress testing, and NPL proxy modeling.</li>
-        <li><code>@finengine/microfinance</code>: Transparent APR-to-flat conversion matrices and regulatory disclosure logic.</li>
-        <li><code>@finengine/ratios</code>: Financial statement ratio stacks and 3-step / 5-step DuPont analysis.</li>
+        <li><code>@finengine/risk</code>: Localized algorithmic scoring matrices for informal and thin-file borrowers using alternative cash-flow data.</li>
+        <li><code>@finengine/microfinance</code>: Actuarial translation modules converting flat interest marketing structures into true reducing APR for borrower protection and regulatory transparency.</li>
+        <li><code>@finengine/ratios</code>: Deterministic financial ratio engines covering working capital liquidity, cash runway projections, and full DuPont statement decomposition.</li>
         <li><code>@finengine/markets</code>: Capital market return helpers and portfolio variance tools.</li>
         <li><code>@finengine/tax</code>: NBR-compliant TDS/VDS and salary tax calculation primitives.</li>
       </ul>
-    </section>
+      <hr class="section-divider" />
+    </div>
 
     <!-- Academic Citation Section -->
-    <section class="citation-section" style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-color, #e2e8f0);" id="cite-finengine">
-      <div class="eyebrow">Academic citation</div>
+    <div class="citation-box">
+      <div class="label-tag">Academic citation</div>
       <h2>Cite FinEngine</h2>
-      <p>FinEngine is a deterministic computational framework developed as a CFSBR initiative. Researchers and students can cite it in papers, theses, and working documents using the references below.</p>
+      <p>FinEngine is maintained as open computational infrastructure under the Centre for Fintech and Strategic Business Research (CFSBR). To cite this methodology in academic papers, theses, policy briefs, or technical documentation:</p>
 
       <h3>APA 7th Edition</h3>
-      <div style="background: rgba(0,0,0,0.03); padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
-        Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
-      </div>
+      <div class="citation-text">Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1</div>
 
       <h3>BibTeX Entry (Working Paper)</h3>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 12px; overflow-x: auto; margin-bottom: 20px;"><code>@techreport{rafi2026finengine,
+      <div class="bibtex-block">@techreport{rafi2026finengine,
   author      = {Rafi, Md Golam Mubasshir},
   title       = {FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces},
   institution = {Centre for Fintech and Strategic Business Research (CFSBR)},
@@ -260,10 +350,10 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></pre>
   number      = {CFSBR-FE-2026-001},
   doi         = {10.67226/cfsbr.fe.2026.001.v1},
   url         = {https://finengine.js.org/methodology/}
-}</code></pre>
+}</div>
 
-      <h3>Software Archive Citation</h3>
-      <pre style="background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 6px; font-size: 12px; overflow-x: auto; margin-bottom: 20px;"><code>@software{finengine2026zenodo,
+      <h3>Software Archive Citation (Zenodo)</h3>
+      <div class="bibtex-block">@software{finengine_core_v030,
   author    = {Rafi, Md Golam Mubasshir},
   title     = {gmrafi/FinEngine: FinEngine v0.3.0: The Deterministic Financial Engine Release},
   year      = {2026},
@@ -271,10 +361,11 @@ $$B_n = B_{n-1} - P_n \equiv 0$$</code></pre>
   version   = {v0.3.0},
   doi       = {10.5281/zenodo.22769502},
   url       = {https://doi.org/10.5281/zenodo.22769502}
-}</code></pre>
+}</div>
 
       <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">FinEngine repository &#8599;</a></p>
-    </section>
+    </div>
+
   </main>
 
   <div data-site-footer></div>
