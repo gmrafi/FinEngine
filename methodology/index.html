@@ -264,7 +264,7 @@ $$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
       <h3>2.1 Integer Sub-Unit Scaling</h3>
       <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha ($1  BDT = 100  Poisha$).</p>
       <p>The transformation bijection $f: ℚ → ℤ$ is defined as:</p>
-      <div class="eq-block"><code>$$V_{scaled} = ⌊ V · 10^k + \frac{1}{2} sgn(V) ⌋$$</code></div>
+      <div class="eq-block"><code>$$V_{scaled} = ⌊ V · 10^k + 1/2 sgn(V) ⌋$$</code></div>
       <p>Where:</p>
       <ul>
         <li>$V$ is the decimal monetary value.</li>
@@ -292,7 +292,7 @@ $$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
 
       <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
       <p>In contrast to flat-rate interest calculations&mdash;which obscure actual borrowing costs and understate the effective annual rate&mdash;FinEngine enforces the actuarial reducing-balance annuity model:</p>
-      <div class="eq-block"><code>$$EMI = P · \frac{r(1 + r)^n}{(1 + r)^n - 1}$$</code></div>
+      <div class="eq-block"><code>$$EMI = P · r(1 + r)^n/((1 + r)^n - 1)$$</code></div>
       <table class="mh-table">
         <thead><tr><th>Variable</th><th>Type</th><th>Definition</th></tr></thead>
         <tbody>
@@ -327,7 +327,7 @@ $$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
       <p>For non-periodic, non-uniform digital transactions (such as merchant cash advances and micro-installments), FinEngine solves for internal rate of return via the generalized net present value relation:</p>
-      <div class="eq-block"><code>$$NPV(R) = ∑_{i=1}^m \frac{C_i}{(1 + R)^{\frac{d_i - d_0}{365}}} = 0$$</code></div>
+      <div class="eq-block"><code>$$NPV(R) = ∑_{i=1}^m C_i/(1 + R)^{(d_i - d_0)/365} = 0$$</code></div>
       <p>Where:</p>
       <ul>
         <li>$C_i$ is the cash flow at date $d_i$.</li>
@@ -335,7 +335,7 @@ $$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
         <li>$R$ is the annualized discount factor.</li>
       </ul>
       <p>Because closed-form solutions do not exist for $m > 4$, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
-      <div class="eq-block"><code>$$R_{k+1} = R_k - \frac{NPV(R_k)}{NPV'(R_k)}$$</code></div>
+      <div class="eq-block"><code>$$R_{k+1} = R_k - NPV(R_k)/NPV'(R_k)$$</code></div>
       <ul>
         <li>Convergence Threshold: $|Δ R| &lt; 10^{-7}$</li>
         <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
@@ -343,8 +343,8 @@ $$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
 
       <h3>4.2 Debt-Burden Ratio (DBR) Stress Testing</h3>
       <p>To prevent predatory micro-lending and ensure compliance with central banking guidelines on responsible consumer lending, <code>@finengine/math</code> evaluates localized debt burden limits:</p>
-      <div class="eq-block"><code>$$DBR = \frac{∑ EMI_{existing} + EMI_{proposed}}{Y_{net monthly}} × 100$$</code></div>
-      <p>The engine validates transactions against statutory thresholds (e.g., $DBR ≤ 40\%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
+      <div class="eq-block"><code>$$DBR = (∑ EMI_{existing} + EMI_{proposed})/Y_{net monthly} × 100$$</code></div>
+      <p>The engine validates transactions against statutory thresholds (e.g., $DBR ≤ 40%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
       <hr class="section-divider" />
     </div>
 
