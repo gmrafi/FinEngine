@@ -35,25 +35,26 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    .mh-card { border: 1px solid #e2e8f0; padding: 32px; border-radius: 12px; margin-bottom: 28px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
-.mh-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #2563eb; letter-spacing: 0.1em; margin-bottom: 12px; }
-.mh-title { margin: 0 0 14px 0; font-size: 28px; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: #0f172a; }
-    .mh-meta { font-size: 14px; line-height: 2; color: #475569; }
-    .mh-meta a { color: #2563eb; text-decoration: none; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; font-size: 12.5px; padding: 2px 6px; border-radius: 4px; }
-    .mh-meta a:hover { color: #1d4ed8; }
-    .mh-abstract { font-size: 15px; line-height: 1.8; color: #475569; border-top: 1px solid #e2e8f0; padding-top: 18px; margin-top: 16px; }
+    .mh-card { border: 1px solid #e2e8f0; padding: 32px; border-radius: 12px; margin-bottom: 28px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.03); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.mh-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #1d4ed8; letter-spacing: 0.1em; margin-bottom: 16px; padding: 6px 14px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; }
+.mh-tag::before { content: '◆'; font-size: 7px; color: #1d4ed8; }
+.mh-title { margin: 0 0 20px 0; font-size: 32px; font-weight: 800; line-height: 1.25; letter-spacing: -0.035em; color: #0f172a; }
+    .mh-meta { font-size: 14px; line-height: 2; color: #334155; }
+    .mh-meta a { color: #1d4ed8; text-decoration: none; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace; font-size: 12.5px; padding: 2px 6px; border-radius: 4px; }
+    .mh-meta a:hover { color: #1e40af; }
+    .mh-abstract { font-size: 15.5px; line-height: 1.8; color: #1e293b; border-top: 1px solid #e2e8f0; padding-top: 18px; margin-top: 16px; }
     .mh-abstract strong { color: #0f172a; }
 .mh-section h2 { font-size: 24px; font-weight: 700; margin: 0 0 20px 0; color: #0f172a; letter-spacing: -0.02em; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; gap: 12px; }
 .mh-section h2::before { content: counter(section); counter-increment: section; font-size: 14px; font-weight: 800; color: #2563eb; background: #eff6ff; padding: 4px 10px; border-radius: 6px; font-family: ui-monospace, monospace; }
 .mh-section { counter-reset: subsection; }
-    .mh-section h3 { font-size: 17px; font-weight: 600; margin: 28px 0 10px 0; color: #1e293b; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; counter-increment: subsection; }
+    .mh-section h3 { font-size: 17.5px; font-weight: 700; margin: 30px 0 12px 0; color: #0f172a; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; counter-increment: subsection; }
 .mh-section h3::before { content: counter(section) "." counter(subsection) " "; font-size: 12px; font-weight: 700; color: #2563eb; font-family: ui-monospace, monospace; }
-    .mh-section p { font-size: 15px; line-height: 1.85; color: #334155; margin: 10px 0; }
+    .mh-section p { font-size: 15.5px; line-height: 1.85; color: #1e293b; margin: 10px 0; }
     .mh-section a { color: #2563eb; text-decoration: none; border-bottom: 1px solid #2563eb; transition: border-color 0.2s, opacity 0.2s; }
     .mh-section a:hover { opacity: 0.8; }
     .mh-section a[href^="http"]::after { content: " \2197"; font-size: 0.82em; opacity: 0.5; margin-left: 1px; }
     .mh-section ul, .mh-section ol { margin: 10px 0; padding-left: 24px; }
-    .mh-section li { font-size: 15px; line-height: 1.75; color: #334155; margin: 8px 0; }
+    .mh-section li { font-size: 15.5px; line-height: 1.75; color: #1e293b; margin: 8px 0; }
     .mh-section li code, .mh-section p code { font-size: 13px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace; background: #f1f5f9; padding: 2px 7px; border-radius: 4px; color: #1e293b; }
     .eq-block { background: #fafafa; color: #111; padding: 18px 22px; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace; font-size: 13.5px; overflow-x: auto; margin: 16px 0; border: 1px solid #ddd; border-left: 4px solid #2563eb; line-height: 1.8; }
     .eq-block code { color: #111; background: none; padding: 0; font-size: 13.5px; }
@@ -160,7 +161,7 @@
 
   <main class="doc-shell page-shell">
 
-    <div class="mh-card">
+    <div class="mh-card" style="border-left: 4px solid #1d4ed8; background: linear-gradient(180deg, #fff 0%, #fafafa 100%);">
       <div class="mh-tag">CFSBR Technical Working Paper &middot; Computational Methodology Standard</div>
       <h1 class="mh-title">FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</h1>
       <div class="mh-meta">
@@ -184,13 +185,13 @@
     <nav class="mh-card" style="padding: 24px 28px; margin-bottom: 20px;">
       <div class="eyebrow" style="margin-bottom: 14px;">Contents</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 14px;">
-<div><a href="#sec1" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">1. IEEE-754 Binary64 Drift</a></div>
-<div><a href="#sec2" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">2. Deterministic Arithmetic</a></div>
-<div><a href="#sec3" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">3. Loan Amortization Models</a></div>
-<div><a href="#sec4" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">4. Advanced Solvers</a></div>
-<div><a href="#sec5" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">5. Local-First Architecture</a></div>
-<div><a href="#sec6" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">6. Monorepo and Roadmap</a></div>
-<div><a href="#cite-finengine" style="color: #475569; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">Citation</a></div>
+<div><a href="#sec1" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">1. IEEE-754 Binary64 Drift</a></div>
+<div><a href="#sec2" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">2. Deterministic Arithmetic</a></div>
+<div><a href="#sec3" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">3. Loan Amortization Models</a></div>
+<div><a href="#sec4" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">4. Advanced Solvers</a></div>
+<div><a href="#sec5" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">5. Local-First Architecture</a></div>
+<div><a href="#sec6" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">6. Monorepo and Roadmap</a></div>
+<div><a href="#cite-finengine" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">Citation</a></div>
       </div>
     </div>
         <!-- 1. The Numerical Pathology -->
