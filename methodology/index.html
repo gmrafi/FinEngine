@@ -146,16 +146,6 @@
     "inLanguage": "en"
   }
   </script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$']],
-        displayMath: [['$$', '$$']]
-      },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 </head>
 <body data-page="methodology" data-root-path="../">
   <div data-site-header></div>
@@ -211,22 +201,22 @@
         </tbody>
       </table>
       <p>Under this schema, numbers are evaluated as:</p>
-      <div class="eq-block"><code>$$V = (-1)^s × (1.m)_2 × 2^{e - 1023}$$</code></div>
-      <p>Because fractional values are expressed as sums of negative powers of two ($2^{-1} = 0.5$, $2^{-2} = 0.25$, $2^{-3} = 0.125$, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions $0.1$ ($1/10$) and $0.2$ ($1/5$) result in infinite repeating binary fractions:</p>
-      <div class="eq-block"><code>$$0.1_{10} = 0.00011001100110011..._2$$
-$$0.2_{10} = 0.0011001100110011..._2$$</code></div>
+      <div class="eq-block"><code>V = (-1)<sup>s</sup> × (1.m)<sub>2</sub> × 2<sup>e - 1023</sup></code></div>
+      <p>Because fractional values are expressed as sums of negative powers of two (2<sup>-1</sup> = 0.5, 2<sup>-2</sup> = 0.25, 2<sup>-3</sup> = 0.125, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions 0.1 (1/10) and 0.2 (1/5) result in infinite repeating binary fractions:</p>
+      <div class="eq-block"><code>0.1<sub>10</sub> = 0.00011001100110011...<sub>2</sub>
+0.2<sub>10</sub> = 0.0011001100110011...<sub>2</sub></code></div>
       <p>Truncating this infinite representation to 53 bits of significand generates an inexact representation in binary storage:</p>
-      <div class="eq-block"><code>$$0.1_{10} ≈ 0.100000000000000005551115123126$$
-$$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
+      <div class="eq-block"><code>0.1<sub>10</sub> ≈ 0.100000000000000005551115123126
+0.2<sub>10</sub> ≈ 0.200000000000000022204460492503</code></div>
       <p>Evaluating simple addition in JavaScript yields the well-documented anomaly:</p>
-      <div class="eq-block"><code>$$0.1 + 0.2 = 0.30000000000000004 ≠ 0.3$$</code></div>
+      <div class="eq-block"><code>0.1 + 0.2 = 0.30000000000000004 ≠ 0.3</code></div>
 
       <h3>1.2 Compounding Propagation in Loan Amortization</h3>
-      <p>While fractional variance on the order of $O(10^{-17})$ is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over $n$ periods, where the outstanding balance $B_t$ is defined by the recurrence relation:</p>
-      <div class="eq-block"><code>$$B_t = B_{t-1}(1 + r) - EMI$$</code></div>
-      <p>When evaluated under floating-point arithmetic, each iteration $t ∈ \{1, …, n\}$ accumulates representation drift $ε_t$:</p>
-      <div class="eq-block"><code>$$B_t^* = B_t + ∑_{k=1}^t ε_k (1 + r)^{t-k}$$</code></div>
-      <p>In multi-year amortization schedules ($n ≥ 60$ months), cumulative rounding drift $ε$ causes the closing terminal balance $B_n$ to fail to liquidate cleanly to zero ($B_n ≠ 0.00$). In statutory double-entry bookkeeping, a balance of $+0.02$ or $-0.01$ breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
+      <p>While fractional variance on the order of O(10^{-17}) is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over n periods, where the outstanding balance B<sub>t</sub> is defined by the recurrence relation:</p>
+      <div class="eq-block"><code>B<sub>t</sub> = B<sub>t-1</sub>(1 + r) - EMI</code></div>
+      <p>When evaluated under floating-point arithmetic, each iteration t ∈ {1, …, n} accumulates representation drift ε<sub>t</sub>:</p>
+      <div class="eq-block"><code>B<sub>t</sub><sup>*</sup> = B<sub>t</sub> + ∑<sub>k=1</sub><sup>t</sup> ε<sub>k</sub> (1 + r)<sup>t-k</sup></code></div>
+      <p>In multi-year amortization schedules (n ≥ 60 months), cumulative rounding drift ε causes the closing terminal balance B<sub>n</sub> to fail to liquidate cleanly to zero (B<sub>n</sub> ≠ 0.00). In statutory double-entry bookkeeping, a balance of +0.02 or -0.01 breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
       <hr class="section-divider" />
     </div>
 
@@ -272,23 +262,23 @@ $$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
 &#9492;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#9492;</div>
 
       <h3>2.1 Integer Sub-Unit Scaling</h3>
-      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha ($1  BDT = 100  Poisha$).</p>
-      <p>The transformation bijection $f: ℚ → ℤ$ is defined as:</p>
-      <div class="eq-block"><code>$$V_{scaled} = ⌊ V · 10^k + 1/2 sgn(V) ⌋$$</code></div>
+      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha (1  BDT = 100  Poisha).</p>
+      <p>The transformation bijection f: ℚ → ℤ is defined as:</p>
+      <div class="eq-block"><code>V<sub>scaled</sub> = ⌊ V · 10<sup>k</sup> + 1/2 sgn(V) ⌋</code></div>
       <p>Where:</p>
       <ul>
-        <li>$V$ is the decimal monetary value.</li>
-        <li>$k$ is the currency scale exponent ($k = 2$ for BDT).</li>
-        <li>$sgn(V)$ preserves directional signs.</li>
+        <li>V is the decimal monetary value.</li>
+        <li>k is the currency scale exponent (k = 2 for BDT).</li>
+        <li>sgn(V) preserves directional signs.</li>
       </ul>
-      <p>All internal intermediate computations (addition, subtraction, and discrete balance tracking) execute entirely within the closed domain of integers ($ℤ$).</p>
+      <p>All internal intermediate computations (addition, subtraction, and discrete balance tracking) execute entirely within the closed domain of integers (ℤ).</p>
 
       <h3>2.2 Numerical Safety Boundaries</h3>
       <p>To maintain execution performance across all client engines without forced polyfills, FinEngine operates within the native ECMAScript safe integer boundary:</p>
-      <div class="eq-block"><code>$$|V_{scaled}| ≤ Number.MAX\_SAFE\_INTEGER = 2^{53} - 1 = 9,007,199,254,740,991$$</code></div>
-      <p>For BDT ($k = 2$), this ceiling provides safe deterministic headroom up to:</p>
-      <div class="eq-block"><code>$$V_{max} ≈ 90,071,992,547,409.91  BDT    (≈ 90.07  Trillion BDT)$$</code></div>
-      <p>Any arithmetic transaction or ledger verification projected to exceed $2^{53} - 1$ triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
+      <div class="eq-block"><code>|V<sub>scaled</sub>| ≤ Number.MAX\<sub>S</sub>AFE\<sub>I</sub>NTEGER = 2<sup>53</sup> - 1 = 9,007,199,254,740,991</code></div>
+      <p>For BDT (k = 2), this ceiling provides safe deterministic headroom up to:</p>
+      <div class="eq-block"><code>V<sub>max</sub> ≈ 90,071,992,547,409.91  BDT    (≈ 90.07  Trillion BDT)</code></div>
+      <p>Any arithmetic transaction or ledger verification projected to exceed 2^{53} - 1 triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
 
       <h3>2.3 Deterministic Rounding Specifications</h3>
       <p>When division or compound multiplication leaves the integer domain, FinEngine employs Half-Away-From-Zero (Symmetric Rounding) for consumer-facing installment calculations, or Half-To-Even (Banker's Rounding / IEEE-754 default) for balanced institutional ledgers to prevent positive cumulative drift over large sample sizes:</p>
@@ -302,7 +292,7 @@ $$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
 
       <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
       <p>In contrast to flat-rate interest calculations&mdash;which obscure actual borrowing costs and understate the effective annual rate&mdash;FinEngine enforces the actuarial reducing-balance annuity model:</p>
-      <div class="eq-block"><code>$$EMI = P · r(1 + r)^n/((1 + r)^n - 1)$$</code></div>
+      <div class="eq-block"><code>EMI = P · r(1 + r)<sup>n</sup>/((1 + r)<sup>n</sup> - 1)</code></div>
       <table class="mh-table">
         <thead><tr><th>Variable</th><th>Type</th><th>Definition</th></tr></thead>
         <tbody>
@@ -313,20 +303,20 @@ $$0.2_{10} ≈ 0.200000000000000022204460492503$$</code></div>
       </table>
 
       <h3>3.2 Discrete Iteration and Periodic Partitioning</h3>
-      <p>For every discrete installment period $t ∈ \{1, 2, …, n\}$, the engine derives periodic interest accrual ($I_t$), principal liquidation ($P_t$), and closing balance ($B_t$) via strict integer truncation rules:</p>
-      <div class="eq-block"><code>$$I_t = round(B_{t-1} · r)$$
-$$P_t = EMI - I_t$$
-$$B_t = B_{t-1} - P_t$$</code></div>
-      <p>Where $B_0 = P$.</p>
+      <p>For every discrete installment period t ∈ {1, 2, …, n}, the engine derives periodic interest accrual (I<sub>t</sub>), principal liquidation (P<sub>t</sub>), and closing balance (B<sub>t</sub>) via strict integer truncation rules:</p>
+      <div class="eq-block"><code>I<sub>t</sub> = round(B<sub>t-1</sub> · r)
+P<sub>t</sub> = EMI - I<sub>t</sub>
+B<sub>t</sub> = B<sub>t-1</sub> - P<sub>t</sub></code></div>
+      <p>Where B<sub>0</sub> = P.</p>
 
       <h3>3.3 The Terminal Reconciliation Rule</h3>
-      <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts ($± Δ$ poisha):</p>
-      <div class="eq-block"><code>$$∑_{t=1}^n P_t ≠ P$$</code></div>
-      <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period ($t = n$):</p>
-      <div class="eq-block"><code>$$P_n = B_{n-1}$$
-$$EMI_n = P_n + I_n$$
-$$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
-      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero ($B_n ≡ 0$), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
+      <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts (± Δ poisha):</p>
+      <div class="eq-block"><code>∑<sub>t=1</sub><sup>n</sup> P<sub>t</sub> ≠ P</code></div>
+      <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period (t = n):</p>
+      <div class="eq-block"><code>P<sub>n</sub> = B<sub>n-1</sub>
+EMI<sub>n</sub> = P<sub>n</sub> + I<sub>n</sub>
+B<sub>n</sub> = B<sub>n-1</sub> - P<sub>n</sub> ≡ 0</code></div>
+      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero (B<sub>n</sub> ≡ 0), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
       <hr class="section-divider" />
     </div>
 
@@ -337,24 +327,24 @@ $$B_n = B_{n-1} - P_n ≡ 0$$</code></div>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
       <p>For non-periodic, non-uniform digital transactions (such as merchant cash advances and micro-installments), FinEngine solves for internal rate of return via the generalized net present value relation:</p>
-      <div class="eq-block"><code>$$NPV(R) = ∑_{i=1}^m C_i/(1 + R)^{(d_i - d_0)/365} = 0$$</code></div>
+      <div class="eq-block"><code>NPV(R) = ∑<sub>i=1</sub><sup>m</sup> C<sub>i</sub>/(1 + R)<sup>(d<sub>i</sub> - d<sub>0</sub>)/365</sup> = 0</code></div>
       <p>Where:</p>
       <ul>
-        <li>$C_i$ is the cash flow at date $d_i$.</li>
-        <li>$d_0$ is the initial disbursement timestamp.</li>
-        <li>$R$ is the annualized discount factor.</li>
+        <li>C<sub>i</sub> is the cash flow at date d<sub>i</sub>.</li>
+        <li>d<sub>0</sub> is the initial disbursement timestamp.</li>
+        <li>R is the annualized discount factor.</li>
       </ul>
-      <p>Because closed-form solutions do not exist for $m > 4$, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
-      <div class="eq-block"><code>$$R_{k+1} = R_k - NPV(R_k)/NPV'(R_k)$$</code></div>
+      <p>Because closed-form solutions do not exist for m > 4, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
+      <div class="eq-block"><code>R<sub>k+1</sub> = R<sub>k</sub> - NPV(R<sub>k</sub>)/NPV'(R<sub>k</sub>)</code></div>
       <ul>
-        <li>Convergence Threshold: $|Δ R| &lt; 10^{-7}$</li>
+        <li>Convergence Threshold: |Δ R| &lt; 10^{-7}</li>
         <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
       </ul>
 
       <h3>4.2 Debt-Burden Ratio (DBR) Stress Testing</h3>
       <p>To prevent predatory micro-lending and ensure compliance with central banking guidelines on responsible consumer lending, <code>@finengine/math</code> evaluates localized debt burden limits:</p>
-      <div class="eq-block"><code>$$DBR = (∑ EMI_{existing} + EMI_{proposed})/Y_{net monthly} × 100$$</code></div>
-      <p>The engine validates transactions against statutory thresholds (e.g., $DBR ≤ 40%$) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
+      <div class="eq-block"><code>DBR = (∑ EMI<sub>existing</sub> + EMI<sub>proposed</sub>)/Y<sub>net monthly</sub> × 100</code></div>
+      <p>The engine validates transactions against statutory thresholds (e.g., DBR ≤ 40%) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
       <hr class="section-divider" />
     </div>
 
