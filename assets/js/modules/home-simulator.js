@@ -38,8 +38,59 @@ export function initHomeSimulator() {
     return { emi, totalPayable, totalInterest };
   }
 
+  let currentEmi = 0;
+  let currentInterest = 0;
+  let currentTotal = 0;
+  let animId = null;
+
   function formatBDT(amount) {
     return `BDT ${Math.round(amount).toLocaleString('en-US')}`;
+  }
+
+  function animateNumbers(targetEmi, targetInterest, targetTotal, duration = 220) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (outEmi) outEmi.textContent = formatBDT(targetEmi);
+      if (outInterest) outInterest.textContent = formatBDT(targetInterest);
+      if (outTotal) outTotal.textContent = formatBDT(targetTotal);
+      currentEmi = targetEmi;
+      currentInterest = targetInterest;
+      currentTotal = targetTotal;
+      return;
+    }
+
+    const startEmi = currentEmi || targetEmi;
+    const startInterest = currentInterest || targetInterest;
+    const startTotal = currentTotal || targetTotal;
+    const startTime = performance.now();
+
+    if (animId) cancelAnimationFrame(animId);
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      // Ease-out quad curve for natural decelerating roll
+      const ease = progress * (2 - progress);
+
+      const valEmi = Math.round(startEmi + (targetEmi - startEmi) * ease);
+      const valInterest = Math.round(startInterest + (targetInterest - startInterest) * ease);
+      const valTotal = Math.round(startTotal + (targetTotal - startTotal) * ease);
+
+      if (outEmi) outEmi.textContent = formatBDT(valEmi);
+      if (outInterest) outInterest.textContent = formatBDT(valInterest);
+      if (outTotal) outTotal.textContent = formatBDT(valTotal);
+
+      currentEmi = valEmi;
+      currentInterest = valInterest;
+      currentTotal = valTotal;
+
+      if (progress < 1) {
+        animId = requestAnimationFrame(step);
+      } else {
+        animId = null;
+      }
+    }
+
+    animId = requestAnimationFrame(step);
   }
 
   function update() {
@@ -49,9 +100,7 @@ export function initHomeSimulator() {
 
     const { emi, totalPayable, totalInterest } = calculate(principal, rate, months);
 
-    if (outEmi) outEmi.textContent = formatBDT(emi);
-    if (outInterest) outInterest.textContent = formatBDT(totalInterest);
-    if (outTotal) outTotal.textContent = formatBDT(totalPayable);
+    animateNumbers(emi, totalInterest, totalPayable);
 
     const burdenPct = principal > 0 ? ((totalInterest / principal) * 100).toFixed(1) : '0';
     if (outBurden) outBurden.textContent = `${burdenPct}% of principal`;
