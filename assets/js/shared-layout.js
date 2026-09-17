@@ -134,8 +134,12 @@ function renderProofStrip(pageType) {
     { label: 'Simulation lab', href: toRoot('simulation/') },
     { label: 'Package docs', href: toRoot('docs/') },
     { label: 'Brand assets', href: toRoot('brand/') },
-    { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
-  ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
+    { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine', external: true },
+  ].map((chip) => {
+    const ext = chip.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const arrow = chip.external ? '↗' : '→';
+    return `<a class="trust-chip" href="${chip.href}"${ext}>${chip.label} <span class="trust-chip-arrow" aria-hidden="true">${arrow}</span></a>`;
+  }).join('');
 
   const trustStrip = [
     { label: 'DOI', value: '10.67226/cfsbr.fe.2026.001.v1', href: 'https://doi.org/10.67226/cfsbr.fe.2026.001.v1', external: true },
@@ -148,7 +152,8 @@ function renderProofStrip(pageType) {
     { label: 'Domain', value: 'js.org Verified', href: 'https://finengine.js.org', external: true },
   ].map((badge) => {
     const attrs = badge.external ? 'target="_blank" rel="noopener noreferrer"' : '';
-    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}:</span> <span class="trust-strip-value">${badge.value}</span></a>`;
+    const arrow = badge.external ? '↗' : '→';
+    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}:</span> <span class="trust-strip-value">${badge.value}</span> <span class="trust-strip-arrow" aria-hidden="true">${arrow}</span></a>`;
   }).join('');
 
   return `

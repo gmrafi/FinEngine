@@ -3664,6 +3664,33 @@ html[data-theme='dark'] .bento-card:hover {
   position: relative;
   z-index: 2;
 }
+.bento-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.bento-card-top .bento-card-badge {
+  margin-bottom: 0;
+}
+.bento-corner-arrow {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #94a3b8;
+  transition: transform 0.16s ease, color 0.16s ease;
+  line-height: 1;
+}
+.bento-card:hover .bento-corner-arrow {
+  color: #2273C3;
+  transform: translate(2px, -2px);
+}
+html[data-theme='dark'] .bento-corner-arrow {
+  color: #64748b;
+}
+html[data-theme='dark'] .bento-card:hover .bento-corner-arrow {
+  color: #93c5fd;
+}
 .bento-card-badge {
   display: inline-flex;
   align-items: center;
@@ -3891,5 +3918,52 @@ html[data-theme='dark'] .dev-hub-title {
   font-size: 0.86rem;
   line-height: 1.45;
 }
+.dev-hub-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.dev-hub-arrow {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  transition: transform 0.16s ease, color 0.16s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.dev-hub-card:hover .dev-hub-arrow {
+  color: #2273C3;
+  transform: translate(2px, -2px);
+}
+html[data-theme='dark'] .dev-hub-arrow {
+  color: #64748b;
+}
+html[data-theme='dark'] .dev-hub-card:hover .dev-hub-arrow {
+  color: #93c5fd;
+}
 
-
+/* Trust Strip & Chip link indicator arrows */
+.trust-strip-arrow,
+.trust-chip-arrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-left: 3px;
+  transition: transform 0.14s ease, color 0.14s ease;
+  line-height: 1;
+}
+.trust-strip-badge:hover .trust-strip-arrow,
+.trust-chip:hover .trust-chip-arrow {
+  color: #2273C3;
+  transform: translate(2px, -2px);
+}
+html[data-theme='dark'] .trust-strip-arrow,
+html[data-theme='dark'] .trust-chip-arrow {
+  color: #64748b;
+}
+html[data-theme='dark'] .trust-strip-badge:hover .trust-strip-arrow,
+html[data-theme='dark'] .trust-chip:hover .trust-chip-arrow {
+  color: #93c5fd;
+}
