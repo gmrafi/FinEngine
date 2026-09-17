@@ -10,7 +10,7 @@ import { initBanner } from './modules/banner.js';
 import { initTerminalPill } from './modules/terminal-pill.js';
 import { initTerminalMorph } from './modules/terminal-morph.js';
 import { initRatioBar } from './modules/ratio-bar.js';
-import { initBlueprintSpotlight } from './modules/spotlight.js';
+import { initBlueprintSpotlight, initBentoSpotlight } from './modules/spotlight.js';
 import { initCopyButtons } from './modules/copy.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initHeroTabs } from './modules/hero-tabs.js';
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRatioBar();
   initHomeSimulator();
   initBlueprintSpotlight();
+  initBentoSpotlight();
   initCopyButtons();
   initCodeCopy();
   initHeroTabs();
