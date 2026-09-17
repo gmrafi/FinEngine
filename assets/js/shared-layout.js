@@ -139,14 +139,16 @@ function renderProofStrip(pageType) {
 
   const trustStrip = [
     { label: 'DOI', value: '10.67226/cfsbr.fe.2026.001.v1', href: 'https://doi.org/10.67226/cfsbr.fe.2026.001.v1', external: true },
-    { label: 'Archive', value: 'CERN / Zenodo', href: 'https://doi.org/10.5281/zenodo.22769501', external: true },
-    { label: 'Domain', value: 'js.org Verified', href: 'https://finengine.js.org', external: false },
-    { label: 'Architecture', value: 'Zero Dependencies', href: 'docs/', external: false },
-    { label: 'Precision', value: 'IEEE-754 Safe', href: 'methodology/', external: false },
-    { label: 'Backing', value: 'CFSBR Initiative', href: 'about/', external: false },
+    { label: 'Archive', value: 'CERN / Zenodo: 22769501', href: 'https://doi.org/10.5281/zenodo.22769501', external: true },
+    { label: 'License', value: 'CC-BY 4.0 · MIT', href: 'https://github.com/gmrafi/FinEngine/blob/main/LICENSE', external: true },
+    { label: 'Standards', value: 'Central Bank & BDT Formulations', href: toRoot('methodology/'), external: false },
+    { label: 'Precision', value: 'IEEE-754 Safe', href: toRoot('methodology/'), external: false },
+    { label: 'Architecture', value: 'Zero Dependencies', href: toRoot('docs/'), external: false },
+    { label: 'Backing', value: 'CFSBR Initiative', href: toRoot('about/'), external: false },
+    { label: 'Domain', value: 'js.org Verified', href: 'https://finengine.js.org', external: true },
   ].map((badge) => {
     const attrs = badge.external ? 'target="_blank" rel="noopener noreferrer"' : '';
-    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}</span><span class="trust-strip-value">${badge.value}</span></a>`;
+    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}:</span> <span class="trust-strip-value">${badge.value}</span></a>`;
   }).join('');
 
   return `
@@ -158,8 +160,8 @@ function renderProofStrip(pageType) {
           <p class="proof-copy">Permanent CERN Zenodo archiving, Crossref methodology indexing, and zero-dependency client-side execution.</p>
         </div>
         <div class="proof-badges">${badges}</div>
-        <div class="trust-row">${chips}</div>
         <div class="trust-strip">${trustStrip}</div>
+        <div class="trust-row">${chips}</div>
       </div>
     </section>
   `;
