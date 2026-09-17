@@ -211,6 +211,86 @@
         </div>
       </section>
 
+      <!-- DEVELOPER PREVIEW & RESEARCH STATUS BANNER -->
+      <section
+        class="doc-card"
+        style="
+          margin-bottom: 24px;
+          padding: 20px 24px;
+          border-left: 4px solid #3b82f6;
+        "
+      >
+        <div style="display: flex; gap: 14px; align-items: flex-start">
+          <div
+            style="font-size: 22px; line-height: 1.2; flex-shrink: 0"
+            aria-hidden="true"
+          >
+            ℹ️
+          </div>
+          <div style="flex: 1">
+            <div
+              style="
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--text);
+                margin-bottom: 6px;
+              "
+            >
+              Project Status: Developer Preview &amp; Research Prototype (v0.1.0
+              on PyPI)
+            </div>
+            <div
+              style="
+                font-size: 13.5px;
+                color: var(--text);
+                opacity: 0.88;
+                line-height: 1.65;
+              "
+            >
+              <code
+                style="
+                  background: rgba(59, 130, 246, 0.12);
+                  color: inherit;
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                  font-family: monospace;
+                  font-size: 12px;
+                "
+                >finengine.math</code
+              >
+              and
+              <code
+                style="
+                  background: rgba(59, 130, 246, 0.12);
+                  color: inherit;
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                  font-family: monospace;
+                  font-size: 12px;
+                "
+                >finengine.core</code
+              >
+              provide mathematically verified deterministic primitives (integer
+              sub-unit arithmetic, reducing-balance amortization, international
+              day-count conventions, and hybrid robust XIRR solvers).
+              Higher-level machine learning and thin-file scoring modules (<code
+                style="
+                  background: rgba(59, 130, 246, 0.12);
+                  color: inherit;
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                  font-family: monospace;
+                  font-size: 12px;
+                "
+                >finengine.ai</code
+              >) represent baseline heuristic scaffolds under CFSBR research and
+              are not an empirical substitute for regulated core banking or
+              rating agency models.
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- INSTALLATION EXTRAS BREAKDOWN -->
       <section class="doc-card">
         <h2>Installation Options &amp; Extras</h2>
@@ -358,6 +438,61 @@ plan = amortize(principal=<span class="hero-number">500000</span>, annual_rate=<
           </div>
         </div>
 
+        <!-- RECIPE 1B: Day-Count & Moratorium Amortization -->
+        <div class="info-panel" style="margin-bottom: 24px">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            "
+          >
+            <h3 style="margin: 0">
+              2. Banking Day-Count &amp; Moratorium (Grace Period) Schedule
+            </h3>
+            <span
+              style="
+                font-size: 11px;
+                background: var(--panel-soft);
+                border: 1px solid var(--line);
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: monospace;
+              "
+              >example_daycount_moratorium.py</span
+            >
+          </div>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px">
+            Supports international day-count conventions
+            (<code>Actual/365</code>, <code>Actual/360</code>,
+            <code>30/360</code>), business day rolling rules, and interest-only
+            grace periods.
+          </p>
+          <div class="bento-code-snippet">
+            <pre><code><span class="hero-keyword">from</span> finengine <span class="hero-keyword">import</span> amortize, days_between, year_fraction
+
+<span class="hero-comment"># Compute day-count fractions under banking conventions</span>
+days = days_between(<span class="hero-string">"2026-01-01"</span>, <span class="hero-string">"2026-07-01"</span>, convention=<span class="hero-string">"Actual/365"</span>)  <span class="hero-comment"># → 181</span>
+fraction = year_fraction(<span class="hero-string">"2026-01-01"</span>, <span class="hero-string">"2026-07-01"</span>, convention=<span class="hero-string">"30/360"</span>)   <span class="hero-comment"># → 0.50</span>
+
+<span class="hero-comment"># 36-month loan with 6 months grace period (interest-only moratorium)</span>
+plan = amortize(
+    principal=<span class="hero-number">500000</span>,
+    annual_rate=<span class="hero-number">12.0</span>,
+    months=<span class="hero-number">36</span>,
+    grace_period_months=<span class="hero-number">6</span>,
+    grace_period_type=<span class="hero-string">"interest-only"</span>,
+    day_count_convention=<span class="hero-string">"Actual/365"</span>
+)
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Grace Month 1 Payment (Interest Only): {plan.schedule[0].payment}"</span>)
+<span class="hero-comment"># → Grace Month 1 Payment: BDT 5,000.00</span>
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Active Month 7 Payment (Amortizing):    {plan.schedule[6].payment}"</span>)
+<span class="hero-comment"># → Active Month 7 Payment: BDT 19,371.45</span></code></pre>
+          </div>
+        </div>
+
         <!-- RECIPE 2: Pandas Integration -->
         <div class="info-panel" style="margin-bottom: 24px">
           <div
@@ -499,6 +634,24 @@ assessment = assess_credit_risk(profile=profile, requested_amount=<span class="h
 <span class="hero-keyword">print</span>(f<span class="hero-string">"Default Risk (PD): {assessment.default_probability * 100:.2f}%"</span>)
 <span class="hero-keyword">print</span>(f<span class="hero-string">"Risk Tier:         {assessment.risk_tier}"</span>)
 <span class="hero-keyword">print</span>(f<span class="hero-string">"Recommended Limit: BDT {assessment.recommended_credit_limit:,.2f}"</span>)</code></pre>
+          </div>
+          <div
+            style="
+              margin-top: 14px;
+              padding: 12px 16px;
+              border-radius: 8px;
+              background: rgba(59, 130, 246, 0.08);
+              border: 1px solid rgba(59, 130, 246, 0.25);
+              font-size: 12.5px;
+              line-height: 1.6;
+              color: var(--text);
+            "
+          >
+            <strong>Research Note:</strong> <code>finengine.ai</code> provides a
+            baseline heuristic feature-engineering interface under the CFSBR Lab
+            computational research roadmap. Teams deploying in production should
+            train and calibrate models on empirical institution-specific
+            portfolio default datasets.
           </div>
         </div>
       </section>
