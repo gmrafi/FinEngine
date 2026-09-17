@@ -95,7 +95,7 @@ export function initTerminalMorph() {
         const cursor = document.createElement('span');
         cursor.className = 'hero-terminal-cursor';
         cursor.setAttribute('aria-hidden', 'true');
-        cursor.style.animation = 'cursor-blink 1s step-end infinite';
+        cursor.style.animation = prefersReduced.matches ? '' : 'cursor-blink 1s step-end infinite';
         const codeEl = targetPane.querySelector('.hero-terminal-pre code');
         if (codeEl) codeEl.appendChild(cursor);
       } else {
