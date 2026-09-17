@@ -45,7 +45,7 @@ export const SITE_BRAND = Object.freeze({
   heroEyebrow: 'OPEN SOURCE · BROWSER-SAFE FINANCIAL ENGINE',
   heroTitle: 'Bank-Grade Financial Math for JavaScript.',
   heroTitleAccent: 'Zero Rounding Errors.',
-  heroLead: 'Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations — with 100% client-side privacy and no backend dependency.',
+  heroLead: 'Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations  -  with 100% client-side privacy and no backend dependency.',
 });
 
 export function applyBrand() {

@@ -43,9 +43,9 @@ It is designed for product demos, internal tooling, education flows, repayment e
 
 ### Roadmap surfaces shown in the docs site
 
-- `@finengine/risk` — credit and enterprise risk helpers
-- `@finengine/ratios` — financial ratio analysis and DuPont breakdowns
-- `@finengine/microfinance` — flat vs declining repayment transparency
+- `@finengine/risk`  -  credit and enterprise risk helpers
+- `@finengine/ratios`  -  financial ratio analysis and DuPont breakdowns
+- `@finengine/microfinance`  -  flat vs declining repayment transparency
 
 ## Quick start
 
@@ -90,10 +90,10 @@ npm run verify:packages
 ```
 
 Key scripts:
-- `npm run check` — JavaScript syntax checks for site modules
-- `npm run build:packages` — builds `core`, `math`, and `ui`
-- `npm run test:packages` — smoke tests for starter packages
-- `npm run verify:packages` — full verification plus executed examples
+- `npm run check`  -  JavaScript syntax checks for site modules
+- `npm run build:packages`  -  builds `core`, `math`, and `ui`
+- `npm run test:packages`  -  smoke tests for starter packages
+- `npm run verify:packages`  -  full verification plus executed examples
 
 ## Repo structure
 
