@@ -6,6 +6,7 @@ import { initReveal } from './modules/reveal.js';
 import { initCounters } from './modules/counters.js';
 import { initPackageExplorer } from './modules/packages.js';
 import { initCalculator } from './modules/calculator.js';
+import { initTerminalMorph } from './modules/terminal-morph.js';
 import { initCopyButtons } from './modules/copy.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initHeroTabs } from './modules/hero-tabs.js';
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initPackageExplorer();
   initCalculator();
+  initTerminalMorph();
   initCopyButtons();
   initCodeCopy();
   initHeroTabs();
