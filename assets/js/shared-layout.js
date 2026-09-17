@@ -141,7 +141,7 @@ function renderHeader(pageType) {
                 </svg>
               </span>
               <span class="eco-name">Python &amp; Quant</span>
-              <span class="eco-tag">PyPI Ready</span>
+              <span class="eco-tag">PyPI v0.1.0</span>
             </a>
             <a class="ecosystem-pill ${isAI ? "is-active" : ""}" href="${toRoot("methodology/#research-pipeline")}" title="AI Models & CFSBR Lab Research">
               <span class="eco-icon" aria-hidden="true">
