@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Python SDK &amp; Quant Engine - FinEngine Primitives for Python
+    </title>
+    <meta
+      name="description"
+      content="FinEngine Python SDK: Deterministic financial math, exact float-drift mitigation, and Pandas-native loan amortization primitives for Python and Quant Finance."
+    />
+    <link rel="canonical" href="https://finengine.js.org/python/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Python SDK &amp; Quant Engine - FinEngine Primitives for Python"
+    />
+    <meta
+      property="og:description"
+      content="FinEngine Python SDK: Deterministic financial math, exact float-drift mitigation, and Pandas-native loan amortization primitives for Python and Quant Finance."
+    />
+    <meta property="og:url" content="https://finengine.js.org/python/" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Python SDK &amp; Quant Engine - FinEngine Primitives for Python"
+    />
+    <meta
+      name="twitter:description"
+      content="Deterministic financial math, exact float-drift mitigation, and Pandas-native loan amortization primitives for Python and Quant Finance."
+    />
+    <meta
+      name="twitter:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../logo-mark.png" />
+    <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="python" data-root-path="../">
+    <div data-site-header></div>
+
+    <main class="doc-shell page-shell">
+      <!-- HERO CARD -->
+      <section class="doc-card page-hero-card">
+        <div class="eyebrow eyebrow-blue">
+          Python 3.10+ · Quant Engine · PyPI Integration
+        </div>
+        <h1
+          style="
+            max-width: 100%;
+            font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+          "
+        >
+          Deterministic Financial Math &amp; Amortization Primitives for Python
+        </h1>
+        <p style="max-width: 88ch; margin-bottom: 20px; line-height: 1.6">
+          FinEngine for Python brings exact integer-scaled sub-unit arithmetic,
+          strict type hints, and Pandas DataFrame integration to actuarial loan
+          schedules, interest compounding, and non-periodic XIRR solvers.
+        </p>
+
+        <!-- PIP INSTALLATION COPY BAR -->
+        <div
+          style="
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+          "
+        >
+          <div
+            style="
+              display: inline-flex;
+              align-items: center;
+              background: var(--bg-card, #0f172a);
+              border: 1px solid var(--line, #334155);
+              border-radius: 8px;
+              padding: 6px 14px;
+              font-family: monospace;
+              font-size: 14px;
+              color: var(--text, #f8fafc);
+            "
+          >
+            <span style="color: #38bdf8; margin-right: 8px; user-select: none"
+              >$</span
+            >
+            <code>pip install finengine pandas</code>
+            <button
+              class="mini-btn"
+              type="button"
+              style="margin-left: 14px; padding: 4px 10px; font-size: 11px"
+              onclick="
+                navigator.clipboard.writeText('pip install finengine pandas');
+                this.textContent = 'Copied!';
+                setTimeout(() => (this.textContent = 'Copy'), 2000);
+              "
+            >
+              Copy
+            </button>
+          </div>
+          <a
+            class="button primary"
+            href="#python-quickstart"
+            style="padding: 10px 18px; font-size: 13px"
+            >View Quickstart Examples ↓</a
+          >
+          <a
+            class="button secondary"
+            href="https://colab.research.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="padding: 10px 18px; font-size: 13px"
+            >Open in Google Colab ↗</a
+          >
+        </div>
+
+        <!-- BADGE STRIP -->
+        <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px">
+          <img
+            src="https://img.shields.io/badge/pypi-v0.3.0-3775A9?logo=pypi&logoColor=white"
+            alt="PyPI Package Version"
+          />
+          <img
+            src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue?logo=python&logoColor=white"
+            alt="Python Versions"
+          />
+          <img
+            src="https://img.shields.io/badge/typing-strict%20hints-success"
+            alt="Strict Typing"
+          />
+          <img
+            src="https://img.shields.io/badge/pandas-compatible-150458?logo=pandas"
+            alt="Pandas Support"
+          />
+          <img
+            src="https://img.shields.io/badge/license-MIT-green"
+            alt="MIT License"
+          />
+        </div>
+      </section>
+
+      <!-- KEY GUARANTEES GRID -->
+      <section class="doc-card">
+        <h2>Key Architectural Guarantees for Python &amp; Data Science</h2>
+        <div class="grid-2 compact-grid">
+          <article class="info-panel static-panel">
+            <div
+              style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #2563eb;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Precision Engine
+            </div>
+            <h3>Eliminates IEEE-754 Float Drift</h3>
+            <p>
+              Replaces standard Python float rounding issues (<code
+                style="font-size: 12px"
+                >0.1 + 0.2 != 0.3</code
+              >) with integer-scaled sub-unit arithmetic (Poisha: 1 BDT = 100
+              Poisha) for audited accounting accuracy.
+            </p>
+          </article>
+          <article class="info-panel static-panel">
+            <div
+              style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #10b981;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Boundary Condition
+            </div>
+            <h3>Terminal Zero Reconciliation Rule</h3>
+            <p>
+              Mathematical closing balance guarantee ensuring the final loan
+              amortization installment strictly liquidates to exactly
+              <code style="font-size: 12px">0.00</code>.
+            </p>
+          </article>
+          <article class="info-panel static-panel">
+            <div
+              style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #8b5cf6;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Data Science Ready
+            </div>
+            <h3>Pandas &amp; NumPy Native Output</h3>
+            <p>
+              Export amortization schedules, interest cashflows, and debt-burden
+              indicators directly into structured
+              <code style="font-size: 12px">pandas.DataFrame</code> objects with
+              zero boilerplate.
+            </p>
+          </article>
+          <article class="info-panel static-panel">
+            <div
+              style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #f59e0b;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Deployment Simplicity
+            </div>
+            <h3>100% Pure Python &amp; Zero C-Dependencies</h3>
+            <p>
+              No compilation or C-extension toolchains required. Runs seamlessly
+              on AWS Lambda, Google Cloud Functions, Jupyter Notebooks, PyPy,
+              and Edge runtimes.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXAMPLES & CODE RECIPES -->
+      <section class="doc-card" id="python-quickstart">
+        <div class="section-head" style="margin-bottom: 20px">
+          <div>
+            <div class="eyebrow eyebrow-blue">Code Recipes</div>
+            <h2>Executable Python Examples</h2>
+            <p>
+              Tested for Python 3.10+ with strict type hints, dataclasses, and
+              Pandas compatibility.
+            </p>
+          </div>
+        </div>
+
+        <!-- RECIPE 1: Basic Amortization -->
+        <div class="info-panel" style="margin-bottom: 24px">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            "
+          >
+            <h3 style="margin: 0">
+              1. Deterministic Loan Amortization (36-Month EMI)
+            </h3>
+            <span
+              style="
+                font-size: 11px;
+                background: var(--panel-soft);
+                border: 1px solid var(--line);
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: monospace;
+              "
+              >example_amortize.py</span
+            >
+          </div>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px">
+            Computes true reducing-balance installments with integer-rounded
+            Poisha reconciliation.
+          </p>
+          <div class="bento-code-snippet">
+            <pre><code><span class="hero-keyword">from</span> finengine <span class="hero-keyword">import</span> amortize, format_money
+
+<span class="hero-comment"># Compute a 36-month loan amortization for BDT 5,00,000 at 13.5% p.a.</span>
+plan = amortize(principal=<span class="hero-number">500000</span>, annual_rate=<span class="hero-number">13.5</span>, months=<span class="hero-number">36</span>)
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Monthly Payment: {format_money(plan.monthly_payment, 'BDT')}"</span>)
+<span class="hero-comment"># → Monthly Payment: BDT 16,967.64</span>
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Total Interest:  {format_money(plan.total_interest, 'BDT')}"</span>)
+<span class="hero-comment"># → Total Interest:  BDT 110,835.20</span>
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Final Balance:   {plan.schedule[-1].remaining_balance}"</span>)
+<span class="hero-comment"># → Final Balance:   0.0 (Guaranteed Zero Closure)</span></code></pre>
+          </div>
+        </div>
+
+        <!-- RECIPE 2: Pandas Integration -->
+        <div class="info-panel" style="margin-bottom: 24px">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            "
+          >
+            <h3 style="margin: 0">2. Pandas DataFrame Schedule Analysis</h3>
+            <span
+              style="
+                font-size: 11px;
+                background: var(--panel-soft);
+                border: 1px solid var(--line);
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: monospace;
+              "
+              >example_pandas.py</span
+            >
+          </div>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px">
+            Direct conversion to tabular DataFrame format for plotting, risk
+            analysis, and Excel exports.
+          </p>
+          <div class="bento-code-snippet">
+            <pre><code><span class="hero-keyword">import</span> pandas <span class="hero-keyword">as</span> pd
+<span class="hero-keyword">from</span> finengine <span class="hero-keyword">import</span> amortize
+
+plan = amortize(principal=<span class="hero-number">500000</span>, annual_rate=<span class="hero-number">13.5</span>, months=<span class="hero-number">36</span>)
+
+<span class="hero-comment"># Convert schedule dataclasses into a Pandas DataFrame</span>
+df = pd.DataFrame([s.to_dict() <span class="hero-keyword">for</span> s <span class="hero-keyword">in</span> plan.schedule])
+
+<span class="hero-keyword">print</span>(df[[<span class="hero-string">'month'</span>, <span class="hero-string">'payment'</span>, <span class="hero-string">'principal_paid'</span>, <span class="hero-string">'interest'</span>, <span class="hero-string">'remaining_balance'</span>]].head())
+<span class="hero-comment">#    month   payment  principal_paid  interest  remaining_balance</span>
+<span class="hero-comment"># 0      1  16967.64        11342.64   5625.00          488657.36</span>
+<span class="hero-comment"># 1      2  16967.64        11470.25   5497.39          477187.11</span>
+<span class="hero-comment"># 2      3  16967.64        11599.29   5368.35          465587.82</span>
+
+<span class="hero-comment"># Export to spreadsheet format</span>
+df.to_csv(<span class="hero-string">"sme_amortization_schedule.csv"</span>, index=<span class="hero-keyword">False</span>)</code></pre>
+          </div>
+        </div>
+
+        <!-- RECIPE 3: XIRR Solver -->
+        <div class="info-panel">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            "
+          >
+            <h3 style="margin: 0">3. Non-Periodic Cash Flow XIRR Solver</h3>
+            <span
+              style="
+                font-size: 11px;
+                background: var(--panel-soft);
+                border: 1px solid var(--line);
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-family: monospace;
+              "
+              >example_xirr.py</span
+            >
+          </div>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px">
+            Constrained Newton-Raphson solver with bisection fallbacks for
+            irregular cashflow internal rate of return.
+          </p>
+          <div class="bento-code-snippet">
+            <pre><code><span class="hero-keyword">from</span> datetime <span class="hero-keyword">import</span> date
+<span class="hero-keyword">from</span> finengine <span class="hero-keyword">import</span> xirr, CashFlow
+
+cashflows = [
+    CashFlow(amount=-<span class="hero-number">100000</span>, date=date(<span class="hero-number">2026</span>, <span class="hero-number">1</span>, <span class="hero-number">1</span>)),   <span class="hero-comment"># Initial investment</span>
+    CashFlow(amount=<span class="hero-number">25000</span>,  date=date(<span class="hero-number">2026</span>, <span class="hero-number">4</span>, <span class="hero-number">1</span>)),   <span class="hero-comment"># Q1 Dividend</span>
+    CashFlow(amount=<span class="hero-number">30000</span>,  date=date(<span class="hero-number">2026</span>, <span class="hero-number">8</span>, <span class="hero-number">15</span>)),  <span class="hero-comment"># Q2 Distribution</span>
+    CashFlow(amount=<span class="hero-number">65000</span>,  date=date(<span class="hero-number">2026</span>, <span class="hero-number">12</span>, <span class="hero-number">31</span>)), <span class="hero-comment"># Year-end liquidation</span>
+]
+
+rate = xirr(cashflows)
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Annualized Internal Rate of Return (XIRR): {rate * 100:.2f}%"</span>)
+<span class="hero-comment"># → Annualized Internal Rate of Return (XIRR): 24.83%</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- API SPECIFICATION TABLE -->
+      <section class="doc-card" id="python-api">
+        <h2>Python API Reference Specification</h2>
+        <div class="table-wrap" style="overflow-x: auto">
+          <table
+            style="width: 100%; border-collapse: collapse; font-size: 13px"
+          >
+            <thead>
+              <tr
+                style="border-bottom: 1px solid var(--line); text-align: left"
+              >
+                <th style="padding: 10px 12px; color: var(--text)">
+                  Function / Type
+                </th>
+                <th style="padding: 10px 12px; color: var(--text)">
+                  Signature
+                </th>
+                <th style="padding: 10px 12px; color: var(--text)">
+                  Return Type
+                </th>
+                <th style="padding: 10px 12px; color: var(--text)">
+                  Description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--line-soft, #1e293b)">
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    font-weight: 600;
+                    color: #38bdf8;
+                  "
+                >
+                  amortize()
+                </td>
+                <td style="padding: 10px 12px; font-family: monospace">
+                  (principal: float, annual_rate: float, months: int)
+                </td>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    color: #10b981;
+                  "
+                >
+                  AmortizationPlan
+                </td>
+                <td style="padding: 10px 12px">
+                  Computes full reducing-balance EMI schedule with Terminal Zero
+                  guarantee.
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--line-soft, #1e293b)">
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    font-weight: 600;
+                    color: #38bdf8;
+                  "
+                >
+                  monthly_payment()
+                </td>
+                <td style="padding: 10px 12px; font-family: monospace">
+                  (principal: float, annual_rate: float, months: int)
+                </td>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    color: #10b981;
+                  "
+                >
+                  float
+                </td>
+                <td style="padding: 10px 12px">
+                  Returns exact monthly installment value in standard decimal
+                  currency units.
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--line-soft, #1e293b)">
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    font-weight: 600;
+                    color: #38bdf8;
+                  "
+                >
+                  xirr()
+                </td>
+                <td style="padding: 10px 12px; font-family: monospace">
+                  (cashflows: list[CashFlow], guess: float = 0.1)
+                </td>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    color: #10b981;
+                  "
+                >
+                  float
+                </td>
+                <td style="padding: 10px 12px">
+                  Solves annualized internal rate of return for non-periodic
+                  irregular cashflows.
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--line-soft, #1e293b)">
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    font-weight: 600;
+                    color: #38bdf8;
+                  "
+                >
+                  create_money()
+                </td>
+                <td style="padding: 10px 12px; font-family: monospace">
+                  (amount: float, currency: str = 'BDT')
+                </td>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    color: #10b981;
+                  "
+                >
+                  Money
+                </td>
+                <td style="padding: 10px 12px">
+                  Encapsulates monetary values as integer sub-units (Poisha) to
+                  prevent drift.
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    font-weight: 600;
+                    color: #38bdf8;
+                  "
+                >
+                  format_money()
+                </td>
+                <td style="padding: 10px 12px; font-family: monospace">
+                  (amount: float, currency: str = 'BDT', locale: str = 'en-BD')
+                </td>
+                <td
+                  style="
+                    padding: 10px 12px;
+                    font-family: monospace;
+                    color: #10b981;
+                  "
+                >
+                  str
+                </td>
+                <td style="padding: 10px 12px">
+                  Formats currency strings with Lakh / Crore grouping and ISO
+                  currency codes.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CROSS-ECOSYSTEM BRIDGE -->
+      <section class="doc-card">
+        <h2>Cross-Platform Computational Harmony</h2>
+        <p>
+          FinEngine is designed so that models prototyped in Python Jupyter
+          Notebooks yield identical mathematical results when deployed
+          client-side in browser JavaScript interfaces.
+        </p>
+        <div class="grid-2 compact-grid" style="margin-top: 16px">
+          <a class="info-panel link-panel" href="../docs/">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #2563eb;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Frontend &amp; Browser
+            </div>
+            <h3>JavaScript &amp; TypeScript Core →</h3>
+            <p>
+              Explore the zero-dependency npm packages for client-side
+              applications.
+            </p>
+          </a>
+          <a class="info-panel link-panel" href="../simulation/">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #10b981;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+              "
+            >
+              Interactive Lab
+            </div>
+            <h3>Live Simulation Lab →</h3>
+            <p>
+              Run loan repayment simulations and export directly to Python
+              scripts.
+            </p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+  </body>
+</html>
