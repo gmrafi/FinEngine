@@ -18,10 +18,12 @@
     "totalPayable": 610835.2,
     "firstMonth": {
       "month": 1,
+      "date": "2026-10-17",
       "payment": 16967.64,
       "principalPaid": 11342.64,
       "interestPaid": 5625,
-      "remainingBalance": 488657.36
+      "remainingBalance": 488657.36,
+      "isGracePeriod": false
     },
     "xirr": 0.28
   },

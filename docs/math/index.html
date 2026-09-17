@@ -171,14 +171,52 @@
         </p>
       </section>
       <section class="doc-card">
-        <h2>TypeScript return shapes</h2>
-        <pre class="doc-code"><code>interface ScheduleRow {
+        <div
+          class="status-banner"
+          style="
+            margin-bottom: 20px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text);
+          "
+        >
+          <strong>Actuarial Primitives (v0.3.0):</strong> Includes standard
+          annuity formulas, grace period / moratorium schedules, international
+          day-count conventions (Actual/365, Actual/360, 30/360, Actual/Actual),
+          business day adjustments, and hybrid Newton-Raphson + Bisection XIRR
+          convergence.
+        </div>
+        <h2>TypeScript Interfaces &amp; Types</h2>
+        <pre
+          class="doc-code"
+        ><code>type DayCountConvention = 'Actual/365' | 'Actual/360' | '30/360' | 'Actual/Actual';
+type BusinessDayConvention = 'Following' | 'ModifiedFollowing' | 'Preceding' | 'Unadjusted';
+
+interface AmortizeInput {
+  principal: number;
+  annualRate: number;
+  months: number;
+  startDate?: string | Date;
+  gracePeriodMonths?: number;
+  gracePeriodType?: 'interest-only' | 'capitalized';
+  dayCountConvention?: DayCountConvention;
+  balloonPayment?: number;
+}
+
+interface ScheduleRow {
   month: number;
+  date?: string;
   payment: number;
   principalPaid: number;
   interestPaid: number;
   remainingBalance: number;
+  isGracePeriod?: boolean;
 }
+
 interface AmortizeResult {
   monthlyPayment: number;
   totalInterest: number;
@@ -187,16 +225,43 @@ interface AmortizeResult {
 }</code></pre>
       </section>
       <section class="doc-card">
-        <h2>API</h2>
+        <h2>API Reference</h2>
         <h3>monthlyPayment(principal, annualRate, months)</h3>
-        <p>Returns the rounded monthly installment.</p>
-        <h3>amortize({ principal, annualRate, months })</h3>
+        <p>Calculates standard compound annuity monthly installment (EMI).</p>
+
+        <h3>amortize(input: AmortizeInput)</h3>
         <p>
-          Builds the payment schedule and returns totals plus month-by-month
-          rows.
+          Generates an actuarial reducing-balance amortization schedule with
+          optional grace periods (interest-only or capitalized moratorium),
+          custom day-count conventions, and terminal float reconciliation.
         </p>
+
+        <h3>daysBetween(startDate, endDate, convention?)</h3>
+        <p>
+          Computes the exact number of days between two dates according to
+          standard day-count conventions (<code>Actual/365</code>,
+          <code>Actual/360</code>, <code>30/360</code>).
+        </p>
+
+        <h3>yearFraction(startDate, endDate, convention?)</h3>
+        <p>
+          Computes the annual accrual factor between dates under the chosen
+          day-count convention.
+        </p>
+
+        <h3>adjustBusinessDay(date, convention?, holidays?)</h3>
+        <p>
+          Adjusts payment dates for weekends and statutory banking holidays
+          using <code>Following</code>, <code>ModifiedFollowing</code>, or
+          <code>Preceding</code> rolling rules.
+        </p>
+
         <h3>xirr(cashflows, guess?)</h3>
-        <p>Estimates annualized return for irregular cashflows.</p>
+        <p>
+          Solves the Extended Internal Rate of Return for irregular cash flows
+          using a hybrid Newton-Raphson method with automatic fallback to
+          bounded Bisection search.
+        </p>
       </section>
       <section class="doc-card">
         <h2>Executed example</h2>
