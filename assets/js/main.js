@@ -16,6 +16,7 @@ import { initCodeCopy } from './modules/code-copy.js';
 import { initHeroTabs } from './modules/hero-tabs.js';
 import { initHomeSimulator } from './modules/home-simulator.js';
 import { initPlayground } from './modules/playground.js';
+import { initPrecisionCursor } from './modules/cursor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSharedLayout();
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRatioBar();
   initHomeSimulator();
   initPlayground();
+  initPrecisionCursor();
   initBlueprintSpotlight();
   initBentoSpotlight();
   initCopyButtons();

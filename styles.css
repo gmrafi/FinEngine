@@ -4476,4 +4476,111 @@ html[data-theme='light'] .vscode-window {
   }
 }
 
+/* ==========================================================================
+   HIGH-PRECISION MATHEMATICAL MICRO-TRACKER & TOUCH RIPPLE
+   ========================================================================== */
+.precision-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(34, 115, 195, 0.5);
+  background: transparent;
+  pointer-events: none !important;
+  z-index: 99999;
+  opacity: 0;
+  will-change: transform, opacity, width, height, border-color, background;
+  transition: opacity 0.22s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+html[data-theme='dark'] .precision-cursor-ring {
+  border-color: rgba(96, 165, 250, 0.55);
+}
+
+.precision-cursor-ring.is-hovering {
+  border-color: #1F7A5C;
+  background: rgba(31, 122, 92, 0.08);
+  box-shadow: 0 0 10px rgba(31, 122, 92, 0.25);
+}
+
+html[data-theme='dark'] .precision-cursor-ring.is-hovering {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.3);
+}
+
+.precision-cursor-ring.is-clicked {
+  border-color: #2273C3;
+  background: rgba(34, 115, 195, 0.15);
+}
+
+.precision-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: #2273C3;
+  pointer-events: none !important;
+  z-index: 99999;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.2s ease;
+}
+
+html[data-theme='dark'] .precision-cursor-dot {
+  background: #60a5fa;
+}
+
+/* Touch micro-ripple for mobile and tablets */
+.touch-micro-ripple {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none !important;
+  z-index: 99999;
+  border: 2px solid #2273C3;
+  background: rgba(34, 115, 195, 0.12);
+  transform: translate(-50%, -50%);
+  animation: touchRippleAnim 0.38s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+html[data-theme='dark'] .touch-micro-ripple {
+  border-color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+}
+
+@keyframes touchRippleAnim {
+  0% {
+    width: 6px;
+    height: 6px;
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    width: 46px;
+    height: 46px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+/* Hide cursor on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .precision-cursor-ring,
+  .precision-cursor-dot,
+  .touch-micro-ripple {
+    display: none !important;
+  }
+}
+
+
 
