@@ -3789,8 +3789,24 @@ html[data-theme='dark'] .bento-comparison-box {
   font-weight: 700;
 }
 .bento-compare-status {
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
   font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+.bento-status-fail {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.22);
+}
+.bento-status-pass {
+  color: var(--brand-secondary, #1F7A5C);
+  background: rgba(31, 122, 92, 0.08);
+  border: 1px solid rgba(31, 122, 92, 0.22);
 }
 .bento-pill-preview {
   display: flex;
