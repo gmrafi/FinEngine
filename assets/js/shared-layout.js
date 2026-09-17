@@ -145,6 +145,7 @@ function renderProofStrip(pageType) {
     { label: 'DOI', value: '10.67226/cfsbr.fe.2026.001.v1', href: 'https://doi.org/10.67226/cfsbr.fe.2026.001.v1', external: true },
     { label: 'Archive', value: 'CERN / Zenodo: 22769501', href: 'https://doi.org/10.5281/zenodo.22769501', external: true },
     { label: 'License', value: 'CC-BY 4.0 · MIT', href: 'https://github.com/gmrafi/FinEngine/blob/main/LICENSE', external: true },
+    { label: 'Registry', value: 'npm Organization', href: 'https://www.npmjs.com/org/finengine', external: true },
     { label: 'Standards', value: 'Central Bank & BDT Formulations', href: toRoot('methodology/'), external: false },
     { label: 'Precision', value: 'IEEE-754 Safe', href: toRoot('methodology/'), external: false },
     { label: 'Architecture', value: 'Zero Dependencies', href: toRoot('docs/'), external: false },
