@@ -3555,12 +3555,12 @@ html[data-theme='dark'] .sim-ratio-wrap .ratio-bar {
 .sim-ratio-wrap .ratio-bar-principal {
   background: #2273C3;
   height: 100%;
-  transition: width 0.22s ease;
+  transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .sim-ratio-wrap .ratio-bar-interest {
   background: #1F7A5C;
   height: 100%;
-  transition: width 0.22s ease;
+  transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .bento-badge-bdt {
   background: #eef8f4;
