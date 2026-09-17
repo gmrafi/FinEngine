@@ -37,7 +37,7 @@ export const SITE_BRAND = Object.freeze({
   npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Deterministic finance primitives for JavaScript.',
-  heroEyebrow: 'OPEN SOURCE · BROWSER-SAFE FINANCIAL ENGINE',
+  heroEyebrow: 'OPEN SOURCE · ZERO DEPENDENCY',
   heroTitle: 'Bank-Grade Financial Math.',
   heroTitleAccent: 'Zero Rounding Errors.',
   heroLead: 'Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations: with 100% client-side privacy and no backend dependency.',

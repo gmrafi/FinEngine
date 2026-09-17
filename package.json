@@ -11,7 +11,7 @@
     "packages/ui"
   ],
   "scripts": {
-    "check": "node --check assets/js/brand.js && node --check assets/js/shared-layout.js && node --check assets/js/doc-page.js && node --check assets/js/main.js && node --check assets/js/modules/nav.js && node --check assets/js/modules/reveal.js && node --check assets/js/modules/counters.js && node --check assets/js/modules/packages.js && node --check assets/js/modules/copy.js && node --check assets/js/modules/theme.js && node --check assets/js/modules/calculator.js && node --check assets/js/modules/form.js",
+    "check": "node --check assets/js/brand.js && node --check assets/js/shared-layout.js && node --check assets/js/doc-page.js && node --check assets/js/main.js && node --check assets/js/modules/nav.js && node --check assets/js/modules/reveal.js && node --check assets/js/modules/counters.js && node --check assets/js/modules/packages.js && node --check assets/js/modules/copy.js && node --check assets/js/modules/theme.js && node --check assets/js/modules/calculator.js && node --check assets/js/modules/form.js && node --check assets/js/modules/home-simulator.js",
     "build:packages": "npm run build -w @finengine/core && npm run build -w @finengine/math && npm run build -w @finengine/ui",
     "test:packages": "npm run test -w @finengine/core && npm run test -w @finengine/math && npm run test -w @finengine/ui",
     "verify:packages": "npm run build:packages && npm run test:packages && node scripts/run-package-examples.mjs"
