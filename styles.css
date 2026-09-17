@@ -44,6 +44,9 @@ html[data-theme='light'] {
   --blue-hover: #1b62a7;
   --blue-light: #eef5fc;
   --blue-border: #b9d8f4;
+  --green-bdt: #1F7A5C;
+  --green-bdt-light: #eef8f4;
+  --green-bdt-border: #b7e2d3;
   --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.03);
   --topbar-bg: rgba(255,255,255,0.95);
   --input-bg: #ffffff;
@@ -3307,8 +3310,14 @@ html[data-theme='dark'] .sim-kpi-val {
 html[data-theme='dark'] .sim-kpi-highlight .sim-kpi-val {
   color: #93c5fd;
 }
-.sim-val-amber {
-  color: #d97706;
+.sim-val-amber,
+.sim-val-green {
+  color: #1F7A5C;
+  font-weight: 800;
+}
+html[data-theme='dark'] .sim-val-amber,
+html[data-theme='dark'] .sim-val-green {
+  color: #34d399;
 }
 .sim-kpi-sub {
   font-size: 0.78rem;
@@ -3337,7 +3346,7 @@ html[data-theme='dark'] .sim-ratio-wrap .ratio-bar {
   transition: width 0.22s ease;
 }
 .sim-ratio-wrap .ratio-bar-interest {
-  background: #d97706;
+  background: #1F7A5C;
   height: 100%;
   transition: width 0.22s ease;
 }
