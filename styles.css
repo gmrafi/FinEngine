@@ -2475,3 +2475,37 @@ html[data-theme='light'] .blueprint-overlay {
 @media (prefers-reduced-motion: reduce) {
   .blueprint-overlay { display: none; }
 }
+
+/* === Animation 4: Tab pill + Copy spring === */
+.hero-terminal-tabs {
+  position: relative;
+}
+.hero-terminal-pill {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  background: #334155;
+  border-radius: 6px;
+  z-index: 0;
+  transition: left 300ms cubic-bezier(0.22, 1, 0.36, 1), width 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.hero-terminal-tab {
+  position: relative;
+  z-index: 1;
+}
+.hero-terminal-copy.is-copied {
+  color: #34d399;
+  border-color: rgba(52,211,153,.5);
+  animation: copy-spring 0.2s ease, copy-pulse 0.9s ease 0.2s 2;
+}
+@keyframes copy-spring {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.82); }
+  100% { transform: scale(1); }
+}
+@keyframes copy-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.35); }
+  70% { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+  100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+}

@@ -6,6 +6,7 @@ import { initReveal } from './modules/reveal.js';
 import { initCounters } from './modules/counters.js';
 import { initPackageExplorer } from './modules/packages.js';
 import { initCalculator } from './modules/calculator.js';
+import { initTerminalPill } from './modules/terminal-pill.js';
 import { initTerminalMorph } from './modules/terminal-morph.js';
 import { initRatioBar } from './modules/ratio-bar.js';
 import { initBlueprintSpotlight } from './modules/spotlight.js';
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initPackageExplorer();
   initCalculator();
+  initTerminalPill();
   initTerminalMorph();
   initRatioBar();
   initBlueprintSpotlight();
