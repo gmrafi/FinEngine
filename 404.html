@@ -1,50 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found  -  FinEngine</title>
-  <meta name="description" content="The requested page could not be found." />
-  <link rel="canonical" href="https://finengine.js.org/404.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Page Not Found  -  FinEngine" />
-  <meta property="og:description" content="The requested page could not be found." />
-  <meta property="og:url" content="https://finengine.js.org/404.html" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="/logo-mark.png" />
-  <!-- Absolute paths since 404 could be at any directory depth -->
-  <link rel="stylesheet" href="/assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body data-page="404" data-root-path="/">
-  <div data-site-header></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found - FinEngine</title>
+    <meta name="description" content="The requested page could not be found." />
+    <link rel="canonical" href="https://finengine.js.org/404.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Page Not Found  -  FinEngine" />
+    <meta
+      property="og:description"
+      content="The requested page could not be found."
+    />
+    <meta property="og:url" content="https://finengine.js.org/404.html" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="/logo-mark.png" />
+    <!-- Absolute paths since 404 could be at any directory depth -->
+    <link rel="stylesheet" href="/assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-page="404" data-root-path="/">
+    <div data-site-header></div>
 
-  <main class="doc-shell page-shell" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-    <section class="doc-card" style="width: 100%; max-width: 600px;">
-      <div class="eyebrow">404</div>
-      <h1>Page Not Found</h1>
-      <p style="margin-bottom: 30px;">The page you are looking for doesn't exist or has been moved.</p>
-      <a href="/" class="btn cta-btn">Return Home</a>
-    </section>
-  </main>
+    <main
+      class="doc-shell page-shell"
+      style="
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <section class="doc-card" style="width: 100%; max-width: 600px">
+        <div class="eyebrow">404</div>
+        <h1>Page Not Found</h1>
+        <p style="margin-bottom: 30px">
+          The page you are looking for doesn't exist or has been moved.
+        </p>
+        <a href="/" class="btn cta-btn">Return Home</a>
+      </section>
+    </main>
 
-  <div data-site-footer></div>
-  <!-- doc-page.js might try to use data-root-path, so we provide absolute paths for resources -->
-  <script type="module" src="/assets/js/doc-page.js?v=20260917a"></script>
-</body>
+    <div data-site-footer></div>
+    <!-- doc-page.js might try to use data-root-path, so we provide absolute paths for resources -->
+    <script type="module" src="/assets/js/doc-page.js?v=20260917a"></script>
+  </body>
 </html>
