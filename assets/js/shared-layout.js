@@ -100,7 +100,7 @@ function renderHeader(pageType) {
           <img class="header-logo" src="${logoPath}" alt="FinEngine logo" loading="eager" decoding="async" />
           <span class="brand-copy">
             <span class="brand-row"><span data-brand="name"></span></span>
-            <span class="brand-sub">Documentation-first finance primitives for packages, demos, and research-backed product surfaces</span>
+            <span class="brand-sub">Deterministic finance primitives for JavaScript.</span>
           </span>
         </a>
         <nav class="navlinks navlinks-pill header-nav-simple" aria-label="Primary navigation">${nav}</nav>
