@@ -264,12 +264,18 @@
             <div class="bento-compare-row bento-compare-wrong">
               <span class="bento-compare-tag">Standard JS</span>
               <code>0.1 + 0.2 === 0.30000000000000004</code>
-              <span class="bento-compare-status">❌ Drift</span>
+              <span class="bento-compare-status bento-status-fail">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Drift
+              </span>
             </div>
             <div class="bento-compare-row bento-compare-right">
               <span class="bento-compare-tag">FinEngine</span>
               <code>exactSum(0.1, 0.2) === 0.300000</code>
-              <span class="bento-compare-status">✅ Exact</span>
+              <span class="bento-compare-status bento-status-pass">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                Exact
+              </span>
             </div>
           </div>
           <div class="bento-card-footer">
