@@ -153,11 +153,18 @@ function renderProofStrip(pageType) {
 
   return `
     <section class="proof-strip shell" aria-label="Open source trust signals">
-      <div class="proof-panel compact-proof-panel">
-        <div>
-          <div class="eyebrow eyebrow-blue">Verified Standards</div>
-          <h2 class="proof-title">Engineered for Mathematical Permanence and Public Auditability.</h2>
-          <p class="proof-copy">Permanent CERN Zenodo archiving, Crossref methodology indexing, and zero-dependency client-side execution.</p>
+      <div class="proof-panel compact-proof-panel" data-reveal>
+        <div class="proof-header-block">
+          <div class="proof-header-copy">
+            <div class="eyebrow eyebrow-blue">Verified Standards</div>
+            <h2 class="proof-title">Engineered for Mathematical Permanence and Public Auditability.</h2>
+            <p class="proof-copy">Permanent CERN Zenodo archiving, Crossref methodology indexing, and zero-dependency client-side execution.</p>
+          </div>
+          <div class="proof-header-ph">
+            <a href="https://www.producthunt.com/products/finengine?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-finengine" target="_blank" rel="noopener noreferrer">
+              <img alt="FinEngine - Deterministic financial math &amp; BDT-precision engine | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1251701&amp;theme=light&amp;t=1789641634770" />
+            </a>
+          </div>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-strip">${trustStrip}</div>
@@ -301,6 +308,12 @@ function renderFooter() {
               <a href="https://github.com/gmrafi/FinEngine/issues" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Report an Issue <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Structured bug and feature intake</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.producthunt.com/products/finengine" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Product Hunt <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Featured launch and community discussions</div>
               </a>
             </li>
             <li>
