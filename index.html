@@ -60,7 +60,6 @@
       <div class="hero-flagship-inner" data-reveal>
         <div class="hero-flagship-copy">
         <div class="hero-status-badge">
-          <img src="brand-assets/finengine-canonical-mark.svg" alt="FinEngine logo" class="hero-badge-logo" width="18" height="18" />
           <span class="hero-status-tag">OPEN SOURCE</span>
           <span class="hero-status-sep">·</span>
           <span class="hero-status-text">100% Client-Side JavaScript</span>
@@ -313,6 +312,122 @@
             <a class="bento-link" href="docs/ui/">Explore UI Components →</a>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE VS CODE PRECISION PLAYGROUND -->
+    <section class="section shell playground-section" id="precision-playground">
+      <div class="playground-wrapper" data-reveal>
+        <div class="playground-head">
+          <div class="playground-head-copy">
+            <span class="eyebrow eyebrow-blue">In-Browser Sandbox · Zero Server Latency</span>
+            <h2>Interactive Precision Playground</h2>
+            <p>Live TypeScript scratchpad running directly in your browser. Edit formulas, change loan variables, and audit mathematical precision against standard IEEE-754 drift in real time.</p>
+          </div>
+          <div class="playground-presets-bar" role="tablist" aria-label="Playground calculation recipes">
+            <button type="button" class="playground-preset-tab is-active" data-playground-preset="drift" role="tab" aria-selected="true">
+              <span class="preset-pill-tag">Float Audit</span>
+              IEEE-754 Float Drift
+            </button>
+            <button type="button" class="playground-preset-tab" data-playground-preset="amortize" role="tab" aria-selected="false">
+              <span class="preset-pill-tag">Amortization</span>
+              36-Mo Loan EMI
+            </button>
+            <button type="button" class="playground-preset-tab" data-playground-preset="lakhcrore" role="tab" aria-selected="false">
+              <span class="preset-pill-tag">Notation</span>
+              Lakh &amp; Crore
+            </button>
+            <button type="button" class="playground-preset-tab" data-playground-preset="vat" role="tab" aria-selected="false">
+              <span class="preset-pill-tag">Compliance</span>
+              NBR 15% VAT Rounding
+            </button>
+          </div>
+        </div>
+
+        <!-- VS Code Window Container -->
+        <div class="vscode-window">
+          <!-- Window Titlebar -->
+          <div class="vscode-titlebar">
+            <div class="vscode-dots" aria-hidden="true">
+              <span class="vscode-dot vscode-dot-red"></span>
+              <span class="vscode-dot vscode-dot-yellow"></span>
+              <span class="vscode-dot vscode-dot-green"></span>
+            </div>
+            <div class="vscode-tab-active">
+              <span class="vscode-file-icon" aria-hidden="true">TS</span>
+              <span id="playground-filename" class="vscode-filename">float-drift.ts</span>
+              <span class="vscode-status-dot" title="Ready to execute"></span>
+            </div>
+            <div class="vscode-actions">
+              <span id="playground-metric" class="vscode-metric">0.03 ms · Client-Side Run</span>
+              <button type="button" id="playground-run-btn" class="vscode-btn vscode-btn-run" title="Run calculation (Ctrl+Enter)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Run</span>
+              </button>
+              <button type="button" id="playground-reset-btn" class="vscode-btn vscode-btn-reset" title="Reset snippet to default">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Window Workspace: Editor (Left) & Output Console (Right) -->
+          <div class="vscode-workspace">
+            <!-- Left: Code Editor Pane -->
+            <div class="vscode-pane vscode-editor-pane">
+              <div class="vscode-pane-header">
+                <span class="vscode-pane-label">INPUT / SCRATCHPAD (EDITABLE)</span>
+                <span class="vscode-pane-hint">Edit values freely · Auto-runs on type</span>
+              </div>
+              <div class="vscode-editor-body">
+                <div class="vscode-gutter" id="playground-gutter" aria-hidden="true"></div>
+                <textarea id="playground-editor" class="vscode-textarea" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Interactive code scratchpad"></textarea>
+              </div>
+              <div class="vscode-pane-statusbar">
+                <span>UTF-8</span>
+                <span>TypeScript / JavaScript</span>
+                <span>0 Backend Requests</span>
+              </div>
+            </div>
+
+            <!-- Right: Output & Audit Console -->
+            <div class="vscode-pane vscode-output-pane">
+              <div class="vscode-pane-header">
+                <span class="vscode-pane-label">OUTPUT &amp; AUDIT CONSOLE</span>
+                <span class="vscode-pane-tag">Deterministic Sandbox</span>
+              </div>
+
+              <!-- Float Drift Comparative Audit Card -->
+              <div id="playground-audit-card" class="playground-audit-card" hidden>
+                <div class="playground-audit-title">IEEE-754 Precision Verification</div>
+                <div class="playground-audit-rows">
+                  <div class="playground-audit-row">
+                    <span class="audit-row-label">Standard JS Float:</span>
+                    <code id="playground-audit-js-val" class="audit-code-err">0.30000000000000004</code>
+                  </div>
+                  <div class="playground-audit-row">
+                    <span class="audit-row-label">FinEngine Exact:</span>
+                    <code id="playground-audit-fe-val" class="audit-code-exact">0.3</code>
+                  </div>
+                  <div class="playground-audit-row">
+                    <span class="audit-row-label">Drift Delta:</span>
+                    <span id="playground-audit-delta-val" class="playground-audit-badge fail">+0.00000000000000004 (IEEE-754 Drift)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- JSON / Object Output Tree -->
+              <div class="vscode-output-body">
+                <pre class="vscode-output-pre"><code id="playground-output-json" class="vscode-output-code"></code></pre>
+              </div>
+
+              <div class="vscode-pane-statusbar">
+                <span>Zero Rounding Error Guarantee</span>
+                <span>Client-side Private</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
