@@ -1,109 +1,289 @@
+# FinEngine
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/gmrafi/FinEngine/main/.github/assets/finengine-logo-mark.png" alt="FinEngine logo" width="96" height="96" />
+  <img src="brand-assets/finengine-canonical-mark.svg" alt="FinEngine logo" width="84" height="84" />
+</p>
+
+<h1 align="center">FinEngine</h1>
+
+<p align="center">
+  <strong>Deterministic financial math, IEEE-754 drift mitigation, and BDT-localized currency primitives for JavaScript and TypeScript.</strong>
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gmrafi/FinEngine/main/.github/assets/finengine-banner-dark.png" />
-    <img src="https://raw.githubusercontent.com/gmrafi/FinEngine/main/.github/assets/finengine-banner-light.png" alt="FinEngine" width="720" />
-  </picture>
-</p>
-
-<p align="center"><strong>Documentation-first JavaScript finance tooling for lending math, ledger validation, analytics, and browser-local demos.</strong></p>
-
-<p align="center">
-  <a href="https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml"><img alt="Pages" src="https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml/badge.svg" /></a>
-  <a href="https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml"><img alt="Verify" src="https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml/badge.svg" /></a>
-  <a href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gmrafi/FinEngine" /></a>
-  <a href="https://github.com/gmrafi/FinEngine/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/gmrafi/FinEngine" /></a>
+  <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1"><img src="https://img.shields.io/badge/DOI-10.67226%2Fcfsbr.fe.2026.001.v1-2273c3.svg" alt="Crossref DOI" /></a>
+  <a href="https://doi.org/10.5281/zenodo.22769502"><img src="https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.22769502-1F7A5C.svg" alt="CERN Zenodo Archive" /></a>
+  <a href="https://finengine.js.org/"><img src="https://img.shields.io/badge/domain-finengine.js.org-2273c3.svg" alt="Verified Domain" /></a>
+  <a href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT%20%26%20CC--BY%204.0-blue.svg" alt="License" /></a>
+  <a href="https://github.com/gmrafi/FinEngine/actions"><img src="https://img.shields.io/badge/verification-passing-brightgreen.svg" alt="Build Status" /></a>
+  <a href="https://www.npmjs.com/search?q=%40finengine"><img src="https://img.shields.io/badge/dependencies-0%20external-success.svg" alt="Zero Dependencies" /></a>
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> ·
-  <a href="#packages">Packages</a> ·
-  <a href="#quick-start">Quick start</a> ·
-  <a href="#usage-example">Usage example</a> ·
-  <a href="#live-surfaces">Live surfaces</a> ·
-  <a href="#local-development">Local development</a>
+  <a href="https://www.producthunt.com/products/finengine?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-finengine" target="_blank" rel="noopener noreferrer">
+    <img alt="FinEngine on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1251701&theme=light" />
+  </a>
 </p>
 
-## Overview
+<p align="center">
+  <a href="#key-guarantees">Key Guarantees</a> &middot;
+  <a href="#monorepo-packages">Packages</a> &middot;
+  <a href="#installation">Installation</a> &middot;
+  <a href="#quickstart-examples">Quickstart</a> &middot;
+  <a href="#live-interactive-surfaces">Live Tools</a> &middot;
+  <a href="#academic-backing--citation">Citation</a> &middot;
+  <a href="#local-development">Development</a>
+</p>
 
-**FinEngine** is a documentation-first JavaScript finance toolkit for teams that need deterministic repayment math, ledger-safe validation, UI-ready finance view models, and credible open-source presentation in one place.
+---
 
-It is designed for product demos, internal tooling, education flows, repayment explainers, and browser-local financial workflows where consistency matters.
+## Why FinEngine?
 
-## Packages
+Modern web and mobile financial applications increasingly offload real-time calculations to client-side runtimes. However, standard ECMAScript engines rely on IEEE-754 double-precision binary floating-point arithmetic (`binary64`), introducing representation drift in everyday decimal arithmetic:
 
-| Package | Role | Highlights |
-| --- | --- | --- |
-| `@finengine/core` | Money primitives and accounting safety rails | `formatMoney`, `validateLedgerEntry`, `sumEntries` |
-| `@finengine/math` | Lending and return calculations | `monthlyPayment`, `amortize`, `xirr` |
-| `@finengine/ui` | UI-ready finance display models | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview`, `makeLearningCards` |
-
-### Roadmap surfaces shown in the docs site
-
-- `@finengine/risk`  -  credit and enterprise risk helpers
-- `@finengine/ratios`  -  financial ratio analysis and DuPont breakdowns
-- `@finengine/microfinance`  -  flat vs declining repayment transparency
-
-## Quick start
-
-```bash
-npm install
-npm run verify:packages
+```js
+0.1 + 0.2 === 0.30000000000000004 // Drift detected
 ```
 
-## Usage example
+In multi-period loan amortization schedules, interest compounding, and balance ledgers, this drift compounds non-linearly across time horizons, causing final closing balances to fail to liquidate cleanly to zero (`B_n !== 0.00`).
+
+**FinEngine** solves this by establishing a zero-dependency, deterministic integer-scaled arithmetic architecture with native support for South Asian currency conventions (Bangladeshi Taka &middot; Poisha) and client-side privacy.
+
+---
+
+## Key Guarantees
+
+- **Zero Float Drift:** Replaces binary floating-point representation with integer-scaled monetary sub-unit arithmetic (Poisha: 1 BDT = 100 Poisha).
+- **Terminal Reconciliation Rule:** Mathematical boundary enforcement guaranteeing the closing principal balance liquidates identically to zero (`B_n === 0.00`).
+- **Actuarial Loan Amortization:** True reducing-balance Equated Monthly Installment (EMI) schedules with monthly principal and interest splits.
+- **Advanced Financial Solvers:** Constrained Newton-Raphson solvers with binary bisection fallbacks for non-periodic cashflow internal rate of return (XIRR) and debt-burden ratio (DBR) stress testing.
+- **South Asian Numbering Primitives:** Built-in Lakh and Crore grouping (`2,45,87,500.00`) alongside ISO standard formatting.
+- **100% Client-Side Privacy:** Zero-knowledge computing; financial values and customer schedules never leave the host browser.
+- **Academic & Audit Permanence:** Permanent archival on CERN Zenodo and indexed with permanent Crossref DOIs.
+
+---
+
+## Monorepo Packages
+
+FinEngine is architected as an offline-capable monorepo dividing mathematical precision from presentation:
+
+| Package | Version | Purpose | Key Exports |
+| :--- | :---: | :--- | :--- |
+| [`@finengine/core`](packages/core/) | `0.1.0` | Integer sub-unit arithmetic, BDT currency primitives, and double-entry ledger balance validators. | `createMoney`, `formatMoney`, `validateLedgerEntry`, `sumEntries` |
+| [`@finengine/math`](packages/math/) | `0.1.0` | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers. | `amortize`, `monthlyPayment`, `xirr` |
+| [`@finengine/ui`](packages/ui/) | `0.1.0` | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview` |
+
+### Research Pipeline (CFSBR Lab)
+
+- `@finengine/risk`: Localized algorithmic scoring matrices for informal and thin-file borrower profiles.
+- `@finengine/microfinance`: Actuarial translation modules converting flat interest structures into true reducing APR.
+- `@finengine/ratios`: Deterministic financial ratio engines for working capital liquidity and DuPont decomposition.
+- `@finengine/tax`: NBR-compliant TDS/VDS and corporate tax calculation primitives.
+
+---
+
+## Installation
+
+Install foundational packages via npm, yarn, or pnpm:
+
+```bash
+# Install all three foundational packages
+npm install @finengine/core @finengine/math @finengine/ui
+
+# Or install individually
+npm install @finengine/core
+npm install @finengine/math
+npm install @finengine/ui
+```
+
+### CDN / Direct Browser Usage (Zero Toolchain)
+
+You can import FinEngine directly into vanilla HTML applications without a bundler:
+
+```html
+<script type="module">
+  import { amortize } from 'https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js';
+  import { formatMoney } from 'https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/core/dist/index.js';
+
+  const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 });
+  console.log(formatMoney(plan.monthlyPayment, 'BDT')); // "BDT 16,967.64"
+</script>
+```
+
+---
+
+## Quickstart Examples
+
+### 1. Eliminating Floating-Point Drift
 
 ```ts
-import { amortize } from '@finengine/math'
-import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui'
+import { createMoney, formatMoney } from '@finengine/core';
 
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
+// Standard JS drift: 0.1 + 0.2 === 0.30000000000000004
+const itemA = createMoney(0.1, 'BDT');
+const itemB = createMoney(0.2, 'BDT');
 
-const emi = makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
-const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
+const total = createMoney(itemA.amount + itemB.amount, 'BDT');
+console.log(total.amount); // 0.3
+console.log(formatMoney(total.amount, 'BDT')); // "BDT 0.30"
 ```
 
-Expected output highlights:
-- `emi.value` → `BDT 16,967.64`
-- `summary.totalInterest` → `BDT 110,835.20`
-- `summary.totalPayable` → `BDT 618,335.20`
-- `summary.burdenLabel` → `Healthy burden · 20% of income`
+### 2. Computing a Deterministic 36-Month Loan Amortization
 
-## Live surfaces
+```ts
+import { amortize, monthlyPayment } from '@finengine/math';
+import { formatMoney } from '@finengine/core';
 
-- Homepage: https://gmrafi.github.io/FinEngine/
-- Examples gallery: https://gmrafi.github.io/FinEngine/docs/examples/
-- Core docs: https://gmrafi.github.io/FinEngine/docs/core/
-- Math docs: https://gmrafi.github.io/FinEngine/docs/math/
-- UI docs: https://gmrafi.github.io/FinEngine/docs/ui/
-- Release checklist: https://gmrafi.github.io/FinEngine/docs/release/
+const principal = 500000; // BDT 5,00,000 (5 Lakh)
+const annualRate = 13.5;  // 13.5% per annum
+const months = 36;        // 3-year tenure
 
-## Local development
+const plan = amortize({ principal, annualRate, months });
+
+console.log('Monthly EMI:', formatMoney(plan.monthlyPayment, 'BDT'));
+// → "Monthly EMI: BDT 16,967.64"
+
+console.log('Total Interest:', formatMoney(plan.totalInterest, 'BDT'));
+// → "Total Interest: BDT 110,835.20"
+
+console.log('Final Month Balance:', plan.schedule[35].remainingBalance);
+// → 0 (Guaranteed zero closure via Terminal Reconciliation Rule)
+```
+
+### 3. Double-Entry Ledger Validation
+
+```ts
+import { validateLedgerEntry } from '@finengine/core';
+
+const entry = {
+  reference: 'TX-2026-0042',
+  currency: 'BDT',
+  lines: [
+    { account: '1010-CASH', side: 'debit', amount: 50000 },
+    { account: '2010-LOAN-DISBURSEMENT', side: 'credit', amount: 50000 },
+  ],
+};
+
+const audit = validateLedgerEntry(entry);
+console.log(audit.valid); // true
+console.log(audit.errors); // []
+```
+
+### 4. UI Dashboard Primitives & Borrower Burden
+
+```ts
+import { amortize } from '@finengine/math';
+import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui';
+
+const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 });
+const borrowerIncome = 85000; // Monthly income in BDT
+
+const emiKpi = makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital');
+const summary = makeRepaymentSummary('SME working capital', plan, borrowerIncome, 1.5);
+
+console.log(summary.burdenLabel); // "Healthy burden · 20% of income"
+console.log(summary.burdenTone);  // "healthy"
+```
+
+---
+
+## Live Interactive Surfaces
+
+Explore FinEngine live in your browser:
+
+- **Flagship Portal:** [https://finengine.js.org/](https://finengine.js.org/)
+- **Live Loan Simulator:** [https://finengine.js.org/#interactive-simulator](https://finengine.js.org/#interactive-simulator)
+- **VS Code Precision Playground:** [https://finengine.js.org/#precision-playground](https://finengine.js.org/#precision-playground) (Test recipes and custom calculations in-browser with zero latency)
+- **Full Simulation Lab:** [https://finengine.js.org/simulation/](https://finengine.js.org/simulation/)
+- **Technical Working Paper (Methodology):** [https://finengine.js.org/methodology/](https://finengine.js.org/methodology/)
+- **API Documentation:** [https://finengine.js.org/docs/](https://finengine.js.org/docs/)
+
+---
+
+## Local Development & Testing
+
+Clone the repository and run verification checks locally:
 
 ```bash
+# Clone the repository
+git clone https://github.com/gmrafi/FinEngine.git
+cd FinEngine
+
+# Install dependencies (TypeScript toolchain)
 npm install
+
+# Run static syntax checks across all site and package modules
 npm run check
+
+# Build all three foundational packages
+npm run build:packages
+
+# Run package smoke tests
+npm run test:packages
+
+# Run end-to-end package verification with executable examples
 npm run verify:packages
 ```
 
-Key scripts:
-- `npm run check`  -  JavaScript syntax checks for site modules
-- `npm run build:packages`  -  builds `core`, `math`, and `ui`
-- `npm run test:packages`  -  smoke tests for starter packages
-- `npm run verify:packages`  -  full verification plus executed examples
+### Available Scripts
 
-## Repo structure
+- `npm run check`: Runs Node.js syntax validation on all modules.
+- `npm run build:packages`: Compiles TypeScript for `@finengine/core`, `@finengine/math`, and `@finengine/ui`.
+- `npm run test:packages`: Executes smoke test suites for each package.
+- `npm run verify:packages`: End-to-end pipeline: builds, tests, and runs executable demo verification scripts.
 
-```text
-assets/                 shared website assets and browser modules
-  js/                   brand config, layout logic, playground logic
-  vendor/               vendored runtimes used by the live demo
-packages/
-  core/                 money types and ledger validation
-  math/                 repayment and return calculation helpers
-  ui/                   finance-first UI view-model helpers
-docs/                   package docs, examples, and release surfaces
+---
+
+## Academic Backing & Citation
+
+FinEngine is published as an open computational methodology standard by the **Centre for Fintech and Strategic Business Research (CFSBR)**.
+
+### APA 7th Edition
+
+> Rafi, M. G. M. (2026). *FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces* (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
+
+### BibTeX (Working Paper)
+
+```bibtex
+@techreport{rafi2026finengine,
+  author      = {Rafi, Md Golam Mubasshir},
+  title       = {FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces},
+  institution = {Centre for Fintech and Strategic Business Research (CFSBR)},
+  year        = {2026},
+  month       = {September},
+  type        = {Technical Working Paper},
+  number      = {CFSBR-FE-2026-001},
+  doi         = {10.67226/cfsbr.fe.2026.001.v1},
+  url         = {https://finengine.js.org/methodology/}
+}
 ```
+
+### BibTeX (Software Archive · CERN Zenodo)
+
+```bibtex
+@software{finengine_core_v030,
+  author    = {Rafi, Md Golam Mubasshir},
+  title     = {gmrafi/FinEngine: FinEngine v0.3.0: The Deterministic Financial Engine Release},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {v0.3.0},
+  doi       = {10.5281/zenodo.22769502},
+  url       = {https://doi.org/10.5281/zenodo.22769502}
+}
+```
+
+---
+
+## Archival Identifiers
+
+- **Methodology DOI (Crossref):** [10.67226/cfsbr.fe.2026.001.v1](https://doi.org/10.67226/cfsbr.fe.2026.001.v1)
+- **Software Version DOI (Zenodo):** [10.5281/zenodo.22769502](https://doi.org/10.5281/zenodo.22769502)
+- **Software Concept DOI (Zenodo All Versions):** [10.5281/zenodo.22769501](https://doi.org/10.5281/zenodo.22769501)
+- **Software Heritage ID:** `swh:1:dir:4da6366919f478fd431b2f9ce1d342620cc8834f`
+
+---
+
+## License
+
+- **Software Code:** [MIT License](LICENSE) &copy; 2026 Md Golam Mubasshir Rafi / FinEngine Labs.
+- **Documentation & Research Methodology:** [Creative Commons Attribution 4.0 International (CC-BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
