@@ -1,132 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@finengine/math  -  Repayment Math & Amortization | FinEngine Docs</title>
-  <meta name="description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />
-  <link rel="canonical" href="https://finengine.js.org/docs/math/" />
-  <meta name="description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="@finengine/math  -  Repayment Math & Amortization | FinEngine Docs" />
-  <meta property="og:description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />
-  <meta property="og:url" content="https://finengine.js.org/docs/math/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="@finengine/math  -  Repayment Math & Amortization | FinEngine Docs" />
-  <meta name="twitter:description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-    <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="../../logo-mark.png" />
-  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="../../styles.css" />
-  <style>
-    .doc-shell{width:min(960px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
-    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}
-    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
-    .doc-card + .doc-card{margin-top:18px}
-    .doc-card h2,.doc-card h3{margin-top:0}
-    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:rgba(2,6,23,.58);border:1px solid rgba(255,255,255,.06);overflow:auto}
-  </style>
-</head>
-<body data-page="docs" data-root-path="../../">
-  <div data-site-header></div>
-  <div data-social-proof></div>
-  <main class="doc-shell">
-    <nav class="doc-breadcrumbs" aria-label="Breadcrumbs">
-      <a href="../">Documentation Hub</a>
-      <span class="doc-breadcrumb-sep">›</span>
-      <span aria-current="page">@finengine/math</span>
-    </nav>
-    <nav class="doc-subnav" aria-label="Package siblings">
-      <a href="../core/">@finengine/core</a>
-      <a href="../math/" class="is-current">@finengine/math</a>
-      <a href="../ui/">@finengine/ui</a>
-      <a href="../examples/">Examples gallery</a>
-    </nav>
-    <section class="doc-card">
-      <div class="eyebrow">Package docs</div>
-      <h1>@finengine/math</h1>
-      <p>Financial math starter utilities for FinEngine. The current examples focus on EMI planning, amortization schedules, and irregular cashflow return reasoning with Bangladesh-friendly BDT examples and local finance learning context.</p>
-      <h2>Install packages</h2>
-      <div class="install-tabs" data-install-tabs role="tablist" aria-label="Package manager">
-        <button type="button" data-install-tab="npm" class="is-active">npm</button>
-        <button type="button" data-install-tab="pnpm">pnpm</button>
-        <button type="button" data-install-tab="yarn">yarn</button>
-      </div>
-      <div class="install-pane" data-install-pane="npm"><pre class="doc-code"><code>npm i @finengine/math</code></pre></div>
-      <div class="install-pane" data-install-pane="pnpm" hidden><pre class="doc-code"><code>pnpm add @finengine/math</code></pre></div>
-      <div class="install-pane" data-install-pane="yarn" hidden><pre class="doc-code"><code>yarn add @finengine/math</code></pre></div>
-      <p class="install-note">Vanilla-JS browser developers can load the module straight from the GitHub CDN:</p>
-      <pre class="doc-code"><code>&lt;script type="module" src="https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js"&gt;&lt;/script&gt;</code></pre>
-    </section>
-    <section class="doc-card">
-      <h2>Precision model</h2>
-      <p>FinEngine math currently uses JavaScript number arithmetic and rounds public outputs to stable decimal values. That works well for browser-side calculators, schedule previews, and documentation examples. Teams building regulated financial systems should still decide whether settlement-critical paths need integer minor units or a decimal engine above this starter layer.</p>
-    </section>
-    <section class="doc-card">
-      <h2>TypeScript return shapes</h2>
-<pre class="doc-code"><code>interface ScheduleRow {
-  month: number;
-  payment: number;
-  principalPaid: number;
-  interestPaid: number;
-  remainingBalance: number;
-}
-
-interface AmortizeResult {
-  monthlyPayment: number;
-  totalInterest: number;
-  totalPayable: number;
-  schedule: ScheduleRow[];
-}</code></pre>
-    </section>
-    <section class="doc-card">
-      <h2>API</h2>
-      <h3>monthlyPayment(principal, annualRate, months)</h3>
-      <p>Returns the rounded monthly installment.</p>
-      <h3>amortize({ principal, annualRate, months })</h3>
-      <p>Builds the payment schedule and returns totals plus month-by-month rows.</p>
-      <h3>xirr(cashflows, guess?)</h3>
-      <p>Estimates annualized return for irregular cashflows.</p>
-    </section>
-    <section class="doc-card">
-      <h2>Executed example</h2>
-<pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'
-
-monthlyPayment(500000, 13.5, 36)
-// 16967.64
-
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-plan.totalInterest
-// 110835.2
-plan.schedule[0]
-// { month: 1, payment: 16967.64, principalPaid: 11342.64, interestPaid: 5625, remainingBalance: 488657.36 }
-
-xirr([
-  { amount: -100000, date: '2026-01-01' },
-  { amount: 25000, date: '2026-04-01' },
-  { amount: 25000, date: '2026-07-01' },
-  { amount: 70000, date: '2027-01-10' }
-])
-// 0.28</code></pre>
-    </section>
-  </main>
-  <div data-site-footer></div>
-  <script type="module" src="../../assets/js/doc-page.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>@finengine/math  -  Repayment Math & Amortization | FinEngine Docs</title>  <meta name="description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />  <link rel="canonical" href="https://finengine.js.org/docs/math/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="@finengine/math  -  Repayment Math & Amortization | FinEngine Docs" />  <meta property="og:description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />  <meta property="og:url" content="https://finengine.js.org/docs/math/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="@finengine/math  -  Repayment Math & Amortization | FinEngine Docs" />  <meta name="twitter:description" content="@finengine/math package documentation  -  amortization, EMI, IRR, burden ratios." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />    <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../../logo-mark.png" />  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../../styles.css" />  <style>    .doc-shell{width:min(960px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}    .doc-card + .doc-card{margin-top:18px}    .doc-card h2,.doc-card h3{margin-top:0}    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:rgba(2,6,23,.58);border:1px solid rgba(255,255,255,.06);overflow:auto}  </style></head><body data-page="docs" data-root-path="../../">  <div data-site-header></div>  <div data-social-proof></div>  <main class="doc-shell">    <nav class="doc-breadcrumbs" aria-label="Breadcrumbs">      <a href="../">Documentation Hub</a>      <span class="doc-breadcrumb-sep">›</span>      <span aria-current="page">@finengine/math</span>    </nav>    <nav class="doc-subnav" aria-label="Package siblings">      <a href="../core/">@finengine/core</a>      <a href="../math/" class="is-current">@finengine/math</a>      <a href="../ui/">@finengine/ui</a>      <a href="../examples/">Examples gallery</a>    </nav>    <section class="doc-card">      <div class="eyebrow">Package docs</div>      <h1>@finengine/math</h1>      <p>Financial math starter utilities for FinEngine. The current examples focus on EMI planning, amortization schedules, and irregular cashflow return reasoning with Bangladesh-friendly BDT examples and local finance learning context.</p>      <h2>Install packages</h2>      <div class="install-tabs" data-install-tabs role="tablist" aria-label="Package manager">        <button type="button" data-install-tab="npm" class="is-active">npm</button>        <button type="button" data-install-tab="pnpm">pnpm</button>        <button type="button" data-install-tab="yarn">yarn</button>      </div>      <div class="install-pane" data-install-pane="npm"><pre class="doc-code"><code>npm i @finengine/math</code></pre></div>      <div class="install-pane" data-install-pane="pnpm" hidden><pre class="doc-code"><code>pnpm add @finengine/math</code></pre></div>      <div class="install-pane" data-install-pane="yarn" hidden><pre class="doc-code"><code>yarn add @finengine/math</code></pre></div>      <p class="install-note">Vanilla-JS browser developers can load the module straight from the GitHub CDN:</p>      <pre class="doc-code"><code>&lt;script type="module" src="https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js"&gt;&lt;/script&gt;</code></pre>    </section>    <section class="doc-card">      <h2>Precision model</h2>      <p>FinEngine math currently uses JavaScript number arithmetic and rounds public outputs to stable decimal values. That works well for browser-side calculators, schedule previews, and documentation examples. Teams building regulated financial systems should still decide whether settlement-critical paths need integer minor units or a decimal engine above this starter layer.</p>    </section>    <section class="doc-card">      <h2>TypeScript return shapes</h2><pre class="doc-code"><code>interface ScheduleRow {  month: number;  payment: number;  principalPaid: number;  interestPaid: number;  remainingBalance: number;}interface AmortizeResult {  monthlyPayment: number;  totalInterest: number;  totalPayable: number;  schedule: ScheduleRow[];}</code></pre>    </section>    <section class="doc-card">      <h2>API</h2>      <h3>monthlyPayment(principal, annualRate, months)</h3>      <p>Returns the rounded monthly installment.</p>      <h3>amortize({ principal, annualRate, months })</h3>      <p>Builds the payment schedule and returns totals plus month-by-month rows.</p>      <h3>xirr(cashflows, guess?)</h3>      <p>Estimates annualized return for irregular cashflows.</p>    </section>    <section class="doc-card">      <h2>Executed example</h2><pre class="doc-code"><code>import { monthlyPayment, amortize, xirr } from '@finengine/math'monthlyPayment(500000, 13.5, 36)// 16967.64const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })plan.totalInterest// 110835.2plan.schedule[0]// { month: 1, payment: 16967.64, principalPaid: 11342.64, interestPaid: 5625, remainingBalance: 488657.36 }xirr([  { amount: -100000, date: '2026-01-01' },  { amount: 25000, date: '2026-04-01' },  { amount: 25000, date: '2026-07-01' },  { amount: 70000, date: '2027-01-10' }])// 0.28</code></pre>    </section>  </main>  <div data-site-footer></div>  <script type="module" src="../../assets/js/doc-page.js"></script></body></html>

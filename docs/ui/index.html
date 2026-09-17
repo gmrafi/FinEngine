@@ -1,188 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs</title>
-  <meta name="description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />
-  <link rel="canonical" href="https://finengine.js.org/docs/ui/" />
-  <meta name="description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs" />
-  <meta property="og:description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />
-  <meta property="og:url" content="https://finengine.js.org/docs/ui/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs" />
-  <meta name="twitter:description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-    <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="../../logo-mark.png" />
-  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="../../styles.css" />
-  <style>
-    .doc-shell{width:min(1080px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
-    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}
-    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
-    .doc-card + .doc-card{margin-top:18px}
-    .doc-card h2,.doc-card h3{margin-top:0}
-    .doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}
-    .api-list{display:grid;gap:10px;margin:0;padding-left:18px}
-    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}
-  </style>
-</head>
-<body data-page="docs" data-root-path="../../">
-  <div data-site-header></div>
-  <div data-social-proof></div>
-  <main class="doc-shell">
-    <nav class="doc-breadcrumbs" aria-label="Breadcrumbs">
-      <a href="../">Documentation Hub</a>
-      <span class="doc-breadcrumb-sep">›</span>
-      <span aria-current="page">@finengine/ui</span>
-    </nav>
-    <nav class="doc-subnav" aria-label="Package siblings">
-      <a href="../core/">@finengine/core</a>
-      <a href="../math/">@finengine/math</a>
-      <a href="../ui/" class="is-current">@finengine/ui</a>
-      <a href="../examples/">Examples gallery</a>
-    </nav>
-    <section class="doc-card">
-      <div class="eyebrow">Package docs</div>
-      <h1>@finengine/ui</h1>
-      <p>UI formatting helpers and finance-first view-model builders for FinEngine. The package helps teams turn calculations, ledger states, and Bangladesh-aware finance education into usable front-end surfaces.</p>
-    </section>
-    <section class="doc-grid">
-      <section class="doc-card">
-        <h2>What it covers</h2>
-        <ul class="api-list">
-          <li>Money KPI cards for dashboards and docs</li>
-          <li>Repayment burden language that non-technical users can understand</li>
-          <li>Schedule preview rows for loan and installment tables</li>
-          <li>Bangladesh-oriented learning cards for EMI, BDT, and MFS education</li>
-        </ul>
-      </section>
-      <section class="doc-card">
-        <h2>API map</h2>
-        <ul class="api-list">
-          <li><code>makeMoneyKpi(label, amount, helper?)</code></li>
-          <li><code>formatBurdenLabel(payment, income)</code></li>
-          <li><code>makeSchedulePreview(schedule, limit?)</code></li>
-          <li><code>makeRepaymentSummary(scenario, plan, monthlyIncome?, processingFeePct?)</code></li>
-          <li><code>makeLearningBadge(topic, level)</code></li>
-          <li><code>makeLearningCards()</code></li>
-        </ul>
-      </section>
-    </section>
-    <section class="doc-card">
-      <h2>View-model shapes</h2>
-<pre class="doc-code"><code>interface KpiCardModel {
-  label: string;
-  value: string;
-  tone: 'neutral' | 'positive' | 'warning';
-  helper?: string;
-}
-
-interface RepaymentSummaryModel {
-  scenario: string;
-  monthlyPayment: string;
-  totalInterest: string;
-  totalPayable: string;
-  processingFee: string;
-  burdenLabel: string;
-  burdenTone: 'healthy' | 'watch' | 'high' | 'unknown';
-  burdenPct: number | null;
-  schedulePreview: Array<{
-    month: number;
-    principal: string;
-    interest: string;
-    balance: string;
-  }>;
-}</code></pre>
-    </section>
-    <section class="doc-card">
-      <h2>Executed example</h2>
-<pre class="doc-code"><code>import { amortize } from '@finengine/math'
-import {
-  makeMoneyKpi,
-  makeRepaymentSummary,
-  makeLearningCards,
-} from '@finengine/ui'
-
-const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-
-makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')
-// { label: 'Monthly EMI', value: 'BDT 16,967.64', tone: 'positive', helper: 'SME working capital' }
-
-makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
-// {
-//   scenario: 'SME working capital',
-//   monthlyPayment: 'BDT 16,967.64',
-//   totalInterest: 'BDT 110,835.20',
-//   totalPayable: 'BDT 618,335.20',
-//   processingFee: 'BDT 7,500.00',
-//   burdenLabel: 'Healthy burden · 20% of income',
-//   burdenTone: 'healthy'
-// }
-
-makeLearningCards()[0]
-// {
-//   title: 'BDT money basics',
-//   badge: 'Bangladesh · intro',
-//   audience: 'Students and first-time builders'
-// }</code></pre>
-    </section>
-    <section class="doc-card">
-      <h2>Showcase patterns</h2>
-      <div class="doc-grid">
-        <div>
-          <h3>Decision-ready KPI strips</h3>
-          <p>Use <code>makeMoneyKpi</code> to render monthly EMI, total payable, fee burden, and similar values as consistent dashboard cards.</p>
-        </div>
-        <div>
-          <h3>Repayment summaries that users can read</h3>
-          <p><code>makeRepaymentSummary</code> turns raw amortization output into a product-facing block with burden language and schedule preview.</p>
-        </div>
-        <div>
-          <h3>Learning-first finance surfaces</h3>
-          <p><code>makeLearningCards</code> helps position the package for onboarding, workshops, and Bangladesh-aware product education.</p>
-        </div>
-        <div>
-          <h3>Implementation jump-off</h3>
-          <p>The live homepage playground and examples gallery show how the functions can be assembled into a credible SaaS-style interface.</p>
-        </div>
-      </div>
-      <p><a class="mini-btn" href="../examples/">Open examples gallery</a> <a class="mini-btn" href="../../#playground">Open homepage playground</a></p>
-    </section>
-    <section class="doc-card">
-      <h2>Best use cases</h2>
-      <div class="doc-grid">
-        <div>
-          <h3>Product UI</h3>
-          <p>Loan calculators, repayment screens, fee cards, and SME dashboards.</p>
-        </div>
-        <div>
-          <h3>Education UI</h3>
-          <p>Bangla-friendly learning surfaces for BDT, EMI, ledger balance, and cashflow literacy.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div data-site-footer></div>
-  <script type="module" src="../../assets/js/doc-page.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs</title>  <meta name="description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />  <link rel="canonical" href="https://finengine.js.org/docs/ui/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs" />  <meta property="og:description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />  <meta property="og:url" content="https://finengine.js.org/docs/ui/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="@finengine/ui  -  Finance-Oriented UI Helpers | FinEngine Docs" />  <meta name="twitter:description" content="@finengine/ui package documentation  -  finance-oriented view-model helpers." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />    <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../../logo-mark.png" />  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../../styles.css" />  <style>    .doc-shell{width:min(1080px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}    .doc-nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;color:var(--muted)}    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}    .doc-card + .doc-card{margin-top:18px}    .doc-card h2,.doc-card h3{margin-top:0}    .doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}    .api-list{display:grid;gap:10px;margin:0;padding-left:18px}    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}  </style></head><body data-page="docs" data-root-path="../../">  <div data-site-header></div>  <div data-social-proof></div>  <main class="doc-shell">    <nav class="doc-breadcrumbs" aria-label="Breadcrumbs">      <a href="../">Documentation Hub</a>      <span class="doc-breadcrumb-sep">›</span>      <span aria-current="page">@finengine/ui</span>    </nav>    <nav class="doc-subnav" aria-label="Package siblings">      <a href="../core/">@finengine/core</a>      <a href="../math/">@finengine/math</a>      <a href="../ui/" class="is-current">@finengine/ui</a>      <a href="../examples/">Examples gallery</a>    </nav>    <section class="doc-card">      <div class="eyebrow">Package docs</div>      <h1>@finengine/ui</h1>      <p>UI formatting helpers and finance-first view-model builders for FinEngine. The package helps teams turn calculations, ledger states, and Bangladesh-aware finance education into usable front-end surfaces.</p>    </section>    <section class="doc-grid">      <section class="doc-card">        <h2>What it covers</h2>        <ul class="api-list">          <li>Money KPI cards for dashboards and docs</li>          <li>Repayment burden language that non-technical users can understand</li>          <li>Schedule preview rows for loan and installment tables</li>          <li>Bangladesh-oriented learning cards for EMI, BDT, and MFS education</li>        </ul>      </section>      <section class="doc-card">        <h2>API map</h2>        <ul class="api-list">          <li><code>makeMoneyKpi(label, amount, helper?)</code></li>          <li><code>formatBurdenLabel(payment, income)</code></li>          <li><code>makeSchedulePreview(schedule, limit?)</code></li>          <li><code>makeRepaymentSummary(scenario, plan, monthlyIncome?, processingFeePct?)</code></li>          <li><code>makeLearningBadge(topic, level)</code></li>          <li><code>makeLearningCards()</code></li>        </ul>      </section>    </section>    <section class="doc-card">      <h2>View-model shapes</h2><pre class="doc-code"><code>interface KpiCardModel {  label: string;  value: string;  tone: 'neutral' | 'positive' | 'warning';  helper?: string;}interface RepaymentSummaryModel {  scenario: string;  monthlyPayment: string;  totalInterest: string;  totalPayable: string;  processingFee: string;  burdenLabel: string;  burdenTone: 'healthy' | 'watch' | 'high' | 'unknown';  burdenPct: number | null;  schedulePreview: Array<{    month: number;    principal: string;    interest: string;    balance: string;  }>;}</code></pre>    </section>    <section class="doc-card">      <h2>Executed example</h2><pre class="doc-code"><code>import { amortize } from '@finengine/math'import {  makeMoneyKpi,  makeRepaymentSummary,  makeLearningCards,} from '@finengine/ui'const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital')// { label: 'Monthly EMI', value: 'BDT 16,967.64', tone: 'positive', helper: 'SME working capital' }makeRepaymentSummary('SME working capital', plan, 85000, 1.5)// {//   scenario: 'SME working capital',//   monthlyPayment: 'BDT 16,967.64',//   totalInterest: 'BDT 110,835.20',//   totalPayable: 'BDT 618,335.20',//   processingFee: 'BDT 7,500.00',//   burdenLabel: 'Healthy burden · 20% of income',//   burdenTone: 'healthy'// }makeLearningCards()[0]// {//   title: 'BDT money basics',//   badge: 'Bangladesh · intro',//   audience: 'Students and first-time builders'// }</code></pre>    </section>    <section class="doc-card">      <h2>Showcase patterns</h2>      <div class="doc-grid">        <div>          <h3>Decision-ready KPI strips</h3>          <p>Use <code>makeMoneyKpi</code> to render monthly EMI, total payable, fee burden, and similar values as consistent dashboard cards.</p>        </div>        <div>          <h3>Repayment summaries that users can read</h3>          <p><code>makeRepaymentSummary</code> turns raw amortization output into a product-facing block with burden language and schedule preview.</p>        </div>        <div>          <h3>Learning-first finance surfaces</h3>          <p><code>makeLearningCards</code> helps position the package for onboarding, workshops, and Bangladesh-aware product education.</p>        </div>        <div>          <h3>Implementation jump-off</h3>          <p>The live homepage playground and examples gallery show how the functions can be assembled into a credible SaaS-style interface.</p>        </div>      </div>      <p><a class="mini-btn" href="../examples/">Open examples gallery</a> <a class="mini-btn" href="../../#playground">Open homepage playground</a></p>    </section>    <section class="doc-card">      <h2>Best use cases</h2>      <div class="doc-grid">        <div>          <h3>Product UI</h3>          <p>Loan calculators, repayment screens, fee cards, and SME dashboards.</p>        </div>        <div>          <h3>Education UI</h3>          <p>Bangla-friendly learning surfaces for BDT, EMI, ledger balance, and cashflow literacy.</p>        </div>      </div>    </section>  </main>  <div data-site-footer></div>  <script type="module" src="../../assets/js/doc-page.js"></script></body></html>

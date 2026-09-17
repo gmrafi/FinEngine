@@ -1,6 +1,6 @@
 {
   "name": "@finengine/core",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Core money primitives and ledger validation for FinEngine",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,11 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -20,5 +24,13 @@
     "test": "node test/smoke.test.mjs"
   },
   "license": "MIT",
-  "homepage": "https://gmrafi.github.io/FinEngine/"
+  "homepage": "https://gmrafi.github.io/FinEngine/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmrafi/FinEngine.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/gmrafi/FinEngine/issues"
+  }
 }

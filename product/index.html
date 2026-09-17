@@ -1,253 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine</title>
-  <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />
-  <link rel="canonical" href="https://finengine.js.org/product/" />
-  <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine" />
-  <meta property="og:description" content="FinEngine product surface, packages, examples, and simulation entry points." />
-  <meta property="og:url" content="https://finengine.js.org/product/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine" />
-  <meta name="twitter:description" content="FinEngine product surface, packages, examples, and simulation entry points." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="../logo-mark.png" />
-  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="../styles.css" />
-</head>
-<body data-page="product" data-root-path="../">
-  <div data-site-header></div>
-
-  <main>
-    <section class="hero shell page-hero">
-      <div class="hero-grid hero-grid-lite">
-        <div class="hero-copy" data-reveal>
-          <div class="kicker">Product surface</div>
-          <h1>Packages, examples, and the product surfaces behind the FinEngine stack.</h1>
-          <p>Browse package families, executed examples, documentation entry points, and the simulation lab from one product surface.</p>
-          <div class="hero-actions hero-actions-tight hero-actions-3up">
-            <a class="button primary" href="#packages">Browse packages</a>
-            <a class="button secondary" href="../docs/">Open docs</a>
-            <a class="button secondary" href="../simulation/">Open demo</a>
-          </div>
-        </div>
-        <aside class="panel hero-brief" data-reveal>
-          <div class="eyebrow">What teams can inspect</div>
-          <div class="hero-proof-grid">
-            <article class="hero-proof-card"><strong>Package taxonomy</strong><span>Core, math, UI, and roadmap modules grouped by job.</span></article>
-            <article class="hero-proof-card"><strong>Executed examples</strong><span>API-level examples tied to visible product surfaces.</span></article>
-            <article class="hero-proof-card"><strong>Simulation lab</strong><span>Dedicated repayment demos for installment, SME, and merchant scenarios.</span></article>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <div data-social-proof></div>
-
-    <section class="section shell" id="packages">
-      <div class="section-head">
-        <div>
-          <h2>Package system and library surface area</h2>
-          <p>Browse the current package catalog by workflow, interface layer, and implementation need.</p>
-        </div>
-      </div>
-      <div class="searchline">
-        <input type="search" data-package-search placeholder="Filter packages, features, or keywords" aria-label="Filter packages" />
-      </div>
-      <div class="tabs" role="tablist" aria-label="Package groups">
-        <button class="tab" type="button" data-package-tab="core" aria-selected="false">Core</button>
-        <button class="tab" type="button" data-package-tab="ux" aria-selected="false">UI + DX</button>
-        <button class="tab" type="button" data-package-tab="payment" aria-selected="false">Payments</button>
-      </div>
-      <div class="package-panel" data-package-panel="core" data-reveal>
-        <h3>Computation, validation, and reporting foundation</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="validation types ledger audit core money rounding">
-            <header>
-              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
-              <h3><span data-brand="npmScope"></span>/core</h3>
-              <code>validation kernel</code>
-            </header>
-            <p>Shared money types, rounding rules, ledger-safe validation, and deterministic domain contracts.</p>
-            <p><a class="mini-btn" href="../docs/core/">Open package docs</a></p>
-            <div class="accordion">
-              <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>
-              <div class="accordion-panel" hidden>Without a hard validation core, lending, payment, and statement modules drift apart and audit explanations become weak.</div>
-            </div>
-          </article>
-          <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">
-            <header>
-              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
-              <h3><span data-brand="npmScope"></span>/math</h3>
-              <code>calculation engine</code>
-            </header>
-            <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>
-            <p><a class="mini-btn" href="../docs/math/">Open package docs</a></p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="credit risk z-score dscr icr npl banking lending">
-            <header>
-              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
-              <h3>@finengine/risk</h3>
-              <code>credit risk engine</code>
-            </header>
-            <p>Altman EM Z-Score, DSCR &amp; ICR stress testing, and NPL probability proxy logic for commercial lending and banking workflows.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/risk.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-        </div>
-      </div>
-      <div class="package-panel" data-package-panel="ux" hidden data-reveal>
-        <h3>Developer experience and product-facing interface</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">
-            <header>
-              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>
-              <h3><span data-brand="npmScope"></span>/ui</h3>
-              <code>micro-components</code>
-            </header>
-            <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>
-            <p><a class="mini-btn" href="../docs/ui/">Open package docs</a></p>
-            <div class="install-block"><code>Workspace publish target: <span data-install-scope="ui"></span></code></div>
-          </article>
-          <article class="package-card" data-package-card data-keywords="ratios dupont roe liquidity profitability leverage">
-            <header>
-              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
-              <h3>@finengine/ratios</h3>
-              <code>statement analysis engine</code>
-            </header>
-            <p>Financial ratio stacks plus 3-step and 5-step DuPont analysis for classroom demos and statement interpretation.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/ratios.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="microfinance mra flat rate declining balance apr">
-            <header>
-              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>
-              <h3>@finengine/microfinance</h3>
-              <code>regulatory math engine</code>
-            </header>
-            <p>Flat-rate vs declining-balance burden translation for microcredit transparency and borrower education.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/microfinance.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-        </div>
-      </div>
-      <div class="package-panel" data-package-panel="payment" hidden data-reveal>
-        <h3>Product expansion and payment adjacency</h3>
-        <div class="package-grid">
-          <article class="package-card" data-package-card data-keywords="valuation dcf wacc working capital ccc corporate finance">
-            <header>
-              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
-              <h3>@finengine/corporate</h3>
-              <code>valuation simulator</code>
-            </header>
-            <p>Headless DCF, WACC, terminal value, enterprise value, and cash-conversion-cycle modeling for corporate finance scenarios.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/corporate.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="markets beta sharpe portfolio dse">
-            <header>
-              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
-              <h3>@finengine/markets</h3>
-              <code>capital markets engine</code>
-            </header>
-            <p>DSE-aware portfolio variance, Sharpe ratio, beta, and CAPM helpers for classroom analytics and equity research workflows.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/markets.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-          <article class="package-card" data-package-card data-keywords="tax nbr tds vds salary slab compliance">
-            <header>
-              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>
-              <h3>@finengine/tax</h3>
-              <code>compliance rules engine</code>
-            </header>
-            <p>NBR-oriented TDS/VDS and salary-tax calculation helpers for SME, startup, and classroom compliance scenarios.</p>
-            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/tax.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell" id="examples-gallery">
-      <div class="section-head">
-        <div>
-          <h2>Examples gallery for real product surfaces</h2>
-          <p>Each example ties calculation logic to a concrete product surface, from settlement validation to repayment summaries and finance education flows.</p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <article class="info-panel static-panel" data-reveal>
-          <div class="eyebrow">Core validation</div>
-          <h3>Ledger-safe settlement check</h3>
-          <p>Show how balanced debit and credit entries become a reusable validation primitive for settlement, reconciliation, and audit support.</p>
-          <p><a class="mini-btn" href="../docs/core/">Open core docs</a></p>
-        </article>
-        <article class="info-panel static-panel" data-reveal>
-          <div class="eyebrow">Math + UI</div>
-          <h3>Repayment summary for a lending screen</h3>
-          <p>Connect EMI math with a product UI layer: monthly payment, burden label, schedule preview, and total payable all read like real software outputs.</p>
-          <p><a class="mini-btn" href="../docs/ui/">Open UI docs</a></p>
-        </article>
-        <article class="info-panel static-panel" data-reveal>
-          <div class="eyebrow">Learning surface</div>
-          <h3>Bangladesh-aware finance education</h3>
-          <p>Blend package APIs with local learning context so the site can serve students, trainers, and product teams - not only engineers.</p>
-          <p><a class="mini-btn" href="../docs/examples/">Browse examples</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="simulation-entry">
-      <div class="section-head">
-        <div>
-          <h2>Dedicated simulation page</h2>
-          <p>The interactive calculator has been split out so the product page can stay cleaner and easier to scan.</p>
-        </div>
-      </div>
-      <div class="grid-2 simulation-split" data-reveal>
-        <article class="info-panel simulation-summary-card">
-          <div class="eyebrow eyebrow-blue">Simulation lab</div>
-          <h3>Open the amortization and repayment playground on its own route.</h3>
-          <p>Use the dedicated page for scenario presets, recalculation, chart review, schedule preview, and export actions.</p>
-          <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="../simulation/">Open simulation</a>
-            <a class="button secondary" href="../docs/math/">Open math docs</a>
-          </div>
-        </article>
-        <article class="code-shell simulation-code-card">
-          <div class="install-shell-head hero-install-head">
-            <div>
-              <div class="eyebrow eyebrow-blue">What it demonstrates</div>
-              <strong class="hero-install-title">Repayment logic that stays visual, local, and inspectable.</strong>
-            </div>
-          </div>
-          <pre><code>const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
-
-summary.totalPayable
-summary.burdenLabel</code></pre>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <div data-site-footer></div>
-  <script src="../assets/vendor/dayjs.min.js"></script>
-  <script src="../assets/vendor/chart.umd.min.js"></script>
-  <script type="module" src="../assets/js/main.js?v=20260917a"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine</title>  <meta name="description" content="FinEngine product surface, packages, examples, and simulation entry points." />  <link rel="canonical" href="https://finengine.js.org/product/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine" />  <meta property="og:description" content="FinEngine product surface, packages, examples, and simulation entry points." />  <meta property="og:url" content="https://finengine.js.org/product/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="FinEngine Package Surface  -  @finengine/core, /math, /ui | FinEngine" />  <meta name="twitter:description" content="FinEngine product surface, packages, examples, and simulation entry points." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />  <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../logo-mark.png" />  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../styles.css" /></head><body data-page="product" data-root-path="../">  <div data-site-header></div>  <main>    <section class="hero shell page-hero">      <div class="hero-grid hero-grid-lite">        <div class="hero-copy" data-reveal>          <div class="kicker">Product surface</div>          <h1>Packages, examples, and the product surfaces behind the FinEngine stack.</h1>          <p>Browse package families, executed examples, documentation entry points, and the simulation lab from one product surface.</p>          <div class="hero-actions hero-actions-tight hero-actions-3up">            <a class="button primary" href="#packages">Browse packages</a>            <a class="button secondary" href="../docs/">Open docs</a>            <a class="button secondary" href="../simulation/">Open demo</a>          </div>        </div>        <aside class="panel hero-brief" data-reveal>          <div class="eyebrow">What teams can inspect</div>          <div class="hero-proof-grid">            <article class="hero-proof-card"><strong>Package taxonomy</strong><span>Core, math, UI, and roadmap modules grouped by job.</span></article>            <article class="hero-proof-card"><strong>Executed examples</strong><span>API-level examples tied to visible product surfaces.</span></article>            <article class="hero-proof-card"><strong>Simulation lab</strong><span>Dedicated repayment demos for installment, SME, and merchant scenarios.</span></article>          </div>        </aside>      </div>    </section>    <div data-social-proof></div>    <section class="section shell" id="packages">      <div class="section-head">        <div>          <h2>Package system and library surface area</h2>          <p>Browse the current package catalog by workflow, interface layer, and implementation need.</p>        </div>      </div>      <div class="searchline">        <input type="search" data-package-search placeholder="Filter packages, features, or keywords" aria-label="Filter packages" />      </div>      <div class="tabs" role="tablist" aria-label="Package groups">        <button class="tab" type="button" data-package-tab="core" aria-selected="false">Core</button>        <button class="tab" type="button" data-package-tab="ux" aria-selected="false">UI + DX</button>        <button class="tab" type="button" data-package-tab="payment" aria-selected="false">Payments</button>      </div>      <div class="package-panel" data-package-panel="core" data-reveal>        <h3>Computation, validation, and reporting foundation</h3>        <div class="package-grid">          <article class="package-card" data-package-card data-keywords="validation types ledger audit core money rounding">            <header>              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>              <h3><span data-brand="npmScope"></span>/core</h3>              <code>validation kernel</code>            </header>            <p>Shared money types, rounding rules, ledger-safe validation, and deterministic domain contracts.</p>            <p><a class="mini-btn" href="../docs/core/">Open package docs</a></p>            <div class="accordion">              <button type="button" data-accordion-trigger aria-expanded="false">Why it matters <span>+</span></button>              <div class="accordion-panel" hidden>Without a hard validation core, lending, payment, and statement modules drift apart and audit explanations become weak.</div>            </div>          </article>          <article class="package-card" data-package-card data-keywords="amortization xirr irr apr schedule fees tax payroll math">            <header>              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>              <h3><span data-brand="npmScope"></span>/math</h3>              <code>calculation engine</code>            </header>            <p>Amortization, XIRR, APR helpers, fee ladders, schedule generation, tax and payroll utilities.</p>            <p><a class="mini-btn" href="../docs/math/">Open package docs</a></p>          </article>          <article class="package-card" data-package-card data-keywords="credit risk z-score dscr icr npl banking lending">            <header>              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>              <h3>@finengine/risk</h3>              <code>credit risk engine</code>            </header>            <p>Altman EM Z-Score, DSCR &amp; ICR stress testing, and NPL probability proxy logic for commercial lending and banking workflows.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/risk.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>        </div>      </div>      <div class="package-panel" data-package-panel="ux" hidden data-reveal>        <h3>Developer experience and product-facing interface</h3>        <div class="package-grid">          <article class="package-card" data-package-card data-keywords="ui repayment card input chart forms components javascript typescript">            <header>              <span class="pkg-badge pkg-badge-live" aria-label="Status: live">Live · v0.3.0</span>              <h3><span data-brand="npmScope"></span>/ui</h3>              <code>micro-components</code>            </header>            <p>Repayment tables, payment cards, amount inputs, statement modules, and fintech-specific interface building blocks.</p>            <p><a class="mini-btn" href="../docs/ui/">Open package docs</a></p>            <div class="install-block"><code>Workspace publish target: <span data-install-scope="ui"></span></code></div>          </article>          <article class="package-card" data-package-card data-keywords="ratios dupont roe liquidity profitability leverage">            <header>              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>              <h3>@finengine/ratios</h3>              <code>statement analysis engine</code>            </header>            <p>Financial ratio stacks plus 3-step and 5-step DuPont analysis for classroom demos and statement interpretation.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/ratios.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>          <article class="package-card" data-package-card data-keywords="microfinance mra flat rate declining balance apr">            <header>              <span class="pkg-badge pkg-badge-roadmap" aria-label="Status: roadmap">Roadmap · In development</span>              <h3>@finengine/microfinance</h3>              <code>regulatory math engine</code>            </header>            <p>Flat-rate vs declining-balance burden translation for microcredit transparency and borrower education.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/microfinance.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>        </div>      </div>      <div class="package-panel" data-package-panel="payment" hidden data-reveal>        <h3>Product expansion and payment adjacency</h3>        <div class="package-grid">          <article class="package-card" data-package-card data-keywords="valuation dcf wacc working capital ccc corporate finance">            <header>              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>              <h3>@finengine/corporate</h3>              <code>valuation simulator</code>            </header>            <p>Headless DCF, WACC, terminal value, enterprise value, and cash-conversion-cycle modeling for corporate finance scenarios.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/corporate.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>          <article class="package-card" data-package-card data-keywords="markets beta sharpe portfolio dse">            <header>              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>              <h3>@finengine/markets</h3>              <code>capital markets engine</code>            </header>            <p>DSE-aware portfolio variance, Sharpe ratio, beta, and CAPM helpers for classroom analytics and equity research workflows.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/markets.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>          <article class="package-card" data-package-card data-keywords="tax nbr tds vds salary slab compliance">            <header>              <span class="pkg-badge pkg-badge-rfc" aria-label="Status: research draft">RFC · Research draft</span>              <h3>@finengine/tax</h3>              <code>compliance rules engine</code>            </header>            <p>NBR-oriented TDS/VDS and salary-tax calculation helpers for SME, startup, and classroom compliance scenarios.</p>            <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine/blob/main/docs/rfc/tax.md" target="_blank" rel="noopener noreferrer">View RFC / Spec</a></p>          </article>        </div>      </div>    </section>    <section class="section shell" id="examples-gallery">      <div class="section-head">        <div>          <h2>Examples gallery for real product surfaces</h2>          <p>Each example ties calculation logic to a concrete product surface, from settlement validation to repayment summaries and finance education flows.</p>        </div>      </div>      <div class="grid-3">        <article class="info-panel static-panel" data-reveal>          <div class="eyebrow">Core validation</div>          <h3>Ledger-safe settlement check</h3>          <p>Show how balanced debit and credit entries become a reusable validation primitive for settlement, reconciliation, and audit support.</p>          <p><a class="mini-btn" href="../docs/core/">Open core docs</a></p>        </article>        <article class="info-panel static-panel" data-reveal>          <div class="eyebrow">Math + UI</div>          <h3>Repayment summary for a lending screen</h3>          <p>Connect EMI math with a product UI layer: monthly payment, burden label, schedule preview, and total payable all read like real software outputs.</p>          <p><a class="mini-btn" href="../docs/ui/">Open UI docs</a></p>        </article>        <article class="info-panel static-panel" data-reveal>          <div class="eyebrow">Learning surface</div>          <h3>Bangladesh-aware finance education</h3>          <p>Blend package APIs with local learning context so the site can serve students, trainers, and product teams - not only engineers.</p>          <p><a class="mini-btn" href="../docs/examples/">Browse examples</a></p>        </article>      </div>    </section>    <section class="section shell" id="simulation-entry">      <div class="section-head">        <div>          <h2>Dedicated simulation page</h2>          <p>The interactive calculator has been split out so the product page can stay cleaner and easier to scan.</p>        </div>      </div>      <div class="grid-2 simulation-split" data-reveal>        <article class="info-panel simulation-summary-card">          <div class="eyebrow eyebrow-blue">Simulation lab</div>          <h3>Open the amortization and repayment playground on its own route.</h3>          <p>Use the dedicated page for scenario presets, recalculation, chart review, schedule preview, and export actions.</p>          <div class="hero-actions hero-actions-tight">            <a class="button primary" href="../simulation/">Open simulation</a>            <a class="button secondary" href="../docs/math/">Open math docs</a>          </div>        </article>        <article class="code-shell simulation-code-card">          <div class="install-shell-head hero-install-head">            <div>              <div class="eyebrow eyebrow-blue">What it demonstrates</div>              <strong class="hero-install-title">Repayment logic that stays visual, local, and inspectable.</strong>            </div>          </div>          <pre><code>const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })const summary = makeRepaymentSummary('SME working capital', plan, 85000, 1.5)summary.totalPayablesummary.burdenLabel</code></pre>        </article>      </div>    </section>  </main>  <div data-site-footer></div>  <script src="../assets/vendor/dayjs.min.js"></script>  <script src="../assets/vendor/chart.umd.min.js"></script>  <script type="module" src="../assets/js/main.js?v=20260917a"></script></body></html>
