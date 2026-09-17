@@ -6,10 +6,10 @@
 
 const PRESETS = {
   drift: {
-    id: 'drift',
-    name: 'IEEE-754 Float Drift',
-    badge: 'Float Audit',
-    filename: 'float-drift.ts',
+    id: "drift",
+    name: "IEEE-754 Float Drift",
+    badge: "Float Audit",
+    filename: "float-drift.ts",
     code: `// Test standard IEEE-754 floating-point drift vs FinEngine:
 const a = 0.1;
 const b = 0.2;
@@ -30,14 +30,14 @@ return {
   floatDriftDelta: drift,
   isExactMatch: drift === 0,
   verdict: drift === 0 ? "Deterministic Safe" : "IEEE-754 Drift Detected"
-};`
+};`,
   },
 
   amortize: {
-    id: 'amortize',
-    name: '36-Mo Loan Amortization',
-    badge: 'Amortization',
-    filename: 'amortization.ts',
+    id: "amortize",
+    name: "36-Mo Loan Amortization",
+    badge: "Amortization",
+    filename: "amortization.ts",
     code: `// Deterministic equal monthly installment (EMI) calculation:
 const principal = 500000; // BDT 5,00,000 (5 Lakh)
 const annualRate = 13.5;  // 13.5% per annum
@@ -54,14 +54,14 @@ return {
   interestRatio: \`\${((plan.totalInterest / principal) * 100).toFixed(1)}%\`,
   firstPayment: plan.schedule[0],
   finalPayment: plan.schedule[months - 1]
-};`
+};`,
   },
 
   lakhcrore: {
-    id: 'lakhcrore',
-    name: 'South Asian Lakh & Crore',
-    badge: 'BDT Notation',
-    filename: 'currency-format.ts',
+    id: "lakhcrore",
+    name: "South Asian Lakh & Crore",
+    badge: "BDT Notation",
+    filename: "currency-format.ts",
     code: `// Compare South Asian (Lakh / Crore) numbering with ISO format:
 const amount = 24587500.50; // 2 Crore 45 Lakh 87 Thousand 500.50
 
@@ -73,14 +73,14 @@ return {
   southAsianConvention: southAsian,     // BDT 2,45,87,500.50
   isoInternationalFormat: isoStandard,  // BDT 24,587,500.50
   notationBreakdown: "2 Crore, 45 Lakh, 87 Thousand 500 BDT and 50 Poisha"
-};`
+};`,
   },
 
   vat: {
-    id: 'vat',
-    name: 'Strict Banking & VAT Rounding',
-    badge: 'NBR 15% VAT',
-    filename: 'banking-vat.ts',
+    id: "vat",
+    name: "Strict Banking & VAT Rounding",
+    badge: "NBR 15% VAT",
+    filename: "banking-vat.ts",
     code: `// Central Bank and NBR compliance for 15% VAT on service fees:
 const lineItems = [
   { item: 'Core API Gateway License', price: 125000.45 },
@@ -100,13 +100,13 @@ return {
   vatAmount: FinEngine.formatMoney(vatAmount, 'BDT'),
   grandTotal: FinEngine.formatMoney(grandTotal, 'BDT'),
   complianceStatus: "Audited & Balanced to Cent"
-};`
-  }
+};`,
+  },
 };
 
 function getDecimals(num) {
   const str = String(num);
-  const p = str.indexOf('.');
+  const p = str.indexOf(".");
   return p === -1 ? 0 : str.length - p - 1;
 }
 
@@ -114,7 +114,10 @@ const SandboxFinEngine = Object.freeze({
   exactSum(...nums) {
     const maxDec = Math.max(...nums.map(getDecimals), 0);
     const factor = Math.pow(10, Math.min(maxDec, 12));
-    const sumInt = nums.reduce((acc, n) => acc + Math.round(Number(n) * factor), 0);
+    const sumInt = nums.reduce(
+      (acc, n) => acc + Math.round(Number(n) * factor),
+      0,
+    );
     return sumInt / factor;
   },
 
@@ -168,11 +171,11 @@ const SandboxFinEngine = Object.freeze({
     };
   },
 
-  formatMoney(amount, currency = 'BDT', locale = 'en-BD') {
+  formatMoney(amount, currency = "BDT", locale = "en-BD") {
     const num = this.round2(amount);
     try {
       return new Intl.NumberFormat(locale, {
-        style: 'currency',
+        style: "currency",
         currency,
         maximumFractionDigits: 2,
         minimumFractionDigits: 2,
@@ -182,46 +185,47 @@ const SandboxFinEngine = Object.freeze({
     }
   },
 
-  formatLakhCrore(amount, currency = 'BDT') {
+  formatLakhCrore(amount, currency = "BDT") {
     const num = this.round2(amount);
-    const parts = num.toFixed(2).split('.');
+    const parts = num.toFixed(2).split(".");
     let intPart = parts[0];
     const decPart = parts[1];
 
     let lastThree = intPart.substring(intPart.length - 3);
     const otherNumbers = intPart.substring(0, intPart.length - 3);
-    if (otherNumbers !== '') {
-      lastThree = ',' + lastThree;
+    if (otherNumbers !== "") {
+      lastThree = "," + lastThree;
     }
-    const formattedInt = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
+    const formattedInt =
+      otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
     return `${currency} ${formattedInt}.${decPart}`;
-  }
+  },
 });
 
 export function initPlayground() {
-  const container = document.getElementById('precision-playground');
+  const container = document.getElementById("precision-playground");
   if (!container) return;
 
-  const textarea = container.querySelector('#playground-editor');
-  const lineGutter = container.querySelector('#playground-gutter');
-  const runBtn = container.querySelector('#playground-run-btn');
-  const resetBtn = container.querySelector('#playground-reset-btn');
-  const filenameEl = container.querySelector('#playground-filename');
-  const metricEl = container.querySelector('#playground-metric');
-  const outputJsonEl = container.querySelector('#playground-output-json');
-  const auditCard = container.querySelector('#playground-audit-card');
-  const auditJsVal = container.querySelector('#playground-audit-js-val');
-  const auditFeVal = container.querySelector('#playground-audit-fe-val');
-  const auditDeltaVal = container.querySelector('#playground-audit-delta-val');
-  const tabs = container.querySelectorAll('[data-playground-preset]');
+  const textarea = container.querySelector("#playground-editor");
+  const lineGutter = container.querySelector("#playground-gutter");
+  const runBtn = container.querySelector("#playground-run-btn");
+  const resetBtn = container.querySelector("#playground-reset-btn");
+  const filenameEl = container.querySelector("#playground-filename");
+  const metricEl = container.querySelector("#playground-metric");
+  const outputJsonEl = container.querySelector("#playground-output-json");
+  const auditCard = container.querySelector("#playground-audit-card");
+  const auditJsVal = container.querySelector("#playground-audit-js-val");
+  const auditFeVal = container.querySelector("#playground-audit-fe-val");
+  const auditDeltaVal = container.querySelector("#playground-audit-delta-val");
+  const tabs = container.querySelectorAll("[data-playground-preset]");
 
-  let currentPresetKey = 'drift';
+  let currentPresetKey = "drift";
   let debounceTimer = null;
 
   function updateLineNumbers() {
     if (!textarea || !lineGutter) return;
-    const lines = textarea.value.split('\n').length;
-    let numbersHtml = '';
+    const lines = textarea.value.split("\n").length;
+    let numbersHtml = "";
     for (let i = 1; i <= Math.max(lines, 1); i += 1) {
       numbersHtml += `<span>${i}</span>`;
     }
@@ -229,24 +233,27 @@ export function initPlayground() {
   }
 
   function syntaxHighlightJson(json) {
-    if (typeof json !== 'string') {
+    if (typeof json !== "string") {
       json = JSON.stringify(json, null, 2);
     }
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g, (match) => {
-      let cls = 'json-number';
-      if (/^"/.test(match)) {
-        if (/:$/.test(match)) {
-          cls = 'json-key';
-        } else {
-          cls = 'json-string';
+    return json.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
+      (match) => {
+        let cls = "json-number";
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = "json-key";
+          } else {
+            cls = "json-string";
+          }
+        } else if (/true|false/.test(match)) {
+          cls = "json-boolean";
+        } else if (/null/.test(match)) {
+          cls = "json-null";
         }
-      } else if (/true|false/.test(match)) {
-        cls = 'json-boolean';
-      } else if (/null/.test(match)) {
-        cls = 'json-null';
-      }
-      return `<span class="${cls}">${match}</span>`;
-    });
+        return `<span class="${cls}">${match}</span>`;
+      },
+    );
   }
 
   function executeCode() {
@@ -255,10 +262,13 @@ export function initPlayground() {
     const t0 = performance.now();
 
     try {
-      const runner = new Function('FinEngine', `
+      const runner = new Function(
+        "FinEngine",
+        `
         "use strict";
         ${code}
-      `);
+      `,
+      );
 
       const result = runner(SandboxFinEngine);
       const durationMs = (performance.now() - t0).toFixed(2);
@@ -272,23 +282,30 @@ export function initPlayground() {
       }
 
       if (auditCard && auditJsVal && auditFeVal && auditDeltaVal) {
-        if (result && typeof result === 'object' && ('standardJsResult' in result || 'floatDriftDelta' in result)) {
+        if (
+          result &&
+          typeof result === "object" &&
+          ("standardJsResult" in result || "floatDriftDelta" in result)
+        ) {
           auditCard.hidden = false;
           auditJsVal.textContent = String(result.standardJsResult);
           auditFeVal.textContent = String(result.finengineResult);
           const delta = Number(result.floatDriftDelta);
-          auditDeltaVal.textContent = delta === 0 ? '0.00000000000000000 (0 Drift)' : `+${delta} (IEEE-754 Drift)`;
+          auditDeltaVal.textContent =
+            delta === 0
+              ? "0.00000000000000000 (0 Drift)"
+              : `+${delta} (IEEE-754 Drift)`;
           if (delta === 0) {
-            auditDeltaVal.className = 'playground-audit-badge pass';
+            auditDeltaVal.className = "playground-audit-badge pass";
           } else {
-            auditDeltaVal.className = 'playground-audit-badge fail';
+            auditDeltaVal.className = "playground-audit-badge fail";
           }
         } else {
           auditCard.hidden = true;
         }
       }
     } catch (err) {
-      if (metricEl) metricEl.textContent = 'Runtime / Syntax Error';
+      if (metricEl) metricEl.textContent = "Runtime / Syntax Error";
       if (outputJsonEl) {
         outputJsonEl.innerHTML = `<span class="json-error">Runtime Error: ${escapeHtml(err.message)}</span>`;
       }
@@ -297,7 +314,10 @@ export function initPlayground() {
   }
 
   function escapeHtml(str) {
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
   }
 
   function loadPreset(key) {
@@ -307,8 +327,8 @@ export function initPlayground() {
 
     tabs.forEach((tab) => {
       const active = tab.dataset.playgroundPreset === key;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
     });
 
     if (filenameEl) filenameEl.textContent = preset.filename;
@@ -319,28 +339,31 @@ export function initPlayground() {
   }
 
   if (textarea) {
-    textarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
+    textarea.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
         e.preventDefault();
         const start = textarea.selectionStart;
         const end = textarea.selectionEnd;
-        textarea.value = textarea.value.substring(0, start) + '  ' + textarea.value.substring(end);
+        textarea.value =
+          textarea.value.substring(0, start) +
+          "  " +
+          textarea.value.substring(end);
         textarea.selectionStart = textarea.selectionEnd = start + 2;
         updateLineNumbers();
         executeCode();
-      } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      } else if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
         e.preventDefault();
         executeCode();
       }
     });
 
-    textarea.addEventListener('input', () => {
+    textarea.addEventListener("input", () => {
       updateLineNumbers();
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(executeCode, 200);
     });
 
-    textarea.addEventListener('scroll', () => {
+    textarea.addEventListener("scroll", () => {
       if (lineGutter) {
         lineGutter.scrollTop = textarea.scrollTop;
       }
@@ -348,21 +371,21 @@ export function initPlayground() {
   }
 
   if (runBtn) {
-    runBtn.addEventListener('click', executeCode);
+    runBtn.addEventListener("click", executeCode);
   }
 
   if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
+    resetBtn.addEventListener("click", () => {
       loadPreset(currentPresetKey);
     });
   }
 
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener("click", () => {
       const key = tab.dataset.playgroundPreset;
       loadPreset(key);
     });
   });
 
-  loadPreset('drift');
+  loadPreset("drift");
 }

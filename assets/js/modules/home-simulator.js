@@ -3,29 +3,30 @@
  * Updates EMI, Total Interest, Total Payable, and ratio breakdown live in the browser.
  */
 export function initHomeSimulator() {
-  const container = document.getElementById('interactive-simulator');
+  const container = document.getElementById("interactive-simulator");
   if (!container) return;
 
-  const principalRange = container.querySelector('#sim-principal-range');
-  const rateInput = container.querySelector('#sim-rate-input');
-  const tenureSelect = container.querySelector('#sim-tenure-select');
-  const presetChips = container.querySelectorAll('[data-preset-amount]');
+  const principalRange = container.querySelector("#sim-principal-range");
+  const rateInput = container.querySelector("#sim-rate-input");
+  const tenureSelect = container.querySelector("#sim-tenure-select");
+  const presetChips = container.querySelectorAll("[data-preset-amount]");
 
-  const outEmi = container.querySelector('#sim-out-emi');
-  const outInterest = container.querySelector('#sim-out-interest');
-  const outTotal = container.querySelector('#sim-out-total');
-  const outBurden = container.querySelector('#sim-out-burden');
-  const outTenureLabel = container.querySelector('#sim-out-tenure-label');
+  const outEmi = container.querySelector("#sim-out-emi");
+  const outInterest = container.querySelector("#sim-out-interest");
+  const outTotal = container.querySelector("#sim-out-total");
+  const outBurden = container.querySelector("#sim-out-burden");
+  const outTenureLabel = container.querySelector("#sim-out-tenure-label");
 
-  const barPrincipal = container.querySelector('#sim-bar-principal');
-  const barInterest = container.querySelector('#sim-bar-interest');
-  const legendPrincipal = container.querySelector('#sim-legend-principal');
-  const legendInterest = container.querySelector('#sim-legend-interest');
-  const pctPrincipal = container.querySelector('#sim-pct-principal');
-  const pctInterest = container.querySelector('#sim-pct-interest');
+  const barPrincipal = container.querySelector("#sim-bar-principal");
+  const barInterest = container.querySelector("#sim-bar-interest");
+  const legendPrincipal = container.querySelector("#sim-legend-principal");
+  const legendInterest = container.querySelector("#sim-legend-interest");
+  const pctPrincipal = container.querySelector("#sim-pct-principal");
+  const pctInterest = container.querySelector("#sim-pct-interest");
 
   function calculate(principal, annualRate, months) {
-    if (principal <= 0 || months <= 0) return { emi: 0, totalPayable: 0, totalInterest: 0 };
+    if (principal <= 0 || months <= 0)
+      return { emi: 0, totalPayable: 0, totalInterest: 0 };
     const monthlyRate = annualRate / 12 / 100;
     if (monthlyRate === 0) {
       const emi = Math.round(principal / months);
@@ -44,11 +45,16 @@ export function initHomeSimulator() {
   let animId = null;
 
   function formatBDT(amount) {
-    return `BDT ${Math.round(amount).toLocaleString('en-US')}`;
+    return `BDT ${Math.round(amount).toLocaleString("en-US")}`;
   }
 
-  function animateNumbers(targetEmi, targetInterest, targetTotal, duration = 220) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  function animateNumbers(
+    targetEmi,
+    targetInterest,
+    targetTotal,
+    duration = 220,
+  ) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       if (outEmi) outEmi.textContent = formatBDT(targetEmi);
       if (outInterest) outInterest.textContent = formatBDT(targetInterest);
       if (outTotal) outTotal.textContent = formatBDT(targetTotal);
@@ -72,8 +78,12 @@ export function initHomeSimulator() {
       const ease = progress * (2 - progress);
 
       const valEmi = Math.round(startEmi + (targetEmi - startEmi) * ease);
-      const valInterest = Math.round(startInterest + (targetInterest - startInterest) * ease);
-      const valTotal = Math.round(startTotal + (targetTotal - startTotal) * ease);
+      const valInterest = Math.round(
+        startInterest + (targetInterest - startInterest) * ease,
+      );
+      const valTotal = Math.round(
+        startTotal + (targetTotal - startTotal) * ease,
+      );
 
       if (outEmi) outEmi.textContent = formatBDT(valEmi);
       if (outInterest) outInterest.textContent = formatBDT(valInterest);
@@ -98,15 +108,22 @@ export function initHomeSimulator() {
     const rate = Number(rateInput?.value || 13.5);
     const months = Number(tenureSelect?.value || 36);
 
-    const { emi, totalPayable, totalInterest } = calculate(principal, rate, months);
+    const { emi, totalPayable, totalInterest } = calculate(
+      principal,
+      rate,
+      months,
+    );
 
     animateNumbers(emi, totalInterest, totalPayable);
 
-    const burdenPct = principal > 0 ? ((totalInterest / principal) * 100).toFixed(1) : '0';
+    const burdenPct =
+      principal > 0 ? ((totalInterest / principal) * 100).toFixed(1) : "0";
     if (outBurden) outBurden.textContent = `${burdenPct}% of principal`;
-    if (outTenureLabel) outTenureLabel.textContent = `Over ${months} monthly installments`;
+    if (outTenureLabel)
+      outTenureLabel.textContent = `Over ${months} monthly installments`;
 
-    const principalPct = totalPayable > 0 ? Math.round((principal / totalPayable) * 100) : 100;
+    const principalPct =
+      totalPayable > 0 ? Math.round((principal / totalPayable) * 100) : 100;
     const interestPct = Math.max(0, 100 - principalPct);
 
     if (barPrincipal) barPrincipal.style.width = `${principalPct}%`;
@@ -120,24 +137,24 @@ export function initHomeSimulator() {
 
     presetChips.forEach((chip) => {
       const chipAmount = Number(chip.dataset.presetAmount);
-      chip.classList.toggle('is-active', chipAmount === principal);
+      chip.classList.toggle("is-active", chipAmount === principal);
     });
   }
 
   if (principalRange) {
-    principalRange.addEventListener('input', update);
+    principalRange.addEventListener("input", update);
   }
 
   if (rateInput) {
-    rateInput.addEventListener('input', update);
+    rateInput.addEventListener("input", update);
   }
 
   if (tenureSelect) {
-    tenureSelect.addEventListener('change', update);
+    tenureSelect.addEventListener("change", update);
   }
 
   presetChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
+    chip.addEventListener("click", () => {
       const amount = Number(chip.dataset.presetAmount);
       if (principalRange) {
         principalRange.value = String(amount);

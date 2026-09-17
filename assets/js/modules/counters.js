@@ -1,21 +1,25 @@
 export function initCounters() {
-  const items = document.querySelectorAll('[data-counter]');
+  const items = document.querySelectorAll("[data-counter]");
   if (!items.length) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting || entry.target.dataset.counted === 'true') return;
-      animateCounter(entry.target);
-      entry.target.dataset.counted = 'true';
-    });
-  }, { threshold: 0.45 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.target.dataset.counted === "true")
+          return;
+        animateCounter(entry.target);
+        entry.target.dataset.counted = "true";
+      });
+    },
+    { threshold: 0.45 },
+  );
   items.forEach((item) => observer.observe(item));
 }
 
 function animateCounter(node) {
   const target = Number(node.dataset.target || 0);
   const decimals = Number(node.dataset.decimals || 0);
-  const prefix = node.dataset.prefix || '';
-  const suffix = node.dataset.suffix || '';
+  const prefix = node.dataset.prefix || "";
+  const suffix = node.dataset.suffix || "";
   const duration = 1100;
   const start = performance.now();
 
