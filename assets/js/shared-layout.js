@@ -321,7 +321,7 @@ function renderFooter() {
       <div style="max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 12px; font-size: 12px; color: #64748b; line-height: 1.6;">
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           <div>
-            <strong>&#169; 2026 FinEngine Labs</strong> &#183; A CFSBR Computational Initiative
+            <strong>&#169; ${new Date().getFullYear()} FinEngine Labs</strong> &#183; A CFSBR Computational Initiative
           </div>
           <div style="font-family: monospace; font-size: 11px; color: #475569; background: #f1f5f9; padding: 2px 8px; border-radius: 4px;">
             v0.3.0 &#183; Multi-page product docs
