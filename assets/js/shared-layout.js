@@ -143,6 +143,18 @@ function renderProofStrip(pageType) {
     { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine' },
   ].map((chip) => `<a class="trust-chip" href="${chip.href}">${chip.label}</a>`).join('');
 
+  const trustStrip = [
+    { label: 'DOI', value: '10.67226/cfsbr.fe.2026.001.v1', href: 'https://doi.org/10.67226/cfsbr.fe.2026.001.v1', external: true },
+    { label: 'Archive', value: 'CERN / Zenodo', href: 'https://doi.org/10.5281/zenodo.22769501', external: true },
+    { label: 'Domain', value: 'js.org Verified', href: 'https://finengine.js.org', external: false },
+    { label: 'Architecture', value: 'Zero Dependencies', href: 'docs/', external: false },
+    { label: 'Precision', value: 'IEEE-754 Safe', href: 'methodology/', external: false },
+    { label: 'Backing', value: 'CFSBR Initiative', href: 'about/', external: false },
+  ].map((badge) => {
+    const attrs = badge.external ? 'target="_blank" rel="noopener noreferrer"' : '';
+    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}</span><span class="trust-strip-value">${badge.value}</span></a>`;
+  }).join('');
+
   return `
     <section class="proof-strip shell" aria-label="Open source trust signals">
       <div class="proof-panel compact-proof-panel">
@@ -153,6 +165,7 @@ function renderProofStrip(pageType) {
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>
+        <div class="trust-strip">${trustStrip}</div>
       </div>
     </section>
   `;
