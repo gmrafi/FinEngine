@@ -1,12 +1,6 @@
 import { SITE_BRAND } from './brand.js';
 import { initQuickNav } from './modules/quick-nav.js';
 
-const SPONSOR = Object.freeze({
-  name: 'Centre for Fintech & Strategic Business Research',
-  short: 'CFSBR',
-  url: 'https://web.cfsbr.com/',
-});
-
 const NAV_ITEMS = [
   { label: 'Home', path: 'index.html', key: 'home' },
   { label: 'Product', path: 'product/', key: 'product' },
@@ -184,7 +178,7 @@ function renderFooter() {
             </a>
           </div>
           <p style="font-size: 13px; line-height: 1.6; color: #64748b; margin: 0;">
-            A computational research and simulation platform for deterministic finance  -  documentation-first JavaScript tooling for reproducible calculations, explainable demos, and research-backed product surfaces.
+            A computational research and simulation platform for deterministic finance: documentation-first JavaScript tooling for reproducible calculations, explainable demos, and research-backed product surfaces.
           </p>
           <div style="margin-top: 6px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
             <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #2563eb; letter-spacing: 0.05em; margin-bottom: 4px;">
