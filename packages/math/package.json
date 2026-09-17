@@ -1,6 +1,6 @@
 {
   "name": "@finengine/math",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Financial math and amortization helpers for FinEngine",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,11 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -23,5 +27,13 @@
   "homepage": "https://gmrafi.github.io/FinEngine/",
   "dependencies": {
     "@finengine/core": "0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmrafi/FinEngine.git",
+    "directory": "packages/math"
+  },
+  "bugs": {
+    "url": "https://github.com/gmrafi/FinEngine/issues"
   }
 }

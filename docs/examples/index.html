@@ -1,120 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Examples Gallery  -  FinEngine Docs</title>
-  <meta name="description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />
-  <link rel="canonical" href="https://finengine.js.org/docs/examples/" />
-  <meta name="description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Examples Gallery  -  FinEngine Docs" />
-  <meta property="og:description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />
-  <meta property="og:url" content="https://finengine.js.org/docs/examples/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Examples Gallery  -  FinEngine Docs" />
-  <meta name="twitter:description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="../../logo-mark.png" />
-  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="../../styles.css" />
-  <style>
-    .doc-shell{width:min(1100px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}
-    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}
-    .doc-card + .doc-card{margin-top:18px}
-    .doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .doc-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}
-    .doc-card h2,.doc-card h3{margin-top:0}
-    @media (max-width: 980px){.doc-trio{grid-template-columns:1fr}}
-    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}
-  </style>
-</head>
-<body data-page="docs" data-root-path="../../">
-  <div data-site-header></div>
-  <div data-social-proof></div>
-  <main class="doc-shell">
-    <section class="doc-card">
-      <div class="eyebrow">Examples gallery</div>
-      <h1>FinEngine examples that look like real product work</h1>
-      <p>This page connects the packages to actual finance-facing surfaces: settlement checks, repayment summaries, and Bangladesh-aware learning cards.</p>
-    </section>
-
-    <section class="doc-trio">
-      <section class="doc-card">
-        <h2>Ledger validation</h2>
-        <p>Use <code>@finengine/core</code> to validate settlement or reconciliation entries before they reach reporting or export layers.</p>
-<pre class="doc-code"><code>validateLedgerEntry({
-  reference: 'MFS-SETTLEMENT-01',
-  currency: 'BDT',
-  lines: [
-    { account: '1010-Cash', side: 'debit', amount: 5000 },
-    { account: '2100-Customer-Balance', side: 'credit', amount: 5000 }
-  ]
-})
-// { valid: true, totalDebit: 5000, totalCredit: 5000, errors: [] }</code></pre>
-        <p><a class="mini-btn" href="../core/">Open core docs</a></p>
-      </section>
-      <section class="doc-card">
-        <h2>Repayment summary</h2>
-        <p>Combine <code>@finengine/math</code> and <code>@finengine/ui</code> to turn raw schedules into decision-ready product blocks.</p>
-<pre class="doc-code"><code>const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })
-makeRepaymentSummary('SME working capital', plan, 85000, 1.5)
-// totalPayable: 'BDT 618,335.20'
-// burdenLabel: 'Healthy burden · 20% of income'</code></pre>
-        <p><a class="mini-btn" href="../ui/">Open UI docs</a></p>
-      </section>
-      <section class="doc-card">
-        <h2>Learning surfaces</h2>
-        <p>Use <code>makeLearningCards()</code> when your product needs onboarding, finance education, or workshop-friendly narratives.</p>
-<pre class="doc-code"><code>makeLearningCards()[0]
-// {
-//   title: 'BDT money basics',
-//   badge: 'Bangladesh · intro',
-//   audience: 'Students and first-time builders'
-// }</code></pre>
-        <p><a class="mini-btn" href="../../#bangladesh-learning">Open learning section</a></p>
-      </section>
-    </section>
-
-    <section class="doc-grid">
-      <section class="doc-card">
-        <h2>Best-fit use cases</h2>
-        <ul class="checklist">
-          <li>Lending and installment product demos</li>
-          <li>Finance operations dashboards</li>
-          <li>Merchant, MFS, or SME explainer tools</li>
-          <li>Workshop and classroom finance examples in BDT</li>
-        </ul>
-      </section>
-      <section class="doc-card">
-        <h2>Where to go next</h2>
-        <ul class="checklist">
-          <li><a href="../../#playground">Interactive playground</a></li>
-          <li><a href="../math/">Math package docs</a></li>
-          <li><a href="../release/">Release checklist</a></li>
-          <li><a href="https://github.com/gmrafi/FinEngine/issues/new/choose">Open a structured GitHub issue</a></li>
-        </ul>
-      </section>
-    </section>
-  </main>
-  <div data-site-footer></div>
-  <script type="module" src="../../assets/js/doc-page.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>Examples Gallery  -  FinEngine Docs</title>  <meta name="description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />  <link rel="canonical" href="https://finengine.js.org/docs/examples/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="Examples Gallery  -  FinEngine Docs" />  <meta property="og:description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />  <meta property="og:url" content="https://finengine.js.org/docs/examples/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="Examples Gallery  -  FinEngine Docs" />  <meta name="twitter:description" content="FinEngine examples gallery for finance workflows and product-facing UI patterns." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />  <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../../logo-mark.png" />  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../../styles.css" />  <style>    .doc-shell{width:min(1100px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}    .doc-card + .doc-card{margin-top:18px}    .doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}    .doc-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}    .doc-code{margin-top:14px;padding:16px;border-radius:18px;background:var(--code-bg);border:1px solid var(--line);overflow:auto}    .doc-card h2,.doc-card h3{margin-top:0}    @media (max-width: 980px){.doc-trio{grid-template-columns:1fr}}    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}  </style></head><body data-page="docs" data-root-path="../../">  <div data-site-header></div>  <div data-social-proof></div>  <main class="doc-shell">    <section class="doc-card">      <div class="eyebrow">Examples gallery</div>      <h1>FinEngine examples that look like real product work</h1>      <p>This page connects the packages to actual finance-facing surfaces: settlement checks, repayment summaries, and Bangladesh-aware learning cards.</p>    </section>    <section class="doc-trio">      <section class="doc-card">        <h2>Ledger validation</h2>        <p>Use <code>@finengine/core</code> to validate settlement or reconciliation entries before they reach reporting or export layers.</p><pre class="doc-code"><code>validateLedgerEntry({  reference: 'MFS-SETTLEMENT-01',  currency: 'BDT',  lines: [    { account: '1010-Cash', side: 'debit', amount: 5000 },    { account: '2100-Customer-Balance', side: 'credit', amount: 5000 }  ]})// { valid: true, totalDebit: 5000, totalCredit: 5000, errors: [] }</code></pre>        <p><a class="mini-btn" href="../core/">Open core docs</a></p>      </section>      <section class="doc-card">        <h2>Repayment summary</h2>        <p>Combine <code>@finengine/math</code> and <code>@finengine/ui</code> to turn raw schedules into decision-ready product blocks.</p><pre class="doc-code"><code>const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 })makeRepaymentSummary('SME working capital', plan, 85000, 1.5)// totalPayable: 'BDT 618,335.20'// burdenLabel: 'Healthy burden · 20% of income'</code></pre>        <p><a class="mini-btn" href="../ui/">Open UI docs</a></p>      </section>      <section class="doc-card">        <h2>Learning surfaces</h2>        <p>Use <code>makeLearningCards()</code> when your product needs onboarding, finance education, or workshop-friendly narratives.</p><pre class="doc-code"><code>makeLearningCards()[0]// {//   title: 'BDT money basics',//   badge: 'Bangladesh · intro',//   audience: 'Students and first-time builders'// }</code></pre>        <p><a class="mini-btn" href="../../#bangladesh-learning">Open learning section</a></p>      </section>    </section>    <section class="doc-grid">      <section class="doc-card">        <h2>Best-fit use cases</h2>        <ul class="checklist">          <li>Lending and installment product demos</li>          <li>Finance operations dashboards</li>          <li>Merchant, MFS, or SME explainer tools</li>          <li>Workshop and classroom finance examples in BDT</li>        </ul>      </section>      <section class="doc-card">        <h2>Where to go next</h2>        <ul class="checklist">          <li><a href="../../#playground">Interactive playground</a></li>          <li><a href="../math/">Math package docs</a></li>          <li><a href="../release/">Release checklist</a></li>          <li><a href="https://github.com/gmrafi/FinEngine/issues/new/choose">Open a structured GitHub issue</a></li>        </ul>      </section>    </section>  </main>  <div data-site-footer></div>  <script type="module" src="../../assets/js/doc-page.js"></script></body></html>

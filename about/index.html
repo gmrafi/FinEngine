@@ -1,61 +1,1 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About  -  FinEngine Project Context</title>
-  <meta name="description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />
-  <link rel="canonical" href="https://finengine.js.org/about/" />
-  <meta name="description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="About  -  FinEngine Project Context" />
-  <meta property="og:description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />
-  <meta property="og:url" content="https://finengine.js.org/about/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About  -  FinEngine Project Context" />
-  <meta name="twitter:description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="../logo-mark.png" />
-  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="../styles.css" />
-</head>
-<body data-page="about" data-root-path="../">
-  <div data-site-header></div>
-
-  <main class="doc-shell page-shell">
-    <section class="doc-card page-hero-card">
-      <div class="eyebrow">About</div>
-      <h1>FinEngine combines product clarity, open documentation, and research-backed finance framing.</h1>
-      <p>The project is designed as a documentation-first JavaScript finance toolkit with a public-facing brand that can support packages, demos, and future enterprise extensions.</p>
-    </section>
-    <section class="doc-card">
-      <h2>What the platform is trying to become</h2>
-      <div class="grid-2 compact-grid">
-        <article class="info-panel static-panel"><h3>Open-source toolkit</h3><p>Packages, docs, examples, and browser-local demos form the current public surface.</p></article>
-        <article class="info-panel static-panel"><h3>Enterprise-readable layer</h3><p>The multi-page site improves how reviewers, teachers, and prospective collaborators assess maturity.</p></article>
-        <article class="info-panel static-panel"><h3>Research-backed framing</h3><p>CFSBR context strengthens the institutional narrative and research grounding of the project.</p></article>
-        <article class="info-panel static-panel"><h3>Future extension path</h3><p>Risk, ratios, microfinance, markets, tax, and corporate modules can be introduced gradually without bloating the front page.</p></article>
-      </div>
-    </section>
-  </main>
-
-  <div data-site-footer></div>
-  <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>About  -  FinEngine Project Context</title>  <meta name="description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />  <link rel="canonical" href="https://finengine.js.org/about/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="About  -  FinEngine Project Context" />  <meta property="og:description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />  <meta property="og:url" content="https://finengine.js.org/about/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="About  -  FinEngine Project Context" />  <meta name="twitter:description" content="About FinEngine, its research context, multi-page site strategy, and intended direction." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />  <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../logo-mark.png" />  <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../styles.css" /></head><body data-page="about" data-root-path="../">  <div data-site-header></div>  <main class="doc-shell page-shell">    <section class="doc-card page-hero-card">      <div class="eyebrow">About</div>      <h1>FinEngine combines product clarity, open documentation, and research-backed finance framing.</h1>      <p>The project is designed as a documentation-first JavaScript finance toolkit with a public-facing brand that can support packages, demos, and future enterprise extensions.</p>    </section>    <section class="doc-card">      <h2>What the platform is trying to become</h2>      <div class="grid-2 compact-grid">        <article class="info-panel static-panel"><h3>Open-source toolkit</h3><p>Packages, docs, examples, and browser-local demos form the current public surface.</p></article>        <article class="info-panel static-panel"><h3>Enterprise-readable layer</h3><p>The multi-page site improves how reviewers, teachers, and prospective collaborators assess maturity.</p></article>        <article class="info-panel static-panel"><h3>Research-backed framing</h3><p>CFSBR context strengthens the institutional narrative and research grounding of the project.</p></article>        <article class="info-panel static-panel"><h3>Future extension path</h3><p>Risk, ratios, microfinance, markets, tax, and corporate modules can be introduced gradually without bloating the front page.</p></article>      </div>    </section>  </main>  <div data-site-footer></div>  <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script></body></html>
