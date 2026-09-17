@@ -2,7 +2,7 @@ import { SITE_BRAND } from './brand.js';
 import { initQuickNav } from './modules/quick-nav.js';
 
 const NAV_ITEMS = [
-  { label: 'Home', path: 'index.html', key: 'home' },
+  { label: 'Home', path: './', key: 'home' },
   { label: 'Product', path: 'product/', key: 'product' },
   { label: 'Simulations', path: 'simulation/', key: 'simulation' },
   { label: 'Docs', path: 'docs/', key: 'docs' },
@@ -90,7 +90,7 @@ function renderHeader(pageType) {
   return `
     <header class="topbar shared-topbar">
       <div class="shell topbar-inner shared-topbar-inner header-shell header-shell-restored">
-        <a class="brandline brandlink" href="${toRoot('index.html')}">
+        <a class="brandline brandlink" href="${toRoot('')}">
           <img class="header-logo" src="${logoPath}" alt="FinEngine logo" loading="eager" decoding="async" />
           <span class="brand-copy">
             <span class="brand-row"><span data-brand="name"></span></span>
@@ -188,7 +188,7 @@ function renderFooter() {
 
         <section style="display: flex; flex-direction: column; gap: 14px;" aria-label="Brand and institution">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <a href="${root}index.html" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 12px;">
+            <a href="${root}" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 12px;">
               <img class="footer-logo" src="${logoPath}" alt="FinEngine logo" style="width: 36px; height: 36px; object-fit: contain; border-radius: 8px;" />
               <span style="font-weight: 800; font-size: 20px; color: #0f172a; letter-spacing: -0.02em;">FinEngine Labs</span>
             </a>
