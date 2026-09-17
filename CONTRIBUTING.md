@@ -26,11 +26,11 @@ Please keep all three in mind when opening issues or sending pull requests.
 
 ## Workspace overview
 
-- `packages/core` — money and ledger primitives
-- `packages/math` — EMI, amortization, and return logic
-- `packages/ui` — UI-ready finance view models
-- `docs/` — package docs, examples, and release guidance
-- `assets/js/` — website and playground behavior
+- `packages/core`  -  money and ledger primitives
+- `packages/math`  -  EMI, amortization, and return logic
+- `packages/ui`  -  UI-ready finance view models
+- `docs/`  -  package docs, examples, and release guidance
+- `assets/js/`  -  website and playground behavior
 
 ## Contribution standards
 

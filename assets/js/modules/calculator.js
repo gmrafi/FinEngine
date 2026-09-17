@@ -132,7 +132,7 @@ function initSimulation(root) {
     setText(result.emi, formatMoney(model.emi));
     setText(result.totalInterest, formatMoney(model.totalInterest));
     setText(result.totalPayable, formatMoney(model.totalPayable + upfrontFee));
-    setText(result.burden, burdenPct === null ? '—' : `${burdenPct}%`);
+    setText(result.burden, burdenPct === null ? ' - ' : `${burdenPct}%`);
     setText(result.fee, formatMoney(upfrontFee));
     setText(result.signal, signal);
     setText(result.scenarioTitle, state.scenario);
@@ -247,23 +247,23 @@ function renderSchedulePreview(tbody, schedule) {
   const head = schedule.slice(0, 2).map(scheduleRow).join('');
   const tail = schedule.slice(-2).map(scheduleRow).join('');
   const hidden = schedule.length - 4;
-  const collapsedRow = `<tr class="schedule-row--collapsed"><td colspan="4">… ${hidden} intermediate month${hidden === 1 ? '' : 's'} hidden — click "View full schedule" to expand …</td></tr>`;
+  const collapsedRow = `<tr class="schedule-row--collapsed"><td colspan="4">… ${hidden} intermediate month${hidden === 1 ? '' : 's'} hidden  -  click "View full schedule" to expand …</td></tr>`;
   tbody.innerHTML = `${head}${collapsedRow}${tail}`;
 }
 
 function clearPreview(root, result, exportButtons) {
   if (result.schedule) result.schedule.innerHTML = '';
-  setText(result.emi, '—');
-  setText(result.totalInterest, '—');
-  setText(result.totalPayable, '—');
-  setText(result.burden, '—');
-  setText(result.fee, '—');
+  setText(result.emi, ' - ');
+  setText(result.totalInterest, ' - ');
+  setText(result.totalPayable, ' - ');
+  setText(result.burden, ' - ');
+  setText(result.fee, ' - ');
   setText(result.signal, 'Needs input');
   setText(result.scenarioTitle, 'Waiting for valid values');
-  setText(result.interestShare, 'Interest share: —');
-  setText(result.principalShare, 'Principal share: —');
-  setText(result.closingBalance, 'Closing balance: —');
-  setText(result.generatedAt, '—');
+  setText(result.interestShare, 'Interest share:  - ');
+  setText(result.principalShare, 'Principal share:  - ');
+  setText(result.closingBalance, 'Closing balance:  - ');
+  setText(result.generatedAt, ' - ');
   setExportStatus(result, '', 'neutral');
   setExportButtonsDisabled(exportButtons, true);
   destroyChart(root);
