@@ -168,7 +168,7 @@ function renderProofStrip(pageType) {
 function renderFooter() {
   const root = getRootPath();
   return `
-    <footer style="border-top: 1px solid var(--border-color, #e2e8f0); background: #ffffff; padding: 56px 20px 32px; color: #334155; font-family: inherit;">
+    <footer style="border-top: 1px solid var(--line); background: var(--bg-elevated, var(--bg)); padding: 56px 20px 32px; color: var(--text); font-family: inherit;">
       <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; margin-bottom: 40px;">
 
         <section style="display: flex; flex-direction: column; gap: 14px;" aria-label="Brand and institution">
@@ -312,21 +312,21 @@ function renderFooter() {
 
       </div>
 
-      <div style="max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 12px; font-size: 12px; color: #64748b; line-height: 1.6;">
+      <div style="max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; font-size: 12px; color: var(--muted); line-height: 1.6;">
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           <div>
-            <strong>&#169; ${new Date().getFullYear()} FinEngine Labs</strong> &#183; A CFSBR Computational Initiative
+            <strong style="color: var(--text);">&#169; ${new Date().getFullYear()} FinEngine Labs</strong> &#183; A CFSBR Computational Initiative
           </div>
-          <div style="font-family: monospace; font-size: 11px; color: #475569; background: #f1f5f9; padding: 2px 8px; border-radius: 4px;">
+          <div style="font-family: monospace; font-size: 11px; color: var(--muted); background: var(--panel-soft); border: 1px solid var(--line); padding: 2px 8px; border-radius: 4px;">
             v0.3.0 &#183; Multi-page product docs
           </div>
         </div>
 
-        <div>
-          Built &amp; Maintained by <strong>Md Golam Mubasshir Rafi</strong> &#183; Powered by <strong>Centre for Fintech &amp; Strategic Business Research</strong>
+        <div style="color: var(--muted);">
+          Built &amp; Maintained by <strong style="color: var(--text);">Md Golam Mubasshir Rafi</strong> &#183; Powered by <strong style="color: var(--text);">Centre for Fintech &amp; Strategic Business Research</strong>
         </div>
 
-        <div style="font-size: 11px; color: #94a3b8; line-height: 1.5; border-top: 1px dashed #e2e8f0; padding-top: 10px; margin-top: 4px;">
+        <div style="font-size: 11px; color: var(--muted); line-height: 1.5; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 4px; opacity: 0.7;">
           <strong>Disclaimer:</strong> FinEngine is an open-source computation and simulation toolkit. Production accounting ledgers, statutory filings, and credit-scoring implementations should always be audited under applicable regulatory and accounting frameworks.
         </div>
       </div>
