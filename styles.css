@@ -446,7 +446,7 @@ footer { padding: 36px 0 52px; }
   font-size: 0.82rem;
 }
 [data-reveal] { opacity: 1; transform: none; }
-html.reveal-ready [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+html.reveal-ready [data-reveal] { opacity: 0; transform: translateY(5px); transition: opacity 0.55s ease, transform 0.55s ease; transition-delay: var(--reveal-delay, 0s); }
 html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 1180px) {
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
