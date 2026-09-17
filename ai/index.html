@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI &amp; Financial Models Lab - FinEngine Intelligence</title>
+    <meta
+      name="description"
+      content="FinEngine AI &amp; Financial Intelligence: Alternative credit risk scoring, MFS wallet modeling, microfinance APR conversion, and deterministic LLM agent tools. Coming Soon in v0.4.0."
+    />
+    <link rel="canonical" href="https://finengine.js.org/ai/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="AI &amp; Financial Models Lab - FinEngine Intelligence"
+    />
+    <meta
+      property="og:description"
+      content="Alternative credit risk scoring, MFS wallet modeling, microfinance APR conversion, and deterministic LLM agent tools. Coming Soon in v0.4.0."
+    />
+    <meta property="og:url" content="https://finengine.js.org/ai/" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AI &amp; Financial Models Lab - FinEngine Intelligence"
+    />
+    <meta
+      name="twitter:description"
+      content="Alternative credit risk scoring, MFS wallet modeling, microfinance APR conversion, and deterministic LLM agent tools."
+    />
+    <meta
+      name="twitter:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../logo-mark.png" />
+    <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="ai" data-root-path="../">
+    <div data-site-header></div>
+
+    <main class="doc-shell page-shell">
+      <!-- HERO CARD -->
+      <section class="doc-card page-hero-card">
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+          "
+        >
+          <div class="eyebrow eyebrow-blue" style="margin-bottom: 0">
+            CFSBR Quantitative Lab · Research Pipeline
+          </div>
+          <span
+            style="
+              font-size: 11px;
+              font-weight: 700;
+              background: rgba(168, 85, 247, 0.15);
+              color: #a855f7;
+              padding: 2px 10px;
+              border-radius: 999px;
+              border: 1px solid rgba(168, 85, 247, 0.3);
+            "
+          >
+            ● Coming Soon (v0.4.0 Preview)
+          </span>
+        </div>
+
+        <h1
+          style="
+            max-width: 100%;
+            font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+          "
+        >
+          Algorithmic Credit Risk &amp; Neural Financial Intelligence
+        </h1>
+        <p style="max-width: 90ch; margin-bottom: 22px; line-height: 1.6">
+          FinEngine AI brings pre-calibrated machine learning risk matrices,
+          alternative credit scoring for thin-file emerging market borrowers,
+          and zero-hallucination deterministic math primitives for Autonomous
+          Financial Agents.
+        </p>
+
+        <!-- STATUS CALLOUT BOX -->
+        <div
+          style="
+            background: var(--panel-soft, rgba(0, 0, 0, 0.2));
+            border: 1px solid var(--line);
+            border-left: 4px solid #a855f7;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+          "
+        >
+          <div
+            style="
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--text);
+              margin-bottom: 4px;
+            "
+          >
+            🔬 Status: Active Calibration &amp; Actuarial Modeling
+          </div>
+          <div style="font-size: 12px; color: var(--muted); line-height: 1.5">
+            The core deterministic math engine is live (<code
+              style="font-size: 11px"
+              >@finengine/math v0.3.0</code
+            >
+            &amp; PyPI <code style="font-size: 11px">finengine v0.1.0</code>).
+            The standalone Machine Learning &amp; Risk Intelligence suite is
+            currently in training on anonymized emerging-market credit datasets
+            and will roll out in the
+            <strong>v0.4.0 release series (Q4 2026)</strong>.
+          </div>
+        </div>
+
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center"
+        >
+          <a
+            class="button primary"
+            href="#research-pillars"
+            style="padding: 10px 18px; font-size: 13px"
+            >Explore AI Research Pillars ↓</a
+          >
+          <a
+            class="button secondary"
+            href="../python/#python-quickstart"
+            style="padding: 10px 18px; font-size: 13px"
+            >Test Python Risk API Preview ↗</a
+          >
+          <a
+            class="button secondary"
+            href="../methodology/"
+            style="padding: 10px 18px; font-size: 13px"
+            >Read Academic Methodology Paper ↗</a
+          >
+        </div>
+      </section>
+
+      <!-- 4 CORE AI PILLARS -->
+      <section class="doc-card" id="research-pillars">
+        <h2>Key AI &amp; Financial Modeling Pillars</h2>
+        <div class="grid-2 compact-grid" style="margin-top: 16px">
+          <!-- Pillar 1 -->
+          <article class="info-panel static-panel">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  color: #38bdf8;
+                  text-transform: uppercase;
+                "
+                >1. Alternative Credit Risk</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  background: rgba(56, 189, 248, 0.12);
+                  color: #38bdf8;
+                  padding: 1px 6px;
+                  border-radius: 4px;
+                "
+                >@finengine/risk</span
+              >
+            </div>
+            <h3>Thin-File &amp; MFS Scoring Matrix</h3>
+            <p>
+              Traditional credit scoring relies on formal bank histories.
+              FinEngine AI evaluates mobile financial service
+              (bKash/Nagad/Rocket) cash flows, utility bill payment regularity,
+              merchant turnover, and account velocity to generate actuarial
+              default probabilities (PD) for unbanked borrowers.
+            </p>
+          </article>
+
+          <!-- Pillar 2 -->
+          <article class="info-panel static-panel">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  color: #10b981;
+                  text-transform: uppercase;
+                "
+                >2. Microfinance Transparency</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  background: rgba(16, 185, 129, 0.12);
+                  color: #10b981;
+                  padding: 1px 6px;
+                  border-radius: 4px;
+                "
+                >@finengine/microfinance</span
+              >
+            </div>
+            <h3>Flat-to-Reducing Neural Converter</h3>
+            <p>
+              Detects disguised flat-rate marketing structures common in
+              informal lending and translates them into true statutory reducing
+              APR. Protects vulnerable micro-borrowers through automated
+              transparency algorithms and regulatory compliance scoring.
+            </p>
+          </article>
+
+          <!-- Pillar 3 -->
+          <article class="info-panel static-panel">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  color: #a855f7;
+                  text-transform: uppercase;
+                "
+                >3. LLM Agent Precision Tools</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  background: rgba(168, 85, 247, 0.12);
+                  color: #a855f7;
+                  padding: 1px 6px;
+                  border-radius: 4px;
+                "
+                >finengine.agent</span
+              >
+            </div>
+            <h3>Zero-Hallucination Function Calling</h3>
+            <p>
+              Large Language Models (LLMs) frequently hallucinate complex
+              compound interest and non-periodic XIRR formulas. FinEngine
+              provides structured, validated JSON function-calling tools that
+              guarantee exact, mathematically audited execution for AI financial
+              agents.
+            </p>
+          </article>
+
+          <!-- Pillar 4 -->
+          <article class="info-panel static-panel">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="
+                  font-size: 11px;
+                  font-weight: 700;
+                  color: #f59e0b;
+                  text-transform: uppercase;
+                "
+                >4. Portfolio Stress Testing</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  background: rgba(245, 158, 11, 0.12);
+                  color: #f59e0b;
+                  padding: 1px 6px;
+                  border-radius: 4px;
+                "
+                >finengine.stress</span
+              >
+            </div>
+            <h3>Synthetic Macro-Shock Simulation</h3>
+            <p>
+              Generates privacy-preserving synthetic loan portfolios to simulate
+              default contagion, interest rate volatility spikes, and liquidity
+              runway depletion under severe economic shock scenarios.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PYTHON API PREVIEW RECIPE -->
+      <section class="doc-card">
+        <div class="section-head" style="margin-bottom: 16px">
+          <div>
+            <div class="eyebrow eyebrow-blue">Code Preview</div>
+            <h2>Python AI Risk Module Syntax (Preview)</h2>
+            <p>
+              Available in preview via
+              <code style="font-size: 12px">pip install "finengine[all]"</code>.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-code-snippet">
+          <pre><code><span class="hero-keyword">from</span> finengine.ai <span class="hero-keyword">import</span> MFSProfile, assess_credit_risk
+
+<span class="hero-comment"># 1. Instantiate borrower profile from Mobile Financial Service (MFS) cash flow</span>
+profile = MFSProfile(
+    monthly_inflows=<span class="hero-number">75000.0</span>,           <span class="hero-comment"># Total wallet credits</span>
+    monthly_outflows=<span class="hero-number">35000.0</span>,          <span class="hero-comment"># Total wallet debits</span>
+    avg_balance=<span class="hero-number">18000.0</span>,               <span class="hero-comment"># Daily average balance</span>
+    transaction_frequency=<span class="hero-number">40</span>,          <span class="hero-comment"># Monthly transactions</span>
+    utility_bill_consistency=<span class="hero-number">1.0</span>,       <span class="hero-comment"># 100% on-time utility payments</span>
+    account_age_months=<span class="hero-number">24</span>,             <span class="hero-comment"># 2-year verified history</span>
+    past_defaults=<span class="hero-number">0</span>,                  <span class="hero-comment"># Zero historical write-offs</span>
+)
+
+<span class="hero-comment"># 2. Run algorithmic risk evaluation</span>
+assessment = assess_credit_risk(profile=profile, requested_amount=<span class="hero-number">50000</span>)
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Credit Score:      {assessment.score} / 850"</span>)
+<span class="hero-comment"># → Credit Score:      742 / 850 (Prime Tier)</span>
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Default Risk (PD): {assessment.default_probability * 100:.2f}%"</span>)
+<span class="hero-comment"># → Default Risk (PD): 2.14%</span>
+
+<span class="hero-keyword">print</span>(f<span class="hero-string">"Recommended Limit: BDT {assessment.recommended_credit_limit:,.2f}"</span>)
+<span class="hero-comment"># → Recommended Limit: BDT 45,000.00</span></code></pre>
+        </div>
+      </section>
+
+      <!-- RESEARCH ROADMAP & CALIBRATION TIMELINE -->
+      <section class="doc-card">
+        <h2>Model Calibration &amp; Release Timeline</h2>
+        <div class="timeline" style="margin-top: 16px">
+          <div class="timeline-step">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #10b981;
+                text-transform: uppercase;
+              "
+            >
+              Phase 1 · Completed
+            </div>
+            <h3>Deterministic Math &amp; Float-Drift Mitigation</h3>
+            <p>
+              Core TypeScript and JavaScript packages released with CERN Zenodo
+              archive (<code style="font-size: 11px">v0.3.0</code>).
+            </p>
+          </div>
+          <div class="timeline-step">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #10b981;
+                text-transform: uppercase;
+              "
+            >
+              Phase 2 · Completed
+            </div>
+            <h3>Python SDK &amp; Quant Primitives (PyPI)</h3>
+            <p>
+              Released <code style="font-size: 11px">finengine v0.1.0</code> on
+              PyPI with Pandas integration and strict typing.
+            </p>
+          </div>
+          <div class="timeline-step" style="border-left: 2px solid #a855f7">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #a855f7;
+                text-transform: uppercase;
+              "
+            >
+              Phase 3 · In Active Calibration (Q4 2026)
+            </div>
+            <h3>Alternative Credit Scoring &amp; Microfinance APR</h3>
+            <p>
+              Calibration of Scikit-Learn based pre-trained credit matrices on
+              thin-file borrower datasets.
+            </p>
+          </div>
+          <div class="timeline-step">
+            <div
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: var(--muted);
+                text-transform: uppercase;
+              "
+            >
+              Phase 4 · Planned (Q1 2027)
+            </div>
+            <h3>Autonomous Financial Agent Runtime</h3>
+            <p>
+              Multi-agent liquidity reasoning framework and automated
+              double-entry verification agents.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESEARCH COLLABORATION CALLOUT -->
+      <section class="doc-card">
+        <h2>Academic Collaboration &amp; Data Partnerships</h2>
+        <p>
+          FinEngine AI is developed in collaboration with researchers,
+          microfinance institutions, and fintech policy makers under the
+          <strong
+            >Centre for Fintech and Strategic Business Research (CFSBR)</strong
+          >.
+        </p>
+        <div class="grid-2 compact-grid" style="margin-top: 14px">
+          <div class="info-panel static-panel">
+            <h3>Institutional Inquiries</h3>
+            <p
+              style="font-size: 13px; color: var(--muted); margin-bottom: 10px"
+            >
+              For academic partnerships, dataset benchmarking, or pilot testing
+              of the credit risk models:
+            </p>
+            <a
+              class="button secondary"
+              href="mailto:research@cfsbr.org"
+              style="font-size: 12px; padding: 6px 14px"
+              >Contact CFSBR Lab (research@cfsbr.org) ↗</a
+            >
+          </div>
+          <div class="info-panel static-panel">
+            <h3>Academic Citation</h3>
+            <p
+              style="font-size: 13px; color: var(--muted); margin-bottom: 10px"
+            >
+              Cite FinEngine working papers in financial machine learning and
+              credit risk research:
+            </p>
+            <a
+              class="button secondary"
+              href="../methodology/#cite-finengine"
+              style="font-size: 12px; padding: 6px 14px"
+              >View BibTeX &amp; DOI Citation →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+  </body>
+</html>
