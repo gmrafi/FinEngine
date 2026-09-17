@@ -1,99 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FinEngine - Deterministic JavaScript Finance Toolkit</title>
-  <meta name="description" content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math." />
-  <link rel="canonical" href="https://finengine.js.org/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="FinEngine - Deterministic JavaScript Finance Toolkit" />
-  <meta property="og:description" content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math." />
-  <meta property="og:url" content="https://finengine.js.org/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta property="og:site_name" content="FinEngine" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FinEngine - Deterministic JavaScript Finance Toolkit" />
-  <meta name="twitter:description" content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
-  <meta name="theme-color" content="#0B0F19" />
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const forcedTheme = params.get('theme');
-      const savedTheme = localStorage.getItem('site-theme-preference');
-      const theme = forcedTheme === 'light' || forcedTheme === 'dark'
-        ? forcedTheme
-        : (savedTheme || 'light');
-      document.documentElement.dataset.theme = theme;
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
-    })();
-  </script>
-  <link rel="icon" type="image/png" href="logo-mark.png" />
-  <link rel="stylesheet" href="assets/vendor/modern-normalize.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body data-page="home" data-root-path="">
-  <div id="finengine-banner" class="finengine-banner" role="banner" aria-label="Version announcement">
-    <div class="finengine-banner-content">
-      <a href="methodology/" class="finengine-banner-link">
-        <span class="finengine-banner-badge">v0.3.0</span>
-        <span>FinEngine v0.3.0 is live</span>
-        <span class="finengine-banner-sep">·</span>
-        <span class="finengine-banner-sub">CFSBR Computational Research</span>
-        <span class="finengine-banner-sep">·</span>
-        <span class="finengine-banner-soon">Interactive Modeling &amp; Precision Math →</span>
-      </a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FinEngine - Deterministic JavaScript Finance Toolkit</title>
+    <meta
+      name="description"
+      content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math."
+    />
+    <link rel="canonical" href="https://finengine.js.org/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="FinEngine - Deterministic JavaScript Finance Toolkit"
+    />
+    <meta
+      property="og:description"
+      content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math."
+    />
+    <meta property="og:url" content="https://finengine.js.org/" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="FinEngine - Deterministic JavaScript Finance Toolkit"
+    />
+    <meta
+      name="twitter:description"
+      content="Zero-dependency JavaScript finance toolkit: deterministic, auditable math."
+    />
+    <meta
+      name="twitter:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="logo-mark.png" />
+    <link rel="stylesheet" href="assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home" data-root-path="">
+    <div
+      id="finengine-banner"
+      class="finengine-banner"
+      role="banner"
+      aria-label="Version announcement"
+    >
+      <div class="finengine-banner-content">
+        <a href="methodology/" class="finengine-banner-link">
+          <span class="finengine-banner-badge">v0.3.0</span>
+          <span>FinEngine v0.3.0 is live</span>
+          <span class="finengine-banner-sep">·</span>
+          <span class="finengine-banner-sub">CFSBR Computational Research</span>
+          <span class="finengine-banner-sep">·</span>
+          <span class="finengine-banner-soon"
+            >Interactive Modeling &amp; Precision Math →</span
+          >
+        </a>
+      </div>
+      <button
+        type="button"
+        id="close-banner-btn"
+        class="finengine-banner-close"
+        aria-label="Dismiss banner"
+      >
+        <svg
+          class="h-3.5 w-3.5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+          />
+        </svg>
+      </button>
     </div>
-    <button type="button" id="close-banner-btn" class="finengine-banner-close" aria-label="Dismiss banner">
-      <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-      </svg>
-    </button>
-  </div>
 
-  <div data-site-header></div>
+    <div data-site-header></div>
 
-  <main>
-    <section class="hero hero-flagship shell" id="hero">
-      <div class="hero-flagship-inner" data-reveal>
-        <div class="hero-flagship-copy">
-        <div class="hero-status-badge">
-          <span class="hero-status-tag">OPEN SOURCE</span>
-          <span class="hero-status-sep">·</span>
-          <span class="hero-status-text">100% Client-Side JavaScript</span>
-        </div>
+    <main>
+      <section class="hero hero-flagship shell" id="hero">
+        <div class="hero-flagship-inner" data-reveal>
+          <div class="hero-flagship-copy">
+            <div class="hero-status-badge">
+              <span class="hero-status-tag">OPEN SOURCE</span>
+              <span class="hero-status-sep">·</span>
+              <span class="hero-status-text">100% Client-Side JavaScript</span>
+            </div>
 
-        <h1 class="hero-headline">
-          <span data-brand="heroTitle"></span>
-          <span class="hero-headline-accent" data-brand="heroTitleAccent"></span>
-        </h1>
+            <h1 class="hero-headline">
+              <span data-brand="heroTitle"></span>
+              <span
+                class="hero-headline-accent"
+                data-brand="heroTitleAccent"
+              ></span>
+            </h1>
 
-        <p class="hero-lede" data-brand="heroLead"></p>
+            <p class="hero-lede" data-brand="heroLead"></p>
 
-        <div class="hero-cta-row">
-          <a class="hero-btn hero-btn-primary" href="simulation/">Open Simulation Lab <span class="hero-cta-arrow" aria-hidden="true">→</span></a>
-          <a class="hero-btn hero-btn-secondary" href="docs/">Documentation &amp; APIs</a>
-          <a class="hero-btn hero-btn-tertiary" href="product/">View packages</a>
-        </div>
-        </div>
-
-        <div class="hero-flagship-visual">
-        <div class="hero-terminal-card hero-root-terminal">
-          <div class="hero-terminal-titlebar">
-            <div class="hero-terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="hero-terminal-file">quickstart.sh</span>
-            <div class="hero-terminal-tabs" role="tablist" aria-label="Install / Run">
-              <button type="button" class="hero-terminal-tab is-active" data-hero-tab="shell" role="tab" aria-selected="true">Terminal</button>
-              <button type="button" class="hero-terminal-tab" data-hero-tab="js" role="tab" aria-selected="false">JavaScript</button>
-              <button type="button" class="hero-terminal-tab" data-hero-tab="cdn" role="tab" aria-selected="false">CDN</button>
+            <div class="hero-cta-row">
+              <a class="hero-btn hero-btn-primary" href="simulation/"
+                >Open Simulation Lab
+                <span class="hero-cta-arrow" aria-hidden="true">→</span></a
+              >
+              <a class="hero-btn hero-btn-secondary" href="docs/"
+                >Documentation &amp; APIs</a
+              >
+              <a class="hero-btn hero-btn-tertiary" href="product/"
+                >View packages</a
+              >
             </div>
           </div>
 
-          <div class="hero-terminal-pane is-active" data-hero-pane="shell" role="tabpanel">
-            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-shell-code">Copy</button>
-<pre class="hero-terminal-pre"><code id="hero-shell-code"><span class="hero-comment"># 1. Install the three foundational packages</span>
+          <div class="hero-flagship-visual">
+            <div class="hero-terminal-card hero-root-terminal">
+              <div class="hero-terminal-titlebar">
+                <div class="hero-terminal-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="hero-terminal-file">quickstart.sh</span>
+                <div
+                  class="hero-terminal-tabs"
+                  role="tablist"
+                  aria-label="Install / Run"
+                >
+                  <button
+                    type="button"
+                    class="hero-terminal-tab is-active"
+                    data-hero-tab="shell"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    Terminal
+                  </button>
+                  <button
+                    type="button"
+                    class="hero-terminal-tab"
+                    data-hero-tab="js"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    JavaScript
+                  </button>
+                  <button
+                    type="button"
+                    class="hero-terminal-tab"
+                    data-hero-tab="cdn"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    CDN
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="hero-terminal-pane is-active"
+                data-hero-pane="shell"
+                role="tabpanel"
+              >
+                <button
+                  type="button"
+                  class="hero-terminal-copy"
+                  data-hero-copy
+                  data-copy-target="hero-shell-code"
+                >
+                  Copy
+                </button>
+                <pre
+                  class="hero-terminal-pre"
+                ><code id="hero-shell-code"><span class="hero-comment"># 1. Install the three foundational packages</span>
 <span class="hero-prompt">$</span> <span class="hero-cmd">npm install @finengine/core @finengine/math @finengine/ui</span>
 
 <span class="hero-comment"># 2. Run a deterministic 36-month amortization</span>
@@ -101,11 +199,25 @@
 
 <span class="hero-output">→ Monthly EMI: BDT 16,968 · Total Payable: BDT 610,835 · Total Interest: BDT 110,835</span>
 <span class="hero-output hero-output-muted">// 100% client-side. No backend. Deterministic IEEE-754 rounding.</span></code></pre>
-          </div>
+              </div>
 
-          <div class="hero-terminal-pane" data-hero-pane="js" role="tabpanel" hidden>
-            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-js-code">Copy</button>
-<pre class="hero-terminal-pre"><code id="hero-js-code"><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span><span class="hero-punct">;</span>
+              <div
+                class="hero-terminal-pane"
+                data-hero-pane="js"
+                role="tabpanel"
+                hidden
+              >
+                <button
+                  type="button"
+                  class="hero-terminal-copy"
+                  data-hero-copy
+                  data-copy-target="hero-js-code"
+                >
+                  Copy
+                </button>
+                <pre
+                  class="hero-terminal-pre"
+                ><code id="hero-js-code"><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span><span class="hero-punct">;</span>
 <span class="hero-keyword">import</span> { formatMoney } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/core'</span><span class="hero-punct">;</span>
 
 <span class="hero-keyword">const</span> plan = amortize({
@@ -116,11 +228,25 @@
 
 <span class="hero-fn">console</span><span class="hero-punct">.</span><span class="hero-fn">log</span><span class="hero-punct">(</span><span class="hero-fn">formatMoney</span><span class="hero-punct">(</span>plan.monthlyPayment<span class="hero-punct">,</span> <span class="hero-string">'BDT'</span><span class="hero-punct">));</span>
 <span class="hero-comment">// → "BDT 16,968.00" : identical across browsers, locales, timezones.</span></code></pre>
-          </div>
+              </div>
 
-          <div class="hero-terminal-pane" data-hero-pane="cdn" role="tabpanel" hidden>
-            <button type="button" class="hero-terminal-copy" data-hero-copy data-copy-target="hero-cdn-code">Copy</button>
-<pre class="hero-terminal-pre"><code id="hero-cdn-code"><span class="hero-comment">&lt;!-- Vanilla JS : no bundler, no toolchain --&gt;</span>
+              <div
+                class="hero-terminal-pane"
+                data-hero-pane="cdn"
+                role="tabpanel"
+                hidden
+              >
+                <button
+                  type="button"
+                  class="hero-terminal-copy"
+                  data-hero-copy
+                  data-copy-target="hero-cdn-code"
+                >
+                  Copy
+                </button>
+                <pre
+                  class="hero-terminal-pre"
+                ><code id="hero-cdn-code"><span class="hero-comment">&lt;!-- Vanilla JS : no bundler, no toolchain --&gt;</span>
 <span class="hero-tag">&lt;script</span> <span class="hero-attr">type</span>=<span class="hero-string">"module"</span>
   <span class="hero-attr">src</span>=<span class="hero-string">"https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js"</span><span class="hero-tag">&gt;&lt;/script&gt;</span>
 
@@ -128,349 +254,632 @@
   <span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span><span class="hero-punct">;</span>
   <span class="hero-keyword">const</span> r = amortize(<span class="hero-cdata">{ principal: 500000, annualRate: 13.5, months: 36 }</span>);
 <span class="hero-tag">&lt;/script&gt;</span></code></pre>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <div data-social-proof></div>
-
-    <!-- LIVE INTERACTIVE LOAN SIMULATOR DIRECTLY ON HOMEPAGE -->
-    <section class="section shell home-simulator-section" id="interactive-simulator">
-      <div class="simulator-card" data-reveal>
-        <div class="simulator-head">
-          <div class="simulator-head-copy">
-            <span class="eyebrow eyebrow-blue">Interactive Engine · Live in Browser</span>
-            <h2>Deterministic Loan Amortization</h2>
-            <p>Compute exact Equal Monthly Installments (EMI), principal allocation, and interest cost in real time with zero server latency.</p>
-          </div>
-          <div class="simulator-head-actions">
-            <a class="button secondary mini-btn" href="simulation/">Full Simulation Lab ↗</a>
-          </div>
-        </div>
-
-        <div class="simulator-body">
-          <div class="simulator-controls">
-            <div class="sim-control-group">
-              <label class="sim-label" for="sim-principal-range">Loan Principal (BDT)</label>
-              <div class="sim-preset-chips" role="group" aria-label="Quick loan amount presets">
-                <button type="button" class="sim-chip" data-preset-amount="250000">BDT 250k</button>
-                <button type="button" class="sim-chip is-active" data-preset-amount="500000">BDT 500k</button>
-                <button type="button" class="sim-chip" data-preset-amount="1000000">BDT 10 Lac</button>
-                <button type="button" class="sim-chip" data-preset-amount="2500000">BDT 25 Lac</button>
               </div>
-              <input type="range" id="sim-principal-range" class="sim-slider" min="100000" max="5000000" step="50000" value="500000" />
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="sim-dual-inputs">
+      <div data-social-proof></div>
+
+      <!-- LIVE INTERACTIVE LOAN SIMULATOR DIRECTLY ON HOMEPAGE -->
+      <section
+        class="section shell home-simulator-section"
+        id="interactive-simulator"
+      >
+        <div class="simulator-card" data-reveal>
+          <div class="simulator-head">
+            <div class="simulator-head-copy">
+              <span class="eyebrow eyebrow-blue"
+                >Interactive Engine · Live in Browser</span
+              >
+              <h2>Deterministic Loan Amortization</h2>
+              <p>
+                Compute exact Equal Monthly Installments (EMI), principal
+                allocation, and interest cost in real time with zero server
+                latency.
+              </p>
+            </div>
+            <div class="simulator-head-actions">
+              <a class="button secondary mini-btn" href="simulation/"
+                >Full Simulation Lab ↗</a
+              >
+            </div>
+          </div>
+
+          <div class="simulator-body">
+            <div class="simulator-controls">
               <div class="sim-control-group">
-                <label class="sim-label" for="sim-rate-input">Annual Interest Rate (%)</label>
-                <input type="number" id="sim-rate-input" class="sim-input" min="1" max="30" step="0.25" value="13.5" />
-              </div>
-              <div class="sim-control-group">
-                <label class="sim-label" for="sim-tenure-select">Repayment Tenure</label>
-                <select id="sim-tenure-select" class="sim-select">
-                  <option value="12">12 Months (1 Year)</option>
-                  <option value="24">24 Months (2 Years)</option>
-                  <option value="36" selected>36 Months (3 Years)</option>
-                  <option value="60">60 Months (5 Years)</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="simulator-outputs">
-            <div class="sim-kpi-grid">
-              <div class="sim-kpi-card sim-kpi-highlight">
-                <span class="sim-kpi-label">Monthly EMI</span>
-                <strong class="sim-kpi-val" id="sim-out-emi">BDT 16,968</strong>
-                <span class="sim-kpi-sub">Fixed monthly payment</span>
-              </div>
-              <div class="sim-kpi-card">
-                <span class="sim-kpi-label">Total Interest</span>
-                <strong class="sim-kpi-val sim-val-green" id="sim-out-interest">BDT 110,835</strong>
-                <span class="sim-kpi-sub" id="sim-out-burden">18.1% of principal</span>
-              </div>
-              <div class="sim-kpi-card">
-                <span class="sim-kpi-label">Total Payable</span>
-                <strong class="sim-kpi-val" id="sim-out-total">BDT 610,835</strong>
-                <span class="sim-kpi-sub" id="sim-out-tenure-label">Over 36 monthly installments</span>
-              </div>
-            </div>
-
-            <div class="sim-ratio-wrap">
-              <div class="ratio-bar" role="img" aria-label="Principal and Interest repayment ratio">
-                <div class="ratio-bar-segment ratio-bar-principal" id="sim-bar-principal" style="width: 82%;"></div>
-                <div class="ratio-bar-segment ratio-bar-interest" id="sim-bar-interest" style="width: 18%;"></div>
-              </div>
-              <div class="sim-ratio-legend">
-                <div class="sim-legend-item">
-                  <span class="sim-legend-dot" style="background: var(--blue);"></span>
-                  <span class="sim-legend-text">Principal: <strong id="sim-legend-principal">BDT 500,000</strong> (<span id="sim-pct-principal">82%</span>)</span>
+                <label class="sim-label" for="sim-principal-range"
+                  >Loan Principal (BDT)</label
+                >
+                <div
+                  class="sim-preset-chips"
+                  role="group"
+                  aria-label="Quick loan amount presets"
+                >
+                  <button
+                    type="button"
+                    class="sim-chip"
+                    data-preset-amount="250000"
+                  >
+                    BDT 250k
+                  </button>
+                  <button
+                    type="button"
+                    class="sim-chip is-active"
+                    data-preset-amount="500000"
+                  >
+                    BDT 500k
+                  </button>
+                  <button
+                    type="button"
+                    class="sim-chip"
+                    data-preset-amount="1000000"
+                  >
+                    BDT 10 Lac
+                  </button>
+                  <button
+                    type="button"
+                    class="sim-chip"
+                    data-preset-amount="2500000"
+                  >
+                    BDT 25 Lac
+                  </button>
                 </div>
-                <div class="sim-legend-item">
-                  <span class="sim-legend-dot" style="background: #1F7A5C;"></span>
-                  <span class="sim-legend-text">Interest: <strong id="sim-legend-interest">BDT 110,835</strong> (<span id="sim-pct-interest">18%</span>)</span>
+                <input
+                  type="range"
+                  id="sim-principal-range"
+                  class="sim-slider"
+                  min="100000"
+                  max="5000000"
+                  step="50000"
+                  value="500000"
+                />
+              </div>
+
+              <div class="sim-dual-inputs">
+                <div class="sim-control-group">
+                  <label class="sim-label" for="sim-rate-input"
+                    >Annual Interest Rate (%)</label
+                  >
+                  <input
+                    type="number"
+                    id="sim-rate-input"
+                    class="sim-input"
+                    min="1"
+                    max="30"
+                    step="0.25"
+                    value="13.5"
+                  />
+                </div>
+                <div class="sim-control-group">
+                  <label class="sim-label" for="sim-tenure-select"
+                    >Repayment Tenure</label
+                  >
+                  <select id="sim-tenure-select" class="sim-select">
+                    <option value="12">12 Months (1 Year)</option>
+                    <option value="24">24 Months (2 Years)</option>
+                    <option value="36" selected>36 Months (3 Years)</option>
+                    <option value="60">60 Months (5 Years)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="simulator-outputs">
+              <div class="sim-kpi-grid">
+                <div class="sim-kpi-card sim-kpi-highlight">
+                  <span class="sim-kpi-label">Monthly EMI</span>
+                  <strong class="sim-kpi-val" id="sim-out-emi"
+                    >BDT 16,968</strong
+                  >
+                  <span class="sim-kpi-sub">Fixed monthly payment</span>
+                </div>
+                <div class="sim-kpi-card">
+                  <span class="sim-kpi-label">Total Interest</span>
+                  <strong
+                    class="sim-kpi-val sim-val-green"
+                    id="sim-out-interest"
+                    >BDT 110,835</strong
+                  >
+                  <span class="sim-kpi-sub" id="sim-out-burden"
+                    >18.1% of principal</span
+                  >
+                </div>
+                <div class="sim-kpi-card">
+                  <span class="sim-kpi-label">Total Payable</span>
+                  <strong class="sim-kpi-val" id="sim-out-total"
+                    >BDT 610,835</strong
+                  >
+                  <span class="sim-kpi-sub" id="sim-out-tenure-label"
+                    >Over 36 monthly installments</span
+                  >
+                </div>
+              </div>
+
+              <div class="sim-ratio-wrap">
+                <div
+                  class="ratio-bar"
+                  role="img"
+                  aria-label="Principal and Interest repayment ratio"
+                >
+                  <div
+                    class="ratio-bar-segment ratio-bar-principal"
+                    id="sim-bar-principal"
+                    style="width: 82%"
+                  ></div>
+                  <div
+                    class="ratio-bar-segment ratio-bar-interest"
+                    id="sim-bar-interest"
+                    style="width: 18%"
+                  ></div>
+                </div>
+                <div class="sim-ratio-legend">
+                  <div class="sim-legend-item">
+                    <span
+                      class="sim-legend-dot"
+                      style="background: var(--blue)"
+                    ></span>
+                    <span class="sim-legend-text"
+                      >Principal:
+                      <strong id="sim-legend-principal">BDT 500,000</strong>
+                      (<span id="sim-pct-principal">82%</span>)</span
+                    >
+                  </div>
+                  <div class="sim-legend-item">
+                    <span
+                      class="sim-legend-dot"
+                      style="background: #1f7a5c"
+                    ></span>
+                    <span class="sim-legend-text"
+                      >Interest:
+                      <strong id="sim-legend-interest">BDT 110,835</strong>
+                      (<span id="sim-pct-interest">18%</span>)</span
+                    >
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ARCHITECTURAL BENTO GRID (TOP-TIER PRODUCT SHOWCASE) -->
-    <section class="section shell bento-architecture-section">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow eyebrow-blue">Modular Architecture</span>
-          <h2>Three Dedicated Packages. Zero External Dependencies.</h2>
-          <p>FinEngine decouples mathematical precision from UI rendering, giving fintech builders auditable primitives for browsers, Node.js, and edge runtimes.</p>
-        </div>
-      </div>
-
-      <div class="bento-grid">
-        <!-- Bento Card 1: Math Engine (Large Card) -->
-        <article class="bento-card bento-card-large" data-reveal>
-          <div class="bento-card-top">
-            <div class="bento-card-badge">@finengine/math</div>
-            <span class="bento-corner-arrow" aria-hidden="true">↗</span>
+      <!-- ARCHITECTURAL BENTO GRID (TOP-TIER PRODUCT SHOWCASE) -->
+      <section class="section shell bento-architecture-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow eyebrow-blue">Modular Architecture</span>
+            <h2>Three Dedicated Packages. Zero External Dependencies.</h2>
+            <p>
+              FinEngine decouples mathematical precision from UI rendering,
+              giving fintech builders auditable primitives for browsers,
+              Node.js, and edge runtimes.
+            </p>
           </div>
-          <h3>Deterministic Loan &amp; Amortization Math</h3>
-          <p>Equal Monthly Installments (EMI), reducing balance, flat interest, and compound schedules computed with pure mathematical determinism.</p>
-          <div class="bento-code-snippet">
-            <pre><code><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span>;
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bento Card 1: Math Engine (Large Card) -->
+          <article class="bento-card bento-card-large" data-reveal>
+            <div class="bento-card-top">
+              <div class="bento-card-badge">@finengine/math</div>
+              <span class="bento-corner-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>Deterministic Loan &amp; Amortization Math</h3>
+            <p>
+              Equal Monthly Installments (EMI), reducing balance, flat interest,
+              and compound schedules computed with pure mathematical
+              determinism.
+            </p>
+            <div class="bento-code-snippet">
+              <pre><code><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span>;
 
 <span class="hero-keyword">const</span> plan = amortize({ principal: <span class="hero-number">500000</span>, annualRate: <span class="hero-number">13.5</span>, months: <span class="hero-number">36</span> });
 <span class="hero-comment">// plan.monthlyPayment → 16968 (Exact integer rounding)</span>
 <span class="hero-comment">// plan.schedule[0]    → { principal: 11343, interest: 5625, balance: 488657 }</span></code></pre>
-          </div>
-          <div class="bento-card-footer">
-            <a class="bento-link" href="docs/math/">Explore Math Engine APIs →</a>
-          </div>
-        </article>
-
-        <!-- Bento Card 2: IEEE-754 Precision (The Proof) -->
-        <article class="bento-card" data-reveal>
-          <div class="bento-card-top">
-            <div class="bento-card-badge bento-badge-success">Precision Guarantee</div>
-            <span class="bento-corner-arrow" aria-hidden="true">↗</span>
-          </div>
-          <h3>Eliminates IEEE-754 Float Drift</h3>
-          <p>Standard JavaScript float math accumulates rounding errors that break ledger balance during iterative calculations.</p>
-          <div class="bento-comparison-box">
-            <div class="bento-compare-row bento-compare-wrong">
-              <span class="bento-compare-tag">Standard JS</span>
-              <code>0.1 + 0.2 === 0.30000000000000004</code>
-              <span class="bento-compare-status bento-status-fail">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                Drift
-              </span>
             </div>
-            <div class="bento-compare-row bento-compare-right">
-              <span class="bento-compare-tag">FinEngine</span>
-              <code>exactSum(0.1, 0.2) === 0.300000</code>
-              <span class="bento-compare-status bento-status-pass">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-                Exact
-              </span>
+            <div class="bento-card-footer">
+              <a class="bento-link" href="docs/math/"
+                >Explore Math Engine APIs →</a
+              >
             </div>
-          </div>
-          <div class="bento-card-footer">
-            <a class="bento-link" href="methodology/">Audit Methodology &amp; Proof →</a>
-          </div>
-        </article>
+          </article>
 
-        <!-- Bento Card 3: Core Primitives -->
-        <article class="bento-card" data-reveal>
-          <div class="bento-card-top">
-            <div class="bento-card-badge bento-badge-bdt">@finengine/core · BDT</div>
-            <span class="bento-corner-arrow" aria-hidden="true">↗</span>
-          </div>
-          <h3>BDT Currency &amp; Notation Primitives</h3>
-          <p>Built-in South Asian numbering (Lakh / Crore), BDT symbol conventions, and regulatory loan-fee deductions for microfinance and retail banking.</p>
-          <div class="bento-pill-preview">
-            <span class="bento-pill">5,00,000 (Lakh)</span>
-            <span class="bento-pill-arrow">⇄</span>
-            <span class="bento-pill">500,000 (ISO)</span>
-          </div>
-          <div class="bento-card-footer">
-            <a class="bento-link" href="docs/core/">Explore Core Primitives →</a>
-          </div>
-        </article>
+          <!-- Bento Card 2: IEEE-754 Precision (The Proof) -->
+          <article class="bento-card" data-reveal>
+            <div class="bento-card-top">
+              <div class="bento-card-badge bento-badge-success">
+                Precision Guarantee
+              </div>
+              <span class="bento-corner-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>Eliminates IEEE-754 Float Drift</h3>
+            <p>
+              Standard JavaScript float math accumulates rounding errors that
+              break ledger balance during iterative calculations.
+            </p>
+            <div class="bento-comparison-box">
+              <div class="bento-compare-row bento-compare-wrong">
+                <span class="bento-compare-tag">Standard JS</span>
+                <code>0.1 + 0.2 === 0.30000000000000004</code>
+                <span class="bento-compare-status bento-status-fail">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                  </svg>
+                  Drift
+                </span>
+              </div>
+              <div class="bento-compare-row bento-compare-right">
+                <span class="bento-compare-tag">FinEngine</span>
+                <code>exactSum(0.1, 0.2) === 0.300000</code>
+                <span class="bento-compare-status bento-status-pass">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="9 12 11 14 15 10" />
+                  </svg>
+                  Exact
+                </span>
+              </div>
+            </div>
+            <div class="bento-card-footer">
+              <a class="bento-link" href="methodology/"
+                >Audit Methodology &amp; Proof →</a
+              >
+            </div>
+          </article>
 
-        <!-- Bento Card 4: UI Surfaces -->
-        <article class="bento-card" data-reveal>
-          <div class="bento-card-top">
-            <div class="bento-card-badge">@finengine/ui</div>
-            <span class="bento-corner-arrow" aria-hidden="true">↗</span>
-          </div>
-          <h3>Enterprise-Ready Banking UI Primitives</h3>
-          <p>Production-ready repayment tables, borrower burden ratio meters, and schedule summary components for modern dashboards.</p>
-          <div class="bento-card-footer">
-            <a class="bento-link" href="docs/ui/">Explore UI Components →</a>
-          </div>
-        </article>
-      </div>
-    </section>
+          <!-- Bento Card 3: Core Primitives -->
+          <article class="bento-card" data-reveal>
+            <div class="bento-card-top">
+              <div class="bento-card-badge bento-badge-bdt">
+                @finengine/core · BDT
+              </div>
+              <span class="bento-corner-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>BDT Currency &amp; Notation Primitives</h3>
+            <p>
+              Built-in South Asian numbering (Lakh / Crore), BDT symbol
+              conventions, and regulatory loan-fee deductions for microfinance
+              and retail banking.
+            </p>
+            <div class="bento-pill-preview">
+              <span class="bento-pill">5,00,000 (Lakh)</span>
+              <span class="bento-pill-arrow">⇄</span>
+              <span class="bento-pill">500,000 (ISO)</span>
+            </div>
+            <div class="bento-card-footer">
+              <a class="bento-link" href="docs/core/"
+                >Explore Core Primitives →</a
+              >
+            </div>
+          </article>
 
-    <!-- LIVE INTERACTIVE VS CODE PRECISION PLAYGROUND -->
-    <section class="section shell playground-section" id="precision-playground">
-      <div class="playground-wrapper" data-reveal>
-        <div class="playground-head">
-          <div class="playground-head-copy">
-            <span class="eyebrow eyebrow-blue">In-Browser Sandbox · Zero Server Latency</span>
-            <h2>Interactive Precision Playground</h2>
-            <p>Live TypeScript scratchpad running directly in your browser. Edit formulas, change loan variables, and audit mathematical precision against standard IEEE-754 drift in real time.</p>
-          </div>
-          <div class="playground-presets-bar" role="tablist" aria-label="Playground calculation recipes">
-            <button type="button" class="playground-preset-tab is-active" data-playground-preset="drift" role="tab" aria-selected="true">
-              <span class="preset-pill-tag">Float Audit</span>
-              IEEE-754 Float Drift
-            </button>
-            <button type="button" class="playground-preset-tab" data-playground-preset="amortize" role="tab" aria-selected="false">
-              <span class="preset-pill-tag">Amortization</span>
-              36-Mo Loan EMI
-            </button>
-            <button type="button" class="playground-preset-tab" data-playground-preset="lakhcrore" role="tab" aria-selected="false">
-              <span class="preset-pill-tag">Notation</span>
-              Lakh &amp; Crore
-            </button>
-            <button type="button" class="playground-preset-tab" data-playground-preset="vat" role="tab" aria-selected="false">
-              <span class="preset-pill-tag">Compliance</span>
-              NBR 15% VAT Rounding
-            </button>
-          </div>
+          <!-- Bento Card 4: UI Surfaces -->
+          <article class="bento-card" data-reveal>
+            <div class="bento-card-top">
+              <div class="bento-card-badge">@finengine/ui</div>
+              <span class="bento-corner-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>Enterprise-Ready Banking UI Primitives</h3>
+            <p>
+              Production-ready repayment tables, borrower burden ratio meters,
+              and schedule summary components for modern dashboards.
+            </p>
+            <div class="bento-card-footer">
+              <a class="bento-link" href="docs/ui/">Explore UI Components →</a>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <!-- VS Code Window Container -->
-        <div class="vscode-window">
-          <!-- Window Titlebar -->
-          <div class="vscode-titlebar">
-            <div class="vscode-dots" aria-hidden="true">
-              <span class="vscode-dot vscode-dot-red"></span>
-              <span class="vscode-dot vscode-dot-yellow"></span>
-              <span class="vscode-dot vscode-dot-green"></span>
+      <!-- LIVE INTERACTIVE VS CODE PRECISION PLAYGROUND -->
+      <section
+        class="section shell playground-section"
+        id="precision-playground"
+      >
+        <div class="playground-wrapper" data-reveal>
+          <div class="playground-head">
+            <div class="playground-head-copy">
+              <span class="eyebrow eyebrow-blue"
+                >In-Browser Sandbox · Zero Server Latency</span
+              >
+              <h2>Interactive Precision Playground</h2>
+              <p>
+                Live TypeScript scratchpad running directly in your browser.
+                Edit formulas, change loan variables, and audit mathematical
+                precision against standard IEEE-754 drift in real time.
+              </p>
             </div>
-            <div class="vscode-tab-active">
-              <span class="vscode-file-icon" aria-hidden="true">TS</span>
-              <span id="playground-filename" class="vscode-filename">float-drift.ts</span>
-              <span class="vscode-status-dot" title="Ready to execute"></span>
-            </div>
-            <div class="vscode-actions">
-              <span id="playground-metric" class="vscode-metric">0.03 ms · Client-Side Run</span>
-              <button type="button" id="playground-run-btn" class="vscode-btn vscode-btn-run" title="Run calculation (Ctrl+Enter)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span>Run</span>
+            <div
+              class="playground-presets-bar"
+              role="tablist"
+              aria-label="Playground calculation recipes"
+            >
+              <button
+                type="button"
+                class="playground-preset-tab is-active"
+                data-playground-preset="drift"
+                role="tab"
+                aria-selected="true"
+              >
+                <span class="preset-pill-tag">Float Audit</span>
+                IEEE-754 Float Drift
               </button>
-              <button type="button" id="playground-reset-btn" class="vscode-btn vscode-btn-reset" title="Reset snippet to default">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset</span>
+              <button
+                type="button"
+                class="playground-preset-tab"
+                data-playground-preset="amortize"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="preset-pill-tag">Amortization</span>
+                36-Mo Loan EMI
+              </button>
+              <button
+                type="button"
+                class="playground-preset-tab"
+                data-playground-preset="lakhcrore"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="preset-pill-tag">Notation</span>
+                Lakh &amp; Crore
+              </button>
+              <button
+                type="button"
+                class="playground-preset-tab"
+                data-playground-preset="vat"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="preset-pill-tag">Compliance</span>
+                NBR 15% VAT Rounding
               </button>
             </div>
           </div>
 
-          <!-- Window Workspace: Editor (Left) & Output Console (Right) -->
-          <div class="vscode-workspace">
-            <!-- Left: Code Editor Pane -->
-            <div class="vscode-pane vscode-editor-pane">
-              <div class="vscode-pane-header">
-                <span class="vscode-pane-label">INPUT / SCRATCHPAD (EDITABLE)</span>
-                <span class="vscode-pane-hint">Edit values freely · Auto-runs on type</span>
+          <!-- VS Code Window Container -->
+          <div class="vscode-window">
+            <!-- Window Titlebar -->
+            <div class="vscode-titlebar">
+              <div class="vscode-dots" aria-hidden="true">
+                <span class="vscode-dot vscode-dot-red"></span>
+                <span class="vscode-dot vscode-dot-yellow"></span>
+                <span class="vscode-dot vscode-dot-green"></span>
               </div>
-              <div class="vscode-editor-body">
-                <div class="vscode-gutter" id="playground-gutter" aria-hidden="true"></div>
-                <textarea id="playground-editor" class="vscode-textarea" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Interactive code scratchpad"></textarea>
+              <div class="vscode-tab-active">
+                <span class="vscode-file-icon" aria-hidden="true">TS</span>
+                <span id="playground-filename" class="vscode-filename"
+                  >float-drift.ts</span
+                >
+                <span class="vscode-status-dot" title="Ready to execute"></span>
               </div>
-              <div class="vscode-pane-statusbar">
-                <span>UTF-8</span>
-                <span>TypeScript / JavaScript</span>
-                <span>0 Backend Requests</span>
+              <div class="vscode-actions">
+                <span id="playground-metric" class="vscode-metric"
+                  >0.03 ms · Client-Side Run</span
+                >
+                <button
+                  type="button"
+                  id="playground-run-btn"
+                  class="vscode-btn vscode-btn-run"
+                  title="Run calculation (Ctrl+Enter)"
+                >
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  <span>Run</span>
+                </button>
+                <button
+                  type="button"
+                  id="playground-reset-btn"
+                  class="vscode-btn vscode-btn-reset"
+                  title="Reset snippet to default"
+                >
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                    />
+                    <path d="M3 3v5h5" />
+                  </svg>
+                  <span>Reset</span>
+                </button>
               </div>
             </div>
 
-            <!-- Right: Output & Audit Console -->
-            <div class="vscode-pane vscode-output-pane">
-              <div class="vscode-pane-header">
-                <span class="vscode-pane-label">OUTPUT &amp; AUDIT CONSOLE</span>
-                <span class="vscode-pane-tag">Deterministic Sandbox</span>
-              </div>
-
-              <!-- Float Drift Comparative Audit Card -->
-              <div id="playground-audit-card" class="playground-audit-card" hidden>
-                <div class="playground-audit-title">IEEE-754 Precision Verification</div>
-                <div class="playground-audit-rows">
-                  <div class="playground-audit-row">
-                    <span class="audit-row-label">Standard JS Float:</span>
-                    <code id="playground-audit-js-val" class="audit-code-err">0.30000000000000004</code>
-                  </div>
-                  <div class="playground-audit-row">
-                    <span class="audit-row-label">FinEngine Exact:</span>
-                    <code id="playground-audit-fe-val" class="audit-code-exact">0.3</code>
-                  </div>
-                  <div class="playground-audit-row">
-                    <span class="audit-row-label">Drift Delta:</span>
-                    <span id="playground-audit-delta-val" class="playground-audit-badge fail">+0.00000000000000004 (IEEE-754 Drift)</span>
-                  </div>
+            <!-- Window Workspace: Editor (Left) & Output Console (Right) -->
+            <div class="vscode-workspace">
+              <!-- Left: Code Editor Pane -->
+              <div class="vscode-pane vscode-editor-pane">
+                <div class="vscode-pane-header">
+                  <span class="vscode-pane-label"
+                    >INPUT / SCRATCHPAD (EDITABLE)</span
+                  >
+                  <span class="vscode-pane-hint"
+                    >Edit values freely · Auto-runs on type</span
+                  >
+                </div>
+                <div class="vscode-editor-body">
+                  <div
+                    class="vscode-gutter"
+                    id="playground-gutter"
+                    aria-hidden="true"
+                  ></div>
+                  <textarea
+                    id="playground-editor"
+                    class="vscode-textarea"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    aria-label="Interactive code scratchpad"
+                  ></textarea>
+                </div>
+                <div class="vscode-pane-statusbar">
+                  <span>UTF-8</span>
+                  <span>TypeScript / JavaScript</span>
+                  <span>0 Backend Requests</span>
                 </div>
               </div>
 
-              <!-- JSON / Object Output Tree -->
-              <div class="vscode-output-body">
-                <pre class="vscode-output-pre"><code id="playground-output-json" class="vscode-output-code"></code></pre>
-              </div>
+              <!-- Right: Output & Audit Console -->
+              <div class="vscode-pane vscode-output-pane">
+                <div class="vscode-pane-header">
+                  <span class="vscode-pane-label"
+                    >OUTPUT &amp; AUDIT CONSOLE</span
+                  >
+                  <span class="vscode-pane-tag">Deterministic Sandbox</span>
+                </div>
 
-              <div class="vscode-pane-statusbar">
-                <span>Zero Rounding Error Guarantee</span>
-                <span>Client-side Private</span>
+                <!-- Float Drift Comparative Audit Card -->
+                <div
+                  id="playground-audit-card"
+                  class="playground-audit-card"
+                  hidden
+                >
+                  <div class="playground-audit-title">
+                    IEEE-754 Precision Verification
+                  </div>
+                  <div class="playground-audit-rows">
+                    <div class="playground-audit-row">
+                      <span class="audit-row-label">Standard JS Float:</span>
+                      <code id="playground-audit-js-val" class="audit-code-err"
+                        >0.30000000000000004</code
+                      >
+                    </div>
+                    <div class="playground-audit-row">
+                      <span class="audit-row-label">FinEngine Exact:</span>
+                      <code
+                        id="playground-audit-fe-val"
+                        class="audit-code-exact"
+                        >0.3</code
+                      >
+                    </div>
+                    <div class="playground-audit-row">
+                      <span class="audit-row-label">Drift Delta:</span>
+                      <span
+                        id="playground-audit-delta-val"
+                        class="playground-audit-badge fail"
+                        >+0.00000000000000004 (IEEE-754 Drift)</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- JSON / Object Output Tree -->
+                <div class="vscode-output-body">
+                  <pre
+                    class="vscode-output-pre"
+                  ><code id="playground-output-json" class="vscode-output-code"></code></pre>
+                </div>
+
+                <div class="vscode-pane-statusbar">
+                  <span>Zero Rounding Error Guarantee</span>
+                  <span>Client-side Private</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- DEVELOPER RESOURCES & METHODOLOGY HUB -->
-    <section class="section shell">
-      <div class="developer-hub-band" data-reveal>
-        <div class="dev-hub-copy">
-          <span class="eyebrow eyebrow-blue">Developer Ecosystem</span>
-          <h2>Built for Production Reliability</h2>
-          <p>Comprehensive documentation, live runnable examples, and research methodology archived with permanent academic DOIs.</p>
-          <div class="dev-hub-actions">
-            <a class="button primary" href="docs/">Read API Documentation</a>
-            <a class="button secondary" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+      <!-- DEVELOPER RESOURCES & METHODOLOGY HUB -->
+      <section class="section shell">
+        <div class="developer-hub-band" data-reveal>
+          <div class="dev-hub-copy">
+            <span class="eyebrow eyebrow-blue">Developer Ecosystem</span>
+            <h2>Built for Production Reliability</h2>
+            <p>
+              Comprehensive documentation, live runnable examples, and research
+              methodology archived with permanent academic DOIs.
+            </p>
+            <div class="dev-hub-actions">
+              <a class="button primary" href="docs/">Read API Documentation</a>
+              <a
+                class="button secondary"
+                href="https://github.com/gmrafi/FinEngine"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View on GitHub ↗</a
+              >
+            </div>
+          </div>
+          <div class="dev-hub-cards">
+            <a class="dev-hub-card" href="docs/math/">
+              <div class="dev-hub-card-header">
+                <strong class="dev-hub-title">Math Engine Reference</strong>
+                <span class="dev-hub-arrow" aria-hidden="true">↗</span>
+              </div>
+              <span class="dev-hub-desc"
+                >Formulas, parameters, and return types for loan amortization
+                and compound growth.</span
+              >
+            </a>
+            <a class="dev-hub-card" href="simulation/">
+              <div class="dev-hub-card-header">
+                <strong class="dev-hub-title">Dedicated Simulation Lab</strong>
+                <span class="dev-hub-arrow" aria-hidden="true">↗</span>
+              </div>
+              <span class="dev-hub-desc"
+                >Side-by-side repayment comparisons and financial report
+                generation.</span
+              >
+            </a>
+            <a class="dev-hub-card" href="methodology/">
+              <div class="dev-hub-card-header">
+                <strong class="dev-hub-title"
+                  >Research &amp; Methodology</strong
+                >
+                <span class="dev-hub-arrow" aria-hidden="true">↗</span>
+              </div>
+              <span class="dev-hub-desc"
+                >CERN Zenodo permanent archiving and Crossref DOI
+                verification.</span
+              >
+            </a>
           </div>
         </div>
-        <div class="dev-hub-cards">
-          <a class="dev-hub-card" href="docs/math/">
-            <div class="dev-hub-card-header">
-              <strong class="dev-hub-title">Math Engine Reference</strong>
-              <span class="dev-hub-arrow" aria-hidden="true">↗</span>
-            </div>
-            <span class="dev-hub-desc">Formulas, parameters, and return types for loan amortization and compound growth.</span>
-          </a>
-          <a class="dev-hub-card" href="simulation/">
-            <div class="dev-hub-card-header">
-              <strong class="dev-hub-title">Dedicated Simulation Lab</strong>
-              <span class="dev-hub-arrow" aria-hidden="true">↗</span>
-            </div>
-            <span class="dev-hub-desc">Side-by-side repayment comparisons and financial report generation.</span>
-          </a>
-          <a class="dev-hub-card" href="methodology/">
-            <div class="dev-hub-card-header">
-              <strong class="dev-hub-title">Research &amp; Methodology</strong>
-              <span class="dev-hub-arrow" aria-hidden="true">↗</span>
-            </div>
-            <span class="dev-hub-desc">CERN Zenodo permanent archiving and Crossref DOI verification.</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <div data-site-footer></div>
-  <script type="module" src="assets/js/main.js?v=20260917a"></script>
-</body>
+    <div data-site-footer></div>
+    <script type="module" src="assets/js/main.js?v=20260917a"></script>
+  </body>
 </html>

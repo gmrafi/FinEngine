@@ -1,1 +1,193 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>  <meta charset="utf-8" />  <meta name="viewport" content="width=device-width, initial-scale=1" />  <title>Release Checklist  -  FinEngine Docs</title>  <meta name="description" content="FinEngine release, community, and publish checklist for the three starter packages." />  <link rel="canonical" href="https://finengine.js.org/docs/release/" />  <meta property="og:type" content="website" />  <meta property="og:title" content="Release Checklist  -  FinEngine Docs" />  <meta property="og:description" content="FinEngine release, community, and publish checklist for the three starter packages." />  <meta property="og:url" content="https://finengine.js.org/docs/release/" />  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />  <meta property="og:site_name" content="FinEngine" />  <meta name="twitter:card" content="summary_large_image" />  <meta name="twitter:title" content="Release Checklist  -  FinEngine Docs" />  <meta name="twitter:description" content="FinEngine release, community, and publish checklist for the three starter packages." />  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />  <meta name="theme-color" content="#0B0F19" />  <script>    (() => {      const params = new URLSearchParams(window.location.search);      const forcedTheme = params.get('theme');      const savedTheme = localStorage.getItem('site-theme-preference');      const theme = forcedTheme === 'light' || forcedTheme === 'dark'        ? forcedTheme        : (savedTheme || 'light');      document.documentElement.dataset.theme = theme;      const themeMeta = document.querySelector('meta[name="theme-color"]');      if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');    })();  </script>  <link rel="icon" type="image/png" href="../../logo-mark.png" />  <link rel="stylesheet" href="../../assets/vendor/modern-normalize.min.css" />  <link rel="stylesheet" href="../../styles.css" />  <style>    .doc-shell{width:min(1080px,calc(100% - 28px));margin:0 auto;padding:36px 0 72px}    .doc-card{padding:24px;border-radius:24px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 92%,white 8%),var(--panel-strong));border:1px solid var(--line);box-shadow:var(--shadow)}    .doc-card + .doc-card{margin-top:18px}    .doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}    .doc-checklist{display:grid;gap:12px;padding-left:20px}    .doc-card h2,.doc-card h3{margin-top:0}    @media (max-width: 860px){.doc-grid{grid-template-columns:1fr}}  </style></head><body data-page="docs" data-root-path="../../">  <div data-site-header></div>  <div data-social-proof></div>  <main class="doc-shell">    <section class="doc-card">      <div class="eyebrow">Release ops</div>      <h1>FinEngine publish checklist</h1>      <p>Use this page before publishing <code>@finengine/core</code>, <code>@finengine/math</code>, and <code>@finengine/ui</code>, and before announcing the repo more broadly.</p>    </section>    <section class="doc-grid">      <section class="doc-card">        <h2>Verification gates</h2>        <ol class="doc-checklist">          <li>Run <code>npm run check</code> for site-side JavaScript sanity.</li>          <li>Run <code>npm run verify:packages</code> to build, test, and execute package examples.</li>          <li>Confirm docs pages and homepage examples still match current APIs.</li>          <li>Review responsive behavior on desktop, tablet, and mobile before public sharing.</li>        </ol>      </section>      <section class="doc-card">        <h2>Publish order</h2>        <ol class="doc-checklist">          <li>Check versions, exports, README, LICENSE, and <code>dist/</code> output for <code>@finengine/core</code>.</li>          <li>Publish <code>@finengine/core</code>.</li>          <li>Publish <code>@finengine/math</code>.</li>          <li>Publish <code>@finengine/ui</code>.</li>          <li>Tag the GitHub release and summarize any example/output changes.</li>        </ol>      </section>    </section>    <section class="doc-grid">      <section class="doc-card">        <h2>Community readiness</h2>        <ul class="checklist">          <li>Issue forms are available for bugs, features, and docs improvements.</li>          <li>Pull requests now have a verification checklist.</li>          <li>Contribution and conduct guidance should be visible before wider promotion.</li>          <li>If you want GitHub Discussions, enable it manually in repository settings and pin a welcome thread.</li>        </ul>      </section>      <section class="doc-card">        <h2>Launch readiness</h2>        <ul class="checklist">          <li>Keep the website polished first; launch traffic should meet a stable product surface.</li>          <li>Prepare Product Hunt assets only when the landing page, screenshots, and positioning are final.</li>          <li>Use live GitHub signals, examples, and docs links as proof points.</li>          <li>Do not publish until the repo front page and example gallery feel intentional.</li>        </ul>      </section>    </section>  </main>  <div data-site-footer></div>  <script type="module" src="../../assets/js/doc-page.js"></script></body></html>
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Release Checklist - FinEngine Docs</title>
+    <meta
+      name="description"
+      content="FinEngine release, community, and publish checklist for the three starter packages."
+    />
+    <link rel="canonical" href="https://finengine.js.org/docs/release/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Release Checklist  -  FinEngine Docs" />
+    <meta
+      property="og:description"
+      content="FinEngine release, community, and publish checklist for the three starter packages."
+    />
+    <meta property="og:url" content="https://finengine.js.org/docs/release/" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Release Checklist  -  FinEngine Docs" />
+    <meta
+      name="twitter:description"
+      content="FinEngine release, community, and publish checklist for the three starter packages."
+    />
+    <meta
+      name="twitter:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../../logo-mark.png" />
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <style>
+      .doc-shell {
+        width: min(1080px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 36px 0 72px;
+      }
+      .doc-card {
+        padding: 24px;
+        border-radius: 24px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--panel) 92%, white 8%),
+          var(--panel-strong)
+        );
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+      .doc-card + .doc-card {
+        margin-top: 18px;
+      }
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .doc-checklist {
+        display: grid;
+        gap: 12px;
+        padding-left: 20px;
+      }
+      .doc-card h2,
+      .doc-card h3 {
+        margin-top: 0;
+      }
+      @media (max-width: 860px) {
+        .doc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body data-page="docs" data-root-path="../../">
+    <div data-site-header></div>
+    <div data-social-proof></div>
+    <main class="doc-shell">
+      <section class="doc-card">
+        <div class="eyebrow">Release ops</div>
+        <h1>FinEngine publish checklist</h1>
+        <p>
+          Use this page before publishing <code>@finengine/core</code>,
+          <code>@finengine/math</code>, and <code>@finengine/ui</code>, and
+          before announcing the repo more broadly.
+        </p>
+      </section>
+      <section class="doc-grid">
+        <section class="doc-card">
+          <h2>Verification gates</h2>
+          <ol class="doc-checklist">
+            <li>
+              Run <code>npm run check</code> for site-side JavaScript sanity.
+            </li>
+            <li>
+              Run <code>npm run verify:packages</code> to build, test, and
+              execute package examples.
+            </li>
+            <li>
+              Confirm docs pages and homepage examples still match current APIs.
+            </li>
+            <li>
+              Review responsive behavior on desktop, tablet, and mobile before
+              public sharing.
+            </li>
+          </ol>
+        </section>
+        <section class="doc-card">
+          <h2>Publish order</h2>
+          <ol class="doc-checklist">
+            <li>
+              Check versions, exports, README, LICENSE, and
+              <code>dist/</code> output for <code>@finengine/core</code>.
+            </li>
+            <li>Publish <code>@finengine/core</code>.</li>
+            <li>Publish <code>@finengine/math</code>.</li>
+            <li>Publish <code>@finengine/ui</code>.</li>
+            <li>
+              Tag the GitHub release and summarize any example/output changes.
+            </li>
+          </ol>
+        </section>
+      </section>
+      <section class="doc-grid">
+        <section class="doc-card">
+          <h2>Community readiness</h2>
+          <ul class="checklist">
+            <li>
+              Issue forms are available for bugs, features, and docs
+              improvements.
+            </li>
+            <li>Pull requests now have a verification checklist.</li>
+            <li>
+              Contribution and conduct guidance should be visible before wider
+              promotion.
+            </li>
+            <li>
+              If you want GitHub Discussions, enable it manually in repository
+              settings and pin a welcome thread.
+            </li>
+          </ul>
+        </section>
+        <section class="doc-card">
+          <h2>Launch readiness</h2>
+          <ul class="checklist">
+            <li>
+              Keep the website polished first; launch traffic should meet a
+              stable product surface.
+            </li>
+            <li>
+              Prepare Product Hunt assets only when the landing page,
+              screenshots, and positioning are final.
+            </li>
+            <li>
+              Use live GitHub signals, examples, and docs links as proof points.
+            </li>
+            <li>
+              Do not publish until the repo front page and example gallery feel
+              intentional.
+            </li>
+          </ul>
+        </section>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script type="module" src="../../assets/js/doc-page.js"></script>
+  </body>
+</html>
