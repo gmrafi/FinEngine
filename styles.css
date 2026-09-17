@@ -3124,6 +3124,67 @@ html[data-theme='dark'] .proof-panel {
   border-color: #2273C3;
   box-shadow: 0 4px 20px rgba(34, 115, 195, 0.16);
 }
+
+/* Trust Strips (Clean single-line horizontal strip pills) */
+.trust-strip {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+.trust-strip-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.81rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #09090b;
+  transition: all 0.14s ease;
+}
+.trust-strip-badge:hover {
+  border-color: #2273C3;
+  background: #eef5fc;
+  color: #2273C3;
+  transform: translateY(-1px);
+}
+html[data-theme='dark'] .trust-strip-badge {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--line);
+  color: var(--text);
+}
+html[data-theme='dark'] .trust-strip-badge:hover {
+  border-color: #2273C3;
+  background: rgba(34, 115, 195, 0.15);
+  color: #93c5fd;
+}
+.trust-strip-label {
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+html[data-theme='dark'] .trust-strip-label {
+  color: #94a3b8;
+}
+.trust-strip-value {
+  font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #09090b;
+}
+html[data-theme='dark'] .trust-strip-value {
+  color: #f1f5f9;
+}
 .home-simulator-section {
   padding: 40px 0 46px;
   background: #ffffff;
