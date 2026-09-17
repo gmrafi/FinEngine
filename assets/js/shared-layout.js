@@ -11,6 +11,7 @@ const NAV_ITEMS = [
 
 const MOBILE_EXTRA_ITEMS = [
   { label: "Python SDK & Quant", path: "python/" },
+  { label: "AI & Models Lab", path: "ai/" },
   { label: "@finengine/core", path: "docs/core/" },
   { label: "@finengine/math", path: "docs/math/" },
   { label: "@finengine/ui", path: "docs/ui/" },
@@ -82,7 +83,7 @@ function renderHeader(pageType) {
   const root = getRootPath();
   const logoPath = `${root}logo-mark.png`;
   const isPython = pageType === "python";
-  const isAI = pageType === "methodology";
+  const isAI = pageType === "ai";
   const isJS = !isPython && !isAI;
 
   const nav = NAV_ITEMS.map((item) => {
@@ -143,7 +144,7 @@ function renderHeader(pageType) {
               <span class="eco-name">Python &amp; Quant</span>
               <span class="eco-tag">PyPI v0.1.0</span>
             </a>
-            <a class="ecosystem-pill ${isAI ? "is-active" : ""}" href="${toRoot("methodology/#research-pipeline")}" title="AI Models & CFSBR Lab Research">
+            <a class="ecosystem-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models & CFSBR Lab Research">
               <span class="eco-icon" aria-hidden="true">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="18" cy="18" r="3"/>
@@ -155,7 +156,7 @@ function renderHeader(pageType) {
                 </svg>
               </span>
               <span class="eco-name">AI &amp; Models</span>
-              <span class="eco-tag">CFSBR Lab</span>
+              <span class="eco-tag">Coming Soon</span>
             </a>
           </div>
         </div>
@@ -177,7 +178,7 @@ function renderHeader(pageType) {
               </svg>
               <span>Python</span>
             </a>
-            <a class="mobile-eco-btn ${isAI ? "is-active" : ""}" href="${toRoot("methodology/#research-pipeline")}">
+            <a class="mobile-eco-btn ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="18" r="3"/>
                 <circle cx="6" cy="6" r="3"/>
@@ -418,6 +419,12 @@ function renderFooter() {
               <a href="${root}python/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Python SDK &amp; Quant</div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Pandas integration and PyPI package</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}ai/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">AI &amp; Models Lab <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(99,102,241,0.1); color: #6366f1; font-weight: 700; margin-left: 4px;">Coming Soon</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Alternative credit risk and agentic tools</div>
               </a>
             </li>
             <li>

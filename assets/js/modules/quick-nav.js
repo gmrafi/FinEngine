@@ -32,6 +32,11 @@ export function initQuickNav() {
       { label: "Documentation Hub", group: "Pages", href: `${root}docs/` },
       { label: "Methodology", group: "Pages", href: `${root}methodology/` },
       { label: "Python SDK & Quant", group: "Pages", href: `${root}python/` },
+      {
+        label: "AI & Models Lab (Coming Soon)",
+        group: "Pages",
+        href: `${root}ai/`,
+      },
       { label: "Contact", group: "Pages", href: `${root}contact/` },
       { label: "About", group: "Pages", href: `${root}about/` },
       {
