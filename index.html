@@ -60,9 +60,9 @@
       <div class="hero-flagship-inner" data-reveal>
         <div class="hero-flagship-copy">
         <div class="hero-status-badge">
-          <span class="hero-status-tag">CFSBR Research</span>
+          <span class="hero-status-tag">OPEN SOURCE</span>
           <span class="hero-status-sep">·</span>
-          <span class="hero-status-text" data-brand="heroEyebrow"></span>
+          <span class="hero-status-text">100% Client-Side JavaScript</span>
         </div>
 
         <h1 class="hero-headline">
@@ -136,91 +136,192 @@
 
     <div data-social-proof></div>
 
-    <section class="section shell ratio-section">
-      <div class="ratio-card" data-reveal>
-        <div class="ratio-head">
-          <span class="eyebrow eyebrow-blue">Repayment breakdown</span>
-          <h2>Principal vs Interest</h2>
-          <p>How your total payment splits between the borrowed amount and finance cost.</p>
-        </div>
-        <div class="ratio-bar" role="img" aria-label="Principal 82 percent, Interest 18 percent">
-          <div class="ratio-bar-segment ratio-bar-principal" data-width="82"></div>
-          <div class="ratio-bar-segment ratio-bar-interest" data-width="18"></div>
-        </div>
-        <div class="ratio-legend">
-          <div class="ratio-legend-item">
-            <span class="ratio-legend-dot" style="background:var(--blue)"></span>
-            <span class="ratio-legend-label">Principal</span>
-            <span class="ratio-legend-value" data-animate-value="500000" data-prefix="BDT " data-decimals="0">BDT 0</span>
+    <!-- LIVE INTERACTIVE LOAN SIMULATOR DIRECTLY ON HOMEPAGE -->
+    <section class="section shell home-simulator-section" id="interactive-simulator">
+      <div class="simulator-card" data-reveal>
+        <div class="simulator-head">
+          <div class="simulator-head-copy">
+            <span class="eyebrow eyebrow-blue">Interactive Engine · Live in Browser</span>
+            <h2>Deterministic Loan Amortization</h2>
+            <p>Compute exact Equal Monthly Installments (EMI), principal allocation, and interest cost in real time with zero server latency.</p>
           </div>
-          <div class="ratio-legend-item">
-            <span class="ratio-legend-dot" style="background:var(--amber)"></span>
-            <span class="ratio-legend-label">Interest</span>
-            <span class="ratio-legend-value" data-animate-value="110835" data-prefix="BDT " data-decimals="0">BDT 0</span>
+          <div class="simulator-head-actions">
+            <a class="button secondary mini-btn" href="simulation/">Full Simulation Lab ↗</a>
           </div>
-          <div class="ratio-legend-item">
-            <span class="ratio-legend-dot" style="background:var(--emerald)"></span>
-            <span class="ratio-legend-label">Total</span>
-            <span class="ratio-legend-value" data-animate-value="610835" data-prefix="BDT " data-decimals="0">BDT 0</span>
+        </div>
+
+        <div class="simulator-body">
+          <div class="simulator-controls">
+            <div class="sim-control-group">
+              <label class="sim-label" for="sim-principal-range">Loan Principal (BDT)</label>
+              <div class="sim-preset-chips" role="group" aria-label="Quick loan amount presets">
+                <button type="button" class="sim-chip" data-preset-amount="250000">BDT 250k</button>
+                <button type="button" class="sim-chip is-active" data-preset-amount="500000">BDT 500k</button>
+                <button type="button" class="sim-chip" data-preset-amount="1000000">BDT 10 Lac</button>
+                <button type="button" class="sim-chip" data-preset-amount="2500000">BDT 25 Lac</button>
+              </div>
+              <input type="range" id="sim-principal-range" class="sim-slider" min="100000" max="5000000" step="50000" value="500000" />
+            </div>
+
+            <div class="sim-dual-inputs">
+              <div class="sim-control-group">
+                <label class="sim-label" for="sim-rate-input">Annual Interest Rate (%)</label>
+                <input type="number" id="sim-rate-input" class="sim-input" min="1" max="30" step="0.25" value="13.5" />
+              </div>
+              <div class="sim-control-group">
+                <label class="sim-label" for="sim-tenure-select">Repayment Tenure</label>
+                <select id="sim-tenure-select" class="sim-select">
+                  <option value="12">12 Months (1 Year)</option>
+                  <option value="24">24 Months (2 Years)</option>
+                  <option value="36" selected>36 Months (3 Years)</option>
+                  <option value="60">60 Months (5 Years)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="simulator-outputs">
+            <div class="sim-kpi-grid">
+              <div class="sim-kpi-card sim-kpi-highlight">
+                <span class="sim-kpi-label">Monthly EMI</span>
+                <strong class="sim-kpi-val" id="sim-out-emi">BDT 16,968</strong>
+                <span class="sim-kpi-sub">Fixed monthly payment</span>
+              </div>
+              <div class="sim-kpi-card">
+                <span class="sim-kpi-label">Total Interest</span>
+                <strong class="sim-kpi-val sim-val-amber" id="sim-out-interest">BDT 110,835</strong>
+                <span class="sim-kpi-sub" id="sim-out-burden">18.1% of principal</span>
+              </div>
+              <div class="sim-kpi-card">
+                <span class="sim-kpi-label">Total Payable</span>
+                <strong class="sim-kpi-val" id="sim-out-total">BDT 610,835</strong>
+                <span class="sim-kpi-sub" id="sim-out-tenure-label">Over 36 monthly installments</span>
+              </div>
+            </div>
+
+            <div class="sim-ratio-wrap">
+              <div class="ratio-bar" role="img" aria-label="Principal and Interest repayment ratio">
+                <div class="ratio-bar-segment ratio-bar-principal" id="sim-bar-principal" style="width: 82%;"></div>
+                <div class="ratio-bar-segment ratio-bar-interest" id="sim-bar-interest" style="width: 18%;"></div>
+              </div>
+              <div class="sim-ratio-legend">
+                <div class="sim-legend-item">
+                  <span class="sim-legend-dot" style="background: var(--blue);"></span>
+                  <span class="sim-legend-text">Principal: <strong id="sim-legend-principal">BDT 500,000</strong> (<span id="sim-pct-principal">82%</span>)</span>
+                </div>
+                <div class="sim-legend-item">
+                  <span class="sim-legend-dot" style="background: var(--amber);"></span>
+                  <span class="sim-legend-text">Interest: <strong id="sim-legend-interest">BDT 110,835</strong> (<span id="sim-pct-interest">18%</span>)</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section shell">
+    <!-- ARCHITECTURAL BENTO GRID (TOP-TIER PRODUCT SHOWCASE) -->
+    <section class="section shell bento-architecture-section">
       <div class="section-head">
         <div>
-          <h2>Explore FinEngine Modules &amp; Docs</h2>
-          <p>Navigate directly to product overview, financial simulations, documentation, or research methodology.</p>
+          <span class="eyebrow eyebrow-blue">Modular Architecture</span>
+          <h2>Three Dedicated Packages. Zero External Dependencies.</h2>
+          <p>FinEngine decouples mathematical precision from UI rendering, giving fintech builders auditable primitives for browsers, Node.js, and edge runtimes.</p>
         </div>
       </div>
-      <div class="grid-3 page-map-grid">
-        <a class="info-panel link-panel" data-reveal href="product/" aria-label="Open Product page"><h3>Product</h3><p>Packages, examples, and the overall product framing.</p></a>
-        <a class="info-panel link-panel" data-reveal href="simulation/" aria-label="Open simulations page"><h3>Simulations</h3><p>Multiple clearly labeled calculators that reuse the same repayment engine.</p></a>
-        <a class="info-panel link-panel" data-reveal href="docs/" aria-label="Open documentation hub"><h3>Docs</h3><p>Package docs, examples gallery, and release notes.</p></a>
-        <a class="info-panel link-panel" data-reveal href="methodology/" aria-label="Open methodology page"><h3>Methodology</h3><p>Positioning, localization rationale, and roadmap logic.</p></a>
-        <a class="info-panel link-panel" data-reveal href="contact/" aria-label="Open contact page"><h3>Contact</h3><p>Implementation discussions, issue intake, and collaboration pathways.</p></a>
-        <a class="info-panel link-panel" data-reveal href="about/" aria-label="Open about page"><h3>About</h3><p>Institutional context, future direction, and project intent.</p></a>
+
+      <div class="bento-grid">
+        <!-- Bento Card 1: Math Engine (Large Card) -->
+        <article class="bento-card bento-card-large" data-reveal>
+          <div class="bento-card-badge">@finengine/math</div>
+          <h3>Deterministic Loan &amp; Amortization Math</h3>
+          <p>Equal Monthly Installments (EMI), reducing balance, flat interest, and compound schedules computed with pure mathematical determinism.</p>
+          <div class="bento-code-snippet">
+            <pre><code><span class="hero-keyword">import</span> { amortize } <span class="hero-keyword">from</span> <span class="hero-string">'@finengine/math'</span>;
+
+<span class="hero-keyword">const</span> plan = amortize({ principal: <span class="hero-number">500000</span>, annualRate: <span class="hero-number">13.5</span>, months: <span class="hero-number">36</span> });
+<span class="hero-comment">// plan.monthlyPayment → 16968 (Exact integer rounding)</span>
+<span class="hero-comment">// plan.schedule[0]    → { principal: 11343, interest: 5625, balance: 488657 }</span></code></pre>
+          </div>
+          <div class="bento-card-footer">
+            <a class="bento-link" href="docs/math/">Explore Math Engine APIs →</a>
+          </div>
+        </article>
+
+        <!-- Bento Card 2: IEEE-754 Precision (The Proof) -->
+        <article class="bento-card" data-reveal>
+          <div class="bento-card-badge bento-badge-success">Precision Guarantee</div>
+          <h3>Eliminates IEEE-754 Float Drift</h3>
+          <p>Standard JavaScript float math accumulates rounding errors that break ledger balance during iterative calculations.</p>
+          <div class="bento-comparison-box">
+            <div class="bento-compare-row bento-compare-wrong">
+              <span class="bento-compare-tag">Standard JS</span>
+              <code>0.1 + 0.2 === 0.30000000000000004</code>
+              <span class="bento-compare-status">❌ Drift</span>
+            </div>
+            <div class="bento-compare-row bento-compare-right">
+              <span class="bento-compare-tag">FinEngine</span>
+              <code>exactSum(0.1, 0.2) === 0.300000</code>
+              <span class="bento-compare-status">✅ Exact</span>
+            </div>
+          </div>
+          <div class="bento-card-footer">
+            <a class="bento-link" href="methodology/">Audit Methodology &amp; Proof →</a>
+          </div>
+        </article>
+
+        <!-- Bento Card 3: Core Primitives -->
+        <article class="bento-card" data-reveal>
+          <div class="bento-card-badge">@finengine/core</div>
+          <h3>BDT Currency &amp; Notation Primitives</h3>
+          <p>Built-in South Asian numbering (Lakh / Crore), BDT symbol conventions, and regulatory loan-fee deductions for microfinance and retail banking.</p>
+          <div class="bento-pill-preview">
+            <span class="bento-pill">5,00,000 (Lakh)</span>
+            <span class="bento-pill-arrow">⇄</span>
+            <span class="bento-pill">500,000 (ISO)</span>
+          </div>
+          <div class="bento-card-footer">
+            <a class="bento-link" href="docs/core/">Explore Core Primitives →</a>
+          </div>
+        </article>
+
+        <!-- Bento Card 4: UI Surfaces -->
+        <article class="bento-card" data-reveal>
+          <div class="bento-card-badge">@finengine/ui</div>
+          <h3>Enterprise-Ready Banking UI Primitives</h3>
+          <p>Production-ready repayment tables, borrower burden ratio meters, and schedule summary components for modern dashboards.</p>
+          <div class="bento-card-footer">
+            <a class="bento-link" href="docs/ui/">Explore UI Components →</a>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- DEVELOPER RESOURCES & METHODOLOGY HUB -->
     <section class="section shell">
-      <div class="grid-2 home-support-grid" data-reveal>
-        <article class="info-panel simulation-summary-card home-focus-card">
-          <div class="eyebrow eyebrow-blue">Simulation lab</div>
-          <h3>Dedicated Financial Simulation Workspace</h3>
-          <p>Run interactive scenario presets, compare repayment plans side by side, and export reports in a focused workspace.</p>
-          <div class="hero-actions hero-actions-tight">
-            <a class="button primary" href="simulation/">Open simulations</a>
-            <a class="button secondary" href="docs/math/">Math docs</a>
+      <div class="developer-hub-band" data-reveal>
+        <div class="dev-hub-copy">
+          <span class="eyebrow eyebrow-blue">Developer Ecosystem</span>
+          <h2>Built for Production Reliability</h2>
+          <p>Comprehensive documentation, live runnable examples, and research methodology archived with permanent academic DOIs.</p>
+          <div class="dev-hub-actions">
+            <a class="button primary" href="docs/">Read API Documentation</a>
+            <a class="button secondary" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
           </div>
-        </article>
-        <article class="brand-showcase-card brand-system-card home-focus-card">
-          <img class="brand-showcase-logo" src="logo-mark.png" alt="FinEngine logo" loading="lazy" decoding="async" />
-          <div>
-            <div class="eyebrow eyebrow-blue">Brand system</div>
-            <h2>Brand assets and institutional references</h2>
-            <p>Access the FinEngine logo kit, palette, and institutional reference links from one dedicated section.</p>
-          </div>
-          <div class="hero-actions hero-actions-tight brand-system-actions">
-            <a class="button secondary" href="brand/">View brand assets</a>
-            <a class="button primary" href="https://web.cfsbr.com/" target="_blank" rel="noopener noreferrer">Visit CFSBR ↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell">
-      <div class="get-started-band docs-band" data-reveal>
-        <div>
-          <div class="eyebrow eyebrow-blue">Docs surfaces</div>
-          <h2>Package docs stay one click away.</h2>
-          <p>Package documentation, examples, and release notes remain easy to reach from the main site.</p>
         </div>
-        <div class="docs-showcase-grid docs-showcase-grid-stack">
-          <a class="info-panel link-panel docs-showcase-card" href="docs/core/" aria-label="Open core documentation"><div class="eyebrow eyebrow-blue">Core docs</div><h3>Validation and money primitives</h3><p>Review the deterministic layer behind finance-safe inputs.</p></a>
-          <a class="info-panel link-panel docs-showcase-card" href="docs/math/" aria-label="Open math documentation"><div class="eyebrow eyebrow-blue">Math docs</div><h3>Repayment, amortization, and return engines</h3><p>See the formulas and examples behind the calculations.</p></a>
-          <a class="info-panel link-panel docs-showcase-card" href="docs/ui/" aria-label="Open UI documentation"><div class="eyebrow eyebrow-blue">UI docs</div><h3>Readable finance components</h3><p>Preview KPI, summary, and learning-card helpers for product surfaces.</p></a>
+        <div class="dev-hub-cards">
+          <a class="dev-hub-card" href="docs/math/">
+            <strong class="dev-hub-title">Math Engine Reference</strong>
+            <span class="dev-hub-desc">Formulas, parameters, and return types for loan amortization and compound growth.</span>
+          </a>
+          <a class="dev-hub-card" href="simulation/">
+            <strong class="dev-hub-title">Dedicated Simulation Lab</strong>
+            <span class="dev-hub-desc">Side-by-side repayment comparisons and financial report generation.</span>
+          </a>
+          <a class="dev-hub-card" href="methodology/">
+            <strong class="dev-hub-title">Research &amp; Methodology</strong>
+            <span class="dev-hub-desc">CERN Zenodo permanent archiving and Crossref DOI verification.</span>
+          </a>
         </div>
       </div>
     </section>

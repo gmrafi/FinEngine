@@ -14,6 +14,7 @@ import { initBlueprintSpotlight } from './modules/spotlight.js';
 import { initCopyButtons } from './modules/copy.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initHeroTabs } from './modules/hero-tabs.js';
+import { initHomeSimulator } from './modules/home-simulator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSharedLayout();
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminalPill();
   initTerminalMorph();
   initRatioBar();
+  initHomeSimulator();
   initBlueprintSpotlight();
   initCopyButtons();
   initCodeCopy();
