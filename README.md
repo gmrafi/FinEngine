@@ -40,12 +40,16 @@
 
 ---
 
+> [!NOTE]
+> **Project Status & Architectural Scope: Developer Preview (v0.x)**
+> FinEngine provides verified, deterministic financial primitives (integer sub-unit money arithmetic, actuarial reducing-balance loan amortization, international day-count conventions, and hybrid robust XIRR solvers). Higher-level machine learning and credit risk scoring modules (`finengine.ai`) are currently positioned as **Research Scaffolds & Baseline Heuristics** under the CFSBR Lab roadmap. FinEngine is an open-source library for developers and researchers, not a regulated credit rating agency or monolithic core banking replacement.
+
 ## Why FinEngine?
 
 Modern web and mobile financial applications increasingly offload real-time calculations to client-side runtimes. However, standard ECMAScript engines rely on IEEE-754 double-precision binary floating-point arithmetic (`binary64`), introducing representation drift in everyday decimal arithmetic:
 
 ```js
-0.1 + 0.2 === 0.30000000000000004 // Drift detected
+0.1 + 0.2 === 0.30000000000000004; // Drift detected
 ```
 
 In multi-period loan amortization schedules, interest compounding, and balance ledgers, this drift compounds non-linearly across time horizons, causing final closing balances to fail to liquidate cleanly to zero (`B_n !== 0.00`).
@@ -70,12 +74,12 @@ In multi-period loan amortization schedules, interest compounding, and balance l
 
 FinEngine is architected as an offline-capable monorepo dividing mathematical precision from presentation:
 
-| Package | Version | Registry | Purpose | Key Exports |
-| :--- | :---: | :---: | :--- | :--- |
-| [`@finengine/core`](packages/core/) | `0.3.0` | `npm` | Integer sub-unit arithmetic, BDT currency primitives, and double-entry ledger balance validators. | `createMoney`, `formatMoney`, `validateLedgerEntry`, `sumEntries` |
-| [`@finengine/math`](packages/math/) | `0.3.0` | `npm` | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers. | `amortize`, `monthlyPayment`, `xirr` |
-| [`@finengine/ui`](packages/ui/) | `0.3.0` | `npm` | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview` |
-| [`finengine`](https://github.com/gmrafi/FinEngine-Py) | `0.1.0` | `PyPI` | Python actuarial math, integer Poisha scaling, Pandas DataFrames, and alternative credit risk AI. | `amortize`, `to_dataframe`, `xirr`, `assess_credit_risk` |
+| Package                                               | Version | Registry | Purpose                                                                                                 | Key Exports                                                       |
+| :---------------------------------------------------- | :-----: | :------: | :------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------- |
+| [`@finengine/core`](packages/core/)                   | `0.3.0` |  `npm`   | Integer sub-unit arithmetic, BDT currency primitives, and double-entry ledger balance validators.       | `createMoney`, `formatMoney`, `validateLedgerEntry`, `sumEntries` |
+| [`@finengine/math`](packages/math/)                   | `0.3.0` |  `npm`   | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers.           | `amortize`, `monthlyPayment`, `xirr`                              |
+| [`@finengine/ui`](packages/ui/)                       | `0.3.0` |  `npm`   | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview`     |
+| [`finengine`](https://github.com/gmrafi/FinEngine-Py) | `0.1.0` |  `PyPI`  | Python actuarial math, integer Poisha scaling, Pandas DataFrames, and alternative credit risk AI.       | `amortize`, `to_dataframe`, `xirr`, `assess_credit_risk`          |
 
 ### Research Pipeline (CFSBR Lab)
 
@@ -145,11 +149,11 @@ You can import FinEngine directly into vanilla HTML applications without a bundl
 
 ```html
 <script type="module">
-  import { amortize } from 'https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js';
-  import { formatMoney } from 'https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/core/dist/index.js';
+  import { amortize } from "https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/math/dist/index.js";
+  import { formatMoney } from "https://cdn.jsdelivr.net/gh/gmrafi/FinEngine@main/packages/core/dist/index.js";
 
   const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 });
-  console.log(formatMoney(plan.monthlyPayment, 'BDT')); // "BDT 16,967.64"
+  console.log(formatMoney(plan.monthlyPayment, "BDT")); // "BDT 16,967.64"
 </script>
 ```
 
@@ -160,50 +164,50 @@ You can import FinEngine directly into vanilla HTML applications without a bundl
 ### 1. Eliminating Floating-Point Drift
 
 ```ts
-import { createMoney, formatMoney } from '@finengine/core';
+import { createMoney, formatMoney } from "@finengine/core";
 
 // Standard JS drift: 0.1 + 0.2 === 0.30000000000000004
-const itemA = createMoney(0.1, 'BDT');
-const itemB = createMoney(0.2, 'BDT');
+const itemA = createMoney(0.1, "BDT");
+const itemB = createMoney(0.2, "BDT");
 
-const total = createMoney(itemA.amount + itemB.amount, 'BDT');
+const total = createMoney(itemA.amount + itemB.amount, "BDT");
 console.log(total.amount); // 0.3
-console.log(formatMoney(total.amount, 'BDT')); // "BDT 0.30"
+console.log(formatMoney(total.amount, "BDT")); // "BDT 0.30"
 ```
 
 ### 2. Computing a Deterministic 36-Month Loan Amortization
 
 ```ts
-import { amortize, monthlyPayment } from '@finengine/math';
-import { formatMoney } from '@finengine/core';
+import { amortize, monthlyPayment } from "@finengine/math";
+import { formatMoney } from "@finengine/core";
 
 const principal = 500000; // BDT 5,00,000 (5 Lakh)
-const annualRate = 13.5;  // 13.5% per annum
-const months = 36;        // 3-year tenure
+const annualRate = 13.5; // 13.5% per annum
+const months = 36; // 3-year tenure
 
 const plan = amortize({ principal, annualRate, months });
 
-console.log('Monthly EMI:', formatMoney(plan.monthlyPayment, 'BDT'));
+console.log("Monthly EMI:", formatMoney(plan.monthlyPayment, "BDT"));
 // → "Monthly EMI: BDT 16,967.64"
 
-console.log('Total Interest:', formatMoney(plan.totalInterest, 'BDT'));
+console.log("Total Interest:", formatMoney(plan.totalInterest, "BDT"));
 // → "Total Interest: BDT 110,835.20"
 
-console.log('Final Month Balance:', plan.schedule[35].remainingBalance);
+console.log("Final Month Balance:", plan.schedule[35].remainingBalance);
 // → 0 (Guaranteed zero closure via Terminal Reconciliation Rule)
 ```
 
 ### 3. Double-Entry Ledger Validation
 
 ```ts
-import { validateLedgerEntry } from '@finengine/core';
+import { validateLedgerEntry } from "@finengine/core";
 
 const entry = {
-  reference: 'TX-2026-0042',
-  currency: 'BDT',
+  reference: "TX-2026-0042",
+  currency: "BDT",
   lines: [
-    { account: '1010-CASH', side: 'debit', amount: 50000 },
-    { account: '2010-LOAN-DISBURSEMENT', side: 'credit', amount: 50000 },
+    { account: "1010-CASH", side: "debit", amount: 50000 },
+    { account: "2010-LOAN-DISBURSEMENT", side: "credit", amount: 50000 },
   ],
 };
 
@@ -215,17 +219,26 @@ console.log(audit.errors); // []
 ### 4. UI Dashboard Primitives & Borrower Burden
 
 ```ts
-import { amortize } from '@finengine/math';
-import { makeMoneyKpi, makeRepaymentSummary } from '@finengine/ui';
+import { amortize } from "@finengine/math";
+import { makeMoneyKpi, makeRepaymentSummary } from "@finengine/ui";
 
 const plan = amortize({ principal: 500000, annualRate: 13.5, months: 36 });
 const borrowerIncome = 85000; // Monthly income in BDT
 
-const emiKpi = makeMoneyKpi('Monthly EMI', plan.monthlyPayment, 'SME working capital');
-const summary = makeRepaymentSummary('SME working capital', plan, borrowerIncome, 1.5);
+const emiKpi = makeMoneyKpi(
+  "Monthly EMI",
+  plan.monthlyPayment,
+  "SME working capital",
+);
+const summary = makeRepaymentSummary(
+  "SME working capital",
+  plan,
+  borrowerIncome,
+  1.5,
+);
 
 console.log(summary.burdenLabel); // "Healthy burden · 20% of income"
-console.log(summary.burdenTone);  // "healthy"
+console.log(summary.burdenTone); // "healthy"
 ```
 
 ---
@@ -284,7 +297,7 @@ FinEngine is published as an open computational methodology standard by the **Ce
 
 ### APA 7th Edition
 
-> Rafi, M. G. M. (2026). *FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces* (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
+> Rafi, M. G. M. (2026). _FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces_ (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1
 
 ### BibTeX (Working Paper)
 
