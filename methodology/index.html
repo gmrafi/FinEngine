@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Methodology  -  FinEngine Technical Paper | FinEngine</title>
+  <title>Methodology: FinEngine Technical Working Paper | CFSBR-FE-2026-001</title>
   <meta name="description" content="Deterministic computational framework for client-side financial interfaces: IEEE-754 drift mitigation, integer-scaled BDT arithmetic, amortization, XIRR, and DBR validation." />
   <link rel="canonical" href="https://finengine.js.org/methodology/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Methodology  -  FinEngine Technical Paper | FinEngine" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces" />
   <meta property="og:description" content="Deterministic computational framework for client-side financial interfaces: IEEE-754 drift mitigation, integer-scaled BDT arithmetic, amortization, XIRR, and DBR validation." />
   <meta property="og:url" content="https://finengine.js.org/methodology/" />
-  <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
+  <meta property="og:image" content="https://finengine.js.org/brand-assets/finengine-canonical-mark.svg" />
   <meta property="og:site_name" content="FinEngine" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Methodology  -  FinEngine Technical Paper | FinEngine" />
+  <meta name="twitter:title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces" />
   <meta name="twitter:description" content="Deterministic computational framework for client-side financial interfaces: IEEE-754 drift mitigation, integer-scaled BDT arithmetic, amortization, XIRR, and DBR validation." />
-  <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
+  <meta name="twitter:image" content="https://finengine.js.org/brand-assets/finengine-canonical-mark.svg" />
   <meta name="theme-color" content="#0B0F19" />
   <script>
     (() => {
@@ -30,564 +30,31 @@
       if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F8FBFF' : '#0B0F19');
     })();
   </script>
-  <link rel="icon" type="image/png" href="../logo-mark.png" />
+  <link rel="icon" type="image/svg+xml" href="../brand-assets/finengine-canonical-mark.svg" />
   <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
   <link rel="stylesheet" href="../styles.css" />
 
-  <style>
-    .mh-card {
-      --mh-text: #18181b;
-      --mh-muted: #475569;
-      --mh-strong: #0f172a;
-      --mh-accent: #1d4ed8;
-      --mh-line: #dbe4f0;
-      --mh-code: #111827;
-      --mh-code-bg: #f1f5f9;
-      --mh-panel: #ffffff;
-      --mh-panel-soft: #f8fafc;
-      --mh-border: #dbe4f0;
-      border: 1px solid var(--mh-border);
-      padding: 32px;
-      border-radius: 16px;
-      margin-bottom: 28px;
-      background: var(--mh-panel);
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-      color: var(--mh-text);
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    html[data-theme='dark'] .mh-card {
-      --mh-text: #e5e7eb;
-      --mh-muted: #cbd5e1;
-      --mh-strong: #f8fafc;
-      --mh-accent: #60a5fa;
-      --mh-line: #334155;
-      --mh-code: #e5e7eb;
-      --mh-code-bg: #1e293b;
-      --mh-panel: #111827;
-      --mh-panel-soft: #0f1720;
-      --mh-border: #334155;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24);
-    }
-
-    .mh-hero {
-      border-left: 5px solid var(--mh-accent);
-      padding: 36px 40px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-    }
-
-    html[data-theme='dark'] .mh-hero {
-      border-left-color: var(--mh-accent);
-      background: linear-gradient(180deg, #111827 0%, #0f1720 100%);
-    }
-
-    .mh-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--mh-accent);
-      margin-bottom: 16px;
-      padding: 6px 12px;
-      background: color-mix(in srgb, var(--mh-accent) 8%, white 92%);
-      border: 1px solid color-mix(in srgb, var(--mh-accent) 24%, white 76%);
-      border-radius: 999px;
-    }
-
-    html[data-theme='dark'] .mh-tag {
-      background: color-mix(in srgb, var(--mh-accent) 13%, #111827 87%);
-      border-color: color-mix(in srgb, var(--mh-accent) 35%, #111827 65%);
-    }
-
-    .mh-tag::before {
-      content: '◆';
-      font-size: 7px;
-      color: var(--mh-accent);
-    }
-
-    .mh-title {
-      max-width: 22ch;
-      margin: 0 0 20px;
-      color: var(--mh-strong);
-      font-size: clamp(1.8rem, 4vw, 2.45rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      text-wrap: balance;
-    }
-
-    .mh-meta {
-      color: var(--mh-muted);
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .mh-meta strong {
-      color: var(--mh-strong);
-      font-weight: 700;
-    }
-
-    .mh-meta a {
-      color: var(--mh-accent);
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--mh-accent) 28%, transparent);
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .mh-meta a:hover {
-      color: var(--mh-strong);
-      border-bottom-color: var(--mh-strong);
-    }
-
-    .mh-meta code,
-    .mh-card code,
-    .mh-section code,
-    .citation-box code {
-      color: var(--mh-code);
-      background: var(--mh-code-bg);
-      border: 1px solid var(--mh-line);
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
-      font-size: 12px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-      word-break: break-word;
-    }
-
-    .mh-abstract {
-      margin-top: 18px;
-      padding-top: 18px;
-      color: var(--mh-text);
-      border-top: 1px solid var(--mh-line);
-      font-size: 15.5px;
-      line-height: 1.85;
-    }
-
-    .mh-abstract strong {
-      color: var(--mh-strong);
-    }
-
-    .mh-card[style*='padding: 24px'] {
-      padding: 24px 28px !important;
-    }
-
-    .mh-section {
-      color: var(--mh-text);
-      margin-bottom: 0;
-    }
-
-    .doc-card.mh-section {
-      padding: 30px 34px;
-      margin-bottom: 20px;
-      background: var(--mh-panel);
-      border: 1px solid var(--mh-border);
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0 8px 32px rgba(0, 0 0.06);
-    }
-
-    .mh-section h2 {
-      margin: 0 0 20px;
-      padding-bottom: 10px;
-      color: var(--mh-strong);
-      border-bottom: 2px solid var(--mh-line);
-      font-size: 24px;
-      font-weight: 750;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
-
-    .mh-section h3 {
-      margin: 28px 0 12px;
-      padding-bottom: 7px;
-      color: var(--mh-strong);
-      border-bottom: 1px solid var(--mh-line);
-      font-size: 17.5px;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .mh-section p {
-      margin: 10px 0;
-      color: var(--mh-text);
-      font-size: 15.5px;
-      line-height: 1.85;
-    }
-
-    .mh-section a {
-      color: var(--mh-accent);
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--mh-accent) 32%, transparent);
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .mh-section a:hover {
-      color: var(--mh-strong);
-      border-bottom-color: var(--mh-strong);
-    }
-
-    .mh-section a[href^='http']::after {
-      content: ' ↗';
-      margin-left: 2px;
-      font-size: 0.82em;
-      opacity: 0.55;
-    }
-
-    .mh-section ul,
-    .mh-section ol {
-      margin: 10px 0;
-      padding-left: 24px;
-    }
-
-    .mh-section li {
-      margin: 8px 0;
-      color: var(--mh-text);
-      font-size: 15.5px;
-      line-height: 1.75;
-    }
-
-    .mh-section strong {
-      color: var(--mh-strong);
-      font-weight: 700;
-    }
-
-    .mh-table {
-      width: 100%;
-      margin: 16px 0;
-      border-collapse: collapse;
-      border: 1px solid var(--mh-line);
-      border-radius: 10px;
-      overflow: hidden;
-      font-size: 14px;
-    }
-
-    .mh-table th {
-      padding: 10px 14px;
-      color: var(--mh-strong);
-      background: var(--mh-panel-soft);
-      border-bottom: 2px solid var(--mh-accent);
-      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-align: left;
-      text-transform: uppercase;
-    }
-
-    .mh-table td {
-      padding: 10px 14px;
-      color: var(--mh-text);
-      border-bottom: 1px solid var(--mh-line);
-    }
-
-    .mh-table tr:nth-child(even) td {
-      background: var(--mh-panel-soft);
-    }
-
-    .mh-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .eq-block {
-      margin: 16px 0;
-      padding: 18px 22px;
-      color: var(--mh-code);
-      background: var(--mh-panel-soft);
-      border: 1px solid var(--mh-line);
-      border-left: 4px solid var(--mh-accent);
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 13.5px;
-      line-height: 1.8;
-      overflow-x: auto;
-    }
-
-    .eq-block code {
-      padding: 0;
-      color: inherit;
-      background: transparent;
-      border: 0;
-      font-size: inherit;
-      line-height: inherit;
-    }
-
-    .diag-block {
-      margin: 18px 0;
-      padding: 20px 22px;
-      color: var(--mh-text);
-      background: var(--mh-panel-soft);
-      border: 1px solid var(--mh-line);
-      border-left: 4px solid var(--mh-accent);
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 12.5px;
-      line-height: 1.5;
-      overflow-x: auto;
-    }
-
-    .diag-block .flow {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .diag-block .flow-box {
-      width: 85%;
-      padding: 8px 14px;
-      color: var(--mh-code);
-      background: var(--mh-panel);
-      border: 1px solid var(--mh-line);
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
-      font-size: 12px;
-      line-height: 1.45;
-      text-align: center;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .diag-block .flow-box:hover {
-      box-shadow: 0 4px 12px rgba(15, 0.08);
-    }
-
-    .diag-block .flow-box small {
-      display: block;
-      margin-top: 2px;
-      color: var(--mh-muted);
-      font-size: 11px;
-    }
-
-    .diag-block .flow-arrow {
-      margin: 1px 0;
-      color: var(--mh-accent);
-      font-size: 14px;
-      line-height: 1;
-    }
-
-    .diag-block .flow-row {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .diag-block .flow-row .flow-box {
-      flex: 1;
-    }
-
-    .citation-box {
-      margin: 16px 0;
-      padding: 24px 28px;
-      color: var(--mh-text);
-      background: var(--mh-panel);
-      border: 1px solid var(--mh-line);
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
-    }
-
-    .citation-box h2 {
-      margin: 0 0 6px;
-      color: var(--mh-strong);
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .citation-box h3 {
-      margin: 16px 0 8px;
-      color: var(--mh-accent);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .citation-text {
-      margin: 8px 0 16px;
-      padding: 14px 18px;
-      color: var(--mh-text);
-      background: var(--mh-panel-soft);
-      border: 1px solid var(--mh-line);
-      border-radius: 8px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .bibtex-block {
-      margin: 12px 0 20px;
-      padding: 18px 22px;
-      color: var(--mh-code);
-      background: var(--mh-panel-soft);
-      border: 1px solid var(--mh-line);
-      border-left: 4px solid var(--mh-accent);
-      border-radius: 8px;
-      font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 12.5px;
-      line-height: 1.7;
-      overflow-x: auto;
-    }
-
-    .mh-section .section-divider {
-      height: 1px;
-      margin: 32px 0;
-      background: var(--mh-line);
-      border: 0;
-    }
-
-    .mh-card a.mini-btn {
-      display: inline-block;
-      padding: 8px 14px;
-      color: var(--mh-strong);
-      background: var(--mh-panel);
-      border: 1px solid var(--mh-line);
-      border-radius: 8px;
-      font-size: 13px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .mh-card a.mini-btn:hover {
-      color: var(--mh-accent);
-      background: color-mix(in srgb, var(--mh-accent) 6%, white 94%);
-      border-color: var(--mh-accent);
-    }
-
-    html[data-theme='dark'] .mh-card a.mini-btn:hover {
-      background: color-mix(in srgb, var(--mh-accent) 12%, #111827 88%);
-    }
-
-    .eyebrow {
-      margin-bottom: 10px;
-      color: var(--mh-accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .toc-link:hover {
-      color: var(--mh-strong) !important;
-      border-bottom-color: var(--mh-accent) !important;
-    }
-
-    html {
-      scroll-padding-top: 80px;
-    }
-
-    @media (max-width: 768px) {
-      .mh-card,
-      .mh-hero {
-        padding: 20px;
-      }
-
-      .mh-title {
-        font-size: 1.65rem;
-      }
-
-      .mh-section h2 {
-        font-size: 20px;
-      }
-
-      .mh-section h3 {
-        font-size: 16px;
-      }
-
-      .mh-section p,
-      .mh-section li {
-        font-size: 14.5px;
-      }
-
-      .eq-block,
-      .bibtex-block,
-      .diag-block {
-        padding: 14px 16px;
-        font-size: 11px;
-      }
-
-      .mh-table th,
-      .mh-table td {
-        padding: 8px 10px;
-        font-size: 13px;
-      }
-
-      .diag-block .flow-row {
-        flex-direction: column;
-      }
-    }
-
-    @media print {
-      .mh-card[aria-label='Table of Contents'],
-      nav {
-        display: none !important;
-      }
-
-      .mh-card,
-      .doc-card,
-      .citation-box {
-        break-inside: avoid;
-        box-shadow: none;
-        background: #fff;
-        border: 1px solid #ccc;
-      }
-
-      .eq-block,
-      .bibtex-block,
-      .diag-block {
-        color: #000;
-        background: #f5f5f5;
-        border: 1px solid #ddd;
-        box-shadow: none;
-      }
-
-      .mh-table {
-        border: 1px solid #ccc;
-      }
-
-      .mh-table th {
-        color: #000;
-        background: #eee;
-      }
-
-      a {
-        color: #000;
-        border-bottom-color: #999;
-      }
-    }
-  </style>
-
-
-  <!-- Academic Indexer and Crossref Metadata -->
-  <meta name="citation_title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces">
-  <meta name="citation_author" content="Rafi, Md Golam Mubasshir">
-  <meta name="citation_publication_date" content="2026/09/15">
-  <meta name="citation_technical_report_institution" content="Centre for Fintech and Strategic Business Research">
-  <meta name="citation_technical_report_number" content="CFSBR-FE-2026-001">
-  <meta name="citation_doi" content="10.67226/cfsbr.fe.2026.001.v1">
-  <meta name="dc.identifier" content="doi:10.67226/cfsbr.fe.2026.001.v1">
-  <meta name="dc.relation.ispartof" content="CFSBR Technical Working Paper Series">
-  <meta name="dc.rights" content="https://creativecommons.org/licenses/by/4.0/">
-  <meta name="dc.description" content="Integer-scaled monetary arithmetic, BDT Poisha primitives, reducing-balance amortization, XIRR solver, DBR validation, zero-knowledge client-side architecture.">
-  <meta name="dc.subject" content="Floating-point arithmetic, IEEE-754, deterministic computation, financial technology, client-side computing">
-  <meta name="dc.type" content="Text; Technical Report">
-  <meta name="dcterms.created" content="2026-09-15">
-  <meta name="dcterms.issued" content="2026-09-15">
-  <meta name="citation_conference" content="CFSBR Computational Methodology Standards">
-  <meta name="citation_pdf_url" content="https://finengine.js.org/methodology/">
-  <meta name="citation_abstract" content="FinEngine implements deterministic integer-scaled monetary arithmetic with native BDT Poisha primitives and zero-knowledge client-side algorithms for amortization, XIRR solvers, and DBR stress testing.">
-  <meta name="og:locale" content="en_US">
-  <meta name="article:published_time" content="2026-09-15">
-  <meta name="article:modified_time" content="2026-09-15">
-  <meta name="article:tag" content="deterministic computation">
-  <meta name="article:tag" content="IEEE-754">
-  <meta name="article:tag" content="financial technology">
-  <meta name="article:tag" content="Bangladeshi Taka">
-  <meta name="article:tag" content="BDT">
+  <!-- Academic Indexer, Crossref and Dublin Core Metadata -->
+  <meta name="citation_title" content="FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces" />
+  <meta name="citation_author" content="Rafi, Md Golam Mubasshir" />
+  <meta name="citation_publication_date" content="2026/09/15" />
+  <meta name="citation_technical_report_institution" content="Centre for Fintech and Strategic Business Research" />
+  <meta name="citation_technical_report_number" content="CFSBR-FE-2026-001" />
+  <meta name="citation_doi" content="10.67226/cfsbr.fe.2026.001.v1" />
+  <meta name="dc.identifier" content="doi:10.67226/cfsbr.fe.2026.001.v1" />
+  <meta name="dc.relation.ispartof" content="CFSBR Technical Working Paper Series" />
+  <meta name="dc.rights" content="https://creativecommons.org/licenses/by/4.0/" />
+  <meta name="dc.description" content="Integer-scaled monetary arithmetic, BDT Poisha primitives, reducing-balance amortization, XIRR solver, DBR validation, zero-knowledge client-side architecture." />
+  <meta name="dc.subject" content="Floating-point arithmetic, IEEE-754, deterministic computation, financial technology, client-side computing" />
+  <meta name="dc.type" content="Text; Technical Report" />
+  <meta name="dcterms.created" content="2026-09-15" />
+  <meta name="dcterms.issued" content="2026-09-15" />
+  <meta name="citation_conference" content="CFSBR Computational Methodology Standards" />
+  <meta name="citation_pdf_url" content="https://finengine.js.org/methodology/" />
+  <meta name="citation_abstract" content="FinEngine implements deterministic integer-scaled monetary arithmetic with native BDT Poisha primitives and zero-knowledge client-side algorithms for amortization, XIRR solvers, and DBR stress testing." />
+  <meta name="og:locale" content="en_US" />
+  <meta name="article:published_time" content="2026-09-15" />
+  <meta name="article:modified_time" content="2026-09-15" />
 
   <script type="application/ld+json">
   {
@@ -620,106 +87,854 @@
     "inLanguage": "en"
   }
   </script>
+
+  <style>
+    /* ==========================================================================
+       ACADEMIC WORKING PAPER STYLING (NATURE / IEEE / CERN WORKING PAPER STANDARD)
+       ========================================================================== */
+    .academic-paper-shell {
+      max-width: 940px;
+      margin: 36px auto 80px;
+      padding: 0 20px;
+      color: var(--mh-text, #1e293b);
+      line-height: 1.8;
+    }
+
+    :root {
+      --mh-paper-bg: #ffffff;
+      --mh-text: #1e293b;
+      --mh-heading: #0f172a;
+      --mh-muted: #64748b;
+      --mh-accent: #2273C3;
+      --mh-accent-green: #1F7A5C;
+      --mh-border: #cbd5e1;
+      --mh-border-soft: #e2e8f0;
+      --mh-panel: #ffffff;
+      --mh-panel-soft: #f8fafc;
+      --mh-code-bg: #0f172a;
+      --mh-code-text: #e2e8f0;
+      --mh-callout-bg: #f8fafc;
+    }
+
+    html[data-theme='dark'] {
+      --mh-paper-bg: #0d1117;
+      --mh-text: #cbd5e1;
+      --mh-heading: #f8fafc;
+      --mh-muted: #94a3b8;
+      --mh-accent: #60a5fa;
+      --mh-accent-green: #34d399;
+      --mh-border: #334155;
+      --mh-border-soft: #1e293b;
+      --mh-panel: #111827;
+      --mh-panel-soft: #0b0f19;
+      --mh-code-bg: #0b0e14;
+      --mh-code-text: #f1f5f9;
+      --mh-callout-bg: #111827;
+    }
+
+    /* Masthead Header */
+    .paper-masthead {
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-radius: 14px;
+      padding: 36px 40px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .paper-series-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mh-accent);
+      padding: 4px 10px;
+      background: rgba(34, 115, 195, 0.08);
+      border: 1px solid rgba(34, 115, 195, 0.22);
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    .paper-title {
+      font-size: clamp(1.85rem, 3.4vw, 2.5rem);
+      font-weight: 850;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      color: var(--mh-heading);
+      margin: 0 0 20px;
+      text-wrap: balance;
+    }
+
+    .paper-authors-box {
+      border-top: 1px solid var(--mh-border-soft);
+      border-bottom: 1px solid var(--mh-border-soft);
+      padding: 16px 0;
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .author-primary {
+      font-size: 1.02rem;
+      font-weight: 750;
+      color: var(--mh-heading);
+    }
+
+    .author-primary sup {
+      color: var(--mh-accent);
+      font-weight: 800;
+    }
+
+    .author-affiliation {
+      font-size: 0.88rem;
+      color: var(--mh-muted);
+      margin-top: 2px;
+    }
+
+    .paper-date-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--mh-muted);
+      text-align: right;
+    }
+
+    /* Crossref & Archival Registry Grid */
+    .archival-registry-box {
+      background: var(--mh-panel-soft);
+      border: 1px solid var(--mh-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 24px 0 20px;
+    }
+
+    .registry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .registry-title {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mh-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .registry-status-pill {
+      font-size: 0.72rem;
+      font-weight: 750;
+      color: var(--mh-accent-green);
+      background: rgba(31, 122, 92, 0.1);
+      border: 1px solid rgba(31, 122, 92, 0.25);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .registry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      font-size: 0.84rem;
+    }
+
+    .registry-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--mh-panel);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--mh-border-soft);
+    }
+
+    .registry-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--mh-muted);
+    }
+
+    .registry-val {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--mh-heading);
+      word-break: break-all;
+    }
+
+    .registry-val a {
+      color: var(--mh-accent);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed var(--mh-accent);
+    }
+
+    .registry-val a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* Masthead Action Toolbar */
+    .masthead-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .academic-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--mh-heading);
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .academic-btn:hover {
+      background: var(--mh-panel-soft);
+      border-color: var(--mh-accent);
+      color: var(--mh-accent);
+    }
+
+    .academic-btn.btn-primary {
+      background: var(--mh-accent);
+      color: #ffffff;
+      border-color: var(--mh-accent);
+    }
+
+    .academic-btn.btn-primary:hover {
+      background: #1b5ea3;
+    }
+
+    /* Abstract Block */
+    .paper-abstract-card {
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-left: 4px solid var(--mh-accent);
+      border-radius: 12px;
+      padding: 24px 30px;
+      margin-bottom: 28px;
+    }
+
+    .abstract-label {
+      font-size: 0.82rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mh-heading);
+      margin-bottom: 10px;
+    }
+
+    .abstract-text {
+      font-size: 0.96rem;
+      line-height: 1.82;
+      color: var(--mh-text);
+      margin: 0 0 16px;
+    }
+
+    .abstract-keywords {
+      font-size: 0.84rem;
+      color: var(--mh-muted);
+      border-top: 1px solid var(--mh-border-soft);
+      padding-top: 12px;
+    }
+
+    .abstract-keywords strong {
+      color: var(--mh-heading);
+    }
+
+    /* Table of Contents Roadmap */
+    .paper-toc-card {
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .toc-title {
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mh-muted);
+      margin-bottom: 12px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 16px;
+    }
+
+    .toc-item {
+      font-size: 0.88rem;
+    }
+
+    .toc-item a {
+      color: var(--mh-text);
+      text-decoration: none;
+      display: inline-block;
+      padding: 3px 0;
+      transition: color 0.15s ease;
+    }
+
+    .toc-item a:hover {
+      color: var(--mh-accent);
+    }
+
+    .toc-sec-num {
+      color: var(--mh-accent);
+      font-weight: 750;
+      margin-right: 4px;
+    }
+
+    /* Paper Section Cards */
+    .paper-section-card {
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-radius: 14px;
+      padding: 34px 38px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .section-eyebrow {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mh-accent);
+      margin-bottom: 6px;
+    }
+
+    .paper-section-card h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      color: var(--mh-heading);
+      margin: 0 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--mh-border-soft);
+    }
+
+    .paper-section-card h3 {
+      font-size: 1.15rem;
+      font-weight: 750;
+      line-height: 1.35;
+      color: var(--mh-heading);
+      margin: 26px 0 10px;
+    }
+
+    .paper-section-card p {
+      font-size: 0.96rem;
+      line-height: 1.82;
+      margin: 12px 0;
+      color: var(--mh-text);
+    }
+
+    .paper-section-card ul,
+    .paper-section-card ol {
+      margin: 12px 0;
+      padding-left: 22px;
+      font-size: 0.95rem;
+    }
+
+    .paper-section-card li {
+      margin: 6px 0;
+    }
+
+    .paper-section-card code {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      background: var(--mh-panel-soft);
+      border: 1px solid var(--mh-border-soft);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--mh-heading);
+    }
+
+    /* Numbered Mathematical Display Equations */
+    .math-eq-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--mh-panel-soft);
+      border: 1px solid var(--mh-border);
+      border-left: 3px solid var(--mh-accent);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+
+    .math-eq-content {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      color: var(--mh-heading);
+      line-height: 1.7;
+    }
+
+    .math-eq-num {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--mh-muted);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    /* Formal Academic Box Callouts (Definition, Lemma, Theorem) */
+    .academic-callout {
+      border: 1px solid var(--mh-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: var(--mh-callout-bg);
+    }
+
+    .academic-callout-def {
+      border-left: 4px solid var(--mh-accent);
+    }
+
+    .academic-callout-thm {
+      border-left: 4px solid var(--mh-accent-green);
+    }
+
+    .callout-header {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .academic-callout-def .callout-header { color: var(--mh-accent); }
+    .academic-callout-thm .callout-header { color: var(--mh-accent-green); }
+
+    /* Academic Booktabs Tables */
+    .academic-table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid var(--mh-border);
+      border-radius: 8px;
+    }
+
+    .academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .academic-table th {
+      background: var(--mh-panel-soft);
+      color: var(--mh-heading);
+      font-weight: 750;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--mh-border);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .academic-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--mh-border-soft);
+      color: var(--mh-text);
+    }
+
+    .academic-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .academic-table tr:nth-child(even) td {
+      background: var(--mh-panel-soft);
+    }
+
+    /* Diagram Blocks */
+    .academic-diagram-box {
+      background: var(--mh-panel-soft);
+      border: 1px solid var(--mh-border);
+      border-radius: 10px;
+      padding: 22px;
+      margin: 22px 0;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--mh-muted);
+      font-style: italic;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .diagram-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .diagram-node {
+      width: 82%;
+      max-width: 580px;
+      padding: 9px 16px;
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--mh-heading);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .diagram-node small {
+      display: block;
+      color: var(--mh-muted);
+      font-weight: 400;
+      font-size: 0.76rem;
+      margin-top: 2px;
+    }
+
+    .diagram-arrow {
+      color: var(--mh-accent);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .diagram-row {
+      display: flex;
+      gap: 12px;
+      width: 82%;
+      max-width: 580px;
+    }
+
+    .diagram-row .diagram-node {
+      flex: 1;
+      width: auto;
+    }
+
+    /* Citation Box */
+    .paper-citation-card {
+      background: var(--mh-panel);
+      border: 1px solid var(--mh-border);
+      border-radius: 14px;
+      padding: 34px 38px;
+      margin-top: 36px;
+    }
+
+    .citation-format-title {
+      font-size: 0.88rem;
+      font-weight: 750;
+      color: var(--mh-heading);
+      margin: 18px 0 8px;
+    }
+
+    .citation-apa-box {
+      background: var(--mh-panel-soft);
+      border: 1px solid var(--mh-border-soft);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--mh-text);
+      margin-bottom: 16px;
+    }
+
+    .citation-pre-wrap {
+      position: relative;
+      margin: 10px 0 20px;
+    }
+
+    .citation-pre {
+      background: var(--mh-code-bg);
+      color: var(--mh-code-text);
+      border: 1px solid var(--mh-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    /* Print Stylesheet for Formal Reprints */
+    @media print {
+      body { background: #ffffff !important; color: #000000 !important; }
+      .academic-paper-shell { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+      .masthead-actions, .paper-toc-card, nav, [data-site-header], [data-site-footer] { display: none !important; }
+      .paper-masthead, .paper-section-card, .paper-abstract-card, .paper-citation-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 12px 0 !important;
+        break-inside: avoid;
+      }
+      .math-eq-row { border: 1px solid #ccc !important; background: #fafafa !important; }
+    }
+
+    @media (max-width: 768px) {
+      .paper-masthead, .paper-section-card, .paper-abstract-card, .paper-citation-card {
+        padding: 22px 18px;
+      }
+      .paper-title {
+        font-size: 1.55rem;
+      }
+      .diagram-node, .diagram-row {
+        width: 100%;
+      }
+      .diagram-row {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body data-page="methodology" data-root-path="../">
   <div data-site-header></div>
 
-  <main class="doc-shell page-shell">
+  <main class="academic-paper-shell">
 
-    <div class="mh-card" style="border-left: 4px solid #1d4ed8; background: linear-gradient(180deg, #fff 0%, #fafafa 100%);">
-      <div class="mh-tag">CFSBR Technical Working Paper &middot; Computational Methodology Standard</div>
-      <h1 class="mh-title">FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</h1>
-      <div class="mh-meta">
-        <strong>Document Identifier:</strong> CFSBR-FE-2026-001<br />
-        <strong>Lead Author and Systems Architect:</strong> Md Golam Mubasshir Rafi<br />
-        <strong>Institutional Affiliation:</strong> Centre for Fintech and Strategic Business Research (CFSBR)<br />
-        <strong>Publication Date:</strong> September 15, 2026 &middot; <strong>Monorepo Version:</strong> v0.3.0<br />
-        <strong>Methodology DOI:</strong> <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener">https://doi.org/10.67226/cfsbr.fe.2026.001.v1</a><br />
-        <strong>Software Version DOI (Zenodo):</strong> <a href="https://doi.org/10.5281/zenodo.22769502" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.22769502</a><br />
-        <strong>Software Concept DOI (All Versions):</strong> <a href="https://doi.org/10.5281/zenodo.22769501" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.22769501</a><br />
-        <strong>Software Heritage Archive:</strong> <code>swh:1:dir:4da6366919f478fd431b2f9ce1d342620cc8834f</code><br />
-        <strong>Source Repository:</strong> <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener">https://github.com/gmrafi/FinEngine</a> (MIT License)<br />
-        <strong>Licensing and Distribution:</strong> MIT Open-Source License
+    <!-- Formal Academic Masthead -->
+    <header class="paper-masthead">
+      <div class="paper-series-tag">CFSBR Technical Working Paper Series · Computational Methodology Standard</div>
+      
+      <h1 class="paper-title">FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</h1>
+
+      <div class="paper-authors-box">
+        <div>
+          <div class="author-primary">Md Golam Mubasshir Rafi<sup>1</sup></div>
+          <div class="author-affiliation"><sup>1</sup> Centre for Fintech and Strategic Business Research (CFSBR) · Lead Author &amp; Systems Architect</div>
+        </div>
+        <div class="paper-date-badge">
+          <div><strong>Document:</strong> CFSBR-FE-2026-001</div>
+          <div><strong>Published:</strong> September 15, 2026 · v0.3.0</div>
+        </div>
       </div>
-      <div class="mh-abstract">
-        <strong>Abstract:</strong> Modern financial technology interfaces increasingly offload real-time computational workloads to client-side runtimes. However, execution environments built on standard ECMAScript engines rely on IEEE-754 double-precision floating-point arithmetic, which introduces non-deterministic representation drift in fractional calculations. In statutory accounting, compounding debt repayment models, and high-frequency digital ledgers, this drift compounds non-linearly across time horizons, violating basic audit trail reconciliation standards.<br /><br />This paper specifies the computational architecture of <strong>FinEngine</strong>, an open-source, non-commercial deterministic mathematical library developed under the Centre for Fintech and Strategic Business Research (CFSBR). FinEngine implements an integer-scaled monetary sub-unit arithmetic model, formalizes localized currency primitives for emerging markets&mdash;specifically the Bangladeshi Taka (BDT) and its atomic sub-unit (Poisha)&mdash;and introduces zero-knowledge, 100% client-side calculation pipelines for loan amortization schedules, internal rate of return (XIRR) solvers, and debt-burden stress testing.
+
+      <!-- Verified Crossref, CERN Zenodo, and Software Heritage Registry -->
+      <div class="archival-registry-box">
+        <div class="registry-header">
+          <span class="registry-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Registered Academic Identifiers &amp; Archival Registry
+          </span>
+          <span class="registry-status-pill">● Crossref &amp; CERN Zenodo Verified</span>
+        </div>
+        <div class="registry-grid">
+          <div class="registry-item">
+            <span class="registry-label">Methodology DOI (Crossref)</span>
+            <span class="registry-val"><a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener noreferrer">10.67226/cfsbr.fe.2026.001.v1 ↗</a></span>
+          </div>
+          <div class="registry-item">
+            <span class="registry-label">Software Version DOI (Zenodo)</span>
+            <span class="registry-val"><a href="https://doi.org/10.5281/zenodo.22769502" target="_blank" rel="noopener noreferrer">10.5281/zenodo.22769502 ↗</a></span>
+          </div>
+          <div class="registry-item">
+            <span class="registry-label">Concept DOI (All Versions)</span>
+            <span class="registry-val"><a href="https://doi.org/10.5281/zenodo.22769501" target="_blank" rel="noopener noreferrer">10.5281/zenodo.22769501 ↗</a></span>
+          </div>
+          <div class="registry-item">
+            <span class="registry-label">Software Heritage Archive</span>
+            <span class="registry-val"><code>swh:1:dir:4da6366919f478fd431b2f9ce1d342620cc8834f</code></span>
+          </div>
+          <div class="registry-item">
+            <span class="registry-label">Source Repository</span>
+            <span class="registry-val"><a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">github.com/gmrafi/FinEngine ↗</a></span>
+          </div>
+          <div class="registry-item">
+            <span class="registry-label">Licensing</span>
+            <span class="registry-val">CC-BY 4.0 (Paper) · MIT (Software)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Toolbar -->
+      <div class="masthead-actions">
+        <a class="academic-btn btn-primary" href="#cite-finengine">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Cite Working Paper
+        </a>
+        <button type="button" class="academic-btn" id="btn-copy-doi" data-copy-val="https://doi.org/10.67226/cfsbr.fe.2026.001.v1">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="btn-text">Copy DOI</span>
+        </button>
+        <button type="button" class="academic-btn" id="btn-copy-bibtex-quick">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+          <span class="btn-text">Copy BibTeX</span>
+        </button>
+        <button type="button" class="academic-btn" onclick="window.print()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / PDF View
+        </button>
+      </div>
+    </header>
+
+    <!-- Formal Abstract Block -->
+    <div class="paper-abstract-card">
+      <div class="abstract-label">Abstract</div>
+      <p class="abstract-text">
+        Modern financial technology interfaces increasingly offload real-time computational workloads to client-side runtimes. However, execution environments built on standard ECMAScript engines rely on IEEE-754 double-precision floating-point arithmetic, which introduces non-deterministic representation drift in fractional calculations. In statutory accounting, compounding debt repayment models, and high-frequency digital ledgers, this drift compounds non-linearly across time horizons, violating basic audit trail reconciliation standards.
+      </p>
+      <p class="abstract-text">
+        This paper specifies the computational architecture of <strong>FinEngine</strong>, an open-source, non-commercial deterministic mathematical library developed under the Centre for Fintech and Strategic Business Research (CFSBR). FinEngine implements an integer-scaled monetary sub-unit arithmetic model, formalizes localized currency primitives for emerging markets&mdash;specifically the Bangladeshi Taka (BDT) and its atomic sub-unit (Poisha)&mdash;and introduces zero-knowledge, 100% client-side calculation pipelines for loan amortization schedules, internal rate of return (XIRR) solvers, and debt-burden stress testing.
+      </p>
+      <div class="abstract-keywords">
+        <strong>Keywords:</strong> Deterministic computation, IEEE-754 binary64, financial technology, Bangladeshi Taka (BDT), integer-scaled arithmetic, client-side computing, XIRR solver, loan amortization, zero-knowledge architecture.
       </div>
     </div>
 
-    <!-- Table of Contents -->
-    <nav class="mh-card" style="padding: 24px 28px; margin-bottom: 20px;">
-      <div class="eyebrow" style="margin-bottom: 14px;">Contents</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 14px;">
-<div><a href="#sec1" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">1. IEEE-754 Binary64 Drift</a></div>
-<div><a href="#sec2" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">2. Deterministic Arithmetic</a></div>
-<div><a href="#sec3" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">3. Loan Amortization Models</a></div>
-<div><a href="#sec4" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">4. Advanced Solvers</a></div>
-<div><a href="#sec5" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">5. Local-First Architecture</a></div>
-<div><a href="#sec6" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">6. Monorepo and Roadmap</a></div>
-<div><a href="#cite-finengine" style="color: #334155; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;">Citation</a></div>
+    <!-- Paper Table of Contents (Roadmap) -->
+    <nav class="paper-toc-card" aria-label="Table of Contents">
+      <div class="toc-title">Paper Outline &amp; Table of Contents</div>
+      <div class="toc-grid">
+        <div class="toc-item"><a href="#sec1"><span class="toc-sec-num">§ 1.</span> The Numerical Pathology of Web Runtimes</a></div>
+        <div class="toc-item"><a href="#sec2"><span class="toc-sec-num">§ 2.</span> Deterministic Arithmetic Framework</a></div>
+        <div class="toc-item"><a href="#sec3"><span class="toc-sec-num">§ 3.</span> Loan Amortization Models</a></div>
+        <div class="toc-item"><a href="#sec4"><span class="toc-sec-num">§ 4.</span> Advanced Solvers &amp; Actuarial Engines</a></div>
+        <div class="toc-item"><a href="#sec5"><span class="toc-sec-num">§ 5.</span> Architectural Topology: Local-First</a></div>
+        <div class="toc-item"><a href="#sec6"><span class="toc-sec-num">§ 6.</span> Monorepo Surface &amp; Roadmap</a></div>
+        <div class="toc-item"><a href="#cite-finengine"><span class="toc-sec-num">§ 7.</span> Academic Citation &amp; BibTeX</a></div>
       </div>
-    </div>
-        <!-- 1. The Numerical Pathology -->
-    <div class="doc-card mh-section" id="sec1">
-      <div class="eyebrow">Section 1</div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <article class="paper-section-card" id="sec1">
+      <div class="section-eyebrow">Section 1</div>
       <h2>The Numerical Pathology of Client-Side Web Runtimes</h2>
 
       <h3>1.1 IEEE-754 binary64 Floating-Point Drift</h3>
       <p>ECMAScript standardizes numerical calculation on the IEEE-754 double-precision floating-point format (<code>binary64</code>). Numbers are allocated 64 bits of storage divided into three discrete fields:</p>
-      <table class="mh-table">
-        <thead><tr><th>Field</th><th>Bits</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td><code>s</code></td><td>1</td><td>Sign bit: 0 = positive, 1 = negative</td></tr>
-          <tr><td><code>e</code></td><td>11</td><td>Biased exponent (bias = 1023)</td></tr>
-          <tr><td><code>m</code></td><td>52</td><td>Fraction/Significand (53 bits with implicit leading 1)</td></tr>
-        </tbody>
-      </table>
+      
+      <div class="academic-table-wrap">
+        <table class="academic-table">
+          <thead>
+            <tr><th>Field</th><th>Bits</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>s</code></td><td>1</td><td>Sign bit: 0 = positive, 1 = negative</td></tr>
+            <tr><td><code>e</code></td><td>11</td><td>Biased exponent (bias = 1023)</td></tr>
+            <tr><td><code>m</code></td><td>52</td><td>Fraction/Significand (53 bits with implicit leading 1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <p>Under this schema, numbers are evaluated as:</p>
-      <div class="eq-block"><code>V = (-1)<sup>s</sup> × (1.m)<sub>2</sub> × 2<sup>e - 1023</sup></code></div>
+      
+      <div class="math-eq-row">
+        <div class="math-eq-content">V = (-1)<sup>s</sup> × (1.m)<sub>2</sub> × 2<sup>e - 1023</sup></div>
+        <div class="math-eq-num">(1.1)</div>
+      </div>
+
       <p>Because fractional values are expressed as sums of negative powers of two (2<sup>-1</sup> = 0.5, 2<sup>-2</sup> = 0.25, 2<sup>-3</sup> = 0.125, etc.), common decimal fractions cannot be represented exactly in finite base-2 expansion. For example, the decimal fractions 0.1 (1/10) and 0.2 (1/5) result in infinite repeating binary fractions:</p>
-      <div class="eq-block"><code>0.1<sub>10</sub> = 0.00011001100110011...<sub>2</sub><br>0.2<sub>10</sub> = 0.0011001100110011...<sub>2</sub></code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">
+          0.1<sub>10</sub> = 0.00011001100110011...<sub>2</sub><br />
+          0.2<sub>10</sub> = 0.0011001100110011...<sub>2</sub>
+        </div>
+        <div class="math-eq-num">(1.2)</div>
+      </div>
+
       <p>Truncating this infinite representation to 53 bits of significand generates an inexact representation in binary storage:</p>
-      <div class="eq-block"><code>0.1<sub>10</sub> ≈ 0.100000000000000005551115123126<br>0.2<sub>10</sub> ≈ 0.200000000000000022204460492503</code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">
+          0.1<sub>10</sub> ≈ 0.100000000000000005551115123126<br />
+          0.2<sub>10</sub> ≈ 0.200000000000000022204460492503
+        </div>
+        <div class="math-eq-num">(1.3)</div>
+      </div>
+
       <p>Evaluating simple addition in JavaScript yields the well-documented anomaly:</p>
-      <div class="eq-block"><code>0.1 + 0.2 = 0.30000000000000004 ≠ 0.3</code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">0.1 + 0.2 = 0.30000000000000004 ≠ 0.3</div>
+        <div class="math-eq-num">(1.4)</div>
+      </div>
 
       <h3>1.2 Compounding Propagation in Loan Amortization</h3>
       <p>While fractional variance on the order of O(10<sup>-17</sup>) is negligible in graphical rendering or casual statistics, it is catastrophic in recursive financial operations. Consider a reducing-balance loan schedule over n periods, where the outstanding balance B<sub>t</sub> is defined by the recurrence relation:</p>
-      <div class="eq-block"><code>B<sub>t</sub> = B<sub>t-1</sub>(1 + r) - EMI</code></div>
-      <p>When evaluated under floating-point arithmetic, each iteration t ∈ {1, …, n} accumulates representation drift ε<sub>t</sub>:</p>
-      <div class="eq-block"><code>B<sub>t</sub><sup>*</sup> = B<sub>t</sub> + ∑<sub>k=1</sub><sup>t</sup> ε<sub>k</sub> (1 + r)<sup>t-k</sup></code></div>
-      <p>In multi-year amortization schedules (n ≥ 60 months), cumulative rounding drift ε causes the closing terminal balance B<sub>n</sub> to fail to liquidate cleanly to zero (B<sub>n</sub> ≠ 0.00). In statutory double-entry bookkeeping, a balance of +0.02 or -0.01 breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
-      <hr class="section-divider" />
-    </div>
 
-    <!-- 2. The Deterministic Arithmetic Framework -->
-    <div class="doc-card mh-section" id="sec2">
-      <div class="eyebrow">Section 2</div>
+      <div class="math-eq-row">
+        <div class="math-eq-content">B<sub>t</sub> = B<sub>t-1</sub>(1 + r) - EMI</div>
+        <div class="math-eq-num">(1.5)</div>
+      </div>
+
+      <p>When evaluated under floating-point arithmetic, each iteration t ∈ {1, …, n} accumulates representation drift ε<sub>t</sub>:</p>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">B<sub>t</sub><sup>*</sup> = B<sub>t</sub> + ∑<sub>k=1</sub><sup>t</sup> ε<sub>k</sub> (1 + r)<sup>t-k</sup></div>
+        <div class="math-eq-num">(1.6)</div>
+      </div>
+
+      <p>In multi-year amortization schedules (n ≥ 60 months), cumulative rounding drift ε causes the closing terminal balance B<sub>n</sub> to fail to liquidate cleanly to zero (B<sub>n</sub> ≠ 0.00). In statutory double-entry bookkeeping, a balance of +0.02 or -0.01 breaks immutable ledger parity, triggers audit violations, and complicates closing reconciliation.</p>
+    </article>
+
+    <!-- SECTION 2 -->
+    <article class="paper-section-card" id="sec2">
+      <div class="section-eyebrow">Section 2</div>
       <h2>The Deterministic Arithmetic Framework</h2>
       <p>FinEngine eliminates binary floating-point drift through an integer-scaled monetary sub-unit arithmetic model that avoids arbitrary third-party runtime dependencies.</p>
-      <div class="diag-block">
-        <div class="flow">
-          <div class="flow-box">Raw Monetary Input (V)</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Scale: V<sub>scaled</sub> = round(V &times; 10<sup>k</sup>)</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Integer Sub-Unit Space (Poisha)<small>|V<sub>scaled</sub>| &le; 2<sup>53</sup> - 1</small></div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-row">
-            <div class="flow-box">Core Math Ops: +, -<small>(Exact Integer Space)</small></div>
-            <div class="flow-box">Ratio &amp; Division Matrix<small>(Banker's Rounding)</small></div>
+
+      <!-- Academic Diagram 1 -->
+      <div class="academic-diagram-box">
+        <div class="diagram-flow">
+          <div class="diagram-node">Raw Monetary Input (V)</div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">Scale: V<sub>scaled</sub> = round(V &times; 10<sup>k</sup>)</div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">Integer Sub-Unit Space (Poisha)<small>|V<sub>scaled</sub>| &le; 2<sup>53</sup> - 1</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-row">
+            <div class="diagram-node">Core Math Ops: +, -<small>(Exact Integer Space)</small></div>
+            <div class="diagram-node">Ratio &amp; Division Matrix<small>(Banker's Rounding)</small></div>
           </div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Terminal Reconciliation<small>Sum(P<sub>t</sub>) === Principal</small></div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Zero-Drift Ledger Output<small>(B<sub>n</sub> === 0.00)</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">Terminal Reconciliation<small>Sum(P<sub>t</sub>) === Principal</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">Zero-Drift Ledger Output<small>(B<sub>n</sub> === 0.00)</small></div>
         </div>
+        <div class="diagram-caption">Figure 1: Integer-scaled sub-unit arithmetic flow for deterministic ledger reconciliation.</div>
       </div>
 
       <h3>2.1 Integer Sub-Unit Scaling</h3>
-      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha (1  BDT = 100  Poisha).</p>
-      <p>The transformation bijection f: ℚ → ℤ is defined as:</p>
-      <div class="eq-block"><code>V<sub>scaled</sub> = ⌊ V · 10<sup>k</sup> + 1/2 sgn(V) ⌋</code></div>
+      <p>FinEngine represents all currency balances strictly as integer quantities of the currency's smallest statutory atomic unit. For the Bangladeshi Taka (BDT), the smallest atomic unit is the Poisha (1 BDT = 100 Poisha).</p>
+      
+      <div class="academic-callout academic-callout-def">
+        <div class="callout-header">Definition 2.1: Atomic Poisha Scaling Mapping</div>
+        <p style="margin: 0;">The transformation bijection f: ℚ → ℤ is formalized as:</p>
+      </div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">V<sub>scaled</sub> = ⌊ V · 10<sup>k</sup> + 1/2 sgn(V) ⌋</div>
+        <div class="math-eq-num">(2.1)</div>
+      </div>
+
       <p>Where:</p>
       <ul>
         <li>V is the decimal monetary value.</li>
@@ -730,145 +945,211 @@
 
       <h3>2.2 Numerical Safety Boundaries</h3>
       <p>To maintain execution performance across all client engines without forced polyfills, FinEngine operates within the native ECMAScript safe integer boundary:</p>
-      <div class="eq-block"><code>|V<sub>scaled</sub>| ≤ Number.MAX<sub>SAFE</sub>INTEGER = 2<sup>53</sup> - 1 = 9,007,199,254,740,991</code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">|V<sub>scaled</sub>| ≤ Number.MAX_SAFE_INTEGER = 2<sup>53</sup> - 1 = 9,007,199,254,740,991</div>
+        <div class="math-eq-num">(2.2)</div>
+      </div>
+
       <p>For BDT (k = 2), this ceiling provides safe deterministic headroom up to:</p>
-      <div class="eq-block"><code>V<sub>max</sub> ≈ 90,071,992,547,409.91  BDT    (≈ 90.07  Trillion BDT)</code></div>
-      <p>Any arithmetic transaction or ledger verification projected to exceed 2^{53} - 1 triggers a deterministic boundary exception (SafeIntegerOverflowException) rather than decaying silently into floating-point approximation.</p>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">V<sub>max</sub> ≈ 90,071,992,547,409.91 BDT (≈ 90.07 Trillion BDT)</div>
+        <div class="math-eq-num">(2.3)</div>
+      </div>
+
+      <p>Any arithmetic transaction or ledger verification projected to exceed 2<sup>53</sup> - 1 triggers a deterministic boundary exception (<code>SafeIntegerOverflowException</code>) rather than decaying silently into floating-point approximation.</p>
 
       <h3>2.3 Deterministic Rounding Specifications</h3>
-      <p>When division or compound multiplication leaves the integer domain, FinEngine employs Half-Away-From-Zero (Symmetric Rounding) for consumer-facing installment calculations, or Half-To-Even (Banker's Rounding / IEEE-754 default) for balanced institutional ledgers to prevent positive cumulative drift over large sample sizes:</p>
-      <hr class="section-divider" />
-    </div>
+      <p>When division or compound multiplication leaves the integer domain, FinEngine employs Half-Away-From-Zero (Symmetric Rounding) for consumer-facing installment calculations, or Half-To-Even (Banker's Rounding / IEEE-754 default) for balanced institutional ledgers to prevent positive cumulative drift over large sample sizes.</p>
+    </article>
 
-    <!-- 3. Computational Loan Amortization Models -->
-    <div class="doc-card mh-section" id="sec3">
-      <div class="eyebrow">Section 3</div>
+    <!-- SECTION 3 -->
+    <article class="paper-section-card" id="sec3">
+      <div class="section-eyebrow">Section 3</div>
       <h2>Computational Loan Amortization Models</h2>
 
       <h3>3.1 Reducing-Balance Equated Monthly Installment (EMI)</h3>
       <p>In contrast to flat-rate interest calculations&mdash;which obscure actual borrowing costs and understate the effective annual rate&mdash;FinEngine enforces the actuarial reducing-balance annuity model:</p>
-      <div class="eq-block"><code>EMI = P · r(1 + r)<sup>n</sup>/((1 + r)<sup>n</sup> - 1)</code></div>
-      <table class="mh-table">
-        <thead><tr><th>Variable</th><th>Type</th><th>Definition</th></tr></thead>
-        <tbody>
-          <tr><td><code>P</code></td><td>&middot;</td><td>Principal loan amount in integer poisha (<code>P = Principal &times; 100</code>)</td></tr>
-          <tr><td><code>r</code></td><td>&middot;</td><td>Periodic monthly rate: <code>r = Annual Rate / 1200</code></td></tr>
-          <tr><td><code>n</code></td><td>&middot;</td><td>Total repayment months (<code>n &ge; 1</code>)</td></tr>
-        </tbody>
-      </table>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">EMI = P · [r(1 + r)<sup>n</sup>] / [(1 + r)<sup>n</sup> - 1]</div>
+        <div class="math-eq-num">(3.1)</div>
+      </div>
+
+      <div class="academic-table-wrap">
+        <table class="academic-table">
+          <thead>
+            <tr><th>Variable</th><th>Type</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>P</code></td><td>Integer (ℤ)</td><td>Principal loan amount in integer poisha (<code>P = Principal &times; 100</code>)</td></tr>
+            <tr><td><code>r</code></td><td>Decimal (ℚ)</td><td>Periodic monthly rate: <code>r = Annual Rate / 1200</code></td></tr>
+            <tr><td><code>n</code></td><td>Integer (ℕ)</td><td>Total repayment months (<code>n &ge; 1</code>)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>3.2 Discrete Iteration and Periodic Partitioning</h3>
       <p>For every discrete installment period t ∈ {1, 2, …, n}, the engine derives periodic interest accrual (I<sub>t</sub>), principal liquidation (P<sub>t</sub>), and closing balance (B<sub>t</sub>) via strict integer truncation rules:</p>
-      <div class="eq-block"><code>I<sub>t</sub> = round(B<sub>t-1</sub> · r)<br>P<sub>t</sub> = EMI - I<sub>t</sub><br>B<sub>t</sub> = B<sub>t-1</sub> - P<sub>t</sub></code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">
+          I<sub>t</sub> = round(B<sub>t-1</sub> · r)<br />
+          P<sub>t</sub> = EMI - I<sub>t</sub><br />
+          B<sub>t</sub> = B<sub>t-1</sub> - P<sub>t</sub>
+        </div>
+        <div class="math-eq-num">(3.2)</div>
+      </div>
+
       <p>Where B<sub>0</sub> = P.</p>
 
       <h3>3.3 The Terminal Reconciliation Rule</h3>
       <p>Because discrete interest rounding rounds periodic values to the nearest whole poisha, the sum of principal portions naturally drifts from the starting principal by small integer amounts (± Δ poisha):</p>
-      <div class="eq-block"><code>∑<sub>t=1</sub><sup>n</sup> P<sub>t</sub> ≠ P</code></div>
-      <p>FinEngine resolves this through the Terminal Reconciliation Rule. In the final payment period (t = n):</p>
-      <div class="eq-block"><code>P<sub>n</sub> = B<sub>n-1</sub><br>EMI<sub>n</sub> = P<sub>n</sub> + I<sub>n</sub><br>B<sub>n</sub> = B<sub>n-1</sub> - P<sub>n</sub> ≡ 0</code></div>
-      <p>This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero (B<sub>n</sub> ≡ 0), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
-      <hr class="section-divider" />
-    </div>
 
-    <!-- 4. Advanced Solvers and Actuarial Engines -->
-    <div class="doc-card mh-section" id="sec4">
-      <div class="eyebrow">Section 4</div>
+      <div class="math-eq-row">
+        <div class="math-eq-content">∑<sub>t=1</sub><sup>n</sup> P<sub>t</sub> ≠ P</div>
+        <div class="math-eq-num">(3.3)</div>
+      </div>
+
+      <div class="academic-callout academic-callout-thm">
+        <div class="callout-header">Theorem 3.1: The Terminal Reconciliation Rule &amp; Zero-Drift Closure</div>
+        <p style="margin: 0 0 10px;">FinEngine resolves periodic drift through the Terminal Reconciliation Rule. In the final payment period (t = n):</p>
+        <div class="math-eq-row" style="background: var(--mh-panel); margin: 8px 0;">
+          <div class="math-eq-content">
+            P<sub>n</sub> = B<sub>n-1</sub><br />
+            EMI<sub>n</sub> = P<sub>n</sub> + I<sub>n</sub><br />
+            B<sub>n</sub> = B<sub>n-1</sub> - P<sub>n</sub> ≡ 0
+          </div>
+          <div class="math-eq-num">(3.4)</div>
+        </div>
+        <p style="margin: 10px 0 0; font-size: 0.92rem;">This deterministic boundary constraint guarantees that the closing principal balance terminates identically at zero (B<sub>n</sub> ≡ 0), completely preventing trailing poisha discrepancies in audited accounting ledgers.</p>
+      </div>
+    </article>
+
+    <!-- SECTION 4 -->
+    <article class="paper-section-card" id="sec4">
+      <div class="section-eyebrow">Section 4</div>
       <h2>Advanced Solvers and Actuarial Engines</h2>
 
       <h3>4.1 Internal Rate of Return (XIRR) Solver</h3>
       <p>For non-periodic, non-uniform digital transactions (such as merchant cash advances and micro-installments), FinEngine solves for internal rate of return via the generalized net present value relation:</p>
-      <div class="eq-block"><code>NPV(R) = ∑<sub>i=1</sub><sup>m</sup> C<sub>i</sub>/(1 + R)<sup>(d<sub>i</sub> - d<sub>0</sub>)/365</sup> = 0</code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">NPV(R) = ∑<sub>i=1</sub><sup>m</sup> C<sub>i</sub> / (1 + R)<sup>(d<sub>i</sub> - d<sub>0</sub>)/365</sup> = 0</div>
+        <div class="math-eq-num">(4.1)</div>
+      </div>
+
       <p>Where:</p>
       <ul>
         <li>C<sub>i</sub> is the cash flow at date d<sub>i</sub>.</li>
         <li>d<sub>0</sub> is the initial disbursement timestamp.</li>
         <li>R is the annualized discount factor.</li>
       </ul>
+
       <p>Because closed-form solutions do not exist for m > 4, FinEngine uses a constrained Newton-Raphson root-finding iteration coupled with binary bisection fallbacks:</p>
-      <div class="eq-block"><code>R<sub>k+1</sub> = R<sub>k</sub> - NPV(R<sub>k</sub>)/NPV'(R<sub>k</sub>)</code></div>
+
+      <div class="math-eq-row">
+        <div class="math-eq-content">R<sub>k+1</sub> = R<sub>k</sub> - NPV(R<sub>k</sub>) / NPV'(R<sub>k</sub>)</div>
+        <div class="math-eq-num">(4.2)</div>
+      </div>
+
       <ul>
-        <li>Convergence Threshold: |Δ R| &lt; 10<sup>-7</sup></li>
-        <li>Iteration Cap: Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
+        <li><strong>Convergence Threshold:</strong> |Δ R| &lt; 10<sup>-7</sup></li>
+        <li><strong>Iteration Cap:</strong> Maximum 100 iterations. If convergence fails due to sign stagnation, the engine switches to bounded Brent-Dekker root bracketing, preventing runaway client CPU usage.</li>
       </ul>
 
       <h3>4.2 Debt-Burden Ratio (DBR) Stress Testing</h3>
       <p>To prevent predatory micro-lending and ensure compliance with central banking guidelines on responsible consumer lending, <code>@finengine/math</code> evaluates localized debt burden limits:</p>
-      <div class="eq-block"><code>DBR = (∑ EMI<sub>existing</sub> + EMI<sub>proposed</sub>)/Y<sub>net monthly</sub> × 100</code></div>
-      <p>The engine validates transactions against statutory thresholds (e.g., DBR ≤ 40%) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
-      <hr class="section-divider" />
-    </div>
 
-    <!-- 5. Architectural Topology -->
-    <div class="doc-card mh-section" id="sec5">
-      <div class="eyebrow">Section 5</div>
+      <div class="math-eq-row">
+        <div class="math-eq-content">DBR = [(∑ EMI<sub>existing</sub> + EMI<sub>proposed</sub>) / Y<sub>net monthly</sub>] × 100</div>
+        <div class="math-eq-num">(4.3)</div>
+      </div>
+
+      <p>The engine validates transactions against statutory thresholds (e.g., DBR ≤ 40%) and provides deterministic sensitivity tables evaluating borrower risk under interest rate shocks.</p>
+    </article>
+
+    <!-- SECTION 5 -->
+    <article class="paper-section-card" id="sec5">
+      <div class="section-eyebrow">Section 5</div>
       <h2>Architectural Topology: Local-First and Zero-Knowledge</h2>
       <p>FinEngine is structured as a client-side library to protect user data:</p>
-      <div class="diag-block">
-        <div class="flow">
-          <div class="flow-box">CLIENT BROWSER ENVIRONMENT</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-row">
-            <div class="flow-box">User Financial Inputs<small>(Income, Principal, EMI)</small></div>
-            <div class="flow-box">Local Form State<small>(No Cloud Transmission)</small></div>
+
+      <!-- Academic Diagram 2 -->
+      <div class="academic-diagram-box">
+        <div class="diagram-flow">
+          <div class="diagram-node">CLIENT BROWSER ENVIRONMENT</div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-row">
+            <div class="diagram-node">User Financial Inputs<small>(Income, Principal, EMI)</small></div>
+            <div class="diagram-node">Local Form State<small>(No Cloud Transmission)</small></div>
           </div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">@finengine/core<small>Fixed-Point Integer Engine &middot; BDT Sub-Unit Parser &middot; Ledger Verification</small></div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">@finengine/math<small>Reducing Balance Amort. &middot; XIRR / APR Solvers &middot; DBR and Stress Testing</small></div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">@finengine/ui<small>UI Micro-Components &middot; Schedule and KPI Display</small></div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">X (Zero-Network Egress)</div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">@finengine/core<small>Fixed-Point Integer Engine &middot; BDT Sub-Unit Parser &middot; Ledger Verification</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">@finengine/math<small>Reducing Balance Amort. &middot; XIRR / APR Solvers &middot; DBR and Stress Testing</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node">@finengine/ui<small>UI Micro-Components &middot; Schedule and KPI Display</small></div>
+          <div class="diagram-arrow">&#8595;</div>
+          <div class="diagram-node" style="border-color: #ef4444; color: #ef4444;">X (Zero-Network Egress)</div>
         </div>
+        <div class="diagram-caption">Figure 2: Zero-network client-side execution pipeline for financial telemetry privacy.</div>
       </div>
 
       <ul>
         <li><strong>Zero-Knowledge Computation:</strong> Financial calculations execute entirely within the local host runtime (V8, SpiderMonkey, JavaScriptCore). No raw loan values, salaries, or accounting data cross the network boundary.</li>
         <li><strong>Offline-First Reliability:</strong> The engine runs without external API handshakes, keeping loan assessments, installment schedules, and merchant reconciliations fully operational in low-bandwidth or offline environments.</li>
       </ul>
-      <hr class="section-divider" />
-    </div>
+    </article>
 
-    <!-- 6. Monorepo Surface and Emerging Markets Roadmap -->
-    <div class="doc-card mh-section" id="sec6">
-      <div class="eyebrow">Section 6</div>
+    <!-- SECTION 6 -->
+    <article class="paper-section-card" id="sec6">
+      <div class="section-eyebrow">Section 6</div>
       <h2>Monorepo Surface and Emerging Markets Roadmap</h2>
 
-      <table class="mh-table">
-        <thead><tr><th>Package</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td><code>@finengine/core</code></td><td>Integer conversion, arithmetic primitives, BDT localized formatting (3-2-2 South Asian grouping: 1,00,000.00), and double-entry ledger balance checks.</td></tr>
-          <tr><td><code>@finengine/math</code></td><td>Amortization schedule builders, terminal balancing logic, XIRR and APR algorithms, and affordability metrics.</td></tr>
-          <tr><td><code>@finengine/ui</code></td><td>Accessible, unstyled React/TypeScript UI elements for financial schedules, repayment summaries, and debt ratio gauges.</td></tr>
-        </tbody>
-      </table>
+      <div class="academic-table-wrap">
+        <table class="academic-table">
+          <thead>
+            <tr><th>Package</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>@finengine/core</code></td><td>Integer conversion, arithmetic primitives, BDT localized formatting (3-2-2 South Asian grouping: 1,00,000.00), and double-entry ledger balance checks.</td></tr>
+            <tr><td><code>@finengine/math</code></td><td>Amortization schedule builders, terminal balancing logic, XIRR and APR algorithms, and affordability metrics.</td></tr>
+            <tr><td><code>@finengine/ui</code></td><td>Accessible, unstyled React/TypeScript UI elements for financial schedules, repayment summaries, and debt ratio gauges.</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>Emerging Market Research Roadmap (CFSBR Lab Pipeline)</h3>
-      <table class="mh-table">
-        <thead><tr><th>Package</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td><code>@finengine/risk</code></td><td>Localized algorithmic scoring matrices for informal and thin-file borrowers using alternative cash-flow data.</td></tr>
-          <tr><td><code>@finengine/microfinance</code></td><td>Actuarial translation modules converting flat interest marketing structures into true reducing APR for borrower protection and regulatory transparency.</td></tr>
-          <tr><td><code>@finengine/ratios</code></td><td>Deterministic financial ratio engines covering working capital liquidity, cash runway projections, and full DuPont statement decomposition.</td></tr>
-          <tr><td><code>@finengine/markets</code></td><td>Capital market return helpers and portfolio variance tools.</td></tr>
-          <tr><td><code>@finengine/tax</code></td><td>NBR-compliant TDS/VDS and salary tax calculation primitives.</td></tr>
-        </tbody>
-      </table>
-      <hr class="section-divider" />
-    </div>
+      <div class="academic-table-wrap">
+        <table class="academic-table">
+          <thead>
+            <tr><th>Package</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>@finengine/risk</code></td><td>Localized algorithmic scoring matrices for informal and thin-file borrowers using alternative cash-flow data.</td></tr>
+            <tr><td><code>@finengine/microfinance</code></td><td>Actuarial translation modules converting flat interest marketing structures into true reducing APR for borrower protection and regulatory transparency.</td></tr>
+            <tr><td><code>@finengine/ratios</code></td><td>Deterministic financial ratio engines covering working capital liquidity, cash runway projections, and full DuPont statement decomposition.</td></tr>
+            <tr><td><code>@finengine/markets</code></td><td>Capital market return helpers and portfolio variance tools.</td></tr>
+            <tr><td><code>@finengine/tax</code></td><td>NBR-compliant TDS/VDS and salary tax calculation primitives.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
 
-    <!-- Academic Citation Section -->
-    <div class="citation-box" id="cite-finengine">
-      <div class="eyebrow">Academic citation</div>
+    <!-- SECTION 7: CITATION SECTION -->
+    <article class="paper-citation-card" id="cite-finengine">
+      <div class="section-eyebrow">Section 7 · Academic Citation</div>
       <h2>Cite FinEngine</h2>
       <p>FinEngine is maintained as open computational infrastructure under the Centre for Fintech and Strategic Business Research (CFSBR). To cite this methodology in academic papers, theses, policy briefs, or technical documentation:</p>
 
-      <h3>APA 7th Edition</h3>
-      <div class="citation-text">Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1</div>
+      <div class="citation-format-title">APA 7th Edition</div>
+      <div class="citation-apa-box" id="citation-apa-text">Rafi, M. G. M. (2026). <em>FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces</em> (CFSBR Technical Working Paper No. CFSBR-FE-2026-001). Centre for Fintech and Strategic Business Research. https://doi.org/10.67226/cfsbr.fe.2026.001.v1</div>
 
-      <h3>BibTeX Entry (Working Paper)</h3>
-      <div class="bibtex-block">@techreport{rafi2026finengine,
+      <div class="citation-format-title">BibTeX Entry (Working Paper)</div>
+      <div class="citation-pre-wrap">
+        <pre class="citation-pre"><code id="bibtex-paper-code">@techreport{rafi2026finengine,
   author      = {Rafi, Md Golam Mubasshir},
   title       = {FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces},
   institution = {Centre for Fintech and Strategic Business Research (CFSBR)},
@@ -878,10 +1159,12 @@
   number      = {CFSBR-FE-2026-001},
   doi         = {10.67226/cfsbr.fe.2026.001.v1},
   url         = {https://finengine.js.org/methodology/}
-}</div>
+}</code></pre>
+      </div>
 
-      <h3>Software Archive Citation (Zenodo)</h3>
-      <div class="bibtex-block">@software{finengine_core_v030,
+      <div class="citation-format-title">Software Archive Citation (Zenodo)</div>
+      <div class="citation-pre-wrap">
+        <pre class="citation-pre"><code id="bibtex-zenodo-code">@software{finengine_core_v030,
   author    = {Rafi, Md Golam Mubasshir},
   title     = {gmrafi/FinEngine: FinEngine v0.3.0: The Deterministic Financial Engine Release},
   year      = {2026},
@@ -889,14 +1172,55 @@
   version   = {v0.3.0},
   doi       = {10.5281/zenodo.22769502},
   url       = {https://doi.org/10.5281/zenodo.22769502}
-}</div>
+}</code></pre>
+      </div>
 
-      <p><a class="mini-btn" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">FinEngine repository &#8599;</a></p>
-    </div>
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <a class="academic-btn btn-primary" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">
+          GitHub Repository ↗
+        </a>
+        <a class="academic-btn" href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener noreferrer">
+          Crossref DOI Resolver ↗
+        </a>
+        <a class="academic-btn" href="https://doi.org/10.5281/zenodo.22769502" target="_blank" rel="noopener noreferrer">
+          CERN Zenodo Archive ↗
+        </a>
+      </div>
+    </article>
 
   </main>
 
   <div data-site-footer></div>
   <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+  <script>
+    // Academic Toolbar Copy Interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyBtn = document.getElementById('btn-copy-doi');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          const val = copyBtn.dataset.copyVal;
+          await navigator.clipboard.writeText(val);
+          const textSpan = copyBtn.querySelector('.btn-text');
+          if (textSpan) {
+            textSpan.textContent = 'DOI Copied! ✓';
+            setTimeout(() => { textSpan.textContent = 'Copy DOI'; }, 1500);
+          }
+        });
+      }
+
+      const copyBibBtn = document.getElementById('btn-copy-bibtex-quick');
+      const bibCode = document.getElementById('bibtex-paper-code');
+      if (copyBibBtn && bibCode) {
+        copyBibBtn.addEventListener('click', async () => {
+          await navigator.clipboard.writeText(bibCode.textContent.trim());
+          const textSpan = copyBibBtn.querySelector('.btn-text');
+          if (textSpan) {
+            textSpan.textContent = 'BibTeX Copied! ✓';
+            setTimeout(() => { textSpan.textContent = 'Copy BibTeX'; }, 1500);
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
