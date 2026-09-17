@@ -318,15 +318,33 @@ function renderFooter() {
               </a>
             </li>
             <li>
+              <a href="${root}CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Contributing <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Guidelines for developers</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Code of Conduct <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Community standards</div>
+              </a>
+            </li>
+            <li>
               <a href="https://www.producthunt.com/products/finengine" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Product Hunt <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Featured launch and community discussions</div>
               </a>
             </li>
             <li>
-              <a href="${root}license/" style="text-decoration: none; display: block;">
+              <a href="${root}LICENSE" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">MIT License <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Free and open-source licensing terms</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.npmjs.com/org/finengine" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">npm Organization <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Official verified package registry</div>
               </a>
             </li>
           </ul>

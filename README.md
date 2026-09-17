@@ -17,6 +17,7 @@
   <a href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT%20%26%20CC--BY%204.0-blue.svg" alt="License" /></a>
   <a href="https://github.com/gmrafi/FinEngine/actions"><img src="https://img.shields.io/badge/verification-passing-brightgreen.svg" alt="Build Status" /></a>
   <a href="https://www.npmjs.com/search?q=%40finengine"><img src="https://img.shields.io/badge/dependencies-0%20external-success.svg" alt="Zero Dependencies" /></a>
+  <a href="https://www.npmjs.com/org/finengine"><img src="https://img.shields.io/badge/npm-@finengine-cb3837?logo=npm" alt="npm Organization" /></a>
 </p>
 
 <p align="center">
