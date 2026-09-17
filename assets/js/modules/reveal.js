@@ -11,6 +11,20 @@ export function initReveal() {
 
   document.documentElement.classList.add('reveal-ready');
 
+  const groups = new Map();
+  items.forEach((item) => {
+    const parent = item.parentElement;
+    if (!groups.has(parent)) groups.set(parent, []);
+    groups.get(parent).push(item);
+  });
+
+  groups.forEach((siblings) => {
+    if (siblings.length <= 1) return;
+    siblings.forEach((item, i) => {
+      item.style.setProperty('--reveal-delay', `${i * 0.08}s`);
+    });
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) entry.target.classList.add('is-visible');
