@@ -3350,6 +3350,16 @@ html[data-theme='dark'] .sim-ratio-wrap .ratio-bar {
   height: 100%;
   transition: width 0.22s ease;
 }
+.bento-badge-bdt {
+  background: #eef8f4;
+  color: #1F7A5C;
+  border: 1px solid #b7e2d3;
+}
+html[data-theme='dark'] .bento-badge-bdt {
+  background: rgba(31, 122, 92, 0.2);
+  color: #6ee7b7;
+  border-color: rgba(31, 122, 92, 0.4);
+}
 .sim-ratio-legend {
   display: flex;
   justify-content: space-between;
