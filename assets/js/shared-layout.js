@@ -181,13 +181,15 @@ function renderProofStrip(pageType) {
 
 function renderFooter() {
   const root = getRootPath();
+  const logoPath = `${root}logo-mark.png`;
   return `
     <footer style="border-top: 1px solid var(--line); background: var(--bg-elevated, var(--bg)); padding: 56px 20px 32px; color: var(--text); font-family: inherit;">
       <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; margin-bottom: 40px;">
 
         <section style="display: flex; flex-direction: column; gap: 14px;" aria-label="Brand and institution">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <a href="${root}index.html" style="text-decoration: none; color: inherit;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="${root}index.html" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 12px;">
+              <img class="footer-logo" src="${logoPath}" alt="FinEngine logo" style="width: 36px; height: 36px; object-fit: contain; border-radius: 8px;" />
               <span style="font-weight: 800; font-size: 20px; color: #0f172a; letter-spacing: -0.02em;">FinEngine Labs</span>
             </a>
           </div>

@@ -3967,3 +3967,12 @@ html[data-theme='dark'] .trust-strip-badge:hover .trust-strip-arrow,
 html[data-theme='dark'] .trust-chip:hover .trust-chip-arrow {
   color: #93c5fd;
 }
+
+/* Hero Badge Logo */
+.hero-badge-logo {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
