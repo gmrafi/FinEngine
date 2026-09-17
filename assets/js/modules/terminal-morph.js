@@ -68,13 +68,15 @@ export function initTerminalMorph() {
       });
 
       targetPane.hidden = false;
-      targetPane.offsetHeight;
+      void targetPane.offsetHeight;
       targetPane.classList.add('is-active');
 
       const pre = targetPane.querySelector('.hero-terminal-pre');
       if (!pre) { isAnimating = false; return; }
 
       if (!prefersReduced.matches) {
+        const existingCursor = targetPane.querySelector('.hero-terminal-cursor');
+        if (existingCursor) existingCursor.remove();
         const overlay = document.createElement('div');
         overlay.className = 'hero-terminal-running-overlay';
         overlay.setAttribute('aria-hidden', 'true');
