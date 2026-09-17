@@ -1,7 +1,7 @@
 const TAB_FILES = {
   shell: 'quickstart.sh',
   js: 'quickstart.mjs',
-  cdn: 'index.html',
+  cdn: './',
 };
 
 export function initTerminalMorph() {

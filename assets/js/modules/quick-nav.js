@@ -26,7 +26,7 @@ export function initQuickNav() {
     if (QUICK_ENTRIES.length) return QUICK_ENTRIES;
     const root = document.body?.dataset.rootPath || '';
     QUICK_ENTRIES.push(
-      { label: 'Home', group: 'Pages', href: `${root}index.html` },
+      { label: 'Home', group: 'Pages', href: `${root}` },
       { label: 'Product surface', group: 'Pages', href: `${root}product/` },
       { label: 'Simulation Lab', group: 'Pages', href: `${root}simulation/` },
       { label: 'Documentation Hub', group: 'Pages', href: `${root}docs/` },
