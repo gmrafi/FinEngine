@@ -1,62 +1,65 @@
-import { SITE_BRAND } from './brand.js';
-import { initQuickNav } from './modules/quick-nav.js';
+import { SITE_BRAND } from "./brand.js";
+import { initQuickNav } from "./modules/quick-nav.js";
 
 const NAV_ITEMS = [
-  { label: 'Home', path: './', key: 'home' },
-  { label: 'Product', path: 'product/', key: 'product' },
-  { label: 'Simulations', path: 'simulation/', key: 'simulation' },
-  { label: 'Docs', path: 'docs/', key: 'docs' },
-  { label: 'Methodology', path: 'methodology/', key: 'methodology' },
+  { label: "Home", path: "./", key: "home" },
+  { label: "Product", path: "product/", key: "product" },
+  { label: "Simulations", path: "simulation/", key: "simulation" },
+  { label: "Docs", path: "docs/", key: "docs" },
+  { label: "Methodology", path: "methodology/", key: "methodology" },
 ];
 
 const MOBILE_EXTRA_ITEMS = [
-  { label: '@finengine/core', path: 'docs/core/' },
-  { label: '@finengine/math', path: 'docs/math/' },
-  { label: '@finengine/ui', path: 'docs/ui/' },
-  { label: 'About', path: 'about/' },
+  { label: "Python SDK & Quant", path: "python/" },
+  { label: "@finengine/core", path: "docs/core/" },
+  { label: "@finengine/math", path: "docs/math/" },
+  { label: "@finengine/ui", path: "docs/ui/" },
+  { label: "About", path: "about/" },
 ];
 
 const PROOF_BADGES = [
   {
-    href: 'https://github.com/gmrafi/FinEngine/stargazers',
-    image: 'https://img.shields.io/github/stars/gmrafi/FinEngine?style=social',
-    alt: 'GitHub stars for gmrafi/FinEngine',
+    href: "https://github.com/gmrafi/FinEngine/stargazers",
+    image: "https://img.shields.io/github/stars/gmrafi/FinEngine?style=social",
+    alt: "GitHub stars for gmrafi/FinEngine",
   },
   {
-    href: 'https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml',
-    image: 'https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml/badge.svg',
-    alt: 'Verify workflow status',
+    href: "https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml",
+    image:
+      "https://github.com/gmrafi/FinEngine/actions/workflows/verify.yml/badge.svg",
+    alt: "Verify workflow status",
   },
   {
-    href: 'https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml',
-    image: 'https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml/badge.svg',
-    alt: 'Pages deploy workflow status',
+    href: "https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml",
+    image:
+      "https://github.com/gmrafi/FinEngine/actions/workflows/pages.yml/badge.svg",
+    alt: "Pages deploy workflow status",
   },
   {
-    href: 'https://github.com/gmrafi/FinEngine/blob/main/LICENSE',
-    image: 'https://img.shields.io/github/license/gmrafi/FinEngine',
-    alt: 'GitHub license for gmrafi/FinEngine',
+    href: "https://github.com/gmrafi/FinEngine/blob/main/LICENSE",
+    image: "https://img.shields.io/github/license/gmrafi/FinEngine",
+    alt: "GitHub license for gmrafi/FinEngine",
   },
   {
-    href: 'https://github.com/gmrafi/FinEngine/commits/main',
-    image: 'https://img.shields.io/github/last-commit/gmrafi/FinEngine',
-    alt: 'Last commit for gmrafi/FinEngine',
+    href: "https://github.com/gmrafi/FinEngine/commits/main",
+    image: "https://img.shields.io/github/last-commit/gmrafi/FinEngine",
+    alt: "Last commit for gmrafi/FinEngine",
   },
 ];
 
-function toRoot(path = '') {
+function toRoot(path = "") {
   return `${getRootPath()}${path}`;
 }
 
 function getRootPath() {
-  return document.body?.dataset.rootPath || '';
+  return document.body?.dataset.rootPath || "";
 }
 
 export function initSharedLayout() {
   const pageType = document.body.dataset.page || inferPageType();
-  const headerMount = document.querySelector('[data-site-header]');
-  const footerMount = document.querySelector('[data-site-footer]');
-  const proofMount = document.querySelector('[data-social-proof]');
+  const headerMount = document.querySelector("[data-site-header]");
+  const footerMount = document.querySelector("[data-site-footer]");
+  const proofMount = document.querySelector("[data-social-proof]");
 
   if (headerMount) headerMount.innerHTML = renderHeader(pageType);
   if (proofMount) proofMount.innerHTML = renderProofStrip(pageType);
@@ -66,31 +69,37 @@ export function initSharedLayout() {
   markActiveNav(pageType);
   initQuickNav();
 
-  const yearNode = document.querySelector('[data-generated-year]');
+  const yearNode = document.querySelector("[data-generated-year]");
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 }
 
 function inferPageType() {
-  if (window.location.pathname.includes('/docs/')) return 'docs';
-  return 'home';
+  if (window.location.pathname.includes("/docs/")) return "docs";
+  return "home";
 }
 
 function renderHeader(pageType) {
   const root = getRootPath();
   const logoPath = `${root}logo-mark.png`;
+  const isPython = pageType === "python";
+  const isAI = pageType === "methodology";
+  const isJS = !isPython && !isAI;
+
   const nav = NAV_ITEMS.map((item) => {
     const href = root + item.path;
     return `<a data-nav-link data-nav-key="${item.key}" href="${href}">${item.label}</a>`;
-  }).join('');
-  const mobileNav = [...NAV_ITEMS, ...MOBILE_EXTRA_ITEMS].map((item) => {
-    const href = root + item.path;
-    return `<a${item.key ? ` data-nav-link data-nav-key="${item.key}"` : ''} href="${href}">${item.label}</a>`;
-  }).join('');
+  }).join("");
+  const mobileNav = [...NAV_ITEMS, ...MOBILE_EXTRA_ITEMS]
+    .map((item) => {
+      const href = root + item.path;
+      return `<a${item.key ? ` data-nav-link data-nav-key="${item.key}"` : ""} href="${href}">${item.label}</a>`;
+    })
+    .join("");
 
   return `
     <header class="topbar shared-topbar">
       <div class="shell topbar-inner shared-topbar-inner header-shell header-shell-restored">
-        <a class="brandline brandlink" href="${toRoot('')}">
+        <a class="brandline brandlink" href="${toRoot("")}">
           <img class="header-logo" src="${logoPath}" alt="FinEngine logo" loading="eager" decoding="async" />
           <span class="brand-copy">
             <span class="brand-row"><span data-brand="name"></span></span>
@@ -107,11 +116,83 @@ function renderHeader(pageType) {
           <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span></button>
         </div>
       </div>
+
+      <!-- 3-WAY RESPONSIVE ECOSYSTEM SWITCHER (JS / PYTHON / AI) -->
+      <div class="shell ecosystem-subbar">
+        <div class="ecosystem-pills-wrap">
+          <div class="ecosystem-label">
+            <span class="eco-pulse" aria-hidden="true"></span>
+            <span>Select Stack:</span>
+          </div>
+          <div class="ecosystem-pills" role="tablist" aria-label="FinEngine Ecosystems">
+            <a class="ecosystem-pill ${isJS ? "is-active" : ""}" href="${toRoot("")}" title="JavaScript & Web Engine (npm)">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.164-.438-1.346-.864-.067-.158-.094-.306-.067-.477.067-.341.38-.541.834-.486.289.034.568.163.784.364.187.173.307.391.353.64l1.636-.26c-.097-.665-.45-1.282-1.025-1.687-.63-.443-1.428-.592-2.189-.523-1.127.104-1.996.79-2.079 1.838-.088 1.109.576 1.859 1.761 2.336.721.289 1.259.477 1.411.892.091.246.06.495-.084.717-.222.341-.692.482-1.205.419-.481-.059-.887-.319-1.107-.732-.128-.24-.194-.51-.19-.785l-1.678.181c.074.836.46 1.583 1.096 2.052.709.522 1.634.697 2.502.585 1.294-.167 2.193-.947 2.274-2.074.004-.061.004-.122 0-.181zm-6.283-4.992h-1.897v5.719c0 .767-.353 1.092-.937 1.092-.284 0-.583-.075-.785-.205l-.477 1.341c.361.218.867.361 1.421.361 1.488 0 2.675-.769 2.675-2.589v-5.719z"/>
+                </svg>
+              </span>
+              <span class="eco-name">JS &amp; Web</span>
+              <span class="eco-tag">npm v0.3.0</span>
+            </a>
+            <a class="ecosystem-pill ${isPython ? "is-active" : ""}" href="${toRoot("python/")}" title="Python SDK & Quant Engine (PyPI)">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
+                </svg>
+              </span>
+              <span class="eco-name">Python &amp; Quant</span>
+              <span class="eco-tag">PyPI Ready</span>
+            </a>
+            <a class="ecosystem-pill ${isAI ? "is-active" : ""}" href="${toRoot("methodology/#research-pipeline")}" title="AI Models & CFSBR Lab Research">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="18" r="3"/>
+                  <circle cx="6" cy="6" r="3"/>
+                  <circle cx="18" cy="6" r="3"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <line x1="8.59" y1="8.59" x2="15.42" y2="15.42"/>
+                  <line x1="8.59" y1="15.41" x2="15.42" y2="8.59"/>
+                </svg>
+              </span>
+              <span class="eco-name">AI &amp; Models</span>
+              <span class="eco-tag">CFSBR Lab</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
         <div class="mobile-drawer-card">
+          <!-- Mobile 3-way Ecosystem Selector Cards -->
+          <div class="mobile-ecosystems">
+            <a class="mobile-eco-btn ${isJS ? "is-active" : ""}" href="${toRoot("")}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.164-.438-1.346-.864-.067-.158-.094-.306-.067-.477.067-.341.38-.541.834-.486.289.034.568.163.784.364.187.173.307.391.353.64l1.636-.26c-.097-.665-.45-1.282-1.025-1.687-.63-.443-1.428-.592-2.189-.523-1.127.104-1.996.79-2.079 1.838-.088 1.109.576 1.859 1.761 2.336.721.289 1.259.477 1.411.892.091.246.06.495-.084.717-.222.341-.692.482-1.205.419-.481-.059-.887-.319-1.107-.732-.128-.24-.194-.51-.19-.785l-1.678.181c.074.836.46 1.583 1.096 2.052.709.522 1.634.697 2.502.585 1.294-.167 2.193-.947 2.274-2.074.004-.061.004-.122 0-.181zm-6.283-4.992h-1.897v5.719c0 .767-.353 1.092-.937 1.092-.284 0-.583-.075-.785-.205l-.477 1.341c.361.218.867.361 1.421.361 1.488 0 2.675-.769 2.675-2.589v-5.719z"/>
+              </svg>
+              <span>JS Core</span>
+            </a>
+            <a class="mobile-eco-btn ${isPython ? "is-active" : ""}" href="${toRoot("python/")}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
+              </svg>
+              <span>Python</span>
+            </a>
+            <a class="mobile-eco-btn ${isAI ? "is-active" : ""}" href="${toRoot("methodology/#research-pipeline")}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="18" r="3"/>
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="8.59" y1="8.59" x2="15.42" y2="15.42"/>
+                <line x1="8.59" y1="15.41" x2="15.42" y2="8.59"/>
+              </svg>
+              <span>AI Models</span>
+            </a>
+          </div>
+
           <div class="mobile-drawer-actions">
-            <a class="star-cta mobile-docs-cta" href="${toRoot('docs/')}" ><span>Open docs</span></a>
-            <a class="mini-btn mobile-demo-cta" href="${toRoot('simulation/')}">Open simulations</a>
+            <a class="star-cta mobile-docs-cta" href="${toRoot("docs/")}" ><span>Open docs</span></a>
+            <a class="mini-btn mobile-demo-cta" href="${toRoot("simulation/")}">Open simulations</a>
             <a class="mini-btn mobile-demo-cta mobile-external-cta" href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
           <nav class="mobile-nav" aria-label="Mobile navigation">${mobileNav}</nav>
@@ -122,40 +203,99 @@ function renderHeader(pageType) {
 }
 
 function renderProofStrip(pageType) {
-  if (pageType !== 'home') return '';
-  const badges = PROOF_BADGES.map((badge) => `
+  if (pageType !== "home") return "";
+  const badges = PROOF_BADGES.map(
+    (badge) => `
     <a class="proof-badge" href="${badge.href}" target="_blank" rel="noreferrer">
       <img src="${badge.image}" alt="${badge.alt}" />
     </a>
-  `).join('');
+  `,
+  ).join("");
 
   const chips = [
-    { label: 'Live product', href: toRoot('product/') },
-    { label: 'Simulation lab', href: toRoot('simulation/') },
-    { label: 'Package docs', href: toRoot('docs/') },
-    { label: 'Brand assets', href: toRoot('brand/') },
-    { label: 'GitHub repository', href: 'https://github.com/gmrafi/FinEngine', external: true },
-  ].map((chip) => {
-    const ext = chip.external ? ' target="_blank" rel="noopener noreferrer"' : '';
-    const arrow = chip.external ? '↗' : '→';
-    return `<a class="trust-chip" href="${chip.href}"${ext}>${chip.label} <span class="trust-chip-arrow" aria-hidden="true">${arrow}</span></a>`;
-  }).join('');
+    { label: "Live product", href: toRoot("product/") },
+    { label: "Simulation lab", href: toRoot("simulation/") },
+    { label: "Package docs", href: toRoot("docs/") },
+    { label: "Brand assets", href: toRoot("brand/") },
+    {
+      label: "GitHub repository",
+      href: "https://github.com/gmrafi/FinEngine",
+      external: true,
+    },
+  ]
+    .map((chip) => {
+      const ext = chip.external
+        ? ' target="_blank" rel="noopener noreferrer"'
+        : "";
+      const arrow = chip.external ? "↗" : "→";
+      return `<a class="trust-chip" href="${chip.href}"${ext}>${chip.label} <span class="trust-chip-arrow" aria-hidden="true">${arrow}</span></a>`;
+    })
+    .join("");
 
   const trustStrip = [
-    { label: 'DOI', value: '10.67226/cfsbr.fe.2026.001.v1', href: 'https://doi.org/10.67226/cfsbr.fe.2026.001.v1', external: true },
-    { label: 'Archive', value: 'CERN / Zenodo: 22769501', href: 'https://doi.org/10.5281/zenodo.22769501', external: true },
-    { label: 'License', value: 'CC-BY 4.0 · MIT', href: 'https://github.com/gmrafi/FinEngine/blob/main/LICENSE', external: true },
-    { label: 'Registry', value: 'npm Organization', href: 'https://www.npmjs.com/org/finengine', external: true },
-    { label: 'Standards', value: 'Central Bank & BDT Formulations', href: toRoot('methodology/'), external: false },
-    { label: 'Precision', value: 'IEEE-754 Safe', href: toRoot('methodology/'), external: false },
-    { label: 'Architecture', value: 'Zero Dependencies', href: toRoot('docs/'), external: false },
-    { label: 'Backing', value: 'CFSBR Initiative', href: toRoot('about/'), external: false },
-    { label: 'Domain', value: 'js.org Verified', href: 'https://finengine.js.org', external: true },
-  ].map((badge) => {
-    const attrs = badge.external ? 'target="_blank" rel="noopener noreferrer"' : '';
-    const arrow = badge.external ? '↗' : '→';
-    return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}:</span> <span class="trust-strip-value">${badge.value}</span> <span class="trust-strip-arrow" aria-hidden="true">${arrow}</span></a>`;
-  }).join('');
+    {
+      label: "DOI",
+      value: "10.67226/cfsbr.fe.2026.001.v1",
+      href: "https://doi.org/10.67226/cfsbr.fe.2026.001.v1",
+      external: true,
+    },
+    {
+      label: "Archive",
+      value: "CERN / Zenodo: 22769501",
+      href: "https://doi.org/10.5281/zenodo.22769501",
+      external: true,
+    },
+    {
+      label: "License",
+      value: "CC-BY 4.0 · MIT",
+      href: "https://github.com/gmrafi/FinEngine/blob/main/LICENSE",
+      external: true,
+    },
+    {
+      label: "Registry",
+      value: "npm Organization",
+      href: "https://www.npmjs.com/org/finengine",
+      external: true,
+    },
+    {
+      label: "Standards",
+      value: "Central Bank & BDT Formulations",
+      href: toRoot("methodology/"),
+      external: false,
+    },
+    {
+      label: "Precision",
+      value: "IEEE-754 Safe",
+      href: toRoot("methodology/"),
+      external: false,
+    },
+    {
+      label: "Architecture",
+      value: "Zero Dependencies",
+      href: toRoot("docs/"),
+      external: false,
+    },
+    {
+      label: "Backing",
+      value: "CFSBR Initiative",
+      href: toRoot("about/"),
+      external: false,
+    },
+    {
+      label: "Domain",
+      value: "js.org Verified",
+      href: "https://finengine.js.org",
+      external: true,
+    },
+  ]
+    .map((badge) => {
+      const attrs = badge.external
+        ? 'target="_blank" rel="noopener noreferrer"'
+        : "";
+      const arrow = badge.external ? "↗" : "→";
+      return `<a class="trust-strip-badge" href="${badge.href}" ${attrs}><span class="trust-strip-label">${badge.label}:</span> <span class="trust-strip-value">${badge.value}</span> <span class="trust-strip-arrow" aria-hidden="true">${arrow}</span></a>`;
+    })
+    .join("");
 
   return `
     <section class="proof-strip shell" aria-label="Open source trust signals">
@@ -275,6 +415,12 @@ function renderFooter() {
               </a>
             </li>
             <li>
+              <a href="${root}python/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Python SDK &amp; Quant</div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Pandas integration and PyPI package</div>
+              </a>
+            </li>
+            <li>
               <a href="${root}docs/release/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Release Checklist</div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">v0.3.0 publish steps</div>
@@ -376,20 +522,20 @@ function renderFooter() {
 }
 
 function bindMobileMenu() {
-  const button = document.querySelector('[data-menu-toggle]');
-  const menu = document.querySelector('[data-mobile-menu]');
+  const button = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-mobile-menu]");
   if (!button || !menu) return;
-  button.addEventListener('click', () => {
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!expanded));
+  button.addEventListener("click", () => {
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
     menu.hidden = expanded;
   });
 }
 
 function markActiveNav(pageType) {
-  const links = Array.from(document.querySelectorAll('[data-nav-link]'));
+  const links = Array.from(document.querySelectorAll("[data-nav-link]"));
   if (!links.length) return;
   links.forEach((link) => {
-    if (link.dataset.navKey === pageType) link.classList.add('is-active');
+    if (link.dataset.navKey === pageType) link.classList.add("is-active");
   });
 }
