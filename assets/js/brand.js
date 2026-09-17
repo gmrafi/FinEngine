@@ -41,7 +41,7 @@ export const SITE_BRAND = Object.freeze({
   domain: 'finengine.js.org',
   npmScope: '@finengine',
   repoPath: 'gmrafi/FinEngine',
-  tagline: 'Deterministic JavaScript finance primitives for documentation, demos, and product workflows.',
+  tagline: 'Deterministic finance primitives for JavaScript.',
   heroEyebrow: 'OPEN SOURCE · BROWSER-SAFE FINANCIAL ENGINE',
   heroTitle: 'Bank-Grade Financial Math for JavaScript.',
   heroTitleAccent: 'Zero Rounding Errors.',
