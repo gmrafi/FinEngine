@@ -16,8 +16,9 @@
   <a href="https://finengine.js.org/"><img src="https://img.shields.io/badge/domain-finengine.js.org-2273c3.svg" alt="Verified Domain" /></a>
   <a href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT%20%26%20CC--BY%204.0-blue.svg" alt="License" /></a>
   <a href="https://github.com/gmrafi/FinEngine/actions"><img src="https://img.shields.io/badge/verification-passing-brightgreen.svg" alt="Build Status" /></a>
-  <a href="https://www.npmjs.com/search?q=%40finengine"><img src="https://img.shields.io/badge/dependencies-0%20external-success.svg" alt="Zero Dependencies" /></a>
   <a href="https://www.npmjs.com/org/finengine"><img src="https://img.shields.io/badge/npm-@finengine-cb3837?logo=npm" alt="npm Organization" /></a>
+  <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/pypi-v0.1.0-3775A9?logo=pypi&logoColor=white" alt="PyPI Version" /></a>
+  <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/python-%3E%3D3.9-blue.svg?logo=python&logoColor=white" alt="Python &gt;=3.9" /></a>
 </p>
 
 <p align="center">
@@ -29,6 +30,7 @@
 <p align="center">
   <a href="#key-guarantees">Key Guarantees</a> &middot;
   <a href="#monorepo-packages">Packages</a> &middot;
+  <a href="#python-sdk--quant-finance">Python SDK</a> &middot;
   <a href="#installation">Installation</a> &middot;
   <a href="#quickstart-examples">Quickstart</a> &middot;
   <a href="#live-interactive-surfaces">Live Tools</a> &middot;
@@ -68,11 +70,12 @@ In multi-period loan amortization schedules, interest compounding, and balance l
 
 FinEngine is architected as an offline-capable monorepo dividing mathematical precision from presentation:
 
-| Package | Version | Purpose | Key Exports |
-| :--- | :---: | :--- | :--- |
-| [`@finengine/core`](packages/core/) | `0.1.0` | Integer sub-unit arithmetic, BDT currency primitives, and double-entry ledger balance validators. | `createMoney`, `formatMoney`, `validateLedgerEntry`, `sumEntries` |
-| [`@finengine/math`](packages/math/) | `0.1.0` | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers. | `amortize`, `monthlyPayment`, `xirr` |
-| [`@finengine/ui`](packages/ui/) | `0.1.0` | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview` |
+| Package | Version | Registry | Purpose | Key Exports |
+| :--- | :---: | :---: | :--- | :--- |
+| [`@finengine/core`](packages/core/) | `0.3.0` | `npm` | Integer sub-unit arithmetic, BDT currency primitives, and double-entry ledger balance validators. | `createMoney`, `formatMoney`, `validateLedgerEntry`, `sumEntries` |
+| [`@finengine/math`](packages/math/) | `0.3.0` | `npm` | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers. | `amortize`, `monthlyPayment`, `xirr` |
+| [`@finengine/ui`](packages/ui/) | `0.3.0` | `npm` | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview` |
+| [`finengine`](https://github.com/gmrafi/FinEngine-Py) | `0.1.0` | `PyPI` | Python actuarial math, integer Poisha scaling, Pandas DataFrames, and alternative credit risk AI. | `amortize`, `to_dataframe`, `xirr`, `assess_credit_risk` |
 
 ### Research Pipeline (CFSBR Lab)
 
@@ -80,6 +83,45 @@ FinEngine is architected as an offline-capable monorepo dividing mathematical pr
 - `@finengine/microfinance`: Actuarial translation modules converting flat interest structures into true reducing APR.
 - `@finengine/ratios`: Deterministic financial ratio engines for working capital liquidity and DuPont decomposition.
 - `@finengine/tax`: NBR-compliant TDS/VDS and corporate tax calculation primitives.
+
+---
+
+## Python SDK &amp; Quant Finance (`finengine` on PyPI)
+
+FinEngine is published as an audited, zero-dependency Python library for quantitative finance, data scientists, and backend banking systems.
+
+```bash
+# 1. Minimal installation (Zero dependencies, 100% pure math)
+pip install finengine
+
+# 2. With Pandas & NumPy DataFrame support
+pip install "finengine[analysis]"
+
+# 3. Full suite with AI & alternative credit risk models
+pip install "finengine[all]"
+```
+
+### Python Quickstart (Amortization &amp; Pandas Integration)
+
+```python
+from finengine import amortize, format_money, to_dataframe
+
+# 1. Compute 36-month SME loan schedule with guaranteed terminal zero balance
+plan = amortize(principal=500000, annual_rate=13.5, months=36)
+print(f"Monthly Payment: {format_money(plan.monthly_payment, 'BDT')}")
+# → Monthly Payment: BDT 16,967.64
+
+# 2. Direct conversion into structured Pandas DataFrame
+df = to_dataframe(plan)
+print(df.head())
+#    month   payment  principal_paid  interest  remaining_balance
+# 0      1  16967.64        11342.64   5625.00          488657.36
+# 1      2  16967.64        11470.25   5497.39          477187.11
+```
+
+- **PyPI Registry:** [https://pypi.org/project/finengine/](https://pypi.org/project/finengine/)
+- **Python GitHub Repository:** [https://github.com/gmrafi/FinEngine-Py](https://github.com/gmrafi/FinEngine-Py)
+- **Interactive Python Documentation:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
 
 ---
 
@@ -193,6 +235,7 @@ console.log(summary.burdenTone);  // "healthy"
 Explore FinEngine live in your browser:
 
 - **Flagship Portal:** [https://finengine.js.org/](https://finengine.js.org/)
+- **Python SDK & Quant Hub:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
 - **Live Loan Simulator:** [https://finengine.js.org/#interactive-simulator](https://finengine.js.org/#interactive-simulator)
 - **VS Code Precision Playground:** [https://finengine.js.org/#precision-playground](https://finengine.js.org/#precision-playground) (Test recipes and custom calculations in-browser with zero latency)
 - **Full Simulation Lab:** [https://finengine.js.org/simulation/](https://finengine.js.org/simulation/)
