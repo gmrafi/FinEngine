@@ -2339,8 +2339,8 @@ html[data-theme='light'] .field-error { color: #dc2626; }
 /* === Animation 1: Terminal Morphing === */
 .hero-terminal-pane {
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 300ms ease, transform 300ms ease;
+  transform: translateY(4px);
+  transition: opacity 160ms ease, transform 160ms ease;
   pointer-events: none;
 }
 .hero-terminal-pane.is-active {
@@ -2349,13 +2349,11 @@ html[data-theme='light'] .field-error { color: #dc2626; }
   pointer-events: auto;
 }
 .hero-terminal-pane.is-typing .hero-terminal-pre code > * {
-  opacity: 0;
-  transform: translateY(3px);
-  animation: terminal-line-in 220ms ease forwards;
+  animation: terminal-line-in 160ms ease forwards;
   animation-delay: var(--line-delay, 0s);
 }
 @keyframes terminal-line-in {
-  from { opacity: 0; transform: translateY(3px); }
+  from { opacity: 0; transform: translateY(2px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .hero-terminal-running-overlay {
