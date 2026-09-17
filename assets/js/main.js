@@ -6,6 +6,7 @@ import { initReveal } from './modules/reveal.js';
 import { initCounters } from './modules/counters.js';
 import { initPackageExplorer } from './modules/packages.js';
 import { initCalculator } from './modules/calculator.js';
+import { initBanner } from './modules/banner.js';
 import { initTerminalPill } from './modules/terminal-pill.js';
 import { initTerminalMorph } from './modules/terminal-morph.js';
 import { initRatioBar } from './modules/ratio-bar.js';
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollSpy();
   initReveal();
   initCounters();
+  initBanner();
   initPackageExplorer();
   initCalculator();
   initTerminalPill();
