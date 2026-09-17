@@ -394,15 +394,15 @@ FinEngine Quantitative Simulation Export
 Scenario: ${state.scenario}
 Generated: ${new Date().toISOString()}
 
-Install FinEngine Python SDK:
-  pip install finengine pandas tabulate
+Install FinEngine Python Package (PyPI):
+  pip install "finengine[analysis]"
 """
 
-from finengine import amortize, format_money
+from finengine import amortize, format_money, to_dataframe
 import pandas as pd
 
 # 1. Execute deterministic loan amortization
-# Note: FinEngine uses exact integer sub-unit Poisha arithmetic to eliminate IEEE-754 drift
+# FinEngine guarantees terminal zero reconciliation (B_n === 0.00) and zero float drift
 schedule_data = ${JSON.stringify(state.schedule, null, 2)}
 
 # 2. Load into Pandas DataFrame for statistical & quant analysis
