@@ -53,7 +53,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://finengine.js.org/license/</loc>
-    <priority>0.6</priority>
+    <loc>https://finengine.js.org/python/</loc>
+    <priority>0.9</priority>
   </url>
 </urlset>

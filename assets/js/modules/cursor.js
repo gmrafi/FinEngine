@@ -5,19 +5,21 @@
  */
 
 export function initPrecisionCursor() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
   // Touch micro-ripple handler for mobile and tablet
   function handleTouch(e) {
-    if (e.pointerType && e.pointerType !== 'touch') return;
-    const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : null);
-    const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : null);
+    if (e.pointerType && e.pointerType !== "touch") return;
+    const clientX =
+      e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+    const clientY =
+      e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : null);
     if (clientX == null || clientY == null) return;
 
-    const ripple = document.createElement('div');
-    ripple.className = 'touch-micro-ripple';
+    const ripple = document.createElement("div");
+    ripple.className = "touch-micro-ripple";
     ripple.style.left = `${clientX}px`;
     ripple.style.top = `${clientY}px`;
     document.body.appendChild(ripple);
@@ -27,17 +29,17 @@ export function initPrecisionCursor() {
     }, 400);
   }
 
-  window.addEventListener('touchstart', handleTouch, { passive: true });
-  window.addEventListener('pointerdown', handleTouch, { passive: true });
+  window.addEventListener("touchstart", handleTouch, { passive: true });
+  window.addEventListener("pointerdown", handleTouch, { passive: true });
 
   // Desktop Micro-Tracker Elements
-  const ring = document.createElement('div');
-  ring.className = 'precision-cursor-ring';
-  ring.setAttribute('aria-hidden', 'true');
+  const ring = document.createElement("div");
+  ring.className = "precision-cursor-ring";
+  ring.setAttribute("aria-hidden", "true");
 
-  const dot = document.createElement('div');
-  dot.className = 'precision-cursor-dot';
-  dot.setAttribute('aria-hidden', 'true');
+  const dot = document.createElement("div");
+  dot.className = "precision-cursor-dot";
+  dot.setAttribute("aria-hidden", "true");
 
   document.body.appendChild(ring);
   document.body.appendChild(dot);
@@ -59,8 +61,8 @@ export function initPrecisionCursor() {
 
     if (!isVisible) {
       isVisible = true;
-      ring.style.opacity = '1';
-      dot.style.opacity = '1';
+      ring.style.opacity = "1";
+      dot.style.opacity = "1";
       ringX = mouseX;
       ringY = mouseY;
       dotX = mouseX;
@@ -74,37 +76,43 @@ export function initPrecisionCursor() {
 
   function onMouseDown() {
     isMouseDown = true;
-    ring.classList.add('is-clicked');
+    ring.classList.add("is-clicked");
   }
 
   function onMouseUp() {
     isMouseDown = false;
-    ring.classList.remove('is-clicked');
+    ring.classList.remove("is-clicked");
   }
 
   function onMouseLeave() {
     isVisible = false;
-    ring.style.opacity = '0';
-    dot.style.opacity = '0';
+    ring.style.opacity = "0";
+    dot.style.opacity = "0";
   }
 
   function onMouseEnter() {
     isVisible = true;
-    ring.style.opacity = '1';
-    dot.style.opacity = '1';
+    ring.style.opacity = "1";
+    dot.style.opacity = "1";
   }
 
   // Interactive element hover tracking
-  document.addEventListener('mouseover', (e) => {
-    const target = e.target.closest('a, button, input, select, textarea, [data-hero-tab], [data-playground-preset], .bento-card, .sim-chip');
-    if (target) {
-      isHoveringInteractive = true;
-      ring.classList.add('is-hovering');
-    } else {
-      isHoveringInteractive = false;
-      ring.classList.remove('is-hovering');
-    }
-  }, { passive: true });
+  document.addEventListener(
+    "mouseover",
+    (e) => {
+      const target = e.target.closest(
+        "a, button, input, select, textarea, [data-hero-tab], [data-playground-preset], .bento-card, .sim-chip",
+      );
+      if (target) {
+        isHoveringInteractive = true;
+        ring.classList.add("is-hovering");
+      } else {
+        isHoveringInteractive = false;
+        ring.classList.remove("is-hovering");
+      }
+    },
+    { passive: true },
+  );
 
   function render() {
     if (!isVisible) {
@@ -132,9 +140,9 @@ export function initPrecisionCursor() {
     }
   }
 
-  document.addEventListener('mousemove', onMouseMove, { passive: true });
-  document.addEventListener('mousedown', onMouseDown, { passive: true });
-  document.addEventListener('mouseup', onMouseUp, { passive: true });
-  document.documentElement.addEventListener('mouseleave', onMouseLeave);
-  document.documentElement.addEventListener('mouseenter', onMouseEnter);
+  document.addEventListener("mousemove", onMouseMove, { passive: true });
+  document.addEventListener("mousedown", onMouseDown, { passive: true });
+  document.addEventListener("mouseup", onMouseUp, { passive: true });
+  document.documentElement.addEventListener("mouseleave", onMouseLeave);
+  document.documentElement.addEventListener("mouseenter", onMouseEnter);
 }
