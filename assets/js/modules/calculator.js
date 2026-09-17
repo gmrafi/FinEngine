@@ -247,7 +247,7 @@ function renderSchedulePreview(tbody, schedule) {
   const head = schedule.slice(0, 2).map(scheduleRow).join('');
   const tail = schedule.slice(-2).map(scheduleRow).join('');
   const hidden = schedule.length - 4;
-  const collapsedRow = `<tr class="schedule-row--collapsed"><td colspan="4">… ${hidden} intermediate month${hidden === 1 ? '' : 's'} hidden  -  click "View full schedule" to expand …</td></tr>`;
+  const collapsedRow = `<tr class="schedule-row--collapsed"><td colspan="4">… ${hidden} intermediate month${hidden === 1 ? '' : 's'} hidden - click "View full schedule" to expand …</td></tr>`;
   tbody.innerHTML = `${head}${collapsedRow}${tail}`;
 }
 

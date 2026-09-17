@@ -26,11 +26,6 @@ export const BRAND_CANDIDATES = Object.freeze([
     verdict: 'memorable',
     rationale: 'Distinctive for ledger-heavy products, but more category-specific.',
   },
-  {
-    name: 'FinEngine',
-    verdict: 'fallback',
-    rationale: 'Credible but more generic than the options above.',
-  },
 ]);
 
 export const SITE_BRAND = Object.freeze({
@@ -43,9 +38,9 @@ export const SITE_BRAND = Object.freeze({
   repoPath: 'gmrafi/FinEngine',
   tagline: 'Deterministic finance primitives for JavaScript.',
   heroEyebrow: 'OPEN SOURCE · BROWSER-SAFE FINANCIAL ENGINE',
-  heroTitle: 'Bank-Grade Financial Math for JavaScript.',
+  heroTitle: 'Bank-Grade Financial Math.',
   heroTitleAccent: 'Zero Rounding Errors.',
-  heroLead: 'Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations  -  with 100% client-side privacy and no backend dependency.',
+  heroLead: 'Deterministic loan amortization, repayment schedules, and BDT-localized currency primitives. Built for fintech developers, microfinance systems, and classroom simulations: with 100% client-side privacy and no backend dependency.',
 });
 
 export function applyBrand() {
