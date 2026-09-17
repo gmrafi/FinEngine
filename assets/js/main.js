@@ -8,6 +8,7 @@ import { initPackageExplorer } from './modules/packages.js';
 import { initCalculator } from './modules/calculator.js';
 import { initTerminalMorph } from './modules/terminal-morph.js';
 import { initRatioBar } from './modules/ratio-bar.js';
+import { initBlueprintSpotlight } from './modules/spotlight.js';
 import { initCopyButtons } from './modules/copy.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initHeroTabs } from './modules/hero-tabs.js';
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalculator();
   initTerminalMorph();
   initRatioBar();
+  initBlueprintSpotlight();
   initCopyButtons();
   initCodeCopy();
   initHeroTabs();
