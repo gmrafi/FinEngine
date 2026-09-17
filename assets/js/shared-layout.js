@@ -147,9 +147,9 @@ function renderProofStrip(pageType) {
     <section class="proof-strip shell" aria-label="Open source trust signals">
       <div class="proof-panel compact-proof-panel">
         <div>
-          <div class="eyebrow">Trust signals</div>
-          <h2 class="proof-title">Source, docs, and deploy signals stay visible without overloading the hero.</h2>
-          <p class="proof-copy">The credibility layer now stays on the homepage only, while inner pages remain focused on their own task flows.</p>
+          <div class="eyebrow eyebrow-blue">Verified Standards</div>
+          <h2 class="proof-title">Engineered for Mathematical Permanence and Public Auditability.</h2>
+          <p class="proof-copy">Permanent CERN Zenodo archiving, Crossref methodology indexing, and zero-dependency client-side execution.</p>
         </div>
         <div class="proof-badges">${badges}</div>
         <div class="trust-row">${chips}</div>
