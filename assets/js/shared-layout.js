@@ -114,6 +114,7 @@ function renderHeader(pageType) {
             </span>
             <span class="eco-name">JS &amp; Web Engine</span>
             <span class="eco-tag">npm v0.3.0</span>
+            ${!isJS ? `<svg class="eco-arrow" width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4.5L12.5 8 9 11.5"/></svg>` : ""}
           </a>
 
           <!-- Secondary Extensions Group -->
@@ -127,6 +128,7 @@ function renderHeader(pageType) {
               </span>
               <span class="eco-subname">Python SDK</span>
               <span class="eco-subtag">PyPI v0.1.0</span>
+              ${!isPython ? `<svg class="eco-arrow" width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4.5L12.5 8 9 11.5"/></svg>` : ""}
             </a>
 
             <a class="eco-secondary-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models &amp; CFSBR Lab Research">
@@ -142,6 +144,7 @@ function renderHeader(pageType) {
               </span>
               <span class="eco-subname">AI Lab</span>
               <span class="eco-subtag">Preview</span>
+              ${!isAI ? `<svg class="eco-arrow" width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4.5L12.5 8 9 11.5"/></svg>` : ""}
             </a>
           </div>
         </div>

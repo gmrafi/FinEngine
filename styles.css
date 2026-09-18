@@ -5497,7 +5497,7 @@ html[data-theme="dark"] .trust-chip:hover .trust-chip-arrow {
 .ecosystem-hierarchy-bar {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background: var(--bg-card, rgba(15, 23, 42, 0.88));
   border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
   border-radius: 999px;
@@ -5532,12 +5532,17 @@ html[data-theme="light"] .ecosystem-hierarchy-bar {
   border: 1px solid var(--line-strong, rgba(255, 255, 255, 0.16));
   transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 .eco-primary-pill:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.28);
   color: #ffffff;
   transform: translateY(-1px);
+}
+.eco-primary-pill:active {
+  transform: scale(0.98);
 }
 .eco-primary-pill.is-active {
   background: var(--panel, #1e293b);
@@ -5609,11 +5614,29 @@ html[data-theme="light"] .eco-tag {
   color: #64748b;
 }
 
+/* Arrow indicator inside buttons */
+.eco-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1px;
+  opacity: 0.55;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+.eco-primary-pill:hover .eco-arrow,
+.eco-secondary-pill:hover .eco-arrow,
+.mobile-eco-primary-btn:hover .mobile-eco-arrow,
+.mobile-eco-sub-btn:hover .mobile-eco-arrow {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
 /* Secondary Extensions Group */
 .eco-secondary-group {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   padding-right: 4px;
 }
 .eco-secondary-label {
@@ -5627,28 +5650,35 @@ html[data-theme="light"] .eco-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 11px;
+  padding: 5px 10px;
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 500;
-  color: var(--muted, #a1a1aa);
+  color: var(--muted, #cbd5e1);
   text-decoration: none;
-  background: transparent;
-  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   transition: all 0.15s ease;
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 .eco-secondary-pill:hover {
   color: var(--text, #fafafa);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
   transform: translateY(-1px);
 }
+.eco-secondary-pill:active {
+  transform: scale(0.98);
+}
 html[data-theme="light"] .eco-secondary-pill {
-  color: #64748b;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #475569;
 }
 html[data-theme="light"] .eco-secondary-pill:hover {
-  background: #f8fafc;
+  background: #f1f5f9;
   border-color: #cbd5e1;
   color: #0f172a;
 }
@@ -5657,12 +5687,14 @@ html[data-theme="light"] .eco-secondary-pill:hover {
   background: var(--panel, #1e293b);
   border-color: rgba(255, 255, 255, 0.18);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+  font-weight: 600;
 }
 html[data-theme="light"] .eco-secondary-pill.is-active {
   background: #ffffff;
   color: #0f172a;
   border-color: rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
 }
 .eco-subname {
   font-weight: 550;
@@ -5702,6 +5734,11 @@ html[data-theme="light"] .eco-subtag {
   font-size: 12.5px;
   font-weight: 600;
   transition: all 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.mobile-eco-primary-btn:active {
+  transform: scale(0.98);
 }
 .mobile-eco-primary-btn.is-active {
   border-color: rgba(255, 255, 255, 0.25);
@@ -5722,6 +5759,11 @@ html[data-theme="light"] .mobile-eco-primary-btn.is-active {
   align-items: center;
   gap: 9px;
 }
+.mobile-eco-primary-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .mobile-eco-primary-title {
   font-weight: 600;
 }
@@ -5739,6 +5781,12 @@ html[data-theme="light"] .mobile-eco-badge {
   background: #e2e8f0;
   color: #475569;
 }
+.mobile-eco-arrow {
+  opacity: 0.6;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
 .mobile-eco-sub-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5747,9 +5795,8 @@ html[data-theme="light"] .mobile-eco-badge {
 .mobile-eco-sub-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 8px;
+  justify-content: space-between;
+  padding: 10px 12px;
   border-radius: 10px;
   background: var(--panel);
   border: 1px solid var(--line);
@@ -5758,6 +5805,16 @@ html[data-theme="light"] .mobile-eco-badge {
   font-size: 11.5px;
   font-weight: 500;
   transition: all 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.mobile-eco-sub-btn:active {
+  transform: scale(0.98);
+}
+.mobile-eco-sub-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .mobile-eco-sub-btn:hover {
   color: var(--text);
@@ -5806,10 +5863,12 @@ html[data-theme="light"] .mobile-eco-sub-btn.is-active {
     width: 100%;
     justify-content: space-between;
     padding: 0;
+    gap: 6px;
   }
   .eco-secondary-pill {
     flex: 1;
     justify-content: center;
+    padding: 6px 8px;
   }
 }
 
