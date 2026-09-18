@@ -85,7 +85,8 @@ function renderHeader(pageType) {
   const isPython = pageType === "python";
   const isAI = pageType === "ai";
   const isJS = !isPython && !isAI;
-  const isEntryPage = pageType === "home" || pageType === "python" || pageType === "ai";
+  const isEntryPage =
+    pageType === "home" || pageType === "python" || pageType === "ai";
 
   const nav = NAV_ITEMS.map((item) => {
     const href = root + item.path;
