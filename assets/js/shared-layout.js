@@ -85,6 +85,7 @@ function renderHeader(pageType) {
   const isPython = pageType === "python";
   const isAI = pageType === "ai";
   const isJS = !isPython && !isAI;
+  const isEntryPage = pageType === "home" || pageType === "python" || pageType === "ai";
 
   const nav = NAV_ITEMS.map((item) => {
     const href = root + item.path;
@@ -96,6 +97,55 @@ function renderHeader(pageType) {
       return `<a${item.key ? ` data-nav-link data-nav-key="${item.key}"` : ""} href="${href}">${item.label}</a>`;
     })
     .join("");
+
+  const ecosystemSubbar = isEntryPage
+    ? `
+      <!-- PRIMARY CORE + SECONDARY EXTENSIONS ECOSYSTEM BAR (ENTRY PAGES ONLY) -->
+      <div class="shell ecosystem-subbar">
+        <div class="ecosystem-hierarchy-bar">
+          <!-- Primary Core Engine Pill -->
+          <a class="eco-primary-pill ${isJS ? "is-active" : ""}" href="${toRoot("")}" title="Primary Core Engine · JavaScript &amp; Web">
+            <span class="eco-core-indicator">Primary Core</span>
+            <span class="eco-icon" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.164-.438-1.346-.864-.067-.158-.094-.306-.067-.477.067-.341.38-.541.834-.486.289.034.568.163.784.364.187.173.307.391.353.64l1.636-.26c-.097-.665-.45-1.282-1.025-1.687-.63-.443-1.428-.592-2.189-.523-1.127.104-1.996.79-2.079 1.838-.088 1.109.576 1.859 1.761 2.336.721.289 1.259.477 1.411.892.091.246.06.495-.084.717-.222.341-.692.482-1.205.419-.481-.059-.887-.319-1.107-.732-.128-.24-.194-.51-.19-.785l-1.678.181c.074.836.46 1.583 1.096 2.052.709.522 1.634.697 2.502.585 1.294-.167 2.193-.947 2.274-2.074.004-.061.004-.122 0-.181zm-6.283-4.992h-1.897v5.719c0 .767-.353 1.092-.937 1.092-.284 0-.583-.075-.785-.205l-.477 1.341c.361.218.867.361 1.421.361 1.488 0 2.675-.769 2.675-2.589v-5.719z"/>
+              </svg>
+            </span>
+            <span class="eco-name">JS &amp; Web Engine</span>
+            <span class="eco-tag">npm v0.3.0</span>
+          </a>
+
+          <!-- Secondary Extensions Group -->
+          <div class="eco-secondary-group">
+            <span class="eco-secondary-label">Also available:</span>
+            <a class="eco-secondary-pill ${isPython ? "is-active" : ""}" href="${toRoot("python/")}" title="Python SDK &amp; Quant Engine">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
+                </svg>
+              </span>
+              <span class="eco-subname">Python SDK</span>
+              <span class="eco-subtag">PyPI v0.1.0</span>
+            </a>
+
+            <a class="eco-secondary-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models &amp; CFSBR Lab Research">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="18" r="3"/>
+                  <circle cx="6" cy="6" r="3"/>
+                  <circle cx="18" cy="6" r="3"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <line x1="8.59" y1="8.59" x2="15.42" y2="15.42"/>
+                  <line x1="8.59" y1="15.41" x2="15.42" y2="8.59"/>
+                </svg>
+              </span>
+              <span class="eco-subname">AI Lab</span>
+              <span class="eco-subtag">Preview</span>
+            </a>
+          </div>
+        </div>
+      </div>`
+    : "";
 
   return `
     <header class="topbar shared-topbar">
@@ -118,35 +168,30 @@ function renderHeader(pageType) {
         </div>
       </div>
 
-      <!-- 3-WAY RESPONSIVE ECOSYSTEM SWITCHER (JS / PYTHON / AI) -->
-      <div class="shell ecosystem-subbar">
-        <div class="ecosystem-pills-wrap">
-          <div class="ecosystem-label">
-            <span class="eco-pulse" aria-hidden="true"></span>
-            <span>Select Stack:</span>
-          </div>
-          <div class="ecosystem-pills" role="tablist" aria-label="FinEngine Ecosystems">
-            <a class="ecosystem-pill ${isJS ? "is-active" : ""}" href="${toRoot("")}" title="JavaScript & Web Engine (npm)">
-              <span class="eco-icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      ${ecosystemSubbar}
+
+      <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
+        <div class="mobile-drawer-card">
+          <!-- Mobile Ecosystem Hierarchy (Primary Core + Extensions) -->
+          <div class="mobile-ecosystems-hierarchy">
+            <a class="mobile-eco-primary-btn ${isJS ? "is-active" : ""}" href="${toRoot("")}">
+              <div class="mobile-eco-primary-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.164-.438-1.346-.864-.067-.158-.094-.306-.067-.477.067-.341.38-.541.834-.486.289.034.568.163.784.364.187.173.307.391.353.64l1.636-.26c-.097-.665-.45-1.282-1.025-1.687-.63-.443-1.428-.592-2.189-.523-1.127.104-1.996.79-2.079 1.838-.088 1.109.576 1.859 1.761 2.336.721.289 1.259.477 1.411.892.091.246.06.495-.084.717-.222.341-.692.482-1.205.419-.481-.059-.887-.319-1.107-.732-.128-.24-.194-.51-.19-.785l-1.678.181c.074.836.46 1.583 1.096 2.052.709.522 1.634.697 2.502.585 1.294-.167 2.193-.947 2.274-2.074.004-.061.004-.122 0-.181zm-6.283-4.992h-1.897v5.719c0 .767-.353 1.092-.937 1.092-.284 0-.583-.075-.785-.205l-.477 1.341c.361.218.867.361 1.421.361 1.488 0 2.675-.769 2.675-2.589v-5.719z"/>
                 </svg>
-              </span>
-              <span class="eco-name">JS &amp; Web</span>
-              <span class="eco-tag">npm v0.3.0</span>
+                <span class="mobile-eco-primary-title">JS &amp; Web Engine</span>
+              </div>
+              <span class="mobile-eco-badge">Primary Core</span>
             </a>
-            <a class="ecosystem-pill ${isPython ? "is-active" : ""}" href="${toRoot("python/")}" title="Python SDK & Quant Engine (PyPI)">
-              <span class="eco-icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <div class="mobile-eco-sub-row">
+              <a class="mobile-eco-sub-btn ${isPython ? "is-active" : ""}" href="${toRoot("python/")}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
                 </svg>
-              </span>
-              <span class="eco-name">Python &amp; Quant</span>
-              <span class="eco-tag">PyPI v0.1.0</span>
-            </a>
-            <a class="ecosystem-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models & CFSBR Lab Research">
-              <span class="eco-icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <span>Python SDK</span>
+              </a>
+              <a class="mobile-eco-sub-btn ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="18" cy="18" r="3"/>
                   <circle cx="6" cy="6" r="3"/>
                   <circle cx="18" cy="6" r="3"/>
@@ -154,41 +199,9 @@ function renderHeader(pageType) {
                   <line x1="8.59" y1="8.59" x2="15.42" y2="15.42"/>
                   <line x1="8.59" y1="15.41" x2="15.42" y2="8.59"/>
                 </svg>
-              </span>
-              <span class="eco-name">AI &amp; Models</span>
-              <span class="eco-tag">Coming Soon</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="shell mobile-drawer" id="site-mobile-menu" data-mobile-menu hidden>
-        <div class="mobile-drawer-card">
-          <!-- Mobile 3-way Ecosystem Selector Cards -->
-          <div class="mobile-ecosystems">
-            <a class="mobile-eco-btn ${isJS ? "is-active" : ""}" href="${toRoot("")}">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.164-.438-1.346-.864-.067-.158-.094-.306-.067-.477.067-.341.38-.541.834-.486.289.034.568.163.784.364.187.173.307.391.353.64l1.636-.26c-.097-.665-.45-1.282-1.025-1.687-.63-.443-1.428-.592-2.189-.523-1.127.104-1.996.79-2.079 1.838-.088 1.109.576 1.859 1.761 2.336.721.289 1.259.477 1.411.892.091.246.06.495-.084.717-.222.341-.692.482-1.205.419-.481-.059-.887-.319-1.107-.732-.128-.24-.194-.51-.19-.785l-1.678.181c.074.836.46 1.583 1.096 2.052.709.522 1.634.697 2.502.585 1.294-.167 2.193-.947 2.274-2.074.004-.061.004-.122 0-.181zm-6.283-4.992h-1.897v5.719c0 .767-.353 1.092-.937 1.092-.284 0-.583-.075-.785-.205l-.477 1.341c.361.218.867.361 1.421.361 1.488 0 2.675-.769 2.675-2.589v-5.719z"/>
-              </svg>
-              <span>JS Core</span>
-            </a>
-            <a class="mobile-eco-btn ${isPython ? "is-active" : ""}" href="${toRoot("python/")}">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
-              </svg>
-              <span>Python</span>
-            </a>
-            <a class="mobile-eco-btn ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="18" cy="18" r="3"/>
-                <circle cx="6" cy="6" r="3"/>
-                <circle cx="18" cy="6" r="3"/>
-                <circle cx="6" cy="18" r="3"/>
-                <line x1="8.59" y1="8.59" x2="15.42" y2="15.42"/>
-                <line x1="8.59" y1="15.41" x2="15.42" y2="8.59"/>
-              </svg>
-              <span>AI Models</span>
-            </a>
+                <span>AI Lab (Preview)</span>
+              </a>
+            </div>
           </div>
 
           <div class="mobile-drawer-actions">
