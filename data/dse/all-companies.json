@@ -1,0 +1,2865 @@
+[
+  {
+    "symbol": "1JANATAMF",
+    "name": "First Janata Bank Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 985.739
+  },
+  {
+    "symbol": "1STPRIMFMF",
+    "name": "Prime Finance First Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 434
+  },
+  {
+    "symbol": "AAMRANET",
+    "name": "AAMRANET",
+    "sector": "IT Sector",
+    "category": "Z",
+    "market_cap_mn": 1664.34
+  },
+  {
+    "symbol": "AAMRATECH",
+    "name": "AAMRATECH",
+    "sector": "IT Sector",
+    "category": "Z",
+    "market_cap_mn": 1119.439
+  },
+  {
+    "symbol": "ABB1STMF",
+    "name": "AB Bank 1st Mutual fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 860.725
+  },
+  {
+    "symbol": "ABBANK",
+    "name": "AB Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 4030.626
+  },
+  {
+    "symbol": "ACFL",
+    "name": "Aman Cotton Fibrous PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 2248.583
+  },
+  {
+    "symbol": "ACHIASF",
+    "name": "Achia Sea Foods Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1105.747
+  },
+  {
+    "symbol": "ACI",
+    "name": "Advanced Chemical Industries PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 16354.289
+  },
+  {
+    "symbol": "ACIFORMULA",
+    "name": "ACI Formulations PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 7215.075
+  },
+  {
+    "symbol": "ACMELAB",
+    "name": "The ACME Laboratories Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 16399.132
+  },
+  {
+    "symbol": "ACMEPL",
+    "name": "ACME Pesticides Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 3307.5
+  },
+  {
+    "symbol": "ACTIVEFINE",
+    "name": "Active Fine Chemicals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 1367.639
+  },
+  {
+    "symbol": "ADNTEL",
+    "name": "ADN Telecom Limited",
+    "sector": "IT Sector",
+    "category": "A",
+    "market_cap_mn": 3775.657
+  },
+  {
+    "symbol": "ADVENT",
+    "name": "Advent Pharma Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 1285.232
+  },
+  {
+    "symbol": "AFCAGRO",
+    "name": "AFC Agro Biotech Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 748.905
+  },
+  {
+    "symbol": "AFTABAUTO",
+    "name": "Aftab Automobiles Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 2796.942
+  },
+  {
+    "symbol": "AGNISYSL",
+    "name": "Agni Systems PLC.",
+    "sector": "IT Sector",
+    "category": "B",
+    "market_cap_mn": 2176.686
+  },
+  {
+    "symbol": "AGRANINS",
+    "name": "Agrani Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1030.135
+  },
+  {
+    "symbol": "AIBL1STIMF",
+    "name": "AIBL 1st Islamic Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 610
+  },
+  {
+    "symbol": "AIL",
+    "name": "Alif Industries Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1538.188
+  },
+  {
+    "symbol": "ALARABANK",
+    "name": "Al-Arafah Islami Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 17736.052
+  },
+  {
+    "symbol": "ALIF",
+    "name": "Alif Manufacturing Company Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1403.606
+  },
+  {
+    "symbol": "ALLTEX",
+    "name": "Alltex Industries Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1348.829
+  },
+  {
+    "symbol": "AMANFEED",
+    "name": "Aman Feed PLC.",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 4099.374
+  },
+  {
+    "symbol": "AMBEEPHA",
+    "name": "Ambee Pharmaceuticals PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 1814.4
+  },
+  {
+    "symbol": "AMCL(PRAN)",
+    "name": "Agricultural Marketing Company Ltd. (Pran)",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 1702.4
+  },
+  {
+    "symbol": "AMPL",
+    "name": "Al-Madina Pharmaceuticals Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1750.32
+  },
+  {
+    "symbol": "ANLIMAYARN",
+    "name": "Anlimayarn Dyeing Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 471.71
+  },
+  {
+    "symbol": "ANWARGALV",
+    "name": "Anwar Galvanizing Ltd.",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 3341.71
+  },
+  {
+    "symbol": "AOL",
+    "name": "Associated Oxygen Limited",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 1723.577
+  },
+  {
+    "symbol": "AOPLC",
+    "name": "Agro Organica PLC",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 385.37
+  },
+  {
+    "symbol": "APEXFOODS",
+    "name": "Apex Foods Limited",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 1476.922
+  },
+  {
+    "symbol": "APEXFOOT",
+    "name": "Apex Footwear Limited",
+    "sector": "Tannery Industries",
+    "category": "A",
+    "market_cap_mn": 4109.452
+  },
+  {
+    "symbol": "APEXSPINN",
+    "name": "Apex Spinning & Knitting Mills Limited",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 2367.96
+  },
+  {
+    "symbol": "APEXTANRY",
+    "name": "Apex Tannery Limited",
+    "sector": "Tannery Industries",
+    "category": "B",
+    "market_cap_mn": 1423.416
+  },
+  {
+    "symbol": "APEXWEAV",
+    "name": "Apex Weaving and Finishing Mills Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 372.96
+  },
+  {
+    "symbol": "APOLOISPAT",
+    "name": "Appollo Ispat Complex Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1203.926
+  },
+  {
+    "symbol": "ARAMIT",
+    "name": "Aramit Limited",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 1107.6
+  },
+  {
+    "symbol": "ARAMITCEM",
+    "name": "Aramit Cement Limited",
+    "sector": "Cement",
+    "category": "Z",
+    "market_cap_mn": 382.844
+  },
+  {
+    "symbol": "ARGONDENIM",
+    "name": "Argon Denims Limited",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 3069.438
+  },
+  {
+    "symbol": "ASIAINS",
+    "name": "Asia Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1958.106
+  },
+  {
+    "symbol": "ASIAPACINS",
+    "name": "Asia Pacific General Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1956.57
+  },
+  {
+    "symbol": "ASIATICLAB",
+    "name": "Asiatic Laboratories Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 12520.85
+  },
+  {
+    "symbol": "ATLASBANG",
+    "name": "Atlas Bangladesh Ltd.",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 2742.925
+  },
+  {
+    "symbol": "AZIZPIPES",
+    "name": "Aziz Pipes Ltd.",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 388.736
+  },
+  {
+    "symbol": "BANGAS",
+    "name": "Bangas Ltd.",
+    "sector": "Food & Allied",
+    "category": "B",
+    "market_cap_mn": 897.42
+  },
+  {
+    "symbol": "BANKASIA",
+    "name": "Bank Asia PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 23099.063
+  },
+  {
+    "symbol": "BARKAPOWER",
+    "name": "Baraka Power Limited",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 2331.11
+  },
+  {
+    "symbol": "BATASHOE",
+    "name": "Bata Shoe Company (Bangladesh) Limited",
+    "sector": "Tannery Industries",
+    "category": "A",
+    "market_cap_mn": 12089.016
+  },
+  {
+    "symbol": "BATBC",
+    "name": "British American Tobacco Bangladesh Company Limited",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 121230
+  },
+  {
+    "symbol": "BAYLEASING",
+    "name": "Bay Leasing & Investment Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 633.998
+  },
+  {
+    "symbol": "BBS",
+    "name": "Bangladesh Building Systems PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 1889.985
+  },
+  {
+    "symbol": "BBSCABLES",
+    "name": "BBS Cables PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 3408.527
+  },
+  {
+    "symbol": "BDAUTOCA",
+    "name": "Bangladesh Autocars Ltd.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 735.855
+  },
+  {
+    "symbol": "BDCOM",
+    "name": "BDCOM Online Ltd.",
+    "sector": "IT Sector",
+    "category": "A",
+    "market_cap_mn": 1755.966
+  },
+  {
+    "symbol": "BDFINANCE",
+    "name": "Bangladesh Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 2183.541
+  },
+  {
+    "symbol": "BDLAMPS",
+    "name": "Bangladesh Lamps PLC",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 2302.447
+  },
+  {
+    "symbol": "BDPAINTS",
+    "name": "BD Paints Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 2225.8
+  },
+  {
+    "symbol": "BDTHAI",
+    "name": "Bd.Thai Aluminium Ltd.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 1891.074
+  },
+  {
+    "symbol": "BDTHAIFOOD",
+    "name": "BD Thai Food & Beverage Limited",
+    "sector": "Food & Allied",
+    "category": "B",
+    "market_cap_mn": 1988.6
+  },
+  {
+    "symbol": "BDWELDING",
+    "name": "Bangladesh Welding Electrodes Ltd.",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 494.182
+  },
+  {
+    "symbol": "BEACHHATCH",
+    "name": "Beach Hatchery Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1084.707
+  },
+  {
+    "symbol": "BEACONPHAR",
+    "name": "Beacon Pharmaceuticals PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 23100
+  },
+  {
+    "symbol": "BENGALBISC",
+    "name": "Bengal Biscuits Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 627.102
+  },
+  {
+    "symbol": "BENGALWTL",
+    "name": "Bengal Windsor Thermoplastics PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 1911.848
+  },
+  {
+    "symbol": "BERGERPBL",
+    "name": "Berger Paints Bangladesh Ltd.",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 71630.909
+  },
+  {
+    "symbol": "BESTHLDNG",
+    "name": "Best Holdings PLC.",
+    "sector": "Travel & Leisure",
+    "category": "Z",
+    "market_cap_mn": 15041.071
+  },
+  {
+    "symbol": "BEXIMCO",
+    "name": "Bangladesh Export Import Company Ltd.",
+    "sector": "Miscellaneous",
+    "category": "B",
+    "market_cap_mn": 19996.609
+  },
+  {
+    "symbol": "BGIC",
+    "name": "Bangladesh General Insurance Company PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2134.077
+  },
+  {
+    "symbol": "BIFC",
+    "name": "Bangladesh Industrial Fin. Co. Ltd.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 382.584
+  },
+  {
+    "symbol": "BNICL",
+    "name": "Bangladesh National Insurance Company Limited",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 5579.925
+  },
+  {
+    "symbol": "BPML",
+    "name": "Bashundhara Paper Mills Limited",
+    "sector": "Paper & Printing",
+    "category": "Z",
+    "market_cap_mn": 4275.269
+  },
+  {
+    "symbol": "BPPL",
+    "name": "Baraka Patenga Power Limited",
+    "sector": "Fuel & Power",
+    "category": "B",
+    "market_cap_mn": 3235.016
+  },
+  {
+    "symbol": "BRACBANK",
+    "name": "BRAC Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 141266.166
+  },
+  {
+    "symbol": "BSC",
+    "name": "Bangladesh Shipping Corporation",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 16489.038
+  },
+  {
+    "symbol": "BSCPLC",
+    "name": "Bangladesh Submarine Cables PLC",
+    "sector": "Telecommunication",
+    "category": "A",
+    "market_cap_mn": 27027.113
+  },
+  {
+    "symbol": "BSRMLTD",
+    "name": "Bangladesh Steel Re-Rolling Mills Limited",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 28693.983
+  },
+  {
+    "symbol": "BSRMSTEEL",
+    "name": "BSRM Steels Limited",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 31241.653
+  },
+  {
+    "symbol": "BXPHARMA",
+    "name": "Beximco Pharmaceuticals PLC.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 65846.144
+  },
+  {
+    "symbol": "CAPITECGBF",
+    "name": "Capitec Grameen Bank Growth Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1292.144
+  },
+  {
+    "symbol": "CAPMBDBLMF",
+    "name": "CAPM BDBL Mutual Fund 01",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 360.943
+  },
+  {
+    "symbol": "CAPMIBBLMF",
+    "name": "CAPM IBBL Islamic Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 849.039
+  },
+  {
+    "symbol": "CDSET",
+    "name": "CDSET Index",
+    "sector": "Index",
+    "category": null,
+    "market_cap_mn": null
+  },
+  {
+    "symbol": "CENTRALINS",
+    "name": "Central Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2184.252
+  },
+  {
+    "symbol": "CENTRALPHL",
+    "name": "Central Pharmaceuticals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 1066.228
+  },
+  {
+    "symbol": "CITYBANK",
+    "name": "City Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 51607.459
+  },
+  {
+    "symbol": "CITYGENINS",
+    "name": "City Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 8704.814
+  },
+  {
+    "symbol": "CLICL",
+    "name": "Chartered Life Insurance PLC.",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1503.75
+  },
+  {
+    "symbol": "CNATEX",
+    "name": "C & A Textiles Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 694.016
+  },
+  {
+    "symbol": "CONFIDCEM",
+    "name": "Confidence Cement PLC.",
+    "sector": "Cement",
+    "category": "A",
+    "market_cap_mn": 4881.965
+  },
+  {
+    "symbol": "CONTININS",
+    "name": "Continental Insurance PLC.",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1362.99
+  },
+  {
+    "symbol": "COPPERTECH",
+    "name": "Coppertech Industries Limited",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 1349.712
+  },
+  {
+    "symbol": "CRAFTSMAN",
+    "name": "Craftsman Footwear and Accessories PLC.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 859.6
+  },
+  {
+    "symbol": "CROWNCEMNT",
+    "name": "Crown Cement PLC.",
+    "sector": "Cement",
+    "category": "A",
+    "market_cap_mn": 8627.85
+  },
+  {
+    "symbol": "CRYSTALINS",
+    "name": "Crystal Insurance Company Limited",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2525.6
+  },
+  {
+    "symbol": "CVOPRL",
+    "name": "CVO Petrochemical Refinery PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 4334.486
+  },
+  {
+    "symbol": "DACCADYE",
+    "name": "The Dacca Dyeing & Manufacturing Co.Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1324.732
+  },
+  {
+    "symbol": "DAFODILCOM",
+    "name": "Daffodil Computers PLC.",
+    "sector": "IT Sector",
+    "category": "B",
+    "market_cap_mn": 8110.743
+  },
+  {
+    "symbol": "DBH",
+    "name": "DBH Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 7972.711
+  },
+  {
+    "symbol": "DBH1STMF",
+    "name": "DBH First Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 636
+  },
+  {
+    "symbol": "DELTALIFE",
+    "name": "Delta Life Insurance Company Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 8340.75
+  },
+  {
+    "symbol": "DELTASPINN",
+    "name": "Delta Spinners Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1132.077
+  },
+  {
+    "symbol": "DESCO",
+    "name": "Dhaka Electric Supply Company Ltd.",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 8587.508
+  },
+  {
+    "symbol": "DESHBANDHU",
+    "name": "Deshbandhu Polymer Limited",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 975.706
+  },
+  {
+    "symbol": "DGIC",
+    "name": "Desh General Insurance Company Limited",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1168
+  },
+  {
+    "symbol": "DHAKABANK",
+    "name": "Dhaka Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 12366.108
+  },
+  {
+    "symbol": "DHAKAINS",
+    "name": "Dhaka Insurance Limited",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1645.125
+  },
+  {
+    "symbol": "DOMINAGE",
+    "name": "Dominage Steel Building Systems Limited",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 6402.24
+  },
+  {
+    "symbol": "DOREENPWR",
+    "name": "Doreen Power Generations and Systems Limited",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 5089.441
+  },
+  {
+    "symbol": "DS30",
+    "name": "DS30 Index",
+    "sector": "Index",
+    "category": null,
+    "market_cap_mn": null
+  },
+  {
+    "symbol": "DSES",
+    "name": "DSES Index",
+    "sector": "Index",
+    "category": null,
+    "market_cap_mn": null
+  },
+  {
+    "symbol": "DSEX",
+    "name": "DSEX Index",
+    "sector": "Index",
+    "category": null,
+    "market_cap_mn": null
+  },
+  {
+    "symbol": "DSHGARME",
+    "name": "Desh Garments Ltd.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 1219.215
+  },
+  {
+    "symbol": "DSSL",
+    "name": "Dragon Sweater and Spinning Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2213.329
+  },
+  {
+    "symbol": "DULAMIACOT",
+    "name": "Dulamia Cotton Spinning Mills Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1281.599
+  },
+  {
+    "symbol": "DUTCHBANGL",
+    "name": "Dutch-Bangla Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 44357.082
+  },
+  {
+    "symbol": "EASTERNINS",
+    "name": "Eastern Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2388.302
+  },
+  {
+    "symbol": "EASTLAND",
+    "name": "Eastland Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2214.447
+  },
+  {
+    "symbol": "EASTRNLUB",
+    "name": "Eastern Lubricants Blenders PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 4711.171
+  },
+  {
+    "symbol": "EBL",
+    "name": "Eastern Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 38297.925
+  },
+  {
+    "symbol": "EBL1STMF",
+    "name": "EBL First Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 651.394
+  },
+  {
+    "symbol": "EBLNRBMF",
+    "name": "EBL NRB Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 762.488
+  },
+  {
+    "symbol": "ECABLES",
+    "name": "Eastern Cables Ltd.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 3149.52
+  },
+  {
+    "symbol": "EGEN",
+    "name": "EGEN",
+    "sector": "IT Sector",
+    "category": "B",
+    "market_cap_mn": 1672.5
+  },
+  {
+    "symbol": "EHL",
+    "name": "Eastern Housing Limited",
+    "sector": "Services & Real Estate",
+    "category": "A",
+    "market_cap_mn": 7616.964
+  },
+  {
+    "symbol": "EIL",
+    "name": "Express Insurance Limited",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 2014.602
+  },
+  {
+    "symbol": "EMERALDOIL",
+    "name": "Emerald Oil Industries Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 2455.217
+  },
+  {
+    "symbol": "ENVOYTEX",
+    "name": "Envoy Textiles Limited",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 11942.715
+  },
+  {
+    "symbol": "EPGL",
+    "name": "Energypac Power Generation PLC.",
+    "sector": "Fuel & Power",
+    "category": "B",
+    "market_cap_mn": 3137.693
+  },
+  {
+    "symbol": "ESQUIRENIT",
+    "name": "Esquire Knit Composite PLC",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 3116.094
+  },
+  {
+    "symbol": "ETL",
+    "name": "Evince Textiles Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2535.667
+  },
+  {
+    "symbol": "EXIM1STMF",
+    "name": "EXIM Bank 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1060.097
+  },
+  {
+    "symbol": "FAMILYTEX",
+    "name": "Familytex (BD) Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 814.569
+  },
+  {
+    "symbol": "FARCHEM",
+    "name": "Far Chemical Industries Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 2311.77
+  },
+  {
+    "symbol": "FAREASTFIN",
+    "name": "Fareast Finance & Investment Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 344.533
+  },
+  {
+    "symbol": "FAREASTLIF",
+    "name": "Fareast Islami Life Insurance Co. Ltd.",
+    "sector": "Insurance",
+    "category": "Z",
+    "market_cap_mn": 1345.37
+  },
+  {
+    "symbol": "FASFIN",
+    "name": "FAS Finance & Investment Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 372.693
+  },
+  {
+    "symbol": "FBFIF",
+    "name": "First Bangladesh Fixed Income Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 2638.9
+  },
+  {
+    "symbol": "FEDERALINS",
+    "name": "Federal Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1925.174
+  },
+  {
+    "symbol": "FEKDIL",
+    "name": "Far East Knitting & Dyeing Industries PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 4856.121
+  },
+  {
+    "symbol": "FINEFOODS",
+    "name": "Fine Foods Limited",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 5986.426
+  },
+  {
+    "symbol": "FIRSTFIN",
+    "name": "First Finance Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 533.451
+  },
+  {
+    "symbol": "FORTUNE",
+    "name": "Fortune Shoes Limited",
+    "sector": "Tannery Industries",
+    "category": "Z",
+    "market_cap_mn": 2611.133
+  },
+  {
+    "symbol": "FUWANGCER",
+    "name": "Fu-Wang Ceramic Industries Ltd.",
+    "sector": "Ceramics Sector",
+    "category": "B",
+    "market_cap_mn": 1716.991
+  },
+  {
+    "symbol": "FUWANGFOOD",
+    "name": "Fu Wang Food Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1052.973
+  },
+  {
+    "symbol": "GBBPOWER",
+    "name": "GBB Power Ltd.",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 1496.512
+  },
+  {
+    "symbol": "GEMINISEA",
+    "name": "Gemini Sea Food PLC",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1208.266
+  },
+  {
+    "symbol": "GENEXIL",
+    "name": "Genex Infosys PLC",
+    "sector": "IT Sector",
+    "category": "B",
+    "market_cap_mn": 4071.211
+  },
+  {
+    "symbol": "GENNEXT",
+    "name": "Generation Next Fashions Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1435.426
+  },
+  {
+    "symbol": "GHAIL",
+    "name": "Golden Harvest Agro Industries Ltd.",
+    "sector": "Food & Allied",
+    "category": "B",
+    "market_cap_mn": 2697.97
+  },
+  {
+    "symbol": "GHCL",
+    "name": "Global Heavy Chemicals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 1411.2
+  },
+  {
+    "symbol": "GLDNJMF",
+    "name": "ICB AMCL CMSF Golden Jubilee Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 860
+  },
+  {
+    "symbol": "GLOBALINS",
+    "name": "Global Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1808.609
+  },
+  {
+    "symbol": "GOLDENSON",
+    "name": "Golden Son Ltd.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 2095.103
+  },
+  {
+    "symbol": "GP",
+    "name": "Grameenphone Ltd.",
+    "sector": "Telecommunication",
+    "category": "A",
+    "market_cap_mn": 322721.705
+  },
+  {
+    "symbol": "GPHISPAT",
+    "name": "GPH Ispat Ltd.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 7838.912
+  },
+  {
+    "symbol": "GQBALLPEN",
+    "name": "GQ Ball Pen Industries Ltd.",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 5071.156
+  },
+  {
+    "symbol": "GRAMEENS2",
+    "name": "Grameen One : Scheme Two",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 2134.055
+  },
+  {
+    "symbol": "GREENDELMF",
+    "name": "Green Delta Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 675
+  },
+  {
+    "symbol": "GREENDELT",
+    "name": "Green Delta Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 6251.743
+  },
+  {
+    "symbol": "GSPFINANCE",
+    "name": "GSP Finance Company (Bangladesh) PLC.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 534.033
+  },
+  {
+    "symbol": "HAKKANIPUL",
+    "name": "Hakkani Pulp & Paper Mills PLC.",
+    "sector": "Paper & Printing",
+    "category": "B",
+    "market_cap_mn": 1303.4
+  },
+  {
+    "symbol": "HAMI",
+    "name": "Hami Industries PLC",
+    "sector": "Miscellaneous",
+    "category": "Z",
+    "market_cap_mn": 1148.84
+  },
+  {
+    "symbol": "HEIDELBCEM",
+    "name": "Heidelberg Materials Bangladesh PLC.",
+    "sector": "Cement",
+    "category": "A",
+    "market_cap_mn": 11995.71
+  },
+  {
+    "symbol": "HFL",
+    "name": "Hamid Fabrics PLC",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1138.216
+  },
+  {
+    "symbol": "HIMADRI",
+    "name": "Himadri Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1136.625
+  },
+  {
+    "symbol": "HRTEX",
+    "name": "H.R.Textile Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 493.843
+  },
+  {
+    "symbol": "HWAWELLTEX",
+    "name": "Hwa Well Textiles (BD) PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 2548
+  },
+  {
+    "symbol": "IBNSINA",
+    "name": "The IBN SINA  Pharmaceutical Industry PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 9769.882
+  },
+  {
+    "symbol": "IBP",
+    "name": "Indo-Bangla Pharmaceuticals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 1743.078
+  },
+  {
+    "symbol": "ICB",
+    "name": "Investment Corporation Of Bangladesh",
+    "sector": "Financial Institutions",
+    "category": "B",
+    "market_cap_mn": 34083.277
+  },
+  {
+    "symbol": "ICB3RDNRB",
+    "name": "ICB AMCL Third NRB Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 550
+  },
+  {
+    "symbol": "ICBAGRANI1",
+    "name": "ICB AMCL First Agrani Bank Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 736.133
+  },
+  {
+    "symbol": "ICBAMCL2ND",
+    "name": "ICB AMCL Second Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 365
+  },
+  {
+    "symbol": "ICBEPMF1S1",
+    "name": "ICB Employees Provident MF 1: Scheme 1",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 450
+  },
+  {
+    "symbol": "ICBIBANK",
+    "name": "ICB Islamic Bank Limited",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 1728.226
+  },
+  {
+    "symbol": "ICBSONALI1",
+    "name": "ICB AMCL Sonali Bank Limited 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 650
+  },
+  {
+    "symbol": "ICICL",
+    "name": "Islami Commercial Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1777.912
+  },
+  {
+    "symbol": "IDLC",
+    "name": "IDLC Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 19248.918
+  },
+  {
+    "symbol": "IFADAUTOS",
+    "name": "IFAD Autos PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 6143.015
+  },
+  {
+    "symbol": "IFIC",
+    "name": "IFIC Bank PLC",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 9610.433
+  },
+  {
+    "symbol": "IFIC1STMF",
+    "name": "IFIC Bank 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 710.455
+  },
+  {
+    "symbol": "IFILISLMF1",
+    "name": "IFIL Islamic Mutual Fund-1",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 520
+  },
+  {
+    "symbol": "ILFSL",
+    "name": "International Leasing & Financial Services Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 465.802
+  },
+  {
+    "symbol": "INDEXAGRO",
+    "name": "Index Agro Industries Limited",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 3274.678
+  },
+  {
+    "symbol": "INTECH",
+    "name": "Intech Limited",
+    "sector": "IT Sector",
+    "category": "Z",
+    "market_cap_mn": 739.181
+  },
+  {
+    "symbol": "INTRACO",
+    "name": "Intraco Refueling Station PLC",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 2217.853
+  },
+  {
+    "symbol": "IPDC",
+    "name": "IPDC Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 13961.508
+  },
+  {
+    "symbol": "ISLAMIBANK",
+    "name": "Islami Bank Bangladesh PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 42986.751
+  },
+  {
+    "symbol": "ISLAMICFIN",
+    "name": "Islamic Finance & Investment PLC.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 1543.593
+  },
+  {
+    "symbol": "ISLAMIINS",
+    "name": "Islami Insurance Bangladesh Limited",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2461.68
+  },
+  {
+    "symbol": "ISNLTD",
+    "name": "Information Services Network Ltd.",
+    "sector": "IT Sector",
+    "category": "B",
+    "market_cap_mn": 514.332
+  },
+  {
+    "symbol": "ITC",
+    "name": "IT Consultants PLC.",
+    "sector": "IT Sector",
+    "category": "A",
+    "market_cap_mn": 5658.077
+  },
+  {
+    "symbol": "JAMUNABANK",
+    "name": "Jamuna Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 21886.567
+  },
+  {
+    "symbol": "JAMUNAOIL",
+    "name": "Jamuna Oil PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 19467.857
+  },
+  {
+    "symbol": "JANATAINS",
+    "name": "Janata Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1522.355
+  },
+  {
+    "symbol": "JHRML",
+    "name": "JMI Hospital Requisite Manufacturing Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 5375.118
+  },
+  {
+    "symbol": "JMISMDL",
+    "name": "JMI Syringes & Medical Devices Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 3991.437
+  },
+  {
+    "symbol": "JUTESPINN",
+    "name": "Jute Spinners Ltd.",
+    "sector": "Jute",
+    "category": "Z",
+    "market_cap_mn": 354.11
+  },
+  {
+    "symbol": "KARNAPHULI",
+    "name": "Karnaphuli Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2378.434
+  },
+  {
+    "symbol": "KBPPWBIL",
+    "name": "Khan Brothers PP Woven Bag Industries Limited",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 3079.708
+  },
+  {
+    "symbol": "KBSEED",
+    "name": "Krishibid Seed Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 285
+  },
+  {
+    "symbol": "KDSALTD",
+    "name": "KDS Accessories Limited",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 3311.048
+  },
+  {
+    "symbol": "KEYACOSMET",
+    "name": "Keya Cosmetics Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 5732.05
+  },
+  {
+    "symbol": "KFL",
+    "name": "Krishibid Feed Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 539.55
+  },
+  {
+    "symbol": "KOHINOOR",
+    "name": "Kohinoor Chemical Company (Bangladesh) PLC.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 21408.394
+  },
+  {
+    "symbol": "KPCL",
+    "name": "Khulna Power Company Limited",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 4212.58
+  },
+  {
+    "symbol": "KPPL",
+    "name": "Khulna Printing & Packaging Limited",
+    "sector": "Paper & Printing",
+    "category": "Z",
+    "market_cap_mn": 971.432
+  },
+  {
+    "symbol": "KTL",
+    "name": "Kattali Textile Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1477.076
+  },
+  {
+    "symbol": "LANKABAFIN",
+    "name": "LankaBangla Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 7759.276
+  },
+  {
+    "symbol": "LBS",
+    "name": "LankaBangla Securities PLC.",
+    "sector": "ATB",
+    "category": "P",
+    "market_cap_mn": 2932.431
+  },
+  {
+    "symbol": "LEGACYFOOT",
+    "name": "Legacy Footwear Ltd.",
+    "sector": "Tannery Industries",
+    "category": "B",
+    "market_cap_mn": 2968.211
+  },
+  {
+    "symbol": "LHB",
+    "name": "LafargeHolcim Bangladesh PLC.",
+    "sector": "Cement",
+    "category": "A",
+    "market_cap_mn": 59113.911
+  },
+  {
+    "symbol": "LIBRAINFU",
+    "name": "Libra Infusions Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 1275.581
+  },
+  {
+    "symbol": "LINDEBD",
+    "name": "Linde Bangladesh Limited",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 10257.121
+  },
+  {
+    "symbol": "LOVELLO",
+    "name": "Taufika Foods and Lovello Ice-cream PLC",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 4496.415
+  },
+  {
+    "symbol": "LRBDL",
+    "name": "Lub-rref (Bangladesh) Limited",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 2018.88
+  },
+  {
+    "symbol": "LRGLOBMF1",
+    "name": "LR Global Bangladesh Mutual Fund One",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1275.429
+  },
+  {
+    "symbol": "MAGURAPLEX",
+    "name": "Magura Multiplex PLC.",
+    "sector": "Paper & Printing",
+    "category": "A",
+    "market_cap_mn": 2409.715
+  },
+  {
+    "symbol": "MAKSONSPIN",
+    "name": "Maksons Spinning Mills PLC.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1381.749
+  },
+  {
+    "symbol": "MALEKSPIN",
+    "name": "Malek Spinning Mills PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 9099.2
+  },
+  {
+    "symbol": "MAMUNAGRO",
+    "name": "Mamun Agro Products Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1018.5
+  },
+  {
+    "symbol": "MARICO",
+    "name": "Marico Bangladesh Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 83594.7
+  },
+  {
+    "symbol": "MASTERAGRO",
+    "name": "Master feed Agrotec Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 557.349
+  },
+  {
+    "symbol": "MATINSPINN",
+    "name": "Matin Spinning Mills PLC",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 6239.36
+  },
+  {
+    "symbol": "MBL1STMF",
+    "name": "MBL 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 880
+  },
+  {
+    "symbol": "MEGCONMILK",
+    "name": "Meghna Condensed Milk Industries Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 528
+  },
+  {
+    "symbol": "MEGHNACEM",
+    "name": "Meghna Cement Mills PLC.",
+    "sector": "Cement",
+    "category": "Z",
+    "market_cap_mn": 906.591
+  },
+  {
+    "symbol": "MEGHNAINS",
+    "name": "Meghna Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1356
+  },
+  {
+    "symbol": "MEGHNALIFE",
+    "name": "Meghna Life Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2158.426
+  },
+  {
+    "symbol": "MEGHNAPET",
+    "name": "Meghna Pet Industries Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 852
+  },
+  {
+    "symbol": "MERCANBANK",
+    "name": "Mercantile Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 7414.055
+  },
+  {
+    "symbol": "MERCINS",
+    "name": "Mercantile Islami Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2081.506
+  },
+  {
+    "symbol": "METROSPIN",
+    "name": "Metro Spinning Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 598.473
+  },
+  {
+    "symbol": "MHSML",
+    "name": "Mozaffar Hossain Spinning Mills Ltd.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2100.662
+  },
+  {
+    "symbol": "MIDASFIN",
+    "name": "MIDAS Financing PLC.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 676.295
+  },
+  {
+    "symbol": "MIDLANDBNK",
+    "name": "Midland Bank PLC.",
+    "sector": "Bank",
+    "category": "B",
+    "market_cap_mn": 11129.46
+  },
+  {
+    "symbol": "MIRACLEIND",
+    "name": "Miracle Industries Ltd.",
+    "sector": "Miscellaneous",
+    "category": "Z",
+    "market_cap_mn": 950.887
+  },
+  {
+    "symbol": "MIRAKHTER",
+    "name": "Mir Akhter Hossain Limited",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 3864.69
+  },
+  {
+    "symbol": "MITHUNKNIT",
+    "name": "Mithun Knitting and Dyeing Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 432.132
+  },
+  {
+    "symbol": "MJLBD",
+    "name": "MJL Bangladesh PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 28729.409
+  },
+  {
+    "symbol": "MKFOOTWEAR",
+    "name": "MK Footwear PLC",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 4129.213
+  },
+  {
+    "symbol": "MLDYEING",
+    "name": "M.L. Dyeing Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2580.018
+  },
+  {
+    "symbol": "MONNOAGML",
+    "name": "Monno Agro & General Machinery Limited",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 1340.318
+  },
+  {
+    "symbol": "MONNOCERA",
+    "name": "Monno Ceramic Industries Ltd.",
+    "sector": "Ceramics Sector",
+    "category": "-",
+    "market_cap_mn": 0
+  },
+  {
+    "symbol": "MONNOFABR",
+    "name": "Monno Fabrics Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2185
+  },
+  {
+    "symbol": "MONOSPOOL",
+    "name": "Monospool Bangladesh PLC",
+    "sector": "Paper & Printing",
+    "category": "A",
+    "market_cap_mn": 4043.671
+  },
+  {
+    "symbol": "MOSTFAMETL",
+    "name": "Mostafa Metal Industries Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 429.924
+  },
+  {
+    "symbol": "MPETROLEUM",
+    "name": "Meghna Petroleum PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 22324.983
+  },
+  {
+    "symbol": "MTB",
+    "name": "Mutual Trust Bank PLC",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 15503.405
+  },
+  {
+    "symbol": "NAHEEACP",
+    "name": "Nahee Aluminum Composite Panel PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 2276.393
+  },
+  {
+    "symbol": "NATLIFEINS",
+    "name": "National Life Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 9951.466
+  },
+  {
+    "symbol": "NAVANACNG",
+    "name": "Navana CNG Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1480.834
+  },
+  {
+    "symbol": "NAVANAPHAR",
+    "name": "Navana Pharmaceuticals PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 6563.131
+  },
+  {
+    "symbol": "NBL",
+    "name": "National Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 11269.088
+  },
+  {
+    "symbol": "NCCBANK",
+    "name": "National Credit and Commerce Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 16514.212
+  },
+  {
+    "symbol": "NCCBLMF1",
+    "name": "NCCBL Mutual Fund-1",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 705.272
+  },
+  {
+    "symbol": "NEWLINE",
+    "name": "New Line Clothings Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 424.076
+  },
+  {
+    "symbol": "NFML",
+    "name": "National Feed Mill Limited",
+    "sector": "Miscellaneous",
+    "category": "B",
+    "market_cap_mn": 1344.403
+  },
+  {
+    "symbol": "NHFIL",
+    "name": "National Housing Finance PLC",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 3334.219
+  },
+  {
+    "symbol": "NIALCO",
+    "name": "Nialco Alloys Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 758.1
+  },
+  {
+    "symbol": "NITOLINS",
+    "name": "Nitol Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2313.547
+  },
+  {
+    "symbol": "NORTHERN",
+    "name": "Northern Jute Manufacturing Co. Ltd.",
+    "sector": "Jute",
+    "category": "Z",
+    "market_cap_mn": 201.348
+  },
+  {
+    "symbol": "NORTHRNINS",
+    "name": "Northern Islami Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1603.575
+  },
+  {
+    "symbol": "NPOLYMER",
+    "name": "National Polymer Industries PLC.",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 2262.494
+  },
+  {
+    "symbol": "NRBBANK",
+    "name": "NRB Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 4626.934
+  },
+  {
+    "symbol": "NRBCBANK",
+    "name": "NRBC Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 7540.711
+  },
+  {
+    "symbol": "NTC",
+    "name": "National Tea Company Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 4578.525
+  },
+  {
+    "symbol": "NTLTUBES",
+    "name": "National Tubes Limited",
+    "sector": "Engineering",
+    "category": "B",
+    "market_cap_mn": 2124.13
+  },
+  {
+    "symbol": "NURANI",
+    "name": "Nurani Dyeing & Sweater Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 355.613
+  },
+  {
+    "symbol": "OAL",
+    "name": "Olympic Accessories Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1051.067
+  },
+  {
+    "symbol": "OIMEX",
+    "name": "Oimex Electrode Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1001.261
+  },
+  {
+    "symbol": "OLYMPIC",
+    "name": "Olympic Industries PLC.",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 28571.267
+  },
+  {
+    "symbol": "ONEBANKPLC",
+    "name": "One Bank PLC",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 8100.246
+  },
+  {
+    "symbol": "ORIONINFU",
+    "name": "Orion Infusion Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 3955.901
+  },
+  {
+    "symbol": "ORIONPHARM",
+    "name": "Orion Pharma Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "Z",
+    "market_cap_mn": 5850
+  },
+  {
+    "symbol": "ORYZAAGRO",
+    "name": "Oryza Agro Industries Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 580.339
+  },
+  {
+    "symbol": "PADMALIFE",
+    "name": "Padma Islami Life Insurance Limited",
+    "sector": "Insurance",
+    "category": "Z",
+    "market_cap_mn": 610.416
+  },
+  {
+    "symbol": "PADMAOIL",
+    "name": "Padma Oil PLC.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 19037.507
+  },
+  {
+    "symbol": "PARAMOUNT",
+    "name": "Paramount Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2330.103
+  },
+  {
+    "symbol": "PDL",
+    "name": "Pacific Denims Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1009.526
+  },
+  {
+    "symbol": "PENINSULA",
+    "name": "The Peninsula Chittagong PLC",
+    "sector": "Travel & Leisure",
+    "category": "B",
+    "market_cap_mn": 2444.536
+  },
+  {
+    "symbol": "PEOPLESINS",
+    "name": "Peoples Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2679.6
+  },
+  {
+    "symbol": "PF1STMF",
+    "name": "Phoenix Finance 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 990
+  },
+  {
+    "symbol": "PHARMAID",
+    "name": "Pharma Aids Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 1696.656
+  },
+  {
+    "symbol": "PHENIXINS",
+    "name": "Phoenix Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1887.986
+  },
+  {
+    "symbol": "PHOENIXFIN",
+    "name": "Phoenix Finance and Investments Ltd.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 613.735
+  },
+  {
+    "symbol": "PHPMF1",
+    "name": "PHP First Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 958.437
+  },
+  {
+    "symbol": "PIONEERINS",
+    "name": "Pioneer Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 6572.255
+  },
+  {
+    "symbol": "PLFSL",
+    "name": "Peoples Leasing and Fin. Services Ltd.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 513.793
+  },
+  {
+    "symbol": "POPULAR1MF",
+    "name": "Popular Life First Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1046.812
+  },
+  {
+    "symbol": "POPULARLIF",
+    "name": "Popular Life Insurance Co. Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 3317.517
+  },
+  {
+    "symbol": "POWERGRID",
+    "name": "Power Grid Company of Bangladesh Ltd.",
+    "sector": "Fuel & Power",
+    "category": "Z",
+    "market_cap_mn": 34633.285
+  },
+  {
+    "symbol": "PRAGATIINS",
+    "name": "Pragati Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 5823.084
+  },
+  {
+    "symbol": "PRAGATILIF",
+    "name": "Pragati Life Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 5359.232
+  },
+  {
+    "symbol": "PREMIERBAN",
+    "name": "The Premier Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 7277.244
+  },
+  {
+    "symbol": "PREMIERCEM",
+    "name": "Premier Cement Mills PLC",
+    "sector": "Cement",
+    "category": "A",
+    "market_cap_mn": 4629.255
+  },
+  {
+    "symbol": "PREMIERLEA",
+    "name": "Premier Leasing & Finance Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 279.237
+  },
+  {
+    "symbol": "PRIME1ICBA",
+    "name": "Prime Bank 1st ICB AMCL Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 600
+  },
+  {
+    "symbol": "PRIMEBANK",
+    "name": "Prime Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 34852.535
+  },
+  {
+    "symbol": "PRIMEFIN",
+    "name": "Prime Finance & Investment Ltd.",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 791.458
+  },
+  {
+    "symbol": "PRIMEINSUR",
+    "name": "Prime Islami Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2088.84
+  },
+  {
+    "symbol": "PRIMELIFE",
+    "name": "Prime Islami Life Insurance Ltd.",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1135.353
+  },
+  {
+    "symbol": "PRIMETEX",
+    "name": "Prime Textile Spinning Mills Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 550.08
+  },
+  {
+    "symbol": "PROGRESLIF",
+    "name": "Progressive Life Insurance Co. Ltd.",
+    "sector": "Insurance",
+    "category": "Z",
+    "market_cap_mn": 630.776
+  },
+  {
+    "symbol": "PROVATIINS",
+    "name": "Provati Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2229.267
+  },
+  {
+    "symbol": "PTL",
+    "name": "Paramount Textile PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 13989.029
+  },
+  {
+    "symbol": "PUBALIBANK",
+    "name": "Pubali Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 58876.913
+  },
+  {
+    "symbol": "PURABIGEN",
+    "name": "Purabi Gen. Insurance Company Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1710.638
+  },
+  {
+    "symbol": "QUASEMIND",
+    "name": "Quasem Industries Ltd.",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 3231.967
+  },
+  {
+    "symbol": "QUEENSOUTH",
+    "name": "Queen South Textile Mills Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2227.981
+  },
+  {
+    "symbol": "RAHIMAFOOD",
+    "name": "Rahima Food Corporation Limited",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1402.014
+  },
+  {
+    "symbol": "RAHIMTEXT",
+    "name": "Rahim Textile Mills PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 1732.068
+  },
+  {
+    "symbol": "RAKCERAMIC",
+    "name": "RAK Ceramics (Bangladesh) Limited",
+    "sector": "Ceramics Sector",
+    "category": "A",
+    "market_cap_mn": 11940.327
+  },
+  {
+    "symbol": "RANFOUNDRY",
+    "name": "Rangpur Foundry Ltd.",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 1502
+  },
+  {
+    "symbol": "RDFOOD",
+    "name": "Rangpur Dairy & Food Products Ltd.",
+    "sector": "Food & Allied",
+    "category": "B",
+    "market_cap_mn": 1823.375
+  },
+  {
+    "symbol": "RECKITTBEN",
+    "name": "Reckitt Benckiser (Bangladesh) PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 15484.298
+  },
+  {
+    "symbol": "REGENTTEX",
+    "name": "Regent Textile Mills Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 797.395
+  },
+  {
+    "symbol": "RELIANCE1",
+    "name": "Reliance One the first scheme of Reliance Insurance Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 738.1
+  },
+  {
+    "symbol": "RELIANCINS",
+    "name": "Reliance Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 10894.689
+  },
+  {
+    "symbol": "RENATA",
+    "name": "Renata PLC",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 52898.021
+  },
+  {
+    "symbol": "RENWICKJA",
+    "name": "Renwick Jajneswar & Co (Bd) Ltd.",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1500.6
+  },
+  {
+    "symbol": "REPUBLIC",
+    "name": "Republic Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2160.814
+  },
+  {
+    "symbol": "RINGSHINE",
+    "name": "Ring Shine Textiles Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 1901.19
+  },
+  {
+    "symbol": "ROBI",
+    "name": "Robi Axiata PLC.",
+    "sector": "Telecommunication",
+    "category": "A",
+    "market_cap_mn": 156614.194
+  },
+  {
+    "symbol": "RSRMSTEEL",
+    "name": "Ratanpur Steel Re-Rolling Mills Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 718.443
+  },
+  {
+    "symbol": "RUNNERAUTO",
+    "name": "Runner Automobiles PLC",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 5097.943
+  },
+  {
+    "symbol": "RUPALIBANK",
+    "name": "Rupali Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 16283.838
+  },
+  {
+    "symbol": "RUPALIINS",
+    "name": "Rupali Insurance Company Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2253.963
+  },
+  {
+    "symbol": "RUPALILIFE",
+    "name": "Rupali Life Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2377.127
+  },
+  {
+    "symbol": "SADHESIVE",
+    "name": "Star Adhesives Limited",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1989
+  },
+  {
+    "symbol": "SAFKOSPINN",
+    "name": "Safko Spinnings Mills Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 626.618
+  },
+  {
+    "symbol": "SAIFPOWER",
+    "name": "SAIF Powertec Limited",
+    "sector": "Services & Real Estate",
+    "category": "Z",
+    "market_cap_mn": 3338.18
+  },
+  {
+    "symbol": "SAIHAMCOT",
+    "name": "Saiham Cotton Mills Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 3511.09
+  },
+  {
+    "symbol": "SAIHAMTEX",
+    "name": "Saiham Textile Mills Ltd.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2852.719
+  },
+  {
+    "symbol": "SALAMCRST",
+    "name": "S. Alam Cold Rolled Steels Ltd.",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1131.268
+  },
+  {
+    "symbol": "SALVO",
+    "name": "Salvo Organic Industries PLC.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 2048.218
+  },
+  {
+    "symbol": "SAMATALETH",
+    "name": "Samata Leather Complex Ltd.",
+    "sector": "Tannery Industries",
+    "category": "B",
+    "market_cap_mn": 852.432
+  },
+  {
+    "symbol": "SAMORITA",
+    "name": "Samorita Hospital Limited",
+    "sector": "Services & Real Estate",
+    "category": "B",
+    "market_cap_mn": 1957.721
+  },
+  {
+    "symbol": "SANDHANINS",
+    "name": "Sandhani Life Insurance Company Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2709.556
+  },
+  {
+    "symbol": "SAPORTL",
+    "name": "Summit Alliance Port Limited",
+    "sector": "Services & Real Estate",
+    "category": "A",
+    "market_cap_mn": 14330.461
+  },
+  {
+    "symbol": "SBACBANK",
+    "name": "SBAC Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 5522.084
+  },
+  {
+    "symbol": "SEAPEARL",
+    "name": "Sea Pearl Beach Resort & Spa Limited",
+    "sector": "Travel & Leisure",
+    "category": "B",
+    "market_cap_mn": 4081.35
+  },
+  {
+    "symbol": "SEMLFBSLGF",
+    "name": "SEML FBLSL Growth Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 503.317
+  },
+  {
+    "symbol": "SEMLIBBLSF",
+    "name": "SEML IBBL Shariah Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 780
+  },
+  {
+    "symbol": "SHAHJABANK",
+    "name": "Shahjalal Islami Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 19476.946
+  },
+  {
+    "symbol": "SHARPIND",
+    "name": "Sharp Industries PLC",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 5947.661
+  },
+  {
+    "symbol": "SHASHADNIM",
+    "name": "Shasha Denims PLC.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 3949.005
+  },
+  {
+    "symbol": "SHEPHERD",
+    "name": "Shepherd Industries PLC",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2125.841
+  },
+  {
+    "symbol": "SHURWID",
+    "name": "Shurwid Industries Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 338.47
+  },
+  {
+    "symbol": "SHYAMPSUG",
+    "name": "Shyampur Sugar Mills Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1459
+  },
+  {
+    "symbol": "SICL",
+    "name": "Sikder Insurance Company Limited",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1496
+  },
+  {
+    "symbol": "SILCOPHL",
+    "name": "Silco Pharmaceuticals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 1764.719
+  },
+  {
+    "symbol": "SILVAPHL",
+    "name": "Silva Pharmaceuticals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "B",
+    "market_cap_mn": 1774.5
+  },
+  {
+    "symbol": "SIMTEX",
+    "name": "Simtex Industries PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 1966.006
+  },
+  {
+    "symbol": "SINGERBD",
+    "name": "Singer Bangladesh Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 7248.396
+  },
+  {
+    "symbol": "SINOBANGLA",
+    "name": "Sinobangla Industries Ltd.",
+    "sector": "Miscellaneous",
+    "category": "A",
+    "market_cap_mn": 1554.126
+  },
+  {
+    "symbol": "SIPLC",
+    "name": "Sena Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 5112
+  },
+  {
+    "symbol": "SKTRIMS",
+    "name": "SK Trims & Industries Limited",
+    "sector": "Miscellaneous",
+    "category": "Z",
+    "market_cap_mn": 1092.63
+  },
+  {
+    "symbol": "SONALIANSH",
+    "name": "Sonali Aansh Industries Limited",
+    "sector": "Jute",
+    "category": "A",
+    "market_cap_mn": 2267.232
+  },
+  {
+    "symbol": "SONALILIFE",
+    "name": "Sonali Life Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 4032.75
+  },
+  {
+    "symbol": "SONALIPAPR",
+    "name": "Sonali Paper & Board Mills Ltd.",
+    "sector": "Paper & Printing",
+    "category": "A",
+    "market_cap_mn": 7277.592
+  },
+  {
+    "symbol": "SONARBAINS",
+    "name": "Sonar Bangla Insurance Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 1620.147
+  },
+  {
+    "symbol": "SONARGAON",
+    "name": "Sonargaon Textiles Ltd.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 2424.382
+  },
+  {
+    "symbol": "SOUTHEASTB",
+    "name": "Southeast Bank PLC",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 17601.474
+  },
+  {
+    "symbol": "SPCERAMICS",
+    "name": "Shinepukur Ceramics PLC.",
+    "sector": "Ceramics Sector",
+    "category": "B",
+    "market_cap_mn": 3086.287
+  },
+  {
+    "symbol": "SPCL",
+    "name": "Shahjibazar Power Co. Ltd.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 9443.56
+  },
+  {
+    "symbol": "SQUARETEXT",
+    "name": "Square Textiles PLC.",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 9685.073
+  },
+  {
+    "symbol": "SQURPHARMA",
+    "name": "Square Pharmaceuticals PLC.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 190321.032
+  },
+  {
+    "symbol": "SSSTEEL",
+    "name": "S. S. Steel Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 2070.389
+  },
+  {
+    "symbol": "STANCERAM",
+    "name": "Standard Ceramic Industries Ltd.",
+    "sector": "Ceramics Sector",
+    "category": "Z",
+    "market_cap_mn": 439.97
+  },
+  {
+    "symbol": "STANDARINS",
+    "name": "Standard Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2082.566
+  },
+  {
+    "symbol": "STANDBANKL",
+    "name": "Standard Islami Bank PLC.",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 4909.706
+  },
+  {
+    "symbol": "STYLECRAFT",
+    "name": "Stylecraft Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 737.28
+  },
+  {
+    "symbol": "SUMITPOWER",
+    "name": "Summit Power Limited",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 16445.309
+  },
+  {
+    "symbol": "SUNLIFEINS",
+    "name": "Sunlife Insurance Company Limited",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1788.035
+  },
+  {
+    "symbol": "TAKAFULINS",
+    "name": "Takaful Islami Insurance PLC",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2380.612
+  },
+  {
+    "symbol": "TALLUSPIN",
+    "name": "Tallu Spinning Mills Ltd.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 670.015
+  },
+  {
+    "symbol": "TAMIJTEX",
+    "name": "Tamijuddin Textile Mills PLC",
+    "sector": "Textile",
+    "category": "A",
+    "market_cap_mn": 3971.856
+  },
+  {
+    "symbol": "TECHNODRUG",
+    "name": "Techno Drugs Ltd.",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 5596.723
+  },
+  {
+    "symbol": "TILIL",
+    "name": "Trust Islami Life Insurance PLC.",
+    "sector": "Insurance",
+    "category": "B",
+    "market_cap_mn": 1864
+  },
+  {
+    "symbol": "TITASGAS",
+    "name": "Titas Gas Transmission and Distribution PLC.",
+    "sector": "Fuel & Power",
+    "category": "B",
+    "market_cap_mn": 17212.46
+  },
+  {
+    "symbol": "TOSRIFA",
+    "name": "Tosrifa Industries PLC.",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 1312.113
+  },
+  {
+    "symbol": "TRUSTB1MF",
+    "name": "Trust Bank 1st Mutual Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1123.271
+  },
+  {
+    "symbol": "TRUSTBANK",
+    "name": "Trust Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 15239.238
+  },
+  {
+    "symbol": "TUNGHAI",
+    "name": "Tung Hai Knitting & Dyeing Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 458.608
+  },
+  {
+    "symbol": "UCB",
+    "name": "United Commercial Bank PLC",
+    "sector": "Bank",
+    "category": "Z",
+    "market_cap_mn": 22092.857
+  },
+  {
+    "symbol": "UNILEVERCL",
+    "name": "Unilever Consumer Care Limited",
+    "sector": "Food & Allied",
+    "category": "A",
+    "market_cap_mn": 38510.087
+  },
+  {
+    "symbol": "UNIONCAP",
+    "name": "Union Capital Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 742.068
+  },
+  {
+    "symbol": "UNIONINS",
+    "name": "Union Insurance PLC.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2366.871
+  },
+  {
+    "symbol": "UNIQUEHRL",
+    "name": "Unique Hotel & Resorts PLC",
+    "sector": "Travel & Leisure",
+    "category": "A",
+    "market_cap_mn": 12335.36
+  },
+  {
+    "symbol": "UNITEDFIN",
+    "name": "United Finance PLC.",
+    "sector": "Financial Institutions",
+    "category": "A",
+    "market_cap_mn": 3180.948
+  },
+  {
+    "symbol": "UNITEDINS",
+    "name": "United Insurance Company Ltd.",
+    "sector": "Insurance",
+    "category": "A",
+    "market_cap_mn": 2661.1
+  },
+  {
+    "symbol": "UPGDCL",
+    "name": "United Power Generation & Distribution Company Ltd.",
+    "sector": "Fuel & Power",
+    "category": "A",
+    "market_cap_mn": 65273.687
+  },
+  {
+    "symbol": "USMANIAGL",
+    "name": "Usmania Glass Sheet Factory Limited",
+    "sector": "Miscellaneous",
+    "category": "Z",
+    "market_cap_mn": 947.153
+  },
+  {
+    "symbol": "UTTARABANK",
+    "name": "Uttara Bank PLC.",
+    "sector": "Bank",
+    "category": "A",
+    "market_cap_mn": 25226.991
+  },
+  {
+    "symbol": "UTTARAFIN",
+    "name": "Uttara Finance and Investments Limited",
+    "sector": "Financial Institutions",
+    "category": "Z",
+    "market_cap_mn": 1643.519
+  },
+  {
+    "symbol": "VAMLRBBF",
+    "name": "Vanguard AML Rupali Bank Balanced Fund",
+    "sector": "Mutual Funds",
+    "category": "A",
+    "market_cap_mn": 1301.709
+  },
+  {
+    "symbol": "VFSTDL",
+    "name": "VFS Thread Dyeing Limited",
+    "sector": "Textile",
+    "category": "B",
+    "market_cap_mn": 1499.237
+  },
+  {
+    "symbol": "WALTONHIL",
+    "name": "Walton Hi-Tech Industries PLC",
+    "sector": "Engineering",
+    "category": "A",
+    "market_cap_mn": 129956.259
+  },
+  {
+    "symbol": "WATACHEM",
+    "name": "Wata Chemicals Limited",
+    "sector": "Pharmaceuticals & Chemicals",
+    "category": "A",
+    "market_cap_mn": 1971.408
+  },
+  {
+    "symbol": "WEBCOATS",
+    "name": "Web Coats PLC.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 1221.522
+  },
+  {
+    "symbol": "WMSHIPYARD",
+    "name": "Western Marine Shipyard Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 2093.314
+  },
+  {
+    "symbol": "WONDERTOYS",
+    "name": "Wonderland Toys Ltd.",
+    "sector": "SME",
+    "category": null,
+    "market_cap_mn": 289
+  },
+  {
+    "symbol": "YPL",
+    "name": "Yeakin Polymer Limited",
+    "sector": "Engineering",
+    "category": "Z",
+    "market_cap_mn": 1451.867
+  },
+  {
+    "symbol": "ZAHEENSPIN",
+    "name": "Zaheen Spinning PLC.",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 626.056
+  },
+  {
+    "symbol": "ZAHINTEX",
+    "name": "Zahintex Industries Limited",
+    "sector": "Textile",
+    "category": "Z",
+    "market_cap_mn": 687.36
+  },
+  {
+    "symbol": "ZEALBANGLA",
+    "name": "Zeal Bangla Sugar Mills Ltd.",
+    "sector": "Food & Allied",
+    "category": "Z",
+    "market_cap_mn": 1038
+  }
+]
