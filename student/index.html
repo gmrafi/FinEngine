@@ -541,9 +541,45 @@
             </div>
           </div>
 
-                  </div>
+          <!-- Calc 2: Flat to Reducing APR Converter -->
+          <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="matrix-badge" style="background: rgba(220, 38, 38, 0.12); color: #dc2626;">APR Trap Auditor</span>
+              <span class="tech-tag">Flat vs Reducing</span>
+            </div>
+            <h3 style="font-size: 1rem; margin-bottom: 10px;">
+              <span class="lang-en">Flat Rate to True Reducing APR</span>
+              <span class="lang-bn">ফ্ল্যাট রেট থেকে প্রকৃত এপিআর কনভার্টার</span>
+            </h3>
+
+            <div class="calc-input-group">
+              <label class="calc-input-label"><span class="lang-en">Advertised Flat Interest (%):</span><span class="lang-bn">বিজ্ঞাপিত ফ্ল্যাট সুদের হার (%):</span></label>
+              <input type="number" id="calc-flat-rate" value="10.0" step="0.5" class="calc-input-field" oninput="runFlatCalc()" />
+            </div>
+            <div class="calc-input-group">
+              <label class="calc-input-label"><span class="lang-en">Loan Tenure (Months):</span><span class="lang-bn">ঋণের মেয়াদ (মাস):</span></label>
+              <input type="number" id="calc-flat-months" value="12" class="calc-input-field" oninput="runFlatCalc()" />
+            </div>
+
+            <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin-top: 24px; font-size: 12.5px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="color: var(--muted);"><span class="lang-en">Advertised Nominal Rate:</span><span class="lang-bn">বিজ্ঞাপিত নামমাত্র হার:</span></span>
+                <strong id="out-flat-advertised">10.0% Flat</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6px; margin-top: 6px;">
+                <span><strong><span class="lang-en">True Statutory APR:</span><span class="lang-bn">প্রকৃত কার্যকর বার্ষিক APR:</span></strong></span>
+                <strong id="out-flat-apr" style="color: #dc2626; font-size: 1.15rem;">18.46% APR</strong>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">
+                <span class="lang-en">💡 In flat rate contracts, you pay interest on money already paid back. Statutory rules require reducing rate disclosure.</span>
+                <span class="lang-bn">💡 ফ্ল্যাট সুদের হিসাবে আপনি যে টাকা কিস্তিতে পরিশোধ করে ফেলেছেন তার উপরও সুদ ধার্য থাকে।</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
+      
     </div>
   </main>
 <script>
