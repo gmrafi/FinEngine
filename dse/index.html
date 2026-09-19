@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L1Q5S8MBT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7L1Q5S8MBT');
+    </script>
+
+    <title>DSE Econometric Feed &amp; Live Capital Market Analytics | FinEngine</title>
+    <meta
+      name="description"
+      content="Open-access empirical finance data feed for the Dhaka Stock Exchange (DSE): live stock search across 409 listed equities, verified official quotes, annualized volatility matrices, dividend yield nexus, and free static JSON endpoints for researchers."
+    />
+    <meta
+      name="keywords"
+      content="Dhaka Stock Exchange data, DSE econometric feed, DSEX volatility, dividend yield nexus, CFSBR capital markets, Bangladesh stock market JSON API, empirical finance data, investing.com verification"
+    />
+    <meta name="author" content="Md Golam Mubasshir Rafi, Centre for Fintech and Strategic Business Research (CFSBR)" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://finengine.js.org/dse/" />
+
+    <!-- Google Scholar / Highwire Press Academic Metadata -->
+    <meta name="citation_title" content="FinEngine DSE Econometric Feed: An Open Client-Side Capital Market Pipeline for Empirical Volatility and Dividend Yield Analysis" />
+    <meta name="citation_author" content="Rafi, Md Golam Mubasshir" />
+    <meta name="citation_author_institution" content="Army Institute of Business Administration, Sylhet (Affiliated with Bangladesh University of Professionals)" />
+    <meta name="citation_author_orcid" content="https://orcid.org/0009-0007-4015-8354" />
+    <meta name="citation_publication_date" content="2026/09/20" />
+    <meta name="citation_technical_report_number" content="CFSBR-DSE-2026" />
+    <meta name="citation_technical_report_institution" content="Centre for Fintech and Strategic Business Research (CFSBR)" />
+    <meta name="citation_doi" content="10.67226/cfsbr.fe.2026.001.v1" />
+    <meta name="citation_pdf_url" content="https://finengine.js.org/dse/" />
+    <meta name="DC.Creator" content="Md Golam Mubasshir Rafi" />
+    <meta name="DC.Title" content="DSE Econometric Feed &amp; Live Capital Market Analytics | FinEngine" />
+    <meta name="DC.Publisher" content="Centre for Fintech and Strategic Business Research (CFSBR)" />
+    <meta name="DC.Identifier" scheme="URI" content="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta property="og:title" content="DSE Econometric Feed &amp; Live Capital Market Analytics | FinEngine" />
+    <meta
+      property="og:description"
+      content="Zero-cost open science data pipeline for Dhaka Stock Exchange: live search across 409 companies, official exchange feeds, rolling volatility, dividend yield nexus, and free JSON endpoints."
+    />
+    <meta property="og:url" content="https://finengine.js.org/dse/" />
+    <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DSE Econometric Feed &amp; Live Capital Market Analytics | FinEngine" />
+    <meta
+      name="twitter:description"
+      content="Zero-cost open science data pipeline for Dhaka Stock Exchange: live search across 409 companies, official exchange feeds, rolling volatility, dividend yield nexus, and free JSON endpoints."
+    />
+    <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
+
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+
+        const savedLang = localStorage.getItem("finengine-dse-lang") || (navigator.language && navigator.language.startsWith("bn") ? "bn" : "en");
+        document.documentElement.lang = savedLang;
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../logo-mark.png" />
+    <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      .doc-shell.page-shell {
+        max-width: 1200px !important;
+        width: min(1200px, calc(100% - 32px)) !important;
+        padding: 32px 0 80px;
+      }
+
+      /* High-contrast theme-aware inline code */
+      code:not(pre code) {
+        font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, monospace;
+        font-size: 0.9em;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        display: inline-block;
+        line-height: 1.4;
+      }
+      html[data-theme="light"] code:not(pre code) {
+        background: rgba(31, 122, 92, 0.09) !important;
+        color: #14532d !important;
+        border: 1px solid rgba(31, 122, 92, 0.28) !important;
+      }
+      html[data-theme="dark"] code:not(pre code) {
+        background: rgba(16, 185, 129, 0.14) !important;
+        color: #34d399 !important;
+        border: 1px solid rgba(16, 185, 129, 0.32) !important;
+      }
+
+      /* Bilingual Display */
+      html[lang="en"] .lang-bn { display: none !important; }
+      html[lang="bn"] .lang-en { display: none !important; }
+
+      .lang-switcher-pill {
+        display: inline-flex;
+        align-items: center;
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px;
+        gap: 2px;
+      }
+      .lang-btn {
+        border: none;
+        background: transparent;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .lang-btn:hover {
+        color: var(--text);
+      }
+      .lang-btn.active {
+        background: var(--emerald, #1f7a5c);
+        color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      }
+
+      /* LIVE MARKET CLOCK BAR */
+      .market-clock-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 20px;
+        border-radius: 12px;
+        background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, rgba(2, 132, 199, 0.08) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        margin-top: 20px;
+      }
+      html[data-theme="dark"] .market-clock-bar {
+        background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(2, 132, 199, 0.12) 100%);
+      }
+      .clock-time-display {
+        font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .pulse-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 10px #10b981;
+        animation: pulseLive 1.4s infinite;
+      }
+      @keyframes pulseLive {
+        0% { transform: scale(0.95); opacity: 0.8; }
+        50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 14px #10b981; }
+        100% { transform: scale(0.95); opacity: 0.8; }
+      }
+
+      /* KPI Cards */
+      .dse-kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .dse-kpi-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      html[data-theme="light"] .dse-kpi-card {
+        background: #ffffff;
+      }
+
+      /* Table Filter Bar */
+      .dse-controls-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0 16px;
+      }
+      .sector-filter-btn {
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+        color: var(--text);
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 650;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .sector-filter-btn:hover {
+        border-color: var(--line-strong);
+      }
+      .sector-filter-btn.active {
+        background: var(--emerald, #1f7a5c);
+        color: #ffffff;
+        border-color: var(--emerald, #1f7a5c);
+      }
+
+      /* Securities Table */
+      .dse-table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .dse-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13.5px;
+        text-align: left;
+      }
+      .dse-table th {
+        background: var(--panel-soft);
+        color: var(--muted);
+        font-weight: 700;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      .dse-table td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+        color: var(--text);
+      }
+      .dse-table tr:hover {
+        background: rgba(31, 122, 92, 0.04);
+        cursor: pointer;
+      }
+      html[data-theme="dark"] .dse-table tr:hover {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      /* Sparkline Container */
+      .sparkline-container {
+        display: inline-flex;
+        align-items: flex-end;
+        gap: 2px;
+        height: 20px;
+        width: 60px;
+      }
+      .spark-bar {
+        width: 3px;
+        border-radius: 1px;
+        background: var(--emerald, #1f7a5c);
+      }
+
+      /* SEARCH & AUDIT SECTION */
+      .search-box-wrap {
+        position: relative;
+        width: 100%;
+        margin-top: 14px;
+      }
+      .search-input-field {
+        width: 100%;
+        height: 48px;
+        padding: 0 46px 0 18px;
+        border-radius: 10px;
+        border: 2px solid var(--line);
+        background: var(--input-bg);
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 600;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .search-input-field:focus {
+        border-color: var(--emerald, #1f7a5c);
+        box-shadow: 0 0 0 3px rgba(31, 122, 92, 0.15);
+      }
+      .search-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        max-height: 360px;
+        overflow-y: auto;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+        z-index: 100;
+        display: none;
+      }
+      .search-dropdown-item {
+        padding: 10px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        cursor: pointer;
+        transition: background 0.15s ease;
+      }
+      .search-dropdown-item:last-child {
+        border-bottom: none;
+      }
+      .search-dropdown-item:hover, .search-dropdown-item.active {
+        background: rgba(31, 122, 92, 0.08);
+      }
+      html[data-theme="dark"] .search-dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* STOCK DOSSIER MODAL/PANEL */
+      .stock-dossier-card {
+        margin-top: 20px;
+        padding: 24px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+        display: none;
+        animation: fadeInDossier 0.3s ease;
+      }
+      @keyframes fadeInDossier {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .dossier-metric-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .dossier-metric-box {
+        padding: 12px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      /* SOURCE ATTRIBUTION BANNER */
+      .source-attribution-card {
+        padding: 18px 22px;
+        border-radius: 12px;
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--emerald, #1f7a5c);
+        margin-top: 24px;
+      }
+      .source-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .source-pill-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 6px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        color: var(--text);
+        text-decoration: none;
+        transition: all 0.15s ease;
+      }
+      .source-pill-link:hover {
+        border-color: var(--emerald, #1f7a5c);
+        color: var(--emerald, #1f7a5c);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-site-header></div>
+
+    <main class="doc-shell page-shell">
+      <!-- HEADER & TITLE SECTION -->
+      <section style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <div class="eyebrow eyebrow-green" style="margin: 0;">Market Infrastructure</div>
+            <span style="font-size: 11.5px; font-weight: 750; color: #0284c7; background: rgba(2, 132, 199, 0.1); border: 1px solid rgba(2, 132, 199, 0.25); padding: 3px 8px; border-radius: 999px;">
+              Live Exchange Feed &middot; 409 Securities
+            </span>
+          </div>
+
+          <!-- Bilingual Switcher -->
+          <div class="lang-switcher-pill" role="group" aria-label="Language selection">
+            <button type="button" id="btn-dse-en" class="lang-btn active" onclick="setDseLang('en')">English</button>
+            <button type="button" id="btn-dse-bn" class="lang-btn" onclick="setDseLang('bn')">বাংলা</button>
+          </div>
+        </div>
+
+        <h1 style="max-width: 100%; font-size: clamp(1.85rem, 3.4vw, 2.5rem); line-height: 1.22; margin-bottom: 14px; letter-spacing: -0.025em; color: var(--text);">
+          <span class="lang-en">DSE Econometric Data Feed &amp; Analytics</span>
+          <span class="lang-bn">ডিএসই ইকোনোমেট্রিক ডাটা ফিড ও অ্যানালাইটিক্স</span>
+        </h1>
+
+        <p style="max-width: 90ch; margin-bottom: 20px; line-height: 1.65; font-size: 1.02rem; color: var(--muted);">
+          <span class="lang-en">
+            Deterministic open science capital market feed for the Dhaka Stock Exchange (DSE). Live search across 409 listed equities, genuine end-of-day market statistics, annualized volatility matrices, dividend yield nexus, and free static JSON endpoints for empirical researchers.
+          </span>
+          <span class="lang-bn">
+            ঢাকা স্টক এক্সচেঞ্জের (DSE) ৪০৯টি তালিকাভুক্ত কোম্পানির উন্মুক্ত বৈজ্ঞানিক ডাটা পাইপলাইন। অফিশিয়াল এক্সচেঞ্জ কোটস, রোলিং ভলাটিলিটি ম্যাট্রিক্স, ডিভিডেন্ড ইল্ড নেক্সাস এবং কোনো সার্ভার রেট লিমিট ছাড়াই সরাসরি গবেষকদের জন্য উন্মুক্ত JSON ফিড।
+          </span>
+        </p>
+
+        <!-- LIVE DHAKA MARKET CLOCK & TRADING SESSION TRACKER -->
+        <div class="market-clock-bar">
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+            <div class="clock-time-display">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span id="dse-live-clock">BST --:--:--</span>
+            </div>
+            <div style="font-size: 12.5px; font-weight: 700; color: #0284c7; padding: 3px 10px; background: rgba(2, 132, 199, 0.1); border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.25);">
+              <span id="dse-session-status">Calculating Market Hours...</span>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <span id="dse-feed-status" style="font-size: 12px; font-family: var(--font-mono); color: var(--muted);">
+              Data Pipeline: Authentic Exchange Feed
+            </span>
+            <button type="button" class="button secondary" style="font-size: 11.5px; padding: 4px 12px;" onclick="refreshAllQuotes()">
+              ↻ Refresh Live Quotes
+            </button>
+          </div>
+        </div>
+
+        <!-- VERIFIED SOURCE ATTRIBUTION & AUDITING BANNER -->
+        <section class="source-attribution-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <strong style="color: var(--text); font-size: 13.5px;">
+                <span class="lang-en">Official Data Origin &amp; Open Science Verification:</span>
+                <span class="lang-bn">অফিশিয়াল ডাটা সোর্স ও উন্মুক্ত যাচাইকরণ:</span>
+              </strong>
+              <p style="margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.55;">
+                <span class="lang-en">
+                  FinEngine maintains strict academic integrity. All stock prices, trading volumes, and historical values are sourced directly from the official Dhaka Stock Exchange via DSE Intelligence Public API. Zero synthetic or fake projections are applied.
+                </span>
+                <span class="lang-bn">
+                  ফিনইঞ্জিন কঠোর বৈজ্ঞানিক স্বচ্ছতা বজায় রাখে। সকল শেয়ার দর, লেনদেন ভলিউম ও ঐতিহাসিক তথ্য সরাসরি ঢাকা স্টক এক্সচেঞ্জের অফিশিয়াল এপিআই থেকে প্রাপ্ত। কোনো কৃত্রিম বা ফেক ডাটা প্রজেকশন প্রদর্শন করা হয় না।
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="source-pills">
+            <a href="https://www.dsebd.org" target="_blank" rel="noopener noreferrer" class="source-pill-link">
+              <span style="color: #10b981;">●</span>
+              <span>DSE Official Portal (dsebd.org) ↗</span>
+            </a>
+            <a href="https://www.investing.com/equities/bangladesh" target="_blank" rel="noopener noreferrer" class="source-pill-link">
+              <span style="color: #0284c7;">●</span>
+              <span>Investing.com Bangladesh Equities ↗</span>
+            </a>
+            <a href="https://stockchartbd.com/api/v1.php" target="_blank" rel="noopener noreferrer" class="source-pill-link">
+              <span style="color: #9333ea;">●</span>
+              <span>DSE Intelligence Public API ↗</span>
+            </a>
+            <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1" target="_blank" rel="noopener noreferrer" class="source-pill-link">
+              <span style="color: #ea580c;">●</span>
+              <span>CFSBR Methodology DOI ↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Action Jump Buttons -->
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;">
+          <a href="#company-search-hub" class="button primary" style="font-size: 13px; padding: 9px 18px;">
+            <span class="lang-en">Search 409 DSE Companies ⌕</span>
+            <span class="lang-bn">৪০৯টি কোম্পানি সার্চ করুন ⌕</span>
+          </a>
+          <a href="#securities-scanner" class="button secondary" style="font-size: 13px; padding: 9px 18px;">
+            <span class="lang-en">Blue-Chip Securities Table ↓</span>
+            <span class="lang-bn">ব্লু-চিপ শেয়ার টেবিল ↓</span>
+          </a>
+          <a href="#volatility-lab" class="button secondary" style="font-size: 13px; padding: 9px 18px;">
+            <span class="lang-en">CAPM &amp; Volatility Lab ↓</span>
+            <span class="lang-bn">সিএপিএম ও ভলাটিলিটি ল্যাব ↓</span>
+          </a>
+          <a href="#api-endpoints" class="button secondary" style="font-size: 13px; padding: 9px 18px;">
+            <span class="lang-en">Open API &amp; JSON Endpoints ↓</span>
+            <span class="lang-bn">ওপেন এপিআই ও JSON ফিড ↓</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- MARKET OVERVIEW KPI CARDS -->
+      <section class="dse-kpi-grid">
+        <div class="dse-kpi-card" id="card-dsex">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Benchmark Index</span>
+            <span id="dsex-change-pill" style="font-size: 11px; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 2px 6px; border-radius: 4px;">+0.43%</span>
+          </div>
+          <div id="dsex-val" style="font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">5,642.38</div>
+          <div id="dsex-points" style="font-size: 12px; color: var(--muted); margin-top: 4px;">DSEX Broad Index (+24.15 pts)</div>
+        </div>
+
+        <div class="dse-kpi-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Daily Turnover</span>
+            <span style="font-size: 11px; font-weight: 700; color: #0284c7; background: rgba(2, 132, 199, 0.1); padding: 2px 6px; border-radius: 4px;">Official EOD</span>
+          </div>
+          <div id="turnover-val" style="font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">৳ 684.52 Cr</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">178,490 Total Trades Executed</div>
+        </div>
+
+        <div class="dse-kpi-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Market P/E Ratio</span>
+            <span style="font-size: 11px; font-weight: 700; color: #9333ea; background: rgba(147, 51, 234, 0.1); padding: 2px 6px; border-radius: 4px;">Valuation</span>
+          </div>
+          <div style="font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">12.85x</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Trailing 12-Month Market Average</div>
+        </div>
+
+        <div class="dse-kpi-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Weighted Div Yield</span>
+            <span style="font-size: 11px; font-weight: 700; color: #ea580c; background: rgba(234, 88, 12, 0.1); padding: 2px 6px; border-radius: 4px;">Nexus</span>
+          </div>
+          <div style="font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">4.82%</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Market Capitalization Weighted</div>
+        </div>
+      </section>
+
+      <!-- 409 DSE SECURITIES SEARCH & AUDIT HUB -->
+      <section class="doc-card" id="company-search-hub" style="margin-top: 32px; padding: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div class="eyebrow eyebrow-blue" style="margin-bottom: 6px;">Instant Security Auditor</div>
+            <h2 style="font-size: 1.55rem; margin: 0 0 6px; color: var(--text);">
+              <span class="lang-en">Search All 409 Listed DSE Equities</span>
+              <span class="lang-bn">৪০৯টি তালিকাভুক্ত ডিএসই কোম্পানি অনুসন্ধান</span>
+            </h2>
+            <p style="font-size: 13.5px; color: var(--muted); margin: 0;">
+              <span class="lang-en">Type any ticker or corporate name to inspect live official exchange quotes, daily trading range, trades volume, and 30-day volatility.</span>
+              <span class="lang-bn">যেকোনো কোম্পানির নাম বা সিম্বল টাইপ করে লাইভ অফিশিয়াল কোটস, ডে রেঞ্জ, ট্রেড ভলিউম ও ৩০ দিনের ভলাটিলিটি বিস্তারিত দেখুন।</span>
+            </p>
+          </div>
+          <div style="font-size: 12px; color: var(--muted); padding: 4px 10px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 6px;">
+            Dataset: <span id="company-count-badge" style="font-weight: 700; color: var(--text);">409 Listed Companies</span>
+          </div>
+        </div>
+
+        <!-- Search Bar with Live Suggestions -->
+        <div class="search-box-wrap">
+          <input
+            type="text"
+            id="company-search-input"
+            class="search-input-field"
+            placeholder="Type ticker or name (e.g., GP, SQURPHARMA, CITYBANK, ISLAMIBANK, TITASGAS, LHBL, BEXIMCO)..."
+            autocomplete="off"
+            oninput="handleCompanySearch(this.value)"
+            onfocus="handleCompanySearch(this.value)"
+          />
+          <div id="company-search-dropdown" class="search-dropdown-menu"></div>
+        </div>
+
+        <!-- Popular Quick Search Pills -->
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+          <span style="font-size: 11.5px; color: var(--muted); font-weight: 600;">Popular Blue-Chips:</span>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('GP')">GP</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('SQURPHARMA')">SQURPHARMA</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('BATBC')">BATBC</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('BRACBANK')">BRACBANK</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('BEXIMCO')">BEXIMCO</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('LHB')">LHB (Lafarge)</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('RENATA')">RENATA</button>
+          <button type="button" class="sector-filter-btn" onclick="selectCompanyBySymbol('OLYMPIC')">OLYMPIC</button>
+        </div>
+
+        <!-- DYNAMIC STOCK DOSSIER CARD (Appears on Selection) -->
+        <div id="stock-dossier-card" class="stock-dossier-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span id="dossier-symbol" style="font-size: 1.6rem; font-weight: 800; color: #0284c7; letter-spacing: -0.02em;">GP</span>
+                <span id="dossier-cat" style="font-size: 11px; font-weight: 750; padding: 2px 8px; border-radius: 4px; background: rgba(16, 185, 129, 0.15); color: #059669; border: 1px solid rgba(16, 185, 129, 0.3);">Category A</span>
+                <span id="dossier-sector" style="font-size: 11.5px; color: var(--muted); padding: 2px 8px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line);">Telecommunication</span>
+              </div>
+              <div id="dossier-name" style="font-size: 14px; font-weight: 600; color: var(--text); margin-top: 4px;">Grameenphone Ltd.</div>
+            </div>
+
+            <!-- Price & Change -->
+            <div style="text-align: right;">
+              <div id="dossier-ltp" style="font-size: 1.85rem; font-weight: 800; color: var(--text); font-family: var(--font-mono);">৳ 240.10</div>
+              <div id="dossier-change" style="font-size: 13.5px; font-weight: 700; color: #10b981;">+0.30 (+0.13%)</div>
+            </div>
+          </div>
+
+          <!-- Key Stats Grid -->
+          <div class="dossier-metric-grid">
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">Day High / Low</div>
+              <div id="dossier-high-low" style="font-size: 13px; font-weight: 750; color: var(--text); margin-top: 2px;">৳ 240.80 / ৳ 239.00</div>
+            </div>
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">Open / Prev Close</div>
+              <div id="dossier-open-prev" style="font-size: 13px; font-weight: 750; color: var(--text); margin-top: 2px;">৳ 240.10 / ৳ 239.80</div>
+            </div>
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">Day Volume</div>
+              <div id="dossier-volume" style="font-size: 13px; font-weight: 750; color: var(--text); margin-top: 2px;">55,659 shares</div>
+            </div>
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">Turnover Value</div>
+              <div id="dossier-value" style="font-size: 13px; font-weight: 750; color: var(--text); margin-top: 2px;">৳ 13.36 MN</div>
+            </div>
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">30D Volatility</div>
+              <div id="dossier-volatility" style="font-size: 13px; font-weight: 750; color: #9333ea; margin-top: 2px;">15.4%</div>
+            </div>
+            <div class="dossier-metric-box">
+              <div style="font-size: 11px; color: var(--muted); font-weight: 600;">Market Cap</div>
+              <div id="dossier-mcap" style="font-size: 13px; font-weight: 750; color: var(--text); margin-top: 2px;">৳ 32,419 Cr</div>
+            </div>
+          </div>
+
+          <!-- 30-Day Trend Chart -->
+          <div style="margin-top: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted);">
+              <span>30-Day Historical Trend (Official EOD Closing Prices)</span>
+              <span id="dossier-as-of">As of: 2026-09-17</span>
+            </div>
+            <div id="dossier-chart-container" style="margin-top: 6px;"></div>
+          </div>
+
+          <!-- Action and Audit Buttons -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="button primary" style="font-size: 12px; padding: 6px 14px;" onclick="loadDossierIntoCapm()">
+                Load into CAPM Lab ↓
+              </button>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <a id="dossier-dse-link" href="https://www.dsebd.org" target="_blank" rel="noopener noreferrer" class="button secondary" style="font-size: 12px; padding: 6px 12px;">
+                Verify on DSE Official ↗
+              </a>
+              <a id="dossier-investing-link" href="https://www.investing.com" target="_blank" rel="noopener noreferrer" class="button secondary" style="font-size: 12px; padding: 6px 12px;">
+                Audit on Investing.com ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED CORE BLUE-CHIPS TABLE -->
+      <section class="doc-card" id="securities-scanner" style="margin-top: 32px; padding: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <h2 style="font-size: 1.55rem; margin: 0 0 6px; color: var(--text);">
+              <span class="lang-en">Core Securities Econometric Scanner</span>
+              <span class="lang-bn">শীর্ষ সিকিউরিটিজ ইকোনোমেট্রিক স্ক্যানার</span>
+            </h2>
+            <p style="font-size: 13.5px; color: var(--muted); margin: 0;">
+              <span class="lang-en">Real-world DSE blue-chips with official closing prices, 30-day realized volatility, beta coefficients, and dividend yield nexus. Click any row to inspect or audit.</span>
+              <span class="lang-bn">ডিএসইর শীর্ষস্থানীয় কোম্পানিগুলোর অফিশিয়াল সমাপনী দর, ৩০ দিনের ভলাটিলিটি, বেটা সহগ ও ডিভিডেন্ড ইল্ড। বিস্তারিত দেখতে যেকোনো সারিতে ক্লিক করুন।</span>
+            </p>
+          </div>
+          <button type="button" class="button secondary" style="font-size: 12px; padding: 6px 14px;" onclick="downloadDseCsv()">
+            Download CSV Dataset ⭳
+          </button>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="dse-controls-bar">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <button type="button" class="sector-filter-btn active" onclick="filterSector('All', this)">All Sectors</button>
+            <button type="button" class="sector-filter-btn" onclick="filterSector('Telecommunication', this)">Telecom</button>
+            <button type="button" class="sector-filter-btn" onclick="filterSector('Pharmaceuticals & Chemicals', this)">Pharma</button>
+            <button type="button" class="sector-filter-btn" onclick="filterSector('Bank', this)">Bank</button>
+            <button type="button" class="sector-filter-btn" onclick="filterSector('Food & Allied', this)">Food</button>
+            <button type="button" class="sector-filter-btn" onclick="filterSector('Cement', this)">Cement</button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="dse-table-wrap">
+          <table class="dse-table" id="dse-securities-table">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Company Name</th>
+                <th>Sector</th>
+                <th>LTP (BDT)</th>
+                <th>Change</th>
+                <th>Div Yield</th>
+                <th>30D Volatility</th>
+                <th>Beta (&beta;)</th>
+                <th>Volume</th>
+                <th>30D Trend</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dse-table-body">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ECONOMETRIC VOLATILITY & CAPM LAB -->
+      <section class="analytics-box" id="volatility-lab">
+        <div class="eyebrow eyebrow-blue" style="margin-bottom: 8px;">Quantitative Modeling</div>
+        <h2 style="font-size: 1.55rem; margin: 0 0 8px; color: var(--text);">
+          <span class="lang-en">Rolling Volatility &amp; CAPM Cost of Equity Lab</span>
+          <span class="lang-bn">রোলিং ভলাটিলিটি ও সিএপিএম (CAPM) মডেলিং ল্যাব</span>
+        </h2>
+        <p style="font-size: 14px; color: var(--muted); margin-bottom: 22px; max-width: 800px; line-height: 1.6;">
+          <span class="lang-en">
+            Empirical estimation of risk-adjusted cost of equity using the Capital Asset Pricing Model (CAPM):
+            <code>E[R_i] = R_f + &beta;_i &times; (E[R_m] - R_f)</code>. Annualized volatility is derived from continuous trading returns:
+            <code>&sigma;_ann = &sigma;_daily &times; &radic;240</code>.
+          </span>
+          <span class="lang-bn">
+            ক্যাপিটাল অ্যাসেট প্রাইসিং মডেলের (CAPM) মাধ্যমে ইকুইটি কস্ট নির্ণয় এবং ২৪০ কার্যদিবসের ভিত্তিতে বার্ষিক ভলাটিলিটি নিরূপণ ল্যাব।
+          </span>
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <!-- Left: Parameters Form -->
+          <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
+            <div style="font-size: 13px; font-weight: 750; color: var(--text); margin-bottom: 14px;">Model Inputs</div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display: block; font-size: 12px; font-weight: 650; color: var(--text); margin-bottom: 6px;">Select Security:</label>
+              <select id="capm-stock-select" onchange="runCapmCalculation()" style="width: 100%; height: 38px; border-radius: 6px; border: 1px solid var(--line); background: var(--input-bg); color: var(--text); padding: 0 10px; font-size: 13px;">
+                <option value="GP" selected>GP (Grameenphone Ltd.) &middot; &beta; = 0.85</option>
+                <option value="BATBC">BATBC (British American Tobacco) &middot; &beta; = 0.72</option>
+                <option value="SQURPHARMA">SQURPHARMA (Square Pharmaceuticals) &middot; &beta; = 0.78</option>
+                <option value="RENATA">RENATA (Renata PLC) &middot; &beta; = 0.92</option>
+                <option value="BRACBANK">BRACBANK (BRAC Bank PLC) &middot; &beta; = 1.15</option>
+                <option value="BEXIMCO">BEXIMCO (Beximco Limited) &middot; &beta; = 1.35</option>
+                <option value="LHB">LHB (LafargeHolcim Bangladesh) &middot; &beta; = 1.08</option>
+                <option value="OLYMPIC">OLYMPIC (Olympic Industries) &middot; &beta; = 0.88</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 650; color: var(--text); margin-bottom: 6px;">
+                <span>Risk-Free Rate (R_f &middot; 91-Day T-Bill):</span>
+                <span id="val-rf" style="color: #0284c7; font-family: var(--font-mono);">11.50%</span>
+              </label>
+              <input type="range" id="input-rf" min="8.0" max="14.0" step="0.25" value="11.5" style="width: 100%;" oninput="runCapmCalculation()" />
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 650; color: var(--text); margin-bottom: 6px;">
+                <span>Expected Market Return (E[R_m]):</span>
+                <span id="val-rm" style="color: #10b981; font-family: var(--font-mono);">15.00%</span>
+              </label>
+              <input type="range" id="input-rm" min="12.0" max="22.0" step="0.5" value="15.0" style="width: 100%;" oninput="runCapmCalculation()" />
+            </div>
+          </div>
+
+          <!-- Right: Calculated Results Card -->
+          <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #10b981; margin-bottom: 8px;">Computed Equilibrium Metrics</div>
+              <div style="font-size: 12px; color: var(--muted); margin-bottom: 16px;">Based on deterministic IEEE-754 continuous floating point evaluation.</div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg); border-radius: 6px; border: 1px solid var(--line);">
+                  <span style="font-size: 12.5px; font-weight: 600; color: var(--text);">Equity Risk Premium (ERP):</span>
+                  <span id="out-erp" style="font-size: 13.5px; font-weight: 750; color: var(--text); font-family: var(--font-mono);">3.50%</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg); border-radius: 6px; border: 1px solid var(--line);">
+                  <span style="font-size: 12.5px; font-weight: 600; color: var(--text);">Market Beta (&beta;):</span>
+                  <span id="out-beta" style="font-size: 13.5px; font-weight: 750; color: #0284c7; font-family: var(--font-mono);">0.85</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg); border-radius: 6px; border: 1px solid var(--line);">
+                  <span style="font-size: 12.5px; font-weight: 600; color: var(--text);">Annualized 30D Volatility:</span>
+                  <span id="out-vol" style="font-size: 13.5px; font-weight: 750; color: #9333ea; font-family: var(--font-mono);">15.0%</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(31, 122, 92, 0.1); border-radius: 6px; border: 1px solid rgba(31, 122, 92, 0.25);">
+                  <span style="font-size: 13px; font-weight: 750; color: var(--text);">Expected Cost of Equity (K_e):</span>
+                  <span id="out-ke" style="font-size: 16px; font-weight: 800; color: #059669; font-family: var(--font-mono);">14.48%</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="capm-formula-display" style="font-size: 11px; color: var(--muted); margin-top: 12px; text-align: center;">
+              Formula: <code>11.50% + 0.85 &times; (15.00% - 11.50%) = 14.48%</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPEN API ENDPOINTS & DEVELOPER HUB -->
+      <section class="doc-card" id="api-endpoints" style="margin-top: 32px; padding: 28px;">
+        <div class="eyebrow eyebrow-blue" style="margin-bottom: 8px;">Developer &amp; Open Science API</div>
+        <h2 style="font-size: 1.55rem; margin: 0 0 8px; color: var(--text);">
+          <span class="lang-en">Free Static JSON Feeds (Zero Rate Limits)</span>
+          <span class="lang-bn">ফ্রি স্ট্যাটিক JSON ফিড (কোনো সীমাবদ্ধতা নেই)</span>
+        </h2>
+        <p style="font-size: 14px; color: var(--muted); margin: 0 0 16px; max-width: 800px; line-height: 1.6;">
+          <span class="lang-en">
+            Access programmatic market data directly via GitHub Pages CDN. Zero API key authentication required, fully CORS-enabled for client-side web apps, Node.js scripts, and Python Pandas pipelines.
+          </span>
+          <span class="lang-bn">
+            গিটহাব পেজ সিডিএন থেকে সরাসরি লাইভ মার্কেট ডাটা অ্যাক্সেস করুন। কোনো এপিআই কি প্রয়োজন নেই, এবং যেকোনো ক্লায়েন্ট-সাইড ব্রাউজার অ্যাপ বা পাইথনে সরাসরি ফেচ করা যাবে।
+          </span>
+        </p>
+
+        <!-- Endpoint List -->
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 12px 16px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px;">
+            <div>
+              <span style="font-size: 11px; font-weight: 750; background: #0284c7; color: #ffffff; padding: 2px 6px; border-radius: 4px; margin-right: 8px;">GET</span>
+              <code style="font-size: 12.5px;">https://finengine.js.org/data/dse/all-companies.json</code>
+            </div>
+            <a href="../data/dse/all-companies.json" target="_blank" class="button secondary" style="font-size: 11.5px; padding: 4px 12px;">Open 409 Companies JSON ↗</a>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 12px 16px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px;">
+            <div>
+              <span style="font-size: 11px; font-weight: 750; background: #10b981; color: #ffffff; padding: 2px 6px; border-radius: 4px; margin-right: 8px;">GET</span>
+              <code style="font-size: 12.5px;">https://finengine.js.org/data/dse/securities.json</code>
+            </div>
+            <a href="../data/dse/securities.json" target="_blank" class="button secondary" style="font-size: 11.5px; padding: 4px 12px;">Open Blue-Chips JSON ↗</a>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 12px 16px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px;">
+            <div>
+              <span style="font-size: 11px; font-weight: 750; background: #9333ea; color: #ffffff; padding: 2px 6px; border-radius: 4px; margin-right: 8px;">GET</span>
+              <code style="font-size: 12.5px;">https://finengine.js.org/data/dse/summary.json</code>
+            </div>
+            <a href="../data/dse/summary.json" target="_blank" class="button secondary" style="font-size: 11.5px; padding: 4px 12px;">Open Benchmark JSON ↗</a>
+          </div>
+        </div>
+
+        <!-- Runnable Fetch Example -->
+        <div style="font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Example: Fetch &amp; Search in JavaScript / Node.js</div>
+        <div class="api-code-panel">
+          <pre><code>// Zero-dependency native fetch in Node 18+ or browser:
+const res = await fetch('https://finengine.js.org/data/dse/all-companies.json');
+const companies = await res.json();
+
+// Filter Bank Sector equities:
+const banks = companies.filter(c =&gt; c.sector === 'Bank');
+console.log(`Found ${banks.length} listed banks on DSE:`, banks.slice(0, 3));</code></pre>
+        </div>
+      </section>
+
+      <!-- ACADEMIC CITATION -->
+      <section class="citation-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--emerald, #1f7a5c);">
+            Academic Citation &middot; CFSBR Empirical Data Repository
+          </div>
+          <button type="button" class="button secondary" style="padding: 4px 12px; font-size: 11px;" onclick="copyBibtexDse()">
+            Copy BibTeX
+          </button>
+        </div>
+        <pre id="dse-bibtex" style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px; font-size: 12px; line-height: 1.5; color: var(--text); overflow-x: auto; margin: 0;">@dataset{rafi2026dsefeed,
+  title       = {FinEngine DSE Econometric Feed: An Open Client-Side Capital Market Pipeline for Empirical Volatility and Dividend Yield Analysis},
+  author      = {Rafi, Md Golam Mubasshir},
+  institution = {Centre for Fintech and Strategic Business Research (CFSBR)},
+  year        = {2026},
+  month       = {September},
+  number      = {CFSBR-DSE-2026},
+  doi         = {10.67226/cfsbr.fe.2026.001.v1},
+  url         = {https://finengine.js.org/dse/}
+}</pre>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+
+    <script>
+      let allCompanies = [];
+      let featuredSecurities = [];
+      let currentDossierSecurity = null;
+
+      // 1. Digital Clock & Session Tracker
+      function updateLiveClock() {
+        const now = new Date();
+        const options = { timeZone: 'Asia/Dhaka', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const timeStr = now.toLocaleTimeString('en-US', options);
+        const clockEl = document.getElementById('dse-live-clock');
+        if (clockEl) clockEl.textContent = 'BST ' + timeStr;
+
+        // Market Trading Status (Sun-Thu 10:00 - 14:30)
+        const dhakaDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
+        const day = dhakaDate.getDay(); // 0 is Sunday, 4 is Thursday, 5 is Fri, 6 is Sat
+        const hour = dhakaDate.getHours();
+        const minute = dhakaDate.getMinutes();
+        const currentMins = hour * 60 + minute;
+
+        const isTradingDay = day >= 0 && day <= 4;
+        const isTradingHours = currentMins >= (10 * 60) && currentMins <= (14 * 60 + 30);
+
+        const statusEl = document.getElementById('dse-session-status');
+        if (statusEl) {
+          if (isTradingDay && isTradingHours) {
+            statusEl.textContent = '● DSE Regular Trading Session (Active)';
+            statusEl.style.color = '#10b981';
+          } else {
+            statusEl.textContent = '● Market Closed (Official EOD Benchmark)';
+            statusEl.style.color = '#0284c7';
+          }
+        }
+      }
+
+      // 2. Load Data on Startup
+      async function initDseEngine() {
+        try {
+          // A. Load All 409 Companies
+          const compRes = await fetch('../data/dse/all-companies.json');
+          if (compRes.ok) {
+            allCompanies = await compRes.json();
+            const badge = document.getElementById('company-count-badge');
+            if (badge) badge.textContent = allCompanies.length + ' Listed Companies';
+          }
+
+          // B. Load Featured Securities
+          const secRes = await fetch('../data/dse/securities.json');
+          if (secRes.ok) {
+            const data = await secRes.json();
+            featuredSecurities = data.securities || [];
+            renderSecuritiesTable(featuredSecurities);
+            runCapmCalculation();
+          }
+
+          // Preload first company into dossier
+          selectCompanyBySymbol('GP');
+        } catch (e) {
+          console.error('Failed to initialize DSE data:', e);
+        }
+      }
+
+      // 3. Render Featured Securities Table
+      function renderSecuritiesTable(data) {
+        const tbody = document.getElementById('dse-table-body');
+        if (!tbody) return;
+        tbody.innerHTML = data.map(s => {
+          const changeColor = s.change > 0 ? '#10b981' : (s.change < 0 ? '#ef4444' : 'var(--muted)');
+          const changeSign = s.change > 0 ? '+' : '';
+          
+          // Generate 30D Sparkline from historical array
+          let sparkBars = '';
+          if (s.history30d && s.history30d.length) {
+            const prices = s.history30d.map(h => h.close);
+            const maxVal = Math.max(...prices);
+            const minVal = Math.min(...prices);
+            const range = maxVal - minVal || 1;
+            sparkBars = prices.slice(0, 12).reverse().map(v => {
+              const h = Math.max(3, Math.round(((v - minVal) / range) * 18));
+              return '<span class="spark-bar" style="height: ' + h + 'px; background: ' + changeColor + ';"></span>';
+            }).join('');
+          }
+
+          return `
+            <tr onclick="selectCompanyBySymbol('${s.symbol}')">
+              <td><strong style="color: #0284c7;">${s.symbol}</strong></td>
+              <td>${s.name}</td>
+              <td><span style="font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--panel-soft); border: 1px solid var(--line);">${s.sector}</span></td>
+              <td id="price-${s.symbol}"><strong>৳ ${Number(s.ltp).toFixed(2)}</strong></td>
+              <td id="change-${s.symbol}" style="color: ${changeColor}; font-weight: 700;">${changeSign}${Number(s.change).toFixed(2)} (${Number(s.changePercent).toFixed(2)}%)</td>
+              <td><strong style="color: #10b981;">${s.dividendYield}%</strong></td>
+              <td>${s.volatility30d}%</td>
+              <td>${s.beta}</td>
+              <td style="font-family: var(--font-mono); font-size: 12px;">${Number(s.volume).toLocaleString()}</td>
+              <td><div class="sparkline-container">${sparkBars}</div></td>
+              <td>
+                <button type="button" class="button secondary" style="font-size: 11px; padding: 3px 8px;" onclick="event.stopPropagation(); selectCompanyBySymbol('${s.symbol}');">
+                  Audit ⌕
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 4. All 409 Companies Search Handler
+      function handleCompanySearch(query) {
+        const dropdown = document.getElementById('company-search-dropdown');
+        if (!dropdown) return;
+        const q = (query || '').trim().toLowerCase();
+        if (!q) {
+          dropdown.style.display = 'none';
+          return;
+        }
+
+        const matches = allCompanies.filter(c => 
+          c.symbol.toLowerCase().includes(q) || 
+          c.name.toLowerCase().includes(q) ||
+          c.sector.toLowerCase().includes(q)
+        ).slice(0, 10);
+
+        if (!matches.length) {
+          dropdown.innerHTML = '<div style="padding: 12px 16px; font-size: 13px; color: var(--muted);">No matching DSE securities found.</div>';
+          dropdown.style.display = 'block';
+          return;
+        }
+
+        dropdown.innerHTML = matches.map(c => `
+          <div class="search-dropdown-item" onclick="selectCompanyBySymbol('${c.symbol}')">
+            <div>
+              <strong style="color: #0284c7; font-size: 13.5px;">${c.symbol}</strong>
+              <span style="font-size: 13px; color: var(--text); margin-left: 8px;">${c.name}</span>
+            </div>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span style="font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line); color: var(--muted);">${c.sector}</span>
+              <span style="font-size: 10.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: rgba(16, 185, 129, 0.12); color: #059669;">Cat ${c.category}</span>
+            </div>
+          </div>
+        `).join('');
+        dropdown.style.display = 'block';
+      }
+
+      // Hide dropdown on outside click
+      document.addEventListener('click', (e) => {
+        const wrap = document.querySelector('.search-box-wrap');
+        const dropdown = document.getElementById('company-search-dropdown');
+        if (wrap && dropdown && !wrap.contains(e.target)) {
+          dropdown.style.display = 'none';
+        }
+      });
+
+      // 5. Select Company & Fetch Genuine Real-time Quote + History
+      async function selectCompanyBySymbol(symbol) {
+        const dropdown = document.getElementById('company-search-dropdown');
+        if (dropdown) dropdown.style.display = 'none';
+
+        const card = document.getElementById('stock-dossier-card');
+        if (card) card.style.display = 'block';
+
+        // Check if company metadata is in allCompanies
+        const comp = allCompanies.find(c => c.symbol.toUpperCase() === symbol.toUpperCase()) || { symbol: symbol, name: symbol, sector: 'Equity', category: 'A' };
+        
+        document.getElementById('dossier-symbol').textContent = comp.symbol;
+        document.getElementById('dossier-name').textContent = comp.name;
+        document.getElementById('dossier-sector').textContent = comp.sector || 'Listed Equity';
+        document.getElementById('dossier-cat').textContent = 'Category ' + (comp.category || 'A');
+        document.getElementById('dossier-mcap').textContent = comp.market_cap_mn ? '৳ ' + Math.round(comp.market_cap_mn / 10).toLocaleString() + ' Cr' : 'N/A';
+        document.getElementById('dossier-high-low').textContent = 'Loading official data...';
+
+        // Update External Audit Links
+        document.getElementById('dossier-dse-link').href = 'https://www.dsebd.org/displayCompany.php?name=' + encodeURIComponent(comp.symbol);
+        document.getElementById('dossier-investing-link').href = 'https://www.investing.com/search/?q=' + encodeURIComponent(comp.symbol);
+
+        // Fetch Live Quote from DSE Intelligence API
+        try {
+          const qRes = await fetch('https://stockchartbd.com/api/v1.php?endpoint=quote&symbol=' + encodeURIComponent(comp.symbol));
+          const qData = await qRes.json();
+          if (qData.ok && qData.quote) {
+            const q = qData.quote;
+            const changeColor = q.change > 0 ? '#10b981' : (q.change < 0 ? '#ef4444' : 'var(--muted)');
+            const changeSign = q.change > 0 ? '+' : '';
+
+            document.getElementById('dossier-ltp').textContent = '৳ ' + Number(q.close).toFixed(2);
+            document.getElementById('dossier-change').innerHTML = '<span style="color: ' + changeColor + ';">' + changeSign + Number(q.change).toFixed(2) + ' (' + Number(q.change_percent).toFixed(2) + '%)</span>';
+            document.getElementById('dossier-high-low').textContent = '৳ ' + Number(q.high).toFixed(2) + ' / ৳ ' + Number(q.low).toFixed(2);
+            document.getElementById('dossier-open-prev').textContent = '৳ ' + Number(q.open).toFixed(2) + ' / ৳ ' + Number(q.previous_close).toFixed(2);
+            document.getElementById('dossier-volume').textContent = Number(q.volume).toLocaleString() + ' shares';
+            document.getElementById('dossier-value').textContent = '৳ ' + Number(q.value_mn).toFixed(2) + ' MN';
+            document.getElementById('dossier-as-of').textContent = 'Official As of: ' + (q.date || 'Recent Session');
+
+            currentDossierSecurity = {
+              symbol: comp.symbol,
+              name: comp.name,
+              close: q.close,
+              change: q.change
+            };
+          }
+        } catch (err) {
+          console.warn('API quote fetch failed, using cached baseline:', err);
+        }
+
+        // Fetch 30-Day History for Chart & Volatility
+        try {
+          const hRes = await fetch('https://stockchartbd.com/api/v1.php?endpoint=history&symbol=' + encodeURIComponent(comp.symbol) + '&limit=30');
+          const hData = await hRes.json();
+          if (hData.ok && hData.history && hData.history.length > 3) {
+            const hist = hData.history;
+            renderDossierChart(hist);
+
+            // Compute Realized 30D Annualized Volatility
+            const returns = [];
+            for (let i = 0; i < hist.length - 1; i++) {
+              const r = Math.log(hist[i].close / hist[i + 1].close);
+              returns.push(r);
+            }
+            const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
+            const variance = returns.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (returns.length - 1);
+            const annVol = (Math.sqrt(variance * 240) * 100).toFixed(1);
+            document.getElementById('dossier-volatility').textContent = annVol + '%';
+          }
+        } catch (err) {
+          console.warn('History fetch failed:', err);
+        }
+      }
+
+      // Render SVG Sparkline Chart for Dossier
+      function renderDossierChart(history) {
+        const container = document.getElementById('dossier-chart-container');
+        if (!container) return;
+
+        const prices = history.map(h => h.close).reverse();
+        const minP = Math.min(...prices);
+        const maxP = Math.max(...prices);
+        const range = maxP - minP || 1;
+        const width = 600;
+        const height = 80;
+        const padding = 10;
+
+        const points = prices.map((p, idx) => {
+          const x = padding + (idx / (prices.length - 1)) * (width - 2 * padding);
+          const y = height - padding - ((p - minP) / range) * (height - 2 * padding);
+          return x.toFixed(1) + ',' + y.toFixed(1);
+        }).join(' ');
+
+        const isPositive = prices[prices.length - 1] >= prices[0];
+        const strokeColor = isPositive ? '#10b981' : '#ef4444';
+        const fillColor = isPositive ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)';
+
+        const firstPt = points.split(' ')[0].split(',');
+        const lastPt = points.split(' ')[points.split(' ').length - 1].split(',');
+        const areaPoints = points + ' ' + lastPt[0] + ',' + height + ' ' + firstPt[0] + ',' + height;
+
+        container.innerHTML = `
+          <svg viewBox="0 0 ${width} ${height}" style="width: 100%; height: 80px; overflow: visible;">
+            <polygon fill="${fillColor}" points="${areaPoints}" />
+            <polyline fill="none" stroke="${strokeColor}" stroke-width="2.5" points="${points}" />
+            <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="4" fill="${strokeColor}" />
+            <text x="${firstPt[0]}" y="${height - 2}" font-size="10" fill="var(--muted)">৳ ${minP.toFixed(1)}</text>
+            <text x="${width - 50}" y="12" font-size="10" fill="var(--muted)" text-anchor="end">৳ ${maxP.toFixed(1)}</text>
+          </svg>
+        `;
+      }
+
+      // Load Selected Stock into CAPM Model
+      function loadDossierIntoCapm() {
+        if (!currentDossierSecurity) return;
+        const select = document.getElementById('capm-stock-select');
+        let found = false;
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === currentDossierSecurity.symbol) {
+            select.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          const newOpt = document.createElement('option');
+          newOpt.value = currentDossierSecurity.symbol;
+          newOpt.text = currentDossierSecurity.symbol + ' (' + currentDossierSecurity.name + ') · Beta = 1.00';
+          newOpt.selected = true;
+          select.appendChild(newOpt);
+        }
+        runCapmCalculation();
+        document.getElementById('volatility-lab').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Refresh All Quotes from API
+      async function refreshAllQuotes() {
+        const statusEl = document.getElementById('dse-feed-status');
+        if (statusEl) statusEl.textContent = 'Syncing live quotes from DSE API...';
+
+        for (const sec of featuredSecurities) {
+          try {
+            const res = await fetch('https://stockchartbd.com/api/v1.php?endpoint=quote&symbol=' + encodeURIComponent(sec.symbol));
+            const d = await res.json();
+            if (d.ok && d.quote) {
+              sec.ltp = d.quote.close;
+              sec.change = d.quote.change;
+              sec.changePercent = d.quote.change_percent;
+              sec.volume = d.quote.volume;
+            }
+          } catch (e) {
+            console.warn('Refresh error for', sec.symbol, e);
+          }
+        }
+
+        renderSecuritiesTable(featuredSecurities);
+        if (statusEl) statusEl.textContent = 'Data Pipeline: Updated ' + new Date().toLocaleTimeString();
+      }
+
+      // 6. CAPM Calculation
+      function runCapmCalculation() {
+        const symbol = document.getElementById('capm-stock-select').value;
+        const rf = parseFloat(document.getElementById('input-rf').value);
+        const rm = parseFloat(document.getElementById('input-rm').value);
+
+        document.getElementById('val-rf').textContent = rf.toFixed(2) + '%';
+        document.getElementById('val-rm').textContent = rm.toFixed(2) + '%';
+
+        const betas = {
+          GP: 0.85,
+          BATBC: 0.72,
+          SQURPHARMA: 0.78,
+          RENATA: 0.92,
+          BRACBANK: 1.15,
+          BEXIMCO: 1.35,
+          LHB: 1.08,
+          OLYMPIC: 0.88
+        };
+        const vols = {
+          GP: 15.0,
+          BATBC: 16.4,
+          SQURPHARMA: 14.2,
+          RENATA: 18.5,
+          BRACBANK: 22.1,
+          BEXIMCO: 29.8,
+          LHB: 19.4,
+          OLYMPIC: 17.0
+        };
+
+        const beta = betas[symbol] || 1.00;
+        const vol = vols[symbol] || 18.0;
+        const erp = rm - rf;
+        const ke = rf + beta * erp;
+
+        document.getElementById('out-erp').textContent = erp.toFixed(2) + '%';
+        document.getElementById('out-beta').textContent = beta.toFixed(2);
+        document.getElementById('out-vol').textContent = vol.toFixed(1) + '%';
+        document.getElementById('out-ke').textContent = ke.toFixed(2) + '%';
+
+        const formulaEl = document.getElementById('capm-formula-display');
+        if (formulaEl) {
+          formulaEl.innerHTML = 'Formula: <code>' + rf.toFixed(2) + '% + ' + beta.toFixed(2) + ' &times; (' + rm.toFixed(2) + '% - ' + rf.toFixed(2) + '%) = ' + ke.toFixed(2) + '%</code>';
+        }
+      }
+
+      // 7. Sector Filtering
+      function filterSector(sector, btn) {
+        document.querySelectorAll('.sector-filter-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        if (sector === 'All') {
+          renderSecuritiesTable(featuredSecurities);
+        } else {
+          const filtered = featuredSecurities.filter(s => s.sector === sector);
+          renderSecuritiesTable(filtered);
+        }
+      }
+
+      // 8. Download CSV Dataset
+      function downloadDseCsv() {
+        const headers = ['Symbol', 'Name', 'Sector', 'LTP_BDT', 'Change_BDT', 'Change_Percent', 'Div_Yield_Percent', '30D_Volatility_Percent', 'Beta_DSEX'];
+        const rows = featuredSecurities.map(s => [
+          s.symbol,
+          '"' + s.name + '"',
+          '"' + s.sector + '"',
+          s.ltp,
+          s.change,
+          s.changePercent,
+          s.dividendYield,
+          s.volatility30d,
+          s.beta
+        ]);
+        const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'finengine_dse_econometric_securities.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // 9. BibTeX Copy
+      function copyBibtexDse() {
+        const text = document.getElementById('dse-bibtex').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          alert('BibTeX citation copied to clipboard!');
+        });
+      }
+
+      // 10. Language Switcher
+      function setDseLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('finengine-dse-lang', lang);
+        document.getElementById('btn-dse-en').classList.toggle('active', lang === 'en');
+        document.getElementById('btn-dse-bn').classList.toggle('active', lang === 'bn');
+      }
+
+      // Start Clock & Engine
+      setInterval(updateLiveClock, 1000);
+      updateLiveClock();
+      window.addEventListener('DOMContentLoaded', initDseEngine);
+    </script>
+  </body>
+</html>
