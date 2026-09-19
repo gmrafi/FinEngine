@@ -1,0 +1,49 @@
+{% set name = "finengine" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/finengine-{{ version }}.tar.gz
+  sha256: 341a9eb30c946e9cefa38167f44d852a362bf7d780974bfa6c2780e557b7a126
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.9
+    - setuptools >=61.0
+    - wheel
+    - pip
+  run:
+    - python >=3.9
+    - pandas >=1.5.0
+
+test:
+  imports:
+    - finengine
+    - finengine.core
+    - finengine.math
+    - finengine.ai
+  commands:
+    - python -c "from finengine.math import calculate_emi; assert round(calculate_emi(100000, 0.09, 12), 2) == 8745.15"
+
+about:
+  home: https://finengine.js.org
+  summary: "Deterministic financial math primitives & South Asian currency engine"
+  description: |
+    FinEngine is a deterministic financial computing engine providing IEEE-754 drift mitigation,
+    reducing-balance loan amortization, day-count conventions, and MFS thin-file credit risk scoring.
+  license: MIT
+  license_file: LICENSE
+  doc_url: https://finengine.js.org/python/
+  dev_url: https://github.com/gmrafi/FinEngine
+
+extra:
+  recipe-maintainers:
+    - gmrafi

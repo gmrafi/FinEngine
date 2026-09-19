@@ -11,6 +11,7 @@ const NAV_ITEMS = [
 
 const MOBILE_EXTRA_ITEMS = [
   { label: "Python SDK & Quant", path: "python/" },
+  { label: "Cloud Sandboxes & CDN", path: "docs/#cloud-sandboxes" },
   { label: "AI & Models Lab", path: "ai/" },
   { label: "@finengine/core", path: "docs/core/" },
   { label: "@finengine/math", path: "docs/math/" },

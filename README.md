@@ -22,6 +22,12 @@
 </p>
 
 <p align="center">
+  <a href="https://stackblitz.com/github/gmrafi/FinEngine?file=examples/quickstart.ts"><img src="https://img.shields.io/badge/StackBlitz-Open_TypeScript_Sandbox-1389FD?logo=stackblitz&logoColor=white" alt="Open in StackBlitz" /></a>
+  <a href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb"><img src="https://img.shields.io/badge/Google_Colab-Open_Python_Notebook-F9AB00?logo=googlecolab&logoColor=white" alt="Open in Colab" /></a>
+  <a href="https://cdn.jsdelivr.net/npm/@finengine/math@0.3.0/+esm"><img src="https://img.shields.io/badge/jsDelivr-CDN_ESM_Module-E84D3D?logo=jsdelivr&logoColor=white" alt="jsDelivr CDN" /></a>
+</p>
+
+<p align="center">
   <a href="https://www.producthunt.com/products/finengine?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-finengine" target="_blank" rel="noopener noreferrer">
     <img alt="FinEngine on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1251701&theme=light" />
   </a>

@@ -81,6 +81,21 @@ export function initQuickNav() {
         href: "https://github.com/gmrafi/FinEngine/releases/tag/v0.3.0",
       },
       {
+        label: "StackBlitz TypeScript Sandbox (1-Click)",
+        group: "Cloud Sandboxes",
+        href: "https://stackblitz.com/github/gmrafi/FinEngine?file=examples/quickstart.ts",
+      },
+      {
+        label: "Google Colab Python Notebook (1-Click)",
+        group: "Cloud Sandboxes",
+        href: "https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb",
+      },
+      {
+        label: "jsDelivr & unpkg CDN Guides",
+        group: "Cloud Sandboxes",
+        href: `${root}docs/#cloud-sandboxes`,
+      },
+      {
         label: "Report an issue",
         group: "Resources",
         href: "https://github.com/gmrafi/FinEngine/issues/new/choose",

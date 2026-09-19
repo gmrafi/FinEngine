@@ -153,6 +153,45 @@
           >
         </div>
       </section>
+
+      <!-- CLOUD SANDBOXES & CDN QUICKSTART -->
+      <section class="doc-card" id="cloud-sandboxes">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">Zero-Install Quickstart</div>
+            <h2>Instant Cloud Sandboxes &amp; Global CDN</h2>
+            <p>Test FinEngine directly in your browser or import via global CDN without any package manager setup.</p>
+          </div>
+        </div>
+
+        <div class="grid-2 compact-grid" style="margin-bottom: 20px;">
+          <div class="info-panel static-panel">
+            <h3>⚡ StackBlitz Interactive Sandbox</h3>
+            <p>Launch an isolated TypeScript workspace with pre-installed @finengine/core and @finengine/math packages.</p>
+            <div style="margin-top: 12px;">
+              <a class="button secondary" href="https://stackblitz.com/github/gmrafi/FinEngine?file=examples/quickstart.ts" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 7px 14px;">Open in StackBlitz ↗</a>
+            </div>
+          </div>
+          <div class="info-panel static-panel">
+            <h3>🐍 Google Colab Python Notebook</h3>
+            <p>Run loan amortization and thin-file credit risk evaluations in an interactive Jupyter notebook.</p>
+            <div style="margin-top: 12px;">
+              <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 7px 14px;">Open in Google Colab ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-code-snippet">
+          <pre><code><span class="hero-comment">&lt;!-- Direct Browser ES Module Import via jsDelivr --&gt;</span>
+<span class="hero-tag">&lt;script</span> <span class="hero-attr">type</span>=<span class="hero-string">"module"</span><span class="hero-tag">&gt;</span>
+  <span class="hero-keyword">import</span> { calculateEMI, calculateAmortization } <span class="hero-keyword">from</span> <span class="hero-string">"https://cdn.jsdelivr.net/npm/@finengine/math@0.3.0/+esm"</span>;
+  <span class="hero-keyword">import</span> { formatBDT } <span class="hero-keyword">from</span> <span class="hero-string">"https://cdn.jsdelivr.net/npm/@finengine/core@0.3.0/+esm"</span>;
+
+  <span class="hero-keyword">const</span> emi = calculateEMI({ principal: 500000, annualRate: 0.09, tenureMonths: 24 });
+  console.log(<span class="hero-string">"Monthly EMI:"</span>, formatBDT(emi));
+<span class="hero-tag">&lt;/script&gt;</span></code></pre>
+        </div>
+      </section>
     </main>
     <div data-site-footer></div>
     <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
