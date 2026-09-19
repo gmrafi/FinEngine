@@ -20,6 +20,7 @@
   <a href="https://www.npmjs.com/org/finengine"><img src="https://img.shields.io/badge/npm-@finengine-cb3837?logo=npm" alt="npm Organization" /></a>
   <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/pypi-v0.1.0-3775A9?logo=pypi&logoColor=white" alt="PyPI Version" /></a>
   <a href="https://github.com/gmrafi/FinEngine-Py"><img src="https://img.shields.io/badge/GitHub-FinEngine--Py-181717?logo=github&logoColor=white" alt="FinEngine-Py Repository" /></a>
+  <a href="https://finengine.js.org/student/"><img src="https://img.shields.io/badge/Student_Lab-Bilingual_Finance-10B981?logo=googleclassroom&logoColor=white" alt="Student & Educator Lab (Bilingual)" /></a>
 </p>
 
 <p align="center">
@@ -45,7 +46,8 @@
   <a href="#installation">Installation</a> &middot;
   <a href="#quickstart-examples">Quickstart</a> &middot;
   <a href="#live-interactive-surfaces">Live Tools</a> &middot;
-  <a href="#academic-backing--citation">Citation</a>
+  <a href="#academic-backing--citation">Citation</a> &middot;
+  <a href="https://finengine.js.org/student/">Student Lab</a>
 </p>
 
 ---
