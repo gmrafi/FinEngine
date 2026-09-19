@@ -81,12 +81,12 @@ body {
   background:
     radial-gradient(
       circle at top right,
-      rgba(37, 99, 235, 0.18),
+      rgba(16, 185, 129, 0.16),
       transparent 26%
     ),
     radial-gradient(
       circle at left 20%,
-      rgba(6, 182, 212, 0.13),
+      rgba(6, 182, 212, 0.12),
       transparent 18%
     ),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-gradient-end) 100%);
@@ -3309,7 +3309,7 @@ html[data-theme="light"] .field-error {
 }
 .hero-headline-accent {
   display: block;
-  background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+  background: linear-gradient(135deg, var(--emerald) 0%, #34d399 50%, var(--cyan) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3346,13 +3346,13 @@ html[data-theme="light"] .field-error {
     background 160ms ease;
 }
 .hero-btn-primary {
-  background: linear-gradient(135deg, var(--blue), #1d4ed8 60%, var(--cyan));
+  background: linear-gradient(135deg, var(--emerald), #059669 60%, #047857);
   color: #fff;
-  box-shadow: 0 10px 26px color-mix(in srgb, var(--blue) 32%, transparent);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--emerald) 32%, transparent);
 }
 .hero-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 32px color-mix(in srgb, var(--blue) 38%, transparent);
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--emerald) 42%, transparent);
 }
 .hero-btn-secondary {
   background: var(--button-secondary-bg);
@@ -3360,7 +3360,7 @@ html[data-theme="light"] .field-error {
   border-color: var(--line-strong);
 }
 .hero-btn-secondary:hover {
-  border-color: color-mix(in srgb, var(--blue) 50%, var(--line-strong));
+  border-color: color-mix(in srgb, var(--emerald) 50%, var(--line-strong));
 }
 .hero-btn-tertiary {
   background: transparent;
@@ -4306,7 +4306,7 @@ html[data-theme="light"] .finengine-banner-close:hover {
    neutral borders, confident typography.
    ========================================================= */
 
-/* Hero section — solid pure white, ultra-bold high contrast, no gradient text */
+/* Hero section - solid pure white, ultra-bold high contrast, no gradient text */
 html[data-theme="light"] .hero-flagship {
   background: #ffffff;
 }
@@ -4323,7 +4323,7 @@ html[data-theme="light"] .hero-headline-accent {
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
-  color: #2273c3;
+  color: #1f7a5c;
   font-weight: 850;
 }
 html[data-theme="light"] .hero-lede {
@@ -4339,12 +4339,12 @@ html[data-theme="light"] .hero-status-badge {
   gap: 8px;
   padding: 4px 12px;
   border-radius: 999px;
-  background: #eef5fc;
-  border: 1px solid #b9d8f4;
+  background: #eef8f4;
+  border: 1px solid #b7e2d3;
   font-size: 11px;
 }
 html[data-theme="light"] .hero-status-tag {
-  color: #2273c3;
+  color: #1f7a5c;
   font-weight: 800;
 }
 html[data-theme="light"] .hero-status-sep {
@@ -4355,22 +4355,22 @@ html[data-theme="light"] .hero-status-text {
   font-weight: 650;
 }
 
-/* Hero CTA buttons — light mode with #2273C3 */
+/* Hero CTA buttons - light mode with BDT Emerald #1f7a5c */
 html[data-theme="light"] .hero-btn-primary {
-  background: #2273c3;
+  background: #1f7a5c;
   color: #ffffff;
   font-weight: 650;
-  border: 1px solid #2273c3;
+  border: 1px solid #1f7a5c;
   box-shadow:
-    0 1px 3px rgba(34, 115, 195, 0.35),
-    0 2px 6px rgba(34, 115, 195, 0.2);
+    0 1px 3px rgba(31, 122, 92, 0.35),
+    0 2px 6px rgba(31, 122, 92, 0.2);
 }
 html[data-theme="light"] .hero-btn-primary:hover {
-  background: #1b62a7;
-  border-color: #1b62a7;
+  background: #165b44;
+  border-color: #165b44;
   box-shadow:
-    0 4px 14px rgba(34, 115, 195, 0.4),
-    0 1px 3px rgba(34, 115, 195, 0.25);
+    0 4px 14px rgba(31, 122, 92, 0.4),
+    0 1px 3px rgba(31, 122, 92, 0.25);
 }
 html[data-theme="light"] .hero-btn-secondary {
   background: #ffffff;
@@ -4391,7 +4391,7 @@ html[data-theme="light"] .hero-btn-tertiary:hover {
   color: #000000;
 }
 
-/* Terminal card — clean developer dark card with crisp border & shadow */
+/* Terminal card - clean developer dark card with crisp border & shadow */
 html[data-theme="light"] .hero-terminal-card {
   background: #090d16;
   border: 1px solid #334155;
@@ -4404,9 +4404,9 @@ html[data-theme="light"] .hero-terminal-card {
 /* Proof / trust strip */
 html[data-theme="light"] .proof-panel {
   background: #ffffff;
-  border: 1.5px solid #2273c3;
+  border: 1.5px solid #1f7a5c;
   box-shadow:
-    0 4px 20px rgba(34, 115, 195, 0.08),
+    0 4px 20px rgba(31, 122, 92, 0.08),
     0 1px 3px rgba(0, 0, 0, 0.02);
 }
 html[data-theme="light"] .proof-title {
@@ -4622,7 +4622,7 @@ html[data-theme="light"] .finengine-banner-sub {
   font-weight: 500;
 }
 html[data-theme="light"] .finengine-banner-soon {
-  color: #2273c3;
+  color: #1f7a5c;
   font-weight: 700;
 }
 
@@ -4630,34 +4630,34 @@ html[data-theme="light"] .finengine-banner-soon {
    HOMEPAGE PRODUCT SHOWCASE: SIMULATOR, BENTO & DEV HUB
    ========================================================= */
 
-/* Hero Headline Accent: Solid Brand Blue #2273C3 */
+/* Hero Headline Accent: Solid BDT Green #1f7a5c */
 html[data-theme="light"] .hero-headline-accent {
   display: block;
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
-  color: #2273c3;
+  color: #1f7a5c;
   font-weight: 850;
 }
 
-/* Primary Action Buttons: Authoritative Brand Blue #2273C3 */
+/* Primary Action Buttons: Authoritative BDT Green #1f7a5c */
 html[data-theme="light"] .button.primary,
 html[data-theme="light"] .hero-btn-primary {
-  background: #2273c3;
+  background: #1f7a5c;
   color: #ffffff;
-  border: 1px solid #2273c3;
+  border: 1px solid #1f7a5c;
   font-weight: 650;
   box-shadow:
-    0 1px 3px rgba(34, 115, 195, 0.35),
-    0 2px 6px rgba(34, 115, 195, 0.2);
+    0 1px 3px rgba(31, 122, 92, 0.35),
+    0 2px 6px rgba(31, 122, 92, 0.2);
 }
 html[data-theme="light"] .button.primary:hover,
 html[data-theme="light"] .hero-btn-primary:hover {
-  background: #1b62a7;
-  border-color: #1b62a7;
+  background: #165b44;
+  border-color: #165b44;
   box-shadow:
-    0 4px 14px rgba(34, 115, 195, 0.4),
-    0 1px 3px rgba(34, 115, 195, 0.25);
+    0 4px 14px rgba(31, 122, 92, 0.4),
+    0 1px 3px rgba(31, 122, 92, 0.25);
 }
 
 /* Section Separation & Visual Rhythm */
@@ -4669,11 +4669,11 @@ html[data-theme="light"] .hero-btn-primary:hover {
 }
 .proof-panel {
   background: #ffffff;
-  border: 1.5px solid #2273c3;
+  border: 1.5px solid #1f7a5c;
   border-radius: 16px;
   padding: clamp(18px, 2.5vw, 24px);
   box-shadow:
-    0 4px 20px rgba(34, 115, 195, 0.08),
+    0 4px 20px rgba(31, 122, 92, 0.08),
     0 1px 3px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
@@ -4683,8 +4683,8 @@ html[data-theme="light"] .hero-btn-primary:hover {
 }
 html[data-theme="dark"] .proof-panel {
   background: var(--panel);
-  border-color: #2273c3;
-  box-shadow: 0 4px 20px rgba(34, 115, 195, 0.16);
+  border-color: #10b981;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.16);
 }
 .proof-header-block {
   width: 100%;
@@ -4772,9 +4772,9 @@ html[data-theme="dark"] .proof-panel {
   transition: all 0.14s ease;
 }
 .trust-strip-badge:hover {
-  border-color: #2273c3;
-  background: #eef5fc;
-  color: #2273c3;
+  border-color: #1f7a5c;
+  background: #eef8f4;
+  color: #1f7a5c;
   transform: translateY(-1px);
 }
 html[data-theme="dark"] .trust-strip-badge {
@@ -4783,9 +4783,9 @@ html[data-theme="dark"] .trust-strip-badge {
   color: var(--text);
 }
 html[data-theme="dark"] .trust-strip-badge:hover {
-  border-color: #2273c3;
-  background: rgba(34, 115, 195, 0.15);
-  color: #93c5fd;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
 }
 .trust-strip-label {
   font-size: 0.72rem;
@@ -4829,7 +4829,7 @@ html[data-theme="dark"] .trust-strip-value {
 }
 .proof-badge:hover {
   transform: translateY(-1px);
-  border-color: #2273c3;
+  border-color: #1f7a5c;
 }
 html[data-theme="dark"] .proof-badge {
   background: rgba(255, 255, 255, 0.04);
@@ -4871,9 +4871,9 @@ html[data-theme="dark"] .trust-row {
   transition: all 0.14s ease;
 }
 .trust-chip:hover {
-  border-color: #2273c3;
-  color: #2273c3;
-  background: #eef5fc;
+  border-color: #1f7a5c;
+  color: #1f7a5c;
+  background: #eef8f4;
 }
 html[data-theme="dark"] .trust-chip {
   background: rgba(255, 255, 255, 0.03);
@@ -4881,9 +4881,9 @@ html[data-theme="dark"] .trust-chip {
   color: var(--text);
 }
 html[data-theme="dark"] .trust-chip:hover {
-  border-color: #2273c3;
-  color: #93c5fd;
-  background: rgba(34, 115, 195, 0.15);
+  border-color: #10b981;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.15);
 }
 .home-simulator-section {
   padding: 40px 0 46px;
@@ -4982,9 +4982,9 @@ html[data-theme="dark"] .simulator-card {
   background: #f1f5f9;
 }
 .sim-chip.is-active {
-  background: #eef5fc;
-  border-color: #2273c3;
-  color: #2273c3;
+  background: #eef8f4;
+  border-color: #1f7a5c;
+  color: #1f7a5c;
   font-weight: 750;
 }
 html[data-theme="dark"] .sim-chip {
@@ -4993,13 +4993,13 @@ html[data-theme="dark"] .sim-chip {
   color: var(--text);
 }
 html[data-theme="dark"] .sim-chip.is-active {
-  background: rgba(34, 115, 195, 0.25);
-  border-color: var(--blue);
-  color: #93c5fd;
+  background: rgba(16, 185, 129, 0.25);
+  border-color: var(--emerald);
+  color: #6ee7b7;
 }
 .sim-slider {
   width: 100%;
-  accent-color: #2273c3;
+  accent-color: #1f7a5c;
   cursor: pointer;
   height: 6px;
   margin-top: 4px;
@@ -5029,8 +5029,8 @@ html[data-theme="dark"] .sim-chip.is-active {
 }
 .sim-input:focus,
 .sim-select:focus {
-  border-color: #2273c3;
-  box-shadow: 0 0 0 3px rgba(34, 115, 195, 0.15);
+  border-color: #1f7a5c;
+  box-shadow: 0 0 0 3px rgba(31, 122, 92, 0.15);
 }
 html[data-theme="dark"] .sim-input,
 html[data-theme="dark"] .sim-select {
@@ -5067,12 +5067,12 @@ html[data-theme="dark"] .sim-kpi-card {
   border-color: var(--line);
 }
 .sim-kpi-highlight {
-  background: #eef5fc;
-  border-color: #b9d8f4;
+  background: #eef8f4;
+  border-color: #b7e2d3;
 }
 html[data-theme="dark"] .sim-kpi-highlight {
-  background: rgba(34, 115, 195, 0.14);
-  border-color: rgba(34, 115, 195, 0.4);
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.4);
 }
 .sim-kpi-label {
   font-size: 0.76rem;
@@ -5088,13 +5088,13 @@ html[data-theme="dark"] .sim-kpi-highlight {
   letter-spacing: -0.02em;
 }
 .sim-kpi-highlight .sim-kpi-val {
-  color: #2273c3;
+  color: #1f7a5c;
 }
 html[data-theme="dark"] .sim-kpi-val {
   color: var(--text);
 }
 html[data-theme="dark"] .sim-kpi-highlight .sim-kpi-val {
-  color: #93c5fd;
+  color: #6ee7b7;
 }
 .sim-val-amber,
 .sim-val-green {
@@ -5127,12 +5127,12 @@ html[data-theme="dark"] .sim-ratio-wrap .ratio-bar {
   background: rgba(255, 255, 255, 0.1);
 }
 .sim-ratio-wrap .ratio-bar-principal {
-  background: #2273c3;
+  background: #1f7a5c;
   height: 100%;
   transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .sim-ratio-wrap .ratio-bar-interest {
-  background: #1f7a5c;
+  background: #2273c3;
   height: 100%;
   transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -5277,14 +5277,14 @@ html[data-theme="dark"] .bento-card:hover {
   line-height: 1;
 }
 .bento-card:hover .bento-corner-arrow {
-  color: #2273c3;
+  color: #1f7a5c;
   transform: translate(2px, -2px);
 }
 html[data-theme="dark"] .bento-corner-arrow {
   color: #64748b;
 }
 html[data-theme="dark"] .bento-card:hover .bento-corner-arrow {
-  color: #93c5fd;
+  color: #6ee7b7;
 }
 .bento-card-badge {
   display: inline-flex;
@@ -5294,9 +5294,9 @@ html[data-theme="dark"] .bento-card:hover .bento-corner-arrow {
   font-weight: 700;
   padding: 3px 9px;
   border-radius: 6px;
-  background: #eef5fc;
-  color: #2273c3;
-  border: 1px solid #b9d8f4;
+  background: #eef8f4;
+  color: #1f7a5c;
+  border: 1px solid #b7e2d3;
   margin-bottom: 12px;
   width: fit-content;
 }
@@ -5306,9 +5306,9 @@ html[data-theme="dark"] .bento-card:hover .bento-corner-arrow {
   border-color: #a7f3d0;
 }
 html[data-theme="dark"] .bento-card-badge {
-  background: rgba(34, 115, 195, 0.18);
-  color: #93c5fd;
-  border-color: rgba(34, 115, 195, 0.35);
+  background: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.35);
 }
 html[data-theme="dark"] .bento-badge-success {
   background: rgba(16, 185, 129, 0.18);
@@ -5428,7 +5428,7 @@ html[data-theme="dark"] .bento-pill {
   color: var(--text);
 }
 .bento-pill-arrow {
-  color: #2273c3;
+  color: #1f7a5c;
   font-weight: 800;
 }
 .bento-card-footer {
@@ -5436,18 +5436,18 @@ html[data-theme="dark"] .bento-pill {
 }
 .bento-link {
   font-weight: 700;
-  color: #2273c3;
+  color: #1f7a5c;
   font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 .bento-link:hover {
-  color: #1b62a7;
+  color: #165b44;
   text-decoration: underline;
 }
 html[data-theme="dark"] .bento-link {
-  color: #60a5fa;
+  color: #34d399;
 }
 
 /* =========================================================
@@ -5507,8 +5507,8 @@ html[data-theme="dark"] .developer-hub-band {
   transition: all 0.16s ease;
 }
 .dev-hub-card:hover {
-  border-color: #2273c3;
-  box-shadow: 0 4px 14px rgba(34, 115, 195, 0.1);
+  border-color: #1f7a5c;
+  box-shadow: 0 4px 14px rgba(31, 122, 92, 0.1);
   transform: translateX(4px);
 }
 html[data-theme="dark"] .dev-hub-card {
@@ -5516,7 +5516,7 @@ html[data-theme="dark"] .dev-hub-card {
   border-color: var(--line);
 }
 html[data-theme="dark"] .dev-hub-card:hover {
-  border-color: var(--blue);
+  border-color: var(--emerald);
 }
 .dev-hub-title {
   color: #09090b;
@@ -5548,14 +5548,14 @@ html[data-theme="dark"] .dev-hub-title {
   line-height: 1;
 }
 .dev-hub-card:hover .dev-hub-arrow {
-  color: #2273c3;
+  color: #1f7a5c;
   transform: translate(2px, -2px);
 }
 html[data-theme="dark"] .dev-hub-arrow {
   color: #64748b;
 }
 html[data-theme="dark"] .dev-hub-card:hover .dev-hub-arrow {
-  color: #93c5fd;
+  color: #6ee7b7;
 }
 
 /* Trust Strip & Chip link indicator arrows */
@@ -5573,7 +5573,7 @@ html[data-theme="dark"] .dev-hub-card:hover .dev-hub-arrow {
 }
 .trust-strip-badge:hover .trust-strip-arrow,
 .trust-chip:hover .trust-chip-arrow {
-  color: #2273c3;
+  color: #1f7a5c;
   transform: translate(2px, -2px);
 }
 html[data-theme="dark"] .trust-strip-arrow,
@@ -5582,7 +5582,7 @@ html[data-theme="dark"] .trust-chip-arrow {
 }
 html[data-theme="dark"] .trust-strip-badge:hover .trust-strip-arrow,
 html[data-theme="dark"] .trust-chip:hover .trust-chip-arrow {
-  color: #93c5fd;
+  color: #6ee7b7;
 }
 
 /* Hero Badge Logo */
@@ -6024,8 +6024,8 @@ html[data-theme="dark"] .precision-cursor-ring.is-hovering {
 }
 
 .precision-cursor-ring.is-clicked {
-  border-color: #2273c3;
-  background: rgba(34, 115, 195, 0.15);
+  border-color: #1f7a5c;
+  background: rgba(31, 122, 92, 0.15);
 }
 
 .precision-cursor-dot {
@@ -6037,7 +6037,7 @@ html[data-theme="dark"] .precision-cursor-ring.is-hovering {
   margin-top: -2px;
   margin-left: -2px;
   border-radius: 50%;
-  background: #2273c3;
+  background: #1f7a5c;
   pointer-events: none !important;
   z-index: 99999;
   opacity: 0;
@@ -6046,7 +6046,7 @@ html[data-theme="dark"] .precision-cursor-ring.is-hovering {
 }
 
 html[data-theme="dark"] .precision-cursor-dot {
-  background: #60a5fa;
+  background: #34d399;
 }
 
 /* Touch micro-ripple for mobile and tablets */
@@ -6057,15 +6057,15 @@ html[data-theme="dark"] .precision-cursor-dot {
   border-radius: 50%;
   pointer-events: none !important;
   z-index: 99999;
-  border: 2px solid #2273c3;
-  background: rgba(34, 115, 195, 0.12);
+  border: 2px solid #1f7a5c;
+  background: rgba(31, 122, 92, 0.12);
   transform: translate(-50%, -50%);
   animation: touchRippleAnim 0.38s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }
 
 html[data-theme="dark"] .touch-micro-ripple {
-  border-color: #60a5fa;
-  background: rgba(96, 165, 250, 0.15);
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.15);
 }
 
 @keyframes touchRippleAnim {
