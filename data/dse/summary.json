@@ -1,0 +1,27 @@
+{
+  "feed": "FinEngine DSE Econometric Feed",
+  "version": "1.0.0",
+  "market": "Dhaka Stock Exchange (DSE)",
+  "asOfDate": "2026-09-18",
+  "currency": "BDT",
+  "benchmark": {
+    "symbol": "DSEX",
+    "name": "DSE Broad Index",
+    "indexValue": 5642.38,
+    "changePoints": 24.15,
+    "changePercent": 0.43,
+    "dayHigh": 5658.12,
+    "dayLow": 5621.8
+  },
+  "aggregates": {
+    "totalTurnoverCroreBDT": 684.52,
+    "totalTrades": 178490,
+    "totalVolumeShares": 194850000,
+    "marketCapitalizationCroreBDT": 682450.18,
+    "marketAveragePE": 12.85,
+    "marketWeightedDividendYieldPercent": 4.82
+  },
+  "institution": "Centre for Fintech and Strategic Business Research (CFSBR)",
+  "academicGrantSynergy": "CFSBR Empirical Capital Markets Framework",
+  "license": "CC-BY 4.0 / Open Access"
+}
