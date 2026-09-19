@@ -11,6 +11,7 @@ const NAV_ITEMS = [
 
 const MOBILE_EXTRA_ITEMS = [
   { label: "Student & Educator Lab", path: "student/" },
+  { label: "Strategic Roadmap", path: "roadmap/" },
   { label: "Python SDK & Quant", path: "python/" },
   { label: "Cloud Sandboxes & CDN", path: "docs/#cloud-sandboxes" },
   { label: "AI & Models Lab", path: "ai/" },
@@ -466,6 +467,12 @@ function renderFooter() {
             RESEARCH &amp; COMMUNITY
           </div>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li>
+              <a href="${root}roadmap/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Strategic Roadmap (2026-2027+) <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(37,99,235,0.1); color: #2563eb; font-weight: 700; margin-left: 4px;">Vision</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">DSE feed, JupyterLite WASM, MCP agents &amp; ERP</div>
+              </a>
+            </li>
             <li>
               <a href="${root}methodology/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Research &amp; Methodology</div>

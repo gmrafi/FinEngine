@@ -263,6 +263,28 @@
     <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
     <link rel="stylesheet" href="../styles.css" />
     <style>
+            /* High-contrast theme-aware inline code and mathematical formulas */
+      code:not(pre code) {
+        font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", "Fira Code", Menlo, monospace;
+        font-size: 0.9em;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        display: inline-block;
+        line-height: 1.4;
+      }
+      html[data-theme="light"] code:not(pre code) {
+        background: rgba(31, 122, 92, 0.09) !important;
+        color: #14532d !important;
+        border: 1px solid rgba(31, 122, 92, 0.28) !important;
+      }
+      html[data-theme="dark"] code:not(pre code) {
+        background: rgba(16, 185, 129, 0.14) !important;
+        color: #34d399 !important;
+        border: 1px solid rgba(16, 185, 129, 0.32) !important;
+      }
+
       /* Bilingual Display Logic */
       html[lang="en"] .lang-bn { display: none !important; }
       html[lang="bn"] .lang-en { display: none !important; }
