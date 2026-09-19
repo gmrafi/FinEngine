@@ -16,7 +16,7 @@
     <title>Finance Student &amp; Educator Lab - Interactive Computational Finance | FinEngine</title>
     <meta
       name="description"
-      content="Interactive computational finance lab for students and educators: visual amortization formulas, flat vs reducing rate calculators, floating-point drift audits, and classroom assignments."
+      content="Bilingual interactive computational finance lab for students and educators: visual amortization formulas, programming languages for FinTech, AI in finance roadmap, and classroom case studies."
     />
     <link rel="canonical" href="https://finengine.js.org/student/" />
     <meta property="og:type" content="website" />
@@ -26,7 +26,7 @@
     />
     <meta
       property="og:description"
-      content="Bridge the gap between textbook theory and real-world banking math. Visual formula explorer, classroom case studies, and 1-click cloud notebooks."
+      content="Bridge the gap between textbook theory and real-world banking math. Visual formula explorer, programming languages for FinTech, AI in finance, and classroom case studies."
     />
     <meta property="og:url" content="https://finengine.js.org/student/" />
     <meta
@@ -41,7 +41,7 @@
     />
     <meta
       name="twitter:description"
-      content="Interactive computational finance lab for students and educators: visual amortization, flat vs reducing rates, and zero float drift."
+      content="Bilingual interactive computational finance lab for students and educators: visual formulas, FinTech programming guides, and AI in finance roadmap."
     />
     <meta
       name="twitter:image"
@@ -64,12 +64,48 @@
             "content",
             theme === "light" ? "#F8FBFF" : "#0B0F19",
           );
+
+        const savedLang = localStorage.getItem("finengine-student-lang") || (navigator.language && navigator.language.startsWith("bn") ? "bn" : "en");
+        document.documentElement.lang = savedLang;
       })();
     </script>
     <link rel="icon" type="image/png" href="../logo-mark.png" />
     <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
     <link rel="stylesheet" href="../styles.css" />
     <style>
+      /* Bilingual Display Logic */
+      html[lang="en"] .lang-bn { display: none !important; }
+      html[lang="bn"] .lang-en { display: none !important; }
+
+      .lang-switcher-pill {
+        display: inline-flex;
+        align-items: center;
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px;
+        gap: 2px;
+      }
+      .lang-btn {
+        border: none;
+        background: transparent;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .lang-btn:hover {
+        color: var(--text);
+      }
+      .lang-btn.active {
+        background: var(--emerald, #1f7a5c);
+        color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      }
+
       .student-slider-group {
         display: flex;
         flex-direction: column;
@@ -99,7 +135,7 @@
       .quiz-option-btn {
         width: 100%;
         text-align: left;
-        padding: 10px 14px;
+        padding: 11px 15px;
         border-radius: 8px;
         border: 1px solid var(--line);
         background: var(--panel-soft);
@@ -109,6 +145,7 @@
         cursor: pointer;
         transition: all 0.15s ease;
         margin-bottom: 8px;
+        line-height: 1.4;
       }
       .quiz-option-btn:hover {
         border-color: var(--emerald, #1f7a5c);
@@ -124,6 +161,39 @@
         background: rgba(239, 68, 68, 0.12);
         color: #dc2626;
       }
+
+      .matrix-card {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      .matrix-card:hover {
+        border-color: var(--emerald, #1f7a5c);
+        transform: translateY(-2px);
+      }
+      .matrix-badge {
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .citation-box {
+        background: var(--panel-soft);
+        border-left: 3px solid var(--emerald, #1f7a5c);
+        padding: 12px 16px;
+        border-radius: 0 8px 8px 0;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-top: 14px;
+      }
     </style>
   </head>
   <body data-page="student" data-root-path="../">
@@ -132,27 +202,61 @@
     <main class="doc-shell page-shell">
       <!-- HERO CARD -->
       <section class="doc-card page-hero-card">
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px;">
-          <div class="eyebrow eyebrow-blue" style="margin-bottom: 0;">
-            CFSBR Computational Finance Lab · ফিন্যান্স লার্নিং ল্যাব
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div class="eyebrow eyebrow-blue" style="margin-bottom: 0;">
+              <span class="lang-en">CFSBR Computational Finance Lab · Open Education Hub</span>
+              <span class="lang-bn">CFSBR কম্পিউটেশনাল ফিন্যান্স ল্যাব · উন্মুক্ত শিক্ষা কেন্দ্র</span>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; background: rgba(31, 122, 92, 0.12); color: #1f7a5c; padding: 2px 10px; border-radius: 999px; border: 1px solid rgba(31, 122, 92, 0.25);">
+              ● <span class="lang-en">For Students &amp; Educators</span><span class="lang-bn">শিক্ষার্থী ও শিক্ষকদের জন্য</span>
+            </span>
           </div>
-          <span style="font-size: 11px; font-weight: 700; background: rgba(31, 122, 92, 0.12); color: #1f7a5c; padding: 2px 10px; border-radius: 999px; border: 1px solid rgba(31, 122, 92, 0.25);">
-            ● Open Education Hub
-          </span>
+
+          <!-- Bilingual Language Switcher -->
+          <div class="lang-switcher-pill" role="group" aria-label="Language selection">
+            <button type="button" id="btn-lang-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
+            <button type="button" id="btn-lang-bn" class="lang-btn" onclick="changeLanguage('bn')">বাংলা</button>
+          </div>
         </div>
 
+        <!-- Hero Title -->
         <h1 style="max-width: 100%; font-size: clamp(1.65rem, 3.2vw, 2.25rem); line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.025em;">
-          Interactive Finance for Students &amp; Educators
+          <span class="lang-en">Interactive Finance Lab for Students &amp; Educators</span>
+          <span class="lang-bn">শিক্ষার্থী ও শিক্ষকদের জন্য ইন্টারেক্টিভ ফিন্যান্স ল্যাব</span>
         </h1>
+
+        <!-- Hero Subtitle -->
         <p style="max-width: 90ch; margin-bottom: 22px; line-height: 1.6; font-size: 0.96rem;">
-          Bridge the gap between textbook theory and real-world banking software. Explore deterministic loan amortization, uncover the hidden mathematics behind flat vs reducing interest rates, audit floating-point precision, and run classroom assignments in 1-click cloud notebooks.
+          <span class="lang-en">
+            Bridge the gap between textbook theory and real-world banking math. Explore deterministic loan amortization, uncover the hidden mathematics behind flat vs reducing interest rates, discover top programming languages for FinTech in 2026, understand AI applications in modern banking, and run classroom assignments in 1-click cloud notebooks.
+          </span>
+          <span class="lang-bn">
+            পাঠ্যবইয়ের তাত্ত্বিক জ্ঞানের সাথে বাস্তব ব্যাংকিং গণিতের মেলবন্ধন। লোন পরিশোধের গাণিতিক মডেল, ফ্ল্যাট বনাম রিডিউসিং সুদের হারের লুকায়িত হিসাব, ২০২৬ সালে ফিনটেক ও ফিন্যান্সের জন্য সেরা প্রোগ্রামিং ভাষা, আধুনিক ব্যাংকিংয়ে কৃত্রিম বুদ্ধিমত্তা (AI) এর প্রয়োগ এবং ওয়ান-ক্লিক ক্লাউড নোটবুকে ক্লাস অ্যাসাইনমেন্ট পরিচালনার উন্মুক্ত প্ল্যাটফর্ম।
+          </span>
         </p>
 
+        <!-- Quick Jump Buttons -->
         <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-          <a class="button primary" href="#visual-math-lab" style="padding: 10px 18px; font-size: 13px;">Visual Formula Explorer ↓</a>
-          <a class="button secondary" href="#case-studies" style="padding: 10px 18px; font-size: 13px;">Classroom Case Studies ↓</a>
-          <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 13px;">Google Colab Notebook ↗</a>
-          <a class="button secondary" href="../examples/google-sheets/" style="padding: 10px 18px; font-size: 13px;">Google Sheets Formula Script ↗</a>
+          <a class="button primary" href="#visual-math-lab" style="padding: 10px 18px; font-size: 13px;">
+            <span class="lang-en">Visual Formula Explorer ↓</span>
+            <span class="lang-bn">ভিজ্যুয়াল সূত্র এক্সপ্লোরার ↓</span>
+          </a>
+          <a class="button secondary" href="#programming-languages" style="padding: 10px 18px; font-size: 13px;">
+            <span class="lang-en">Coding for FinTech (2026) ↓</span>
+            <span class="lang-bn">ফিনটেকে প্রোগ্রামিং ভাষা (২০২৬) ↓</span>
+          </a>
+          <a class="button secondary" href="#ai-in-finance" style="padding: 10px 18px; font-size: 13px;">
+            <span class="lang-en">AI in Finance Roadmap ↓</span>
+            <span class="lang-bn">ফিন্যান্সে এআই রোডম্যাপ ↓</span>
+          </a>
+          <a class="button secondary" href="#case-studies" style="padding: 10px 18px; font-size: 13px;">
+            <span class="lang-en">Case Studies ↓</span>
+            <span class="lang-bn">কেস স্টাডিজ ↓</span>
+          </a>
+          <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 13px;">
+            Google Colab ↗
+          </a>
         </div>
       </section>
 
@@ -160,32 +264,48 @@
       <section class="doc-card" id="visual-math-lab">
         <div class="section-head" style="margin-bottom: 18px;">
           <div>
-            <div class="eyebrow eyebrow-blue">Interactive Formula Explorer</div>
-            <h2>Equated Monthly Installment (EMI) Decomposition</h2>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Interactive Formula Explorer</span>
+              <span class="lang-bn">ইন্টারেক্টিভ সূত্র এক্সপ্লোরার</span>
+            </div>
+            <h2>
+              <span class="lang-en">Equated Monthly Installment (EMI) Decomposition</span>
+              <span class="lang-bn">মাসিক কিস্তি (EMI) বিভাজন ও গাণিতিক বিশ্লেষণ</span>
+            </h2>
             <p>
-              See how the mathematical formula responds in real-time as you adjust principal, interest rate, and tenure.
+              <span class="lang-en">See how the mathematical formula responds in real-time as you adjust principal, interest rate, and tenure duration.</span>
+              <span class="lang-bn">মূল ঋণ, সুদের হার ও মেয়াদ পরিবর্তনের সাথে সাথে গাণিতিক সূত্র কিভাবে তাৎক্ষণিক পরিবর্তিত হয় তা পরীক্ষা করুন।</span>
             </p>
           </div>
         </div>
 
         <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; text-align: center;">
-          <div style="color: var(--muted); font-size: 11px; text-transform: uppercase; margin-bottom: 6px; font-weight: 700;">Mathematical Formula (Reducing Balance)</div>
+          <div style="color: var(--muted); font-size: 11px; text-transform: uppercase; margin-bottom: 6px; font-weight: 700;">
+            <span class="lang-en">Standard Banking Formula (Reducing Balance Method)</span>
+            <span class="lang-bn">প্রমিত ব্যাংকিং সূত্র (ক্রমহ্রাসমান ব্যালেন্স পদ্ধতি)</span>
+          </div>
           <div style="font-size: 15px; font-weight: 700; color: var(--text);">
             EMI = P &times; [ r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> - 1) ]
           </div>
           <div style="font-size: 11.5px; color: var(--muted); margin-top: 6px;">
-            P = Principal (<span id="formula-p" style="color: #1f7a5c; font-weight: 700;">BDT 500,000</span>) &middot; r = Monthly Rate (<span id="formula-r" style="color: #2273c3; font-weight: 700;">0.75%</span>) &middot; n = Months (<span id="formula-n" style="color: #f59e0b; font-weight: 700;">36</span>)
+            P = <span class="lang-en">Principal</span><span class="lang-bn">মূল ঋণ</span> (<span id="formula-p" style="color: #1f7a5c; font-weight: 700;">BDT 500,000</span>) &middot; r = <span class="lang-en">Monthly Rate</span><span class="lang-bn">মাসিক হার</span> (<span id="formula-r" style="color: #2273c3; font-weight: 700;">0.75%</span>) &middot; n = <span class="lang-en">Months</span><span class="lang-bn">মাস</span> (<span id="formula-n" style="color: #f59e0b; font-weight: 700;">36</span>)
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
           <!-- Controls (Left) -->
           <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 18px;">
-            <div style="font-size: 12.5px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 14px;">Adjust Loan Variables</div>
+            <div style="font-size: 12.5px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 14px;">
+              <span class="lang-en">Adjust Loan Variables</span>
+              <span class="lang-bn">লোনের চলকসমূহ পরিবর্তন করুন</span>
+            </div>
 
             <div class="student-slider-group">
               <div class="student-slider-header">
-                <span>Loan Principal (মূল ঋণ / P):</span>
+                <span>
+                  <span class="lang-en">Loan Principal (P):</span>
+                  <span class="lang-bn">মূল ঋণ (P):</span>
+                </span>
                 <span id="val-principal" class="student-slider-val">BDT 500,000</span>
               </div>
               <input type="range" id="slider-principal" min="50000" max="2000000" step="25000" value="500000" class="sim-slider" />
@@ -193,7 +313,10 @@
 
             <div class="student-slider-group">
               <div class="student-slider-header">
-                <span>Annual Interest Rate (বার্ষিক সুদের হার / r):</span>
+                <span>
+                  <span class="lang-en">Annual Interest Rate (r):</span>
+                  <span class="lang-bn">বার্ষিক সুদের হার (r):</span>
+                </span>
                 <span id="val-rate" class="student-slider-val">9.0%</span>
               </div>
               <input type="range" id="slider-rate" min="3.0" max="24.0" step="0.5" value="9.0" class="sim-slider" />
@@ -201,7 +324,10 @@
 
             <div class="student-slider-group">
               <div class="student-slider-header">
-                <span>Tenure Duration (মেয়াদ / n):</span>
+                <span>
+                  <span class="lang-en">Tenure Duration (n):</span>
+                  <span class="lang-bn">পরিশোধের মেয়াদ (n):</span>
+                </span>
                 <span id="val-tenure" class="student-slider-val">36 Months (3 Years)</span>
               </div>
               <input type="range" id="slider-tenure" min="6" max="60" step="6" value="36" class="sim-slider" />
@@ -212,43 +338,368 @@
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
               <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
-                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Monthly Installment (EMI)</div>
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">
+                  <span class="lang-en">Monthly Installment (EMI)</span>
+                  <span class="lang-bn">প্রতি মাসের কিস্তি (EMI)</span>
+                </div>
                 <div id="out-emi" style="font-size: 1.35rem; font-weight: 850; color: #1f7a5c; margin-top: 4px;">BDT 15,900</div>
-                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">প্রতি মাসের কিস্তি</div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                  <span class="lang-en">Fixed monthly repayment</span>
+                  <span class="lang-bn">নির্দিষ্ট মাসিক পরিশোধ</span>
+                </div>
               </div>
               <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
-                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Total Interest Cost</div>
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">
+                  <span class="lang-en">Total Interest Cost</span>
+                  <span class="lang-bn">মোট সুদের খরচ</span>
+                </div>
                 <div id="out-interest" style="font-size: 1.35rem; font-weight: 850; color: #2273c3; margin-top: 4px;">BDT 72,395</div>
-                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">মোট অতিরিক্ত সুদ</div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">
+                  <span class="lang-en">Cumulative finance charge</span>
+                  <span class="lang-bn">মেয়াদ শেষে অতিরিক্ত সুদ</span>
+                </div>
               </div>
             </div>
 
             <!-- Visual Split Bar -->
             <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
               <div style="display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 700; margin-bottom: 6px;">
-                <span style="color: #1f7a5c;">Principal: <span id="split-p-pct">87%</span></span>
-                <span style="color: #2273c3;">Interest: <span id="split-i-pct">13%</span></span>
+                <span style="color: #1f7a5c;"><span class="lang-en">Principal</span><span class="lang-bn">মূল ঋণ</span>: <span id="split-p-pct">87%</span></span>
+                <span style="color: #2273c3;"><span class="lang-en">Interest</span><span class="lang-bn">সুদ</span>: <span id="split-i-pct">13%</span></span>
               </div>
               <div style="height: 10px; border-radius: 999px; background: #e2e8f0; display: flex; overflow: hidden;">
                 <div id="bar-principal" style="background: #1f7a5c; width: 87%; transition: width 0.2s ease;"></div>
                 <div id="bar-interest" style="background: #2273c3; width: 13%; transition: width 0.2s ease;"></div>
               </div>
               <div style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">
-                💡 <strong>Classroom Insight:</strong> Notice how increasing the tenure reduces the monthly EMI, but dramatically inflates the total interest paid over time.
+                💡 <strong><span class="lang-en">Classroom Insight:</span><span class="lang-bn">ক্লাসরুম ইনসাইট:</span></strong>
+                <span class="lang-en">Notice how extending tenure duration lowers monthly EMI, but substantially inflates total cumulative interest paid over the life of the loan.</span>
+                <span class="lang-bn">লক্ষ্য করুন, মেয়াদ বাড়ালে মাসিক কিস্তির পরিমাণ কমলেও পুরো মেয়াদ জুড়ে মোট পরিশোধিত সুদের পরিমাণ উল্লেখযোগ্যভাবে বৃদ্ধি পায়।</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. CLASSROOM CASE STUDIES & COMMON FINANCIAL TRAPS -->
+      <!-- 2. PROGRAMMING LANGUAGES FOR FINANCE & FINTECH IN 2026 -->
+      <section class="doc-card" id="programming-languages">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Technical Career Roadmap</span>
+              <span class="lang-bn">কারিগরী ক্যারিয়ার রোডম্যাপ</span>
+            </div>
+            <h2>
+              <span class="lang-en">Top Programming Languages for Finance &amp; FinTech in 2026</span>
+              <span class="lang-bn">২০২৬ সালে ফিন্যান্স ও ফিনটেকের জন্য শীর্ষ প্রোগ্রামিং ভাষা</span>
+            </h2>
+            <p>
+              <span class="lang-en">A comprehensive breakdown of which programming languages dominate quantitative analysis, core banking, high-frequency trading, and modern web applications.</span>
+              <span class="lang-bn">কোয়ান্ট ফাইন্যান্স, কোর ব্যাংকিং, হাই-ফ্রিকোয়েন্সি ট্রেডিং ও ক্লায়েন্ট-সাইড ফিনটেক অ্যাপ্লিকেশনে ব্যবহৃত শীর্ষ প্রোগ্রামিং ভাষার তুলনামূলক বিশ্লেষণ।</span>
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 18px;">
+          <!-- 1. Python -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(59, 130, 246, 0.12); color: #2563eb;">#1 Quant &amp; AI</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">Data &middot; ML &middot; Risk</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">🐍 Python</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">The undisputed industry standard for quantitative finance, derivatives pricing, econometric modeling, and machine learning pipelines. Integrates with Pandas, NumPy, and PyPI <code>finengine</code>.</span>
+                <span class="lang-bn">কোয়ান্ট ফাইন্যান্স, ডেরিভেটিভস প্রাইসিং, ইকোনোমেট্রিক্স ও মেশিন লার্নিংয়ের প্রধান ভাষা। পান্ডাস (Pandas), নামপাই (NumPy) ও পাইথন প্যাকেজ <code>finengine</code> এর সাথে নির্বিঘ্নে কাজ করে।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Quant Analyst, Risk Modeler, Data Scientist
+            </div>
+          </div>
+
+          <!-- 2. Java -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(234, 88, 12, 0.12); color: #ea580c;">#1 Core Banking</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">CBS &middot; Gateways</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">☕ Java</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">The backbone of enterprise banking architecture, powering Tier-1 Core Banking Systems (CBS), payment settlement gateways, and high-concurrency transactional microservices with strict type safety.</span>
+                <span class="lang-bn">এন্টারপ্রাইজ ব্যাংকিংয়ের মেরুদণ্ড। টিয়ার-১ কোর ব্যাংকিং সিস্টেম (CBS), পেমেন্ট গেটওয়ে এবং উচ্চ লেনদেন ট্রানজেকশন প্রসেসিং মাইক্রোসার্ভিসে বহুল ব্যবহৃত।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Core Banking Engineer, FinTech Architect
+            </div>
+          </div>
+
+          <!-- 3. C++ -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(168, 85, 247, 0.12); color: #9333ea;">Ultra-Low Latency</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">HFT &middot; Execution</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">⚡ C++</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">Essential for High-Frequency Trading (HFT), market-making algorithms, sub-millisecond order matching engines, and computationally heavy numerical simulation engines (e.g. Monte Carlo).</span>
+                <span class="lang-bn">হাই-ফ্রিকোয়েন্সি ট্রেডিং (HFT), অর্ডার ম্যাচিং ইঞ্জিন এবং মিলি-সেকেন্ডের ভগ্নাংশের গতিতে পরিচালিত মার্কেট মেকিং ও মন্টে কার্লো সিমুলেশন ইঞ্জিনে অপরিহার্য।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> HFT Developer, Quant Developer, Market Maker
+            </div>
+          </div>
+
+          <!-- 4. SQL -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(16, 185, 129, 0.12); color: #059669;">Data Integrity</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">Ledgers &middot; Audit</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">🗄️ SQL</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">The foundation of financial accounting databases, transactional double-entry ledger audits, ACID reconciliation, and regulatory compliance reporting across PostgreSQL and enterprise warehouses.</span>
+                <span class="lang-bn">আর্থিক অ্যাকাউন্টিং ডেটাবেস, দ্বৈত দাখিলা খতিয়ান অডিট, এসিড (ACID) ট্রানজেকশন এবং সেন্ট্রাল ব্যাংক রেগুলেটরি কমপ্লায়েন্স রিপোর্টিংয়ের ভিত্তি।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Financial Auditor, Data Engineer, Credit Analyst
+            </div>
+          </div>
+
+          <!-- 5. JavaScript / TypeScript -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(245, 158, 11, 0.12); color: #d97706;">Web &amp; Client-Side</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">FinEngine &middot; UI</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">🌐 JavaScript &amp; TypeScript</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">Powers zero-latency client-side financial portals, interactive loan calculators, trading dashboards, and browser-native deterministic mathematical libraries like <code>@finengine/core</code>.</span>
+                <span class="lang-bn">ক্লায়েন্ট-সাইড ফিনটেক পোর্টাল, ইন্টারেক্টিভ লোন ক্যালকুলেটর, ট্রেডিং ড্যাশবোর্ড এবং শূন্য-লেটেন্সির ব্রাউজার গণনার লাইব্রেরি (যেমন <code>@finengine/core</code>) তৈরিতে ব্যবহৃত।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> FinTech Full-Stack Engineer, Frontend Architect
+            </div>
+          </div>
+
+          <!-- 6. Scala -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(239, 68, 68, 0.12); color: #dc2626;">Distributed Big Data</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">Apache Spark &middot; Streaming</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">🚀 Scala</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">Widely used in distributed financial data pipelines (Apache Spark, Akka/Pekko), real-time risk calculations across millions of active trading portfolios, and massive ledger indexing.</span>
+                <span class="lang-bn">অ্যাপাচি স্পার্ক (Apache Spark) ও আক্কা (Akka) ফ্রেমওয়ার্কের মাধ্যমে লক্ষ লক্ষ পোর্টফোলিওর রিয়েল-টাইম রিস্ক ক্যালকুলেশন ও ডিস্ট্রিবিউটেড বিগ ডেটা পাইপলাইনে ব্যবহৃত।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Big Data Engineer, Quantitative Risk Engineer
+            </div>
+          </div>
+
+          <!-- 7. VBA / Apps Script -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(31, 122, 92, 0.12); color: #1f7a5c;">Desk Productivity</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">Excel &middot; Modeling</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">📊 VBA &amp; Google Apps Script</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">The indispensable tool for day-to-day corporate financial modeling, investment banking deal pitchbooks, and custom spreadsheet formulas like FinEngine Google Sheets integrations.</span>
+                <span class="lang-bn">দৈনন্দিন কর্পোরেট ফিন্যান্সিয়াল মডেলিং, ইনভেস্টমেন্ট ব্যাংকিং ডিল পিচবুক এবং স্প্রেডশিট অটোমেশন (যেমন ফিনইঞ্জিন গুগল শিটস স্ক্রিপ্ট) তৈরিতে অপরিহার্য।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Financial Analyst, Investment Banker, FP&amp;A Manager
+            </div>
+          </div>
+
+          <!-- 8. R & MATLAB -->
+          <div class="matrix-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="matrix-badge" style="background: rgba(99, 102, 241, 0.12); color: #4f46e5;">Academic &amp; Stats</span>
+                <span style="font-size: 11px; font-weight: 700; color: var(--muted);">Econometrics &middot; Time-Series</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">📈 R &amp; MATLAB</h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+                <span class="lang-en">Prevalent in academic finance research, central bank monetary policy simulations, advanced econometric time-series forecasting (ARIMA, GARCH), and portfolio variance matrices.</span>
+                <span class="lang-bn">একাডেমিক গবেষণা, সেন্ট্রাল ব্যাংকের মুদ্রানীতি সিমুলেশন, অ্যাডভান্সড ইকোনোমেট্রিক্স ও টাইম-সিরিজ পূর্বাভাস (ARIMA, GARCH) বিশ্লেষণে ব্যবহৃত।</span>
+              </p>
+            </div>
+            <div style="font-size: 11px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px;">
+              <strong><span class="lang-en">Primary Roles:</span><span class="lang-bn">প্রধান ক্ষেত্র:</span></strong> Econometrician, Academic Researcher, Central Banker
+            </div>
+          </div>
+        </div>
+
+        <!-- Citation & Attribution -->
+        <div class="citation-box">
+          <strong><span class="lang-en">Industry Citations &amp; Academic References:</span><span class="lang-bn">ইন্ডাস্ট্রি তথ্যসূত্র ও অ্যাকাডেমিক রেফারেন্স:</span></strong>
+          <ul style="margin: 6px 0 0 16px; padding: 0;">
+            <li>Gaurav Sharma (BankersByDay), <em>"Top Programming Languages for Finance &amp; FinTech in 2026"</em> (<a href="https://bankersbyday.com/top-programming-languages-finance-fintech/" target="_blank" rel="noopener noreferrer">bankersbyday.com</a>)</li>
+            <li>Corporate Finance Institute (CFI), <em>"Financial Modeling &amp; Quantitative Engineering Curriculum"</em> (<a href="https://corporatefinanceinstitute.com" target="_blank" rel="noopener noreferrer">corporatefinanceinstitute.com</a>)</li>
+            <li>Rikkeisoft Engineering Survey, <em>"FinTech Software Development: Languages, Architecture &amp; Scalability"</em> (<a href="https://rikkeisoft.com/blog/programming-languages-for-fintech/" target="_blank" rel="noopener noreferrer">rikkeisoft.com</a>)</li>
+            <li>Centre for Fintech and Strategic Business Research (CFSBR), <em>Working Paper 2026-001</em> (<a href="https://finengine.js.org/methodology/">finengine.js.org/methodology</a>)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. ARTIFICIAL INTELLIGENCE IN FINANCE ROADMAP -->
+      <section class="doc-card" id="ai-in-finance">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Next-Generation Banking</span>
+              <span class="lang-bn">পরবর্তী প্রজন্মের ব্যাংকিং</span>
+            </div>
+            <h2>
+              <span class="lang-en">Artificial Intelligence (AI) in Finance: 2026 Curriculum</span>
+              <span class="lang-bn">ফিন্যান্সে কৃত্রিম বুদ্ধিমত্তা (AI): ২০২৬ কারিকুলাম ও রূপরেখা</span>
+            </h2>
+            <p>
+              <span class="lang-en">Understand how modern AI is reshaping financial services from thin-file credit underwriting to autonomous agentic tool calling.</span>
+              <span class="lang-bn">বিকল্প ক্রেডিট স্কোরিং থেকে শুরু করে স্বয়ংক্রিয় এআই এজেন্ট ও কোয়ান্ট রিস্ক ম্যানেজমেন্টে কৃত্রিম বুদ্ধিমত্তার বাস্তব প্রয়োগ।</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2 compact-grid">
+          <!-- AI Pillar 1 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase;">01. Credit Underwriting</span>
+              <span style="font-size: 10px; background: rgba(16, 185, 129, 0.12); color: #10b981; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Machine Learning</span>
+            </div>
+            <h3>
+              <span class="lang-en">Alternative &amp; Thin-File Credit Scoring</span>
+              <span class="lang-bn">বিকল্প ডেটা ও থিন-ফাইল ক্রেডিট স্কোরিং</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Traditional credit bureaus require existing loan histories. AI models (XGBoost, LightGBM) analyze non-traditional features: Mobile Financial Services (MFS) cashflows, utility bill consistency, merchant turnover, and behavioral telemetry to expand financial inclusion without elevating non-performing loans (NPLs).
+              </span>
+              <span class="lang-bn">
+                ঐতিহ্যবাহী সিআইবি (CIB) রিপোর্টে যাদের ইতিহাস নেই তাদের জন্য এআই মডেল (XGBoost, LightGBM) বিকল্প ডেটা বিশ্লেষণ করে: যেমন মোবাইল ফিন্যান্সিয়াল সার্ভিস (MFS) ট্রানজেকশন, ইউটিলিটি বিল প্রদানের নিয়মিততা ও মার্চেন্ট ক্যাশফ্লো। ফলে আর্থিক অন্তর্ভুক্তি বাড়ে এবং খেলাপি ঋণের ঝুঁকি কমে।
+              </span>
+            </p>
+            <div style="font-size: 11.5px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; color: var(--text);">
+              <strong><span class="lang-en">FinEngine Alignment:</span><span class="lang-bn">ফিনইঞ্জিন প্রয়োগ:</span></strong>
+              <span class="lang-en">Explore the interactive credit risk scoring pipeline on our <a href="../ai/" style="color: #1f7a5c; font-weight: 700;">AI &amp; Models Lab →</a></span>
+              <span class="lang-bn">আমাদের ইন্টারেক্টিভ ক্রেডিট রিস্ক সিমুলেটর দেখুন <a href="../ai/" style="color: #1f7a5c; font-weight: 700;">AI &amp; Models Lab →</a></span>
+            </div>
+          </article>
+
+          <!-- AI Pillar 2 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #3b82f6; text-transform: uppercase;">02. Agentic Systems</span>
+              <span style="font-size: 10px; background: rgba(59, 130, 246, 0.12); color: #3b82f6; padding: 2px 6px; border-radius: 4px; font-weight: 700;">MCP &amp; Determinism</span>
+            </div>
+            <h3>
+              <span class="lang-en">LLM Financial Agents &amp; Tool Calling</span>
+              <span class="lang-bn">এলএলএম ফাইন্যান্সিয়াল এজেন্ট ও টুল কলিং</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Large Language Models (LLMs) hallucinate arithmetic. Autonomous AI agents in finance use <strong>Model Context Protocol (MCP)</strong> and deterministic tool calling to delegate math, loan schedule generation, and ledger reconciliations to rigorous libraries like FinEngine, ensuring 100% mathematical auditability.
+              </span>
+              <span class="lang-bn">
+                লার্জ ল্যাঙ্গুয়েজ মডেল (LLM) সরাসরি গণিতে ভুল করতে পারে। তাই আধুনিক ফাইন্যান্সিয়াল এআই এজেন্টরা <strong>মডেল কনটেক্সট প্রোটোকল (MCP)</strong> এর মাধ্যমে ফিনইঞ্জিনের মতো নির্ভরযোগ্য লাইব্রেরিকে টুল হিসেবে কল করে নির্ভুল ও ১০০% অডিট-যোগ্য হিসাব সম্পন্ন করে।
+              </span>
+            </p>
+            <div style="font-size: 11.5px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; color: var(--text);">
+              <strong><span class="lang-en">MCP Package:</span><span class="lang-bn">এমসিপি প্যাকেজ:</span></strong>
+              <code>npx -y @finengine/mcp-server</code> (<a href="../examples/mcp-server/" style="color: #1f7a5c; font-weight: 700;"><span class="lang-en">Setup Guide →</span><span class="lang-bn">সেটআপ নির্দেশিকা →</span></a>)
+            </div>
+          </article>
+
+          <!-- AI Pillar 3 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #a855f7; text-transform: uppercase;">03. Capital Markets</span>
+              <span style="font-size: 10px; background: rgba(168, 85, 247, 0.12); color: #a855f7; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Deep RL &amp; Quant</span>
+            </div>
+            <h3>
+              <span class="lang-en">Algorithmic Trading &amp; Dynamic Portfolio Risk</span>
+              <span class="lang-bn">অ্যালগরিদমিক ট্রেডিং ও ডায়নামিক পোর্টফোলিও রিস্ক</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Deep Reinforcement Learning (DRL) and neural networks are used to optimize portfolio Sharpe ratios, dynamically hedge derivatives exposures, calculate Real-Time Value at Risk (VaR), and identify micro-structure anomalies in high-frequency order books.
+              </span>
+              <span class="lang-bn">
+                ডিপ রিইনফোর্সমেন্ট লার্নিং (DRL) এবং নিউরাল নেটওয়ার্ক পোর্টফোলিও শার্প রেশিও অপটিমাইজেশন, ডেরিভেটিভস হেজিং, রিয়েল-টাইম ভ্যালু অ্যাট রিস্ক (VaR) পরিমাপ এবং অর্ডার বুকের মাইক্রো-স্ট্রাকচার অ্যানোমালি শনাক্তকরণে ব্যবহৃত হয়।
+              </span>
+            </p>
+            <div style="font-size: 11.5px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; color: var(--text);">
+              <strong><span class="lang-en">Quant SDK:</span><span class="lang-bn">কোয়ান্ট এসডিকে:</span></strong>
+              <code>pip install finengine</code> (<a href="../python/" style="color: #1f7a5c; font-weight: 700;"><span class="lang-en">Python Guide →</span><span class="lang-bn">পাইথন গাইড →</span></a>)
+            </div>
+          </article>
+
+          <!-- AI Pillar 4 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #ea580c; text-transform: uppercase;">04. Compliance &amp; AML</span>
+              <span style="font-size: 10px; background: rgba(234, 88, 12, 0.12); color: #ea580c; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Graph Neural Nets</span>
+            </div>
+            <h3>
+              <span class="lang-en">Fraud Detection &amp; Anti-Money Laundering (AML)</span>
+              <span class="lang-bn">প্রতারণা শনাক্তকরণ ও মানি লন্ডারিং প্রতিরোধ (AML)</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Financial criminals utilize complex layering across multiple intermediary accounts. Graph Neural Networks (GNNs) analyze transaction networks as topology graphs, detecting synthetic identities, mule account rings, and suspicious structuring in milliseconds.
+              </span>
+              <span class="lang-bn">
+                আর্থিক অপরাধীদের জটিল লেনদেন শনাক্ত করতে গ্রাফ নিউরাল নেটওয়ার্ক (GNN) পুরো লেনদেন নেটওয়ার্ককে টপোলজি গ্রাফ হিসেবে বিশ্লেষণ করে সন্দেহভাজন ট্রানজেকশন রিং ও মিউল অ্যাকাউন্ট তাৎক্ষণিক চিহ্নিত করে।
+              </span>
+            </p>
+            <div style="font-size: 11.5px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; color: var(--text);">
+              <strong><span class="lang-en">Regulatory Standard:</span><span class="lang-bn">রেগুলেটরি মান:</span></strong> FATF &amp; BIS Basel Committee AI Governance
+            </div>
+          </article>
+        </div>
+
+        <div class="citation-box">
+          <strong><span class="lang-en">AI Governance &amp; Policy Citations:</span><span class="lang-bn">এআই গভর্নেন্স ও পলিসি তথ্যসূত্র:</span></strong>
+          <ul style="margin: 6px 0 0 16px; padding: 0;">
+            <li>Bank for International Settlements (BIS), <em>"Artificial Intelligence in Central Banking and Financial Supervision"</em> (<a href="https://www.bis.org" target="_blank" rel="noopener noreferrer">bis.org</a>)</li>
+            <li>Financial Stability Board (FSB), <em>"Artificial Intelligence and Machine Learning in Financial Services"</em> (<a href="https://www.fsb.org" target="_blank" rel="noopener noreferrer">fsb.org</a>)</li>
+            <li>CFSBR AI &amp; Risk Research Group, <em>Methodology &amp; Verification Paper</em> (<a href="https://finengine.js.org/methodology/">finengine.js.org/methodology</a>)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. CLASSROOM CASE STUDIES & COMMON FINANCIAL TRAPS -->
       <section class="doc-card" id="case-studies">
         <div class="section-head" style="margin-bottom: 16px;">
           <div>
-            <div class="eyebrow eyebrow-blue">Classroom Case Studies</div>
-            <h2>Practical Real-World Financial Scenarios</h2>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Classroom Case Studies</span>
+              <span class="lang-bn">ক্লাসরুম কেস স্টাডিজ</span>
+            </div>
+            <h2>
+              <span class="lang-en">Practical Real-World Financial Scenarios</span>
+              <span class="lang-bn">বাস্তব জীবনের আর্থিক পরিস্থিতি ও সমস্যা সমাধান</span>
+            </h2>
             <p>
-              Explore realistic dilemmas faced by borrowers, credit analysts, and corporate treasurers in emerging markets.
+              <span class="lang-en">Explore realistic dilemmas faced by borrowers, credit analysts, and corporate treasurers in emerging markets.</span>
+              <span class="lang-bn">ঋণগ্রহীতা, ক্রেডিট অ্যানালিস্ট ও করপোরেট ট্রেজারারদের বাস্তব জীবনের সমস্যা ও গাণিতিক সমাধান।</span>
             </p>
           </div>
         </div>
@@ -257,89 +708,136 @@
           <!-- Case 1 -->
           <article class="info-panel static-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 11px; font-weight: 700; color: #dc2626; text-transform: uppercase;">⚠️ Hidden Cost Analysis</span>
+              <span style="font-size: 11px; font-weight: 700; color: #dc2626; text-transform: uppercase;">⚠️ <span class="lang-en">Hidden Cost Analysis</span><span class="lang-bn">লুকায়িত খরচের ফাঁদ</span></span>
               <span style="font-size: 10px; background: rgba(220, 38, 38, 0.1); color: #dc2626; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Trap Explorer</span>
             </div>
-            <h3>Case 1: The "Flat vs Reducing APR" Illusion</h3>
+            <h3>
+              <span class="lang-en">Case 1: The "Flat vs Reducing APR" Illusion</span>
+              <span class="lang-bn">কেস ১: ফ্ল্যাট রেট বনাম রিডিউসিং ব্যালেন্সের বিভ্রান্তি</span>
+            </h3>
             <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
-              A microfinance lender advertises a <strong>"10% Flat Rate"</strong> on a 1-year BDT 50,000 loan. While it sounds cheaper than a 14% commercial bank loan, calculate the true statutory reducing APR.
+              <span class="lang-en">
+                A lender advertises a <strong>"10% Flat Rate"</strong> on a 1-year BDT 50,000 loan. While it sounds cheaper than a 14% commercial bank loan, calculate the true statutory reducing APR.
+              </span>
+              <span class="lang-bn">
+                একটি ঋণদানকারী প্রতিষ্ঠান ১ বছর মেয়াদী ৫০,০০০ টাকার লোনের জন্য <strong>"১০% ফ্ল্যাট রেট"</strong> প্রস্তাব করে। এটি বাণিজ্যিক ব্যাংকের ১৪% সুদের চেয়ে আপাতদৃষ্টিতে কম মনে হলেও কার্যকর প্রকৃত এপিআর (APR) কত?
+              </span>
             </p>
-            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
-              <div>• Advertised Flat Rate: <strong>10.0%</strong> (Interest charged on initial 50k every month)</div>
-              <div>• True Reducing APR: <strong style="color: #dc2626;">~18.46% APR</strong></div>
+            <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• <span class="lang-en">Advertised Flat Rate:</span><span class="lang-bn">বিজ্ঞাপিত ফ্ল্যাট রেট:</span> <strong>10.0%</strong> (<span class="lang-en">Interest on initial 50k every month</span><span class="lang-bn">মূল ৫০,০০০ টাকার উপর প্রতি মাসেই সুদ</span>)</div>
+              <div>• <span class="lang-en">True Reducing APR:</span><span class="lang-bn">প্রকৃত ক্রমহ্রাসমান APR:</span> <strong style="color: #dc2626;">~18.46% APR</strong></div>
             </div>
             <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
-              💡 <strong>Why?</strong> In a flat rate, you pay interest on money you have already repaid during the year. FinEngine automatically reveals the true effective APR.
+              💡 <strong><span class="lang-en">Why?</span><span class="lang-bn">কেন এমন হয়?</span></strong>
+              <span class="lang-en">In a flat rate, you pay interest on money you have already repaid during the year. FinEngine exposes the exact effective statutory rate.</span>
+              <span class="lang-bn">ফ্ল্যাট রেটে আপনি যে টাকা কিস্তির মাধ্যমে ইতিমধ্যে ফেরত দিয়েছেন, তার উপরও সুদ গুণতে হয়। ফিনইঞ্জিন প্রকৃত কার্যকর হার প্রকাশ করে।</span>
             </div>
           </article>
 
           <!-- Case 2 -->
           <article class="info-panel static-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase;">💻 Student Budgeting</span>
+              <span style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase;">💻 <span class="lang-en">Student Budgeting</span><span class="lang-bn">শিক্ষার্থী বাজেট পরিকল্পনা</span></span>
               <span style="font-size: 10px; background: rgba(16, 185, 129, 0.12); color: #10b981; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Debt Burden Ratio</span>
             </div>
-            <h3>Case 2: Laptop &amp; Study Financing Plan</h3>
+            <h3>
+              <span class="lang-en">Case 2: Laptop &amp; Study Financing Plan</span>
+              <span class="lang-bn">কেস ২: ল্যাপটপ ও উচ্চশিক্ষা অর্থায়ন পরিকল্পনা</span>
+            </h3>
             <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
-              A student purchases an engineering laptop for <strong>BDT 85,000</strong> on a 12-month 0% card installment or a 12% student micro-loan. How does the EMI impact a BDT 25,000 monthly allowance?
+              <span class="lang-en">
+                A student purchases an engineering laptop for <strong>BDT 85,000</strong> on a 12-month installment plan at 12% APR. How does the EMI impact a BDT 25,000 monthly allowance?
+              </span>
+              <span class="lang-bn">
+                একজন শিক্ষার্থী পড়াশোনার জন্য <strong>৮৫,০০০ টাকার</strong> একটি ল্যাপটপ ১২ মাস মেয়াদে ১২% সুদে কিস্তিতে কিনলেন। মাসিক ২৫,০০০ টাকা আয়ের সাপেক্ষে কিস্তির প্রভাব কী?
+              </span>
             </p>
-            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
-              <div>• Monthly EMI: <strong>BDT 7,552 / month</strong></div>
-              <div>• Debt Burden Ratio (DBR): <strong style="color: #1f7a5c;">30.2% of Income</strong> (Healthy range)</div>
+            <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• <span class="lang-en">Monthly EMI:</span><span class="lang-bn">মাসিক কিস্তি:</span> <strong>BDT 7,552 / month</strong></div>
+              <div>• <span class="lang-en">Debt Burden Ratio (DBR):</span><span class="lang-bn">ঋণের বোঝার অনুপাত (DBR):</span> <strong style="color: #1f7a5c;">30.2% of Income</strong> (<span class="lang-en">Healthy range</span><span class="lang-bn">নিরাপদ সীমা</span>)</div>
             </div>
             <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
-              💡 <strong>Guideline:</strong> Financial prudence recommends keeping personal debt installments below 35% of reliable recurring cash inflow.
+              💡 <strong><span class="lang-en">Guideline:</span><span class="lang-bn">নির্দেশনা:</span></strong>
+              <span class="lang-en">Financial prudence recommends keeping personal debt installments below 35% of reliable recurring cash inflow.</span>
+              <span class="lang-bn">ব্যক্তিগত আর্থিক নীতি অনুযায়ী ঋণের কিস্তির পরিমাণ মোট নির্ভরযোগ্য আয়ের ৩৫% এর নিচে রাখা নিরাপদ।</span>
             </div>
           </article>
 
           <!-- Case 3 -->
           <article class="info-panel static-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 11px; font-weight: 700; color: #3b82f6; text-transform: uppercase;">🔬 Precision Engineering</span>
+              <span style="font-size: 11px; font-weight: 700; color: #3b82f6; text-transform: uppercase;">🔬 <span class="lang-en">Precision Engineering</span><span class="lang-bn">নির্ভুল গণনা কৌশল</span></span>
               <span style="font-size: 10px; background: rgba(59, 130, 246, 0.12); color: #3b82f6; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Float Audit</span>
             </div>
-            <h3>Case 3: The "Missing Poisha" in Bank Portfolios</h3>
+            <h3>
+              <span class="lang-en">Case 3: The "Missing Poisha" in Bank Portfolios</span>
+              <span class="lang-bn">কেস ৩: ব্যাংক পোর্টফোলিওতে ভগ্নাংশের বিভ্রান্তি ও পয়সা অডিট</span>
+            </h3>
             <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
-              When calculating daily compounding interest across 10,000 corporate accounts, standard floating-point numbers (`0.1 + 0.2 === 0.30000000000000004`) cause audit reconciliations to fail.
+              <span class="lang-en">
+                When calculating daily compounding interest across 10,000 corporate accounts, standard floating-point numbers (<code>0.1 + 0.2 === 0.30000000000000004</code>) cause audit reconciliations to fail.
+              </span>
+              <span class="lang-bn">
+                ১০,০০০ কর্পোরেট অ্যাকাউন্টে দৈনিক সুদ হিসাব করার সময় সাধারণ ফ্লোটিং পয়েন্ট হিসাব (<code>0.1 + 0.2 === 0.30000000000000004</code>) অডিট মিলকরণে অমিল সৃষ্টি করে।
+              </span>
             </p>
-            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
-              <div>• Standard IEEE-754: <strong>0.30000000000000004</strong> (Drift: 5.5e-17)</div>
-              <div>• FinEngine Integer Poisha: <strong>Exact 30 Poisha</strong> (Terminal B_n === 0.00)</div>
+            <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Standard IEEE-754: <strong>0.30000000000000004</strong> (<span class="lang-en">Float Drift: 5.5e-17</span><span class="lang-bn">ফ্লোট ড্রিপ্ট</span>)</div>
+              <div>• FinEngine Integer Poisha: <strong>Exact 30 Poisha</strong> (<span class="lang-en">Terminal B_n === 0.00</span><span class="lang-bn">নিখুঁত হিসাব</span>)</div>
             </div>
             <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
-              💡 <strong>Core Rule:</strong> FinEngine scales all calculations into discrete integer sub-units (Poisha: 1 BDT = 100 Poisha) to ensure 100% audit closure.
+              💡 <strong><span class="lang-en">Core Rule:</span><span class="lang-bn">মূল নিয়ম:</span></strong>
+              <span class="lang-en">FinEngine scales all calculations into discrete integer sub-units (Poisha: 1 BDT = 100 Poisha) to ensure 100% audit closure.</span>
+              <span class="lang-bn">ফিনইঞ্জিন সমস্ত গণনাকে ক্ষুদ্রতম পূর্ণসংখ্যায় (১ টাকা = ১০০ পয়সা) রূপান্তর করে শতভাগ নিখুঁত অডিট সমাপ্তি নিশ্চিত করে।</span>
             </div>
           </article>
 
           <!-- Case 4 -->
           <article class="info-panel static-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 11px; font-weight: 700; color: #a855f7; text-transform: uppercase;">📈 Project Valuation</span>
+              <span style="font-size: 11px; font-weight: 700; color: #a855f7; text-transform: uppercase;">📈 <span class="lang-en">Project Valuation</span><span class="lang-bn">প্রজেক্ট মূল্যায়ন</span></span>
               <span style="font-size: 10px; background: rgba(168, 85, 247, 0.12); color: #a855f7; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Newton-Raphson</span>
             </div>
-            <h3>Case 4: Irregular Cashflows &amp; XIRR</h3>
+            <h3>
+              <span class="lang-en">Case 4: Irregular Cashflows &amp; XIRR</span>
+              <span class="lang-bn">কেস ৪: অনিয়মিত ক্যাশফ্লো ও এক্সআইআরআর (XIRR)</span>
+            </h3>
             <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
-              Traditional IRR assumes payments occur at equal intervals (e.g. exactly every 30 days). In real commerce, investments and revenues occur on irregular calendar dates.
+              <span class="lang-en">
+                Traditional IRR assumes payments occur at equal intervals (every 30 days). In real commerce, investments and revenues occur on irregular calendar dates.
+              </span>
+              <span class="lang-bn">
+                সাধারণ আইআরআর (IRR) ধরে নেয় প্রতিটি কিস্তি নির্দিষ্ট ব্যবধানে ঘটে। কিন্তু বাস্তব ব্যবসায় বিনিয়োগ ও আয়ের আগমন অনিয়মিত তারিখে হয়ে থাকে।
+              </span>
             </p>
-            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
-              <div>• Simple ROI: <strong>Ignores precise timing and duration</strong></div>
-              <div>• Actuarial XIRR: <strong>Day-count accurate annualized return</strong></div>
+            <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Simple ROI: <strong><span class="lang-en">Ignores precise timing and duration</span><span class="lang-bn">সময়ের সঠিক ব্যবধান বিবেচনা করে না</span></strong></div>
+              <div>• Actuarial XIRR: <strong><span class="lang-en">Day-count accurate annualized return</span><span class="lang-bn">দিন-গণনা ভিত্তিক নিখুঁত বার্ষিক রিটার্ন</span></strong></div>
             </div>
             <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
-              💡 <strong>Solver:</strong> FinEngine uses a hybrid Newton-Raphson solver with bisection guarantees to converge on exact yield rates.
+              💡 <strong><span class="lang-en">Solver:</span><span class="lang-bn">সমাধান পদ্ধতি:</span></strong>
+              <span class="lang-en">FinEngine uses a hybrid Newton-Raphson solver with bisection fallback to guarantee convergence on exact yields.</span>
+              <span class="lang-bn">ফিনইঞ্জিন হাইব্রিড নিউটন-র‌্যাফসন ও বাইসেকশন অ্যালগরিদম ব্যবহার করে সুনির্দিষ্ট রিটার্ন নির্ধারণ করে।</span>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- 3. CLASSROOM RESOURCES & CLOUD TOOLS -->
+      <!-- 5. CLASSROOM RESOURCES & CLOUD TOOLS -->
       <section class="doc-card" id="classroom-tools">
         <div class="section-head" style="margin-bottom: 16px;">
           <div>
-            <div class="eyebrow eyebrow-blue">Educator &amp; Student Toolbox</div>
-            <h2>Ready-to-Use Classroom Downloads &amp; Sandboxes</h2>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Educator &amp; Student Toolbox</span>
+              <span class="lang-bn">শিক্ষক ও শিক্ষার্থীদের টুলবক্স</span>
+            </div>
+            <h2>
+              <span class="lang-en">Ready-to-Use Classroom Downloads &amp; Cloud Sandboxes</span>
+              <span class="lang-bn">ক্লাসরুম ডাউনলোড ও ক্লাউড স্যান্ডবক্স রিসোর্স</span>
+            </h2>
             <p>
-              Free resources designed for lecture slides, homework assignments, and academic research papers.
+              <span class="lang-en">Free resources designed for lecture slides, homework assignments, and academic research papers.</span>
+              <span class="lang-bn">ক্লাস লেকচার, হোমওয়ার্ক অ্যাসাইনমেন্ট ও অ্যাকাডেমিক গবেষণার জন্য উন্মুক্ত রিসোর্স।</span>
             </p>
           </div>
         </div>
@@ -348,45 +846,66 @@
           <div class="info-panel static-panel">
             <h3>📊 Google Sheets &amp; Excel Add-on</h3>
             <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
-              Give your students custom spreadsheet formulas like <code>=FINENGINE_EMI(500000, 9%, 36)</code> and <code>=FINENGINE_BDT(12500000)</code> for assignment work.
+              <span class="lang-en">Give your students custom spreadsheet formulas like <code>=FINENGINE_EMI(500000, 9%, 36)</code> and <code>=FINENGINE_BDT(12500000)</code> for assignment work.</span>
+              <span class="lang-bn">শিক্ষার্থীদের জন্য স্প্রেডশিটে সরাসরি ব্যবহারের উপযোগী ফর্মুলা যেমন <code>=FINENGINE_EMI(500000, 9%, 36)</code> এবং <code>=FINENGINE_BDT(12500000)</code>।</span>
             </p>
-            <a class="button secondary" href="../examples/google-sheets/" style="font-size: 12px; padding: 6px 14px;">View Apps Script Code &amp; Guide →</a>
+            <a class="button secondary" href="../examples/google-sheets/" style="font-size: 12px; padding: 6px 14px;">
+              <span class="lang-en">View Apps Script Code &amp; Guide →</span>
+              <span class="lang-bn">অ্যাপস স্ক্রিপ্ট কোড ও গাইড দেখুন →</span>
+            </a>
           </div>
 
           <div class="info-panel static-panel">
             <h3>🐍 Google Colab Python Jupyter Lab</h3>
             <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
-              Launch an interactive Python Jupyter notebook in 1-click. Compute Pandas amortization schedules and thin-file credit risk scores.
+              <span class="lang-en">Launch an interactive Python Jupyter notebook in 1-click. Compute Pandas amortization schedules and thin-file credit risk scores.</span>
+              <span class="lang-bn">১-ক্লিকে চালু করুন পাইথন জুপিটার নোটবুক। পান্ডাস ডাটাফ্রেমে লোন সিডিউল তৈরি এবং অল্টারনেটিভ ক্রেডিট স্কোরিং রান করুন।</span>
             </p>
-            <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 6px 14px;">Open in Google Colab ↗</a>
+            <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 6px 14px;">
+              <span class="lang-en">Open in Google Colab ↗</span>
+              <span class="lang-bn">গুগল কোলাবে চালু করুন ↗</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- 4. INTERACTIVE QUIZ & KNOWLEDGE CHECK -->
+      <!-- 6. INTERACTIVE QUIZ & KNOWLEDGE CHECK -->
       <section class="doc-card" id="knowledge-check">
         <div class="section-head" style="margin-bottom: 16px;">
           <div>
-            <div class="eyebrow eyebrow-blue">Knowledge Check</div>
-            <h2>Test Your Financial Math Intuition</h2>
-            <p>Test your understanding with instant feedback.</p>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Knowledge Check</span>
+              <span class="lang-bn">জ্ঞান যাচাই</span>
+            </div>
+            <h2>
+              <span class="lang-en">Test Your Financial Math Intuition</span>
+              <span class="lang-bn">আর্থিক গণিতের অন্তর্দৃষ্টি যাচাই করুন</span>
+            </h2>
+            <p>
+              <span class="lang-en">Answer the question below with instant interactive feedback.</span>
+              <span class="lang-bn">নিচের প্রশ্নের উত্তর দিয়ে তাৎক্ষণিক ফলাফল ও ব্যাখ্যা দেখুন।</span>
+            </p>
           </div>
         </div>
 
         <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
           <div style="font-size: 14px; font-weight: 750; color: var(--text); margin-bottom: 12px;">
-            Question: If a borrower extends their loan tenure from 24 months to 48 months at the same annual interest rate, what happens to the monthly payment and total interest?
+            <span class="lang-en">Question: If a borrower extends their loan tenure from 24 months to 48 months at the same annual interest rate, what happens to the monthly payment and total cumulative interest?</span>
+            <span class="lang-bn">প্রশ্ন: একজন ঋণগ্রহীতা যদি একই সুদের হারে লোনের মেয়াদ ২৪ মাস থেকে বাড়িয়ে ৪৮ মাস করেন, তবে মাসিক কিস্তি এবং মোট সুদের পরিমাণের কী পরিবর্তন হবে?</span>
           </div>
 
           <div id="quiz-options">
-            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false, 'Extending tenure reduces the monthly payment because the principal is spread over more months.')">
-              A) Monthly payment increases, total interest decreases
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false)" data-opt="a">
+              <span class="lang-en">A) Monthly payment increases, total interest decreases</span>
+              <span class="lang-bn">ক) মাসিক কিস্তি বাড়বে, মোট সুদের পরিমাণ কমবে</span>
             </button>
-            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, true, 'Correct! Longer tenures reduce the monthly EMI burden, but you pay substantially higher cumulative interest.')">
-              B) Monthly payment decreases, total interest increases (Correct)
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, true)" data-opt="b">
+              <span class="lang-en">B) Monthly payment decreases, total interest increases (Correct)</span>
+              <span class="lang-bn">খ) মাসিক কিস্তি কমবে, মোট সুদের পরিমাণ বাড়বে (সঠিক)</span>
             </button>
-            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false, 'Total interest always rises with longer tenures because balance remains outstanding longer.')">
-              C) Both monthly payment and total interest decrease
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false)" data-opt="c">
+              <span class="lang-en">C) Both monthly payment and total interest decrease</span>
+              <span class="lang-bn">গ) মাসিক কিস্তি এবং মোট সুদ উভয়ই কমবে</span>
             </button>
           </div>
 
@@ -394,11 +913,15 @@
         </div>
       </section>
 
-      <!-- 5. ACADEMIC CITATION -->
+      <!-- 7. ACADEMIC CITATION -->
       <section class="doc-card">
-        <h2>Cite FinEngine in Academic Theses &amp; Term Papers</h2>
+        <h2>
+          <span class="lang-en">Cite FinEngine in Academic Theses &amp; Term Papers</span>
+          <span class="lang-bn">অ্যাকাডেমিক থিসিস ও গবেষণাপত্রে ফিনইঞ্জিন সাইটেশন</span>
+        </h2>
         <p style="font-size: 13px; color: var(--muted); margin-bottom: 14px;">
-          If you use FinEngine in university term papers, MBA theses, or economics coursework, use the permanent Crossref DOI citation below:
+          <span class="lang-en">If you use FinEngine in university term papers, MBA theses, or economics coursework, use the permanent Crossref DOI citation below:</span>
+          <span class="lang-bn">বিশ্ববিদ্যালয়ের টার্ম পেপার, এমবিএ থিসিস বা অর্থনৈতিক গবেষণায় ফিনইঞ্জিন ব্যবহার করলে নিচের স্থায়ী ক্রসরেফ ডিওআই (DOI) সাইটেশন ব্যবহার করুন:</span>
         </p>
         <div class="bento-code-snippet">
           <pre><code><span class="hero-comment">% BibTeX Citation for Academic Papers</span>
@@ -418,6 +941,21 @@
 
     <!-- Client-Side Interactive Logic -->
     <script>
+      let currentLang = document.documentElement.lang || 'en';
+
+      function changeLanguage(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        localStorage.setItem('finengine-student-lang', lang);
+        
+        const btnEn = document.getElementById('btn-lang-en');
+        const btnBn = document.getElementById('btn-lang-bn');
+        if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+        if (btnBn) btnBn.classList.toggle('active', lang === 'bn');
+        
+        updateExplorer();
+      }
+
       function calculateEMI(p, rAnnual, n) {
         const r = (rAnnual / 100) / 12;
         if (p <= 0 || n <= 0) return { emi: 0, totalInterest: 0, totalPayable: 0 };
@@ -437,9 +975,13 @@
         const r = Number(document.getElementById('slider-rate').value);
         const n = Number(document.getElementById('slider-tenure').value);
 
+        const tenureText = currentLang === 'bn' 
+          ? n + ' মাস (' + (n / 12).toFixed(1) + ' বছর)'
+          : n + ' Months (' + (n / 12).toFixed(1) + ' Yrs)';
+
         document.getElementById('val-principal').textContent = 'BDT ' + p.toLocaleString('en-US');
         document.getElementById('val-rate').textContent = r.toFixed(1) + '%';
-        document.getElementById('val-tenure').textContent = n + ' Months (' + (n / 12).toFixed(1) + ' Yrs)';
+        document.getElementById('val-tenure').textContent = tenureText;
 
         document.getElementById('formula-p').textContent = 'BDT ' + p.toLocaleString('en-US');
         document.getElementById('formula-r').textContent = (r / 12).toFixed(2) + '%';
@@ -462,30 +1004,40 @@
       document.getElementById('slider-rate').addEventListener('input', updateExplorer);
       document.getElementById('slider-tenure').addEventListener('input', updateExplorer);
 
-      function checkQuiz(btn, isCorrect, explanation) {
+      function checkQuiz(btn, isCorrect) {
         document.querySelectorAll('.quiz-option-btn').forEach(b => {
           b.classList.remove('is-correct', 'is-wrong');
         });
         const fb = document.getElementById('quiz-feedback');
         fb.style.display = 'block';
 
+        const textEn = isCorrect 
+          ? 'Correct! Longer tenures reduce the monthly EMI burden, but you pay substantially higher cumulative interest over time.'
+          : 'Incorrect. Extending tenure reduces the monthly payment because the principal is spread over more periods, but increases cumulative interest.';
+        
+        const textBn = isCorrect
+          ? 'সঠিক উত্তর! দীর্ঘ মেয়াদে পরিশোধ করলে মাসিক কিস্তি কমলেও পুরো মেয়াদ জুড়ে মোট পরিশোধিত সুদের পরিমাণ উল্লেখযোগ্যভাবে বৃদ্ধি পায়।'
+          : 'ভুল উত্তর। মেয়াদ বৃদ্ধি করলে মূল টাকা বেশি মাসে ভাগ হওয়ায় মাসিক কিস্তি কমে, কিন্তু মোট সুদের পরিমাণ বৃদ্ধি পায়।';
+
+        const expl = currentLang === 'bn' ? textBn : textEn;
+
         if (isCorrect) {
           btn.classList.add('is-correct');
           fb.style.background = 'rgba(16, 185, 129, 0.12)';
           fb.style.border = '1px solid #10b981';
           fb.style.color = '#059669';
-          fb.innerHTML = '<strong>✅ ' + explanation + '</strong>';
+          fb.innerHTML = '<strong>✅ ' + expl + '</strong>';
         } else {
           btn.classList.add('is-wrong');
           fb.style.background = 'rgba(239, 68, 68, 0.1)';
           fb.style.border = '1px solid #ef4444';
           fb.style.color = '#dc2626';
-          fb.innerHTML = '<strong>❌ ' + explanation + '</strong>';
+          fb.innerHTML = '<strong>❌ ' + expl + '</strong>';
         }
       }
 
-      // Initial run
-      updateExplorer();
+      // Initialize language state
+      changeLanguage(currentLang);
     </script>
 
     <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>

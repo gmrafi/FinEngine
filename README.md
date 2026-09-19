@@ -314,7 +314,8 @@ console.log(summary.burdenTone); // "healthy"
 Explore FinEngine live in your browser:
 
 - **Flagship Portal:** [https://finengine.js.org/](https://finengine.js.org/)
-- **Python SDK & Quant Hub:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
+- **Student &amp; Educator Lab (Bilingual EN/BN):** [https://finengine.js.org/student/](https://finengine.js.org/student/) (Interactive loan decomposition, FinTech coding matrix 2026, and AI in finance curriculum)
+- **Python SDK &amp; Quant Hub:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
 - **Live Loan Simulator:** [https://finengine.js.org/#interactive-simulator](https://finengine.js.org/#interactive-simulator)
 - **VS Code Precision Playground:** [https://finengine.js.org/#precision-playground](https://finengine.js.org/#precision-playground) (Test recipes and custom calculations in-browser with zero latency)
 - **Full Simulation Lab:** [https://finengine.js.org/simulation/](https://finengine.js.org/simulation/)
