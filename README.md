@@ -21,6 +21,8 @@
   <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/pypi-v0.1.0-3775A9?logo=pypi&logoColor=white" alt="PyPI Version" /></a>
   <a href="https://github.com/gmrafi/FinEngine-Py"><img src="https://img.shields.io/badge/GitHub-FinEngine--Py-181717?logo=github&logoColor=white" alt="FinEngine-Py Repository" /></a>
   <a href="https://finengine.js.org/student/"><img src="https://img.shields.io/badge/Student_Lab-Bilingual_Finance-10B981?logo=googleclassroom&logoColor=white" alt="Student & Educator Lab (Bilingual)" /></a>
+  <a href="https://finengine.js.org/dse/"><img src="https://img.shields.io/badge/DSE_Feed-Live_Capital_Markets-0284C7?logo=databricks&logoColor=white" alt="DSE Econometric Feed" /></a>
+  <a href="https://finengine.js.org/roadmap/"><img src="https://img.shields.io/badge/Roadmap-Strategic_Milestones-8B5CF6?logo=target&logoColor=white" alt="Strategic Roadmap" /></a>
 </p>
 
 <p align="center">
@@ -47,7 +49,9 @@
   <a href="#quickstart-examples">Quickstart</a> &middot;
   <a href="#live-interactive-surfaces">Live Tools</a> &middot;
   <a href="#academic-backing--citation">Citation</a> &middot;
-  <a href="https://finengine.js.org/student/">Student Lab</a>
+  <a href="https://finengine.js.org/student/">Student Lab</a> &middot;
+  <a href="https://finengine.js.org/dse/">DSE Feed</a> &middot;
+  <a href="https://finengine.js.org/roadmap/">Roadmap</a>
 </p>
 
 ---
