@@ -10,13 +10,13 @@ pinned: false
 license: mit
 ---
 
-# FinEngine Quantitative Financial Math & AI Lab
+# FinEngine Quantitative Financial Math and AI Lab
 
 Interactive financial computing playground for deterministic banking arithmetic, reducing-balance loan amortization, and mobile financial service (bKash/Nagad) thin-file credit risk scoring.
 
 > Built and maintained by **Md Golam Mubasshir Rafi** and powered by **Centre for Fintech and Strategic Business Research (CFSBR)**.
 
-- **Official Website & Documentation:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
+- **Official Website and Documentation:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
 - **API Reference (Read the Docs):** [https://finengine.readthedocs.io/](https://finengine.readthedocs.io/)
 - **Python SDK Repository:** [https://github.com/gmrafi/FinEngine-Py](https://github.com/gmrafi/FinEngine-Py)
 - **PyPI Package:** [https://pypi.org/project/finengine/](https://pypi.org/project/finengine/)

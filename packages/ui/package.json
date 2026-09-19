@@ -24,7 +24,8 @@
     "test": "node test/smoke.test.mjs"
   },
   "license": "MIT",
-  "homepage": "https://gmrafi.github.io/FinEngine/",
+  "author": "Md Golam Mubasshir Rafi <rafi@gmrafi.com.bd>",
+  "homepage": "https://finengine.js.org",
   "dependencies": {
     "@finengine/core": "0.1.0"
   },

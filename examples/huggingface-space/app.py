@@ -77,12 +77,12 @@ def calculate_loan_schedule(principal, annual_rate, tenure_months):
 with gr.Blocks(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate"), title="FinEngine Quantitative Lab") as demo:
     gr.Markdown(
         """
-        # ৳ FinEngine Financial Mathematics & AI Lab
-        **Deterministic financial math primitives & thin-file credit risk scoring for Bangladesh & Emerging Markets.**
+        # FinEngine Financial Mathematics and AI Lab
+        **Deterministic financial math primitives and thin-file credit risk scoring for Bangladesh and Emerging Markets.**
         
         *Built and maintained by **Md Golam Mubasshir Rafi** and powered by **Centre for Fintech and Strategic Business Research (CFSBR)**.*
         
-        ### 🌐 Ecosystem Links & Reference Identifiers
+        ### Official Python Ecosystem and Reference Links
         - **Official Python Documentation:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
         - **API Reference (Read the Docs):** [https://finengine.readthedocs.io/](https://finengine.readthedocs.io/)
         - **Python SDK Repository:** [https://github.com/gmrafi/FinEngine-Py](https://github.com/gmrafi/FinEngine-Py)

@@ -15,7 +15,7 @@ Currently, FinEngine is in pre-release (`0.x.x`). We apply security patches to t
 As a financial computation engine, we take precision and security extremely seriously. If you discover a vulnerability or a mathematical calculation drift that could impact ledger integrity, please do not disclose it publicly.
 
 **Please report it by emailing us at:**
-[hello@finengine.js.org](mailto:hello@finengine.js.org) (or use GitHub Private Vulnerability Reporting).
+[rafi@gmrafi.com.bd](mailto:rafi@gmrafi.com.bd) or [hello@finengine.js.org](mailto:hello@finengine.js.org) (or use GitHub Private Vulnerability Reporting).
 
 ### Response Timeline
 - We will acknowledge receipt of your vulnerability report within 48 hours.
