@@ -83,10 +83,11 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate"), ti
         *Built and maintained by **Md Golam Mubasshir Rafi** and powered by **Centre for Fintech and Strategic Business Research (CFSBR)**.*
         
         ### 🌐 Ecosystem Links & Reference Identifiers
-        - **Documentation & Web Engine:** [https://finengine.js.org](https://finengine.js.org)
-        - **PyPI Package:** [https://pypi.org/project/finengine/](https://pypi.org/project/finengine/)
+        - **Official Python Documentation:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
+        - **API Reference (Read the Docs):** [https://finengine.readthedocs.io/](https://finengine.readthedocs.io/)
         - **Python SDK Repository:** [https://github.com/gmrafi/FinEngine-Py](https://github.com/gmrafi/FinEngine-Py)
-        - **Core GitHub Monorepo:** [https://github.com/gmrafi/FinEngine](https://github.com/gmrafi/FinEngine)
+        - **PyPI Package:** [https://pypi.org/project/finengine/](https://pypi.org/project/finengine/)
+        - **Core Web Monorepo:** [https://github.com/gmrafi/FinEngine](https://github.com/gmrafi/FinEngine)
         - **Methodology DOI (Crossref):** [10.67226/cfsbr.fe.2026.001.v1](https://doi.org/10.67226/cfsbr.fe.2026.001.v1)
         - **Software Version DOI (Zenodo):** [10.5281/zenodo.22769502](https://doi.org/10.5281/zenodo.22769502)
         - **Concept DOI (All Versions):** [10.5281/zenodo.22769501](https://doi.org/10.5281/zenodo.22769501)
