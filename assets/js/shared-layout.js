@@ -57,7 +57,17 @@ function toRoot(path = "") {
 }
 
 function getRootPath() {
-  return document.body?.dataset.rootPath || "";
+  if (document.body?.dataset.rootPath) {
+    return document.body.dataset.rootPath;
+  }
+  if (typeof window !== "undefined" && window.location?.pathname) {
+    const segments = window.location.pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+    const dirs = segments.filter((seg) => !seg.includes("."));
+    if (dirs.length > 0) {
+      return "../".repeat(dirs.length);
+    }
+  }
+  return "";
 }
 
 export function initSharedLayout() {
