@@ -641,6 +641,108 @@
         </div>
       </section>
 
+      <!-- 4. BANGLADESH & SOUTH ASIAN BANKING MATHEMATICS GUIDE -->
+      <section class="doc-card" id="bangladesh-banking-math">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">
+              <span class="lang-en">Local Market Banking &amp; Regulatory Math</span>
+              <span class="lang-bn">বাংলাদেশের ব্যাংকিং গণিত ও রেগুলেটরি গাইড</span>
+            </div>
+            <h2>
+              <span class="lang-en">Bangladesh Financial System: Mechanics &amp; Mathematics</span>
+              <span class="lang-bn">বাংলাদেশের আর্থিক ব্যবস্থার গাণিতিক কাঠামো ও কেন্দ্রীয় ব্যাংকের নিয়মাবলী</span>
+            </h2>
+            <p>
+              <span class="lang-en">Essential computational formulations tailored to the Bangladeshi financial ecosystem, Bangladesh Bank circulars, and MFS operations.</span>
+              <span class="lang-bn">বাংলাদেশ ব্যাংক, জাতীয় সঞ্চয় অধিদপ্তর এবং মোবাইল ফিন্যান্সিয়াল সার্ভিসের (MFS) বাস্তব গাণিতিক বিশ্লেষণ।</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2 compact-grid">
+          <!-- Item 1: SMART & Reference Rate -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="matrix-badge" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">Central Bank Standard</span>
+              <span class="tech-tag">BRPD Circular</span>
+            </div>
+            <h3>
+              <span class="lang-en">SMART &amp; Market-Driven Lending Rates</span>
+              <span class="lang-bn">স্মার্ট (SMART) ও বাজারভিত্তিক সুদের হার নির্ধারণ</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Bangladesh Bank's <strong>SMART (Six-Month Moving Average Rate of Treasury Bill)</strong> formula establishes the benchmark base lending rate: <code>Lending Rate = SMART + Margin (Cap/Floor)</code>. FinEngine provides deterministic floating rate schedule re-indexing.
+              </span>
+              <span class="lang-bn">
+                বাংলাদেশ ব্যাংকের ১৮২ দিনের ট্রেজারি বিলের ৬ মাসের মুভিং এভারেজ ভিত্তিক <strong>স্মার্ট (SMART)</strong> রেট: <code>কার্যকর সুদের হার = SMART + মার্জিন</code>। ফিনইঞ্জিন পরিবর্তনশীল সুদের হারে নির্ভুল লোন শিডিউল পুনর্নির্ধারণ নিশ্চিত করে।
+              </span>
+            </p>
+          </article>
+
+          <!-- Item 2: MFS Cashout Fee Math -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="matrix-badge" style="background: rgba(16, 185, 129, 0.12); color: #059669;">MFS Economics</span>
+              <span class="tech-tag">bKash &middot; Nagad &middot; Rocket</span>
+            </div>
+            <h3>
+              <span class="lang-en">Mobile Money Fee Splits &amp; Float Economics</span>
+              <span class="lang-bn">মোবাইল মানি ক্যাশ-আউট ফি ও ফ্লোট অ্যাকাউন্ট গণিত</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                MFS cash-out fee structures (e.g. 1.85% via USSD, 1.49% via App) are decomposed into: Agent Commission (approx 0.77%), MNO/Telco Channel Fee, and MFS Operator Gross Margin. Float interest earned on custodial escrow accounts is audited under BRPD guidelines.
+              </span>
+              <span class="lang-bn">
+                এমএফএস ক্যাশ-আউট ফি (যেমন ১.৮৫% ও ১.৪৯%) এজেন্ট কমিশন (~০.৭৭%), টেলকো চ্যানেল খরচ এবং অপারেটরের নিট মার্জিনের মধ্যে বিভক্ত থাকে। ট্রাস্ট কাম কাস্টোডিয়াল ফ্লোট অ্যাকাউন্টের সুদ অডিট করার নিয়মাবলী ফিনইঞ্জিনে সংরক্ষিত।
+              </span>
+            </p>
+          </article>
+
+          <!-- Item 3: Sanchayapatra TDS Math -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="matrix-badge" style="background: rgba(234, 88, 12, 0.12); color: #ea580c;">National Savings</span>
+              <span class="tech-tag">NBR TDS Rules</span>
+            </div>
+            <h3>
+              <span class="lang-en">Sanchayapatra Tiered Yield &amp; TDS Tax Math</span>
+              <span class="lang-bn">সঞ্চয়পত্রের স্তরভিত্তিক মুনাফা ও উৎসে কর (TDS) হিসাব</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                National Savings Certificates (Family, Pensioner, 3-Month Profit) enforce slab-based interest reductions (Up to 15 Lakh vs 30 Lakh vs 50 Lakh) and 5% vs 10% Tax Deducted at Source (TDS) based on Return Submission Proof (PSR).
+              </span>
+              <span class="lang-bn">
+                জাতীয় সঞ্চয়পত্র (পরিবার সঞ্চয়পত্র, পেনশনার, ৩ মাস অন্তর মুনাফাভিত্তিক) ১৫ লাখ, ৩০ লাখ ও ৫০ লাখ টাকার স্ল্যাব অনুযায়ী কার্যকর মুনাফা এবং রিটার্ন দাখিলের প্রমাণের (PSR) ভিত্তিতে ৫% বনাম ১০% উৎসে করের নিখুঁত হিসাব।
+              </span>
+            </p>
+          </article>
+
+          <!-- Item 4: Treasury Bond Auctions -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="matrix-badge" style="background: rgba(168, 85, 247, 0.12); color: #9333ea;">Sovereign Debt</span>
+              <span class="tech-tag">T-Bills &middot; BGTB</span>
+            </div>
+            <h3>
+              <span class="lang-en">Bangladesh Government Treasury Bonds (BGTB)</span>
+              <span class="lang-bn">বাংলাদেশ সরকারি ট্রেজারি বন্ড ও ইল্ড কার্ভ অ্যানালাইসিস</span>
+            </h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 10px;">
+              <span class="lang-en">
+                Pricing 91-day, 182-day, and 364-day Treasury Bills on a discount yield basis: <code>Price = Face Value &times; [ 1 - (Yield &times; Days / 360) ]</code> alongside 2 to 20-year coupon-bearing Bangladesh Government Treasury Bonds (BGTB) using Actual/365 day-count.
+              </span>
+              <span class="lang-bn">
+                ৯১, ১৮২ ও ৩৬৪ দিন মেয়াদী ট্রেজারি বিলের ডিসকাউন্ট ইল্ড প্রাইসিং এবং ২ থেকে ২০ বছর মেয়াদী কুপন বিয়ারিং বিজিটিবি বন্ডের Actual/365 দিন-গণনা পদ্ধতিতে নিখুঁত সুদ নির্ধারণ।
+              </span>
+            </p>
+          </article>
+        </div>
+      </section>
+
       
     </div>
   </main>
