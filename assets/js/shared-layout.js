@@ -10,6 +10,7 @@ const NAV_ITEMS = [
 ];
 
 const MOBILE_EXTRA_ITEMS = [
+  { label: "Student & Educator Lab", path: "student/" },
   { label: "Python SDK & Quant", path: "python/" },
   { label: "Cloud Sandboxes & CDN", path: "docs/#cloud-sandboxes" },
   { label: "AI & Models Lab", path: "ai/" },
@@ -371,6 +372,12 @@ function renderFooter() {
             LABS &amp; SIMULATORS
           </div>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li>
+              <a href="${root}student/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Student &amp; Educator Lab <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(31,122,92,0.1); color: #1f7a5c; font-weight: 700; margin-left: 4px;">Learn</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Interactive finance formulas &amp; case studies</div>
+              </a>
+            </li>
             <li>
               <a href="${root}simulation/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Simulation Lab</div>

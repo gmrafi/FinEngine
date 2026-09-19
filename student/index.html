@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L1Q5S8MBT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7L1Q5S8MBT');
+    </script>
+
+    <title>Finance Student &amp; Educator Lab - Interactive Computational Finance | FinEngine</title>
+    <meta
+      name="description"
+      content="Interactive computational finance lab for students and educators: visual amortization formulas, flat vs reducing rate calculators, floating-point drift audits, and classroom assignments."
+    />
+    <link rel="canonical" href="https://finengine.js.org/student/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Finance Student &amp; Educator Lab - Interactive Computational Finance | FinEngine"
+    />
+    <meta
+      property="og:description"
+      content="Bridge the gap between textbook theory and real-world banking math. Visual formula explorer, classroom case studies, and 1-click cloud notebooks."
+    />
+    <meta property="og:url" content="https://finengine.js.org/student/" />
+    <meta
+      property="og:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Finance Student &amp; Educator Lab - FinEngine"
+    />
+    <meta
+      name="twitter:description"
+      content="Interactive computational finance lab for students and educators: visual amortization, flat vs reducing rates, and zero float drift."
+    />
+    <meta
+      name="twitter:image"
+      content="https://finengine.js.org/logo-mark.png"
+    />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../logo-mark.png" />
+    <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .student-slider-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .student-slider-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 650;
+        color: var(--text);
+      }
+      .student-slider-val {
+        font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+        color: var(--emerald, #1f7a5c);
+        font-weight: 750;
+      }
+      .student-kpi-badge {
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-weight: 700;
+        display: inline-block;
+      }
+      .quiz-option-btn {
+        width: 100%;
+        text-align: left;
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel-soft);
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        margin-bottom: 8px;
+      }
+      .quiz-option-btn:hover {
+        border-color: var(--emerald, #1f7a5c);
+        background: rgba(31, 122, 92, 0.08);
+      }
+      .quiz-option-btn.is-correct {
+        border-color: #10b981;
+        background: rgba(16, 185, 129, 0.15);
+        color: #059669;
+      }
+      .quiz-option-btn.is-wrong {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.12);
+        color: #dc2626;
+      }
+    </style>
+  </head>
+  <body data-page="student" data-root-path="../">
+    <div data-site-header></div>
+
+    <main class="doc-shell page-shell">
+      <!-- HERO CARD -->
+      <section class="doc-card page-hero-card">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px;">
+          <div class="eyebrow eyebrow-blue" style="margin-bottom: 0;">
+            CFSBR Computational Finance Lab · ফিন্যান্স লার্নিং ল্যাব
+          </div>
+          <span style="font-size: 11px; font-weight: 700; background: rgba(31, 122, 92, 0.12); color: #1f7a5c; padding: 2px 10px; border-radius: 999px; border: 1px solid rgba(31, 122, 92, 0.25);">
+            ● Open Education Hub
+          </span>
+        </div>
+
+        <h1 style="max-width: 100%; font-size: clamp(1.65rem, 3.2vw, 2.25rem); line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.025em;">
+          Interactive Finance for Students &amp; Educators
+        </h1>
+        <p style="max-width: 90ch; margin-bottom: 22px; line-height: 1.6; font-size: 0.96rem;">
+          Bridge the gap between textbook theory and real-world banking software. Explore deterministic loan amortization, uncover the hidden mathematics behind flat vs reducing interest rates, audit floating-point precision, and run classroom assignments in 1-click cloud notebooks.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+          <a class="button primary" href="#visual-math-lab" style="padding: 10px 18px; font-size: 13px;">Visual Formula Explorer ↓</a>
+          <a class="button secondary" href="#case-studies" style="padding: 10px 18px; font-size: 13px;">Classroom Case Studies ↓</a>
+          <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 13px;">Google Colab Notebook ↗</a>
+          <a class="button secondary" href="../examples/google-sheets/" style="padding: 10px 18px; font-size: 13px;">Google Sheets Formula Script ↗</a>
+        </div>
+      </section>
+
+      <!-- 1. VISUAL STEP-BY-STEP FORMULA EXPLORER -->
+      <section class="doc-card" id="visual-math-lab">
+        <div class="section-head" style="margin-bottom: 18px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">Interactive Formula Explorer</div>
+            <h2>Equated Monthly Installment (EMI) Decomposition</h2>
+            <p>
+              See how the mathematical formula responds in real-time as you adjust principal, interest rate, and tenure.
+            </p>
+          </div>
+        </div>
+
+        <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; text-align: center;">
+          <div style="color: var(--muted); font-size: 11px; text-transform: uppercase; margin-bottom: 6px; font-weight: 700;">Mathematical Formula (Reducing Balance)</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--text);">
+            EMI = P &times; [ r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> - 1) ]
+          </div>
+          <div style="font-size: 11.5px; color: var(--muted); margin-top: 6px;">
+            P = Principal (<span id="formula-p" style="color: #1f7a5c; font-weight: 700;">BDT 500,000</span>) &middot; r = Monthly Rate (<span id="formula-r" style="color: #2273c3; font-weight: 700;">0.75%</span>) &middot; n = Months (<span id="formula-n" style="color: #f59e0b; font-weight: 700;">36</span>)
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+          <!-- Controls (Left) -->
+          <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 18px;">
+            <div style="font-size: 12.5px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 14px;">Adjust Loan Variables</div>
+
+            <div class="student-slider-group">
+              <div class="student-slider-header">
+                <span>Loan Principal (মূল ঋণ / P):</span>
+                <span id="val-principal" class="student-slider-val">BDT 500,000</span>
+              </div>
+              <input type="range" id="slider-principal" min="50000" max="2000000" step="25000" value="500000" class="sim-slider" />
+            </div>
+
+            <div class="student-slider-group">
+              <div class="student-slider-header">
+                <span>Annual Interest Rate (বার্ষিক সুদের হার / r):</span>
+                <span id="val-rate" class="student-slider-val">9.0%</span>
+              </div>
+              <input type="range" id="slider-rate" min="3.0" max="24.0" step="0.5" value="9.0" class="sim-slider" />
+            </div>
+
+            <div class="student-slider-group">
+              <div class="student-slider-header">
+                <span>Tenure Duration (মেয়াদ / n):</span>
+                <span id="val-tenure" class="student-slider-val">36 Months (3 Years)</span>
+              </div>
+              <input type="range" id="slider-tenure" min="6" max="60" step="6" value="36" class="sim-slider" />
+            </div>
+          </div>
+
+          <!-- Outputs & Schedule Split (Right) -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Monthly Installment (EMI)</div>
+                <div id="out-emi" style="font-size: 1.35rem; font-weight: 850; color: #1f7a5c; margin-top: 4px;">BDT 15,900</div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">প্রতি মাসের কিস্তি</div>
+              </div>
+              <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted);">Total Interest Cost</div>
+                <div id="out-interest" style="font-size: 1.35rem; font-weight: 850; color: #2273c3; margin-top: 4px;">BDT 72,395</div>
+                <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">মোট অতিরিক্ত সুদ</div>
+              </div>
+            </div>
+
+            <!-- Visual Split Bar -->
+            <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px;">
+              <div style="display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 700; margin-bottom: 6px;">
+                <span style="color: #1f7a5c;">Principal: <span id="split-p-pct">87%</span></span>
+                <span style="color: #2273c3;">Interest: <span id="split-i-pct">13%</span></span>
+              </div>
+              <div style="height: 10px; border-radius: 999px; background: #e2e8f0; display: flex; overflow: hidden;">
+                <div id="bar-principal" style="background: #1f7a5c; width: 87%; transition: width 0.2s ease;"></div>
+                <div id="bar-interest" style="background: #2273c3; width: 13%; transition: width 0.2s ease;"></div>
+              </div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4;">
+                💡 <strong>Classroom Insight:</strong> Notice how increasing the tenure reduces the monthly EMI, but dramatically inflates the total interest paid over time.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CLASSROOM CASE STUDIES & COMMON FINANCIAL TRAPS -->
+      <section class="doc-card" id="case-studies">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">Classroom Case Studies</div>
+            <h2>Practical Real-World Financial Scenarios</h2>
+            <p>
+              Explore realistic dilemmas faced by borrowers, credit analysts, and corporate treasurers in emerging markets.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2 compact-grid">
+          <!-- Case 1 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #dc2626; text-transform: uppercase;">⚠️ Hidden Cost Analysis</span>
+              <span style="font-size: 10px; background: rgba(220, 38, 38, 0.1); color: #dc2626; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Trap Explorer</span>
+            </div>
+            <h3>Case 1: The "Flat vs Reducing APR" Illusion</h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
+              A microfinance lender advertises a <strong>"10% Flat Rate"</strong> on a 1-year BDT 50,000 loan. While it sounds cheaper than a 14% commercial bank loan, calculate the true statutory reducing APR.
+            </p>
+            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Advertised Flat Rate: <strong>10.0%</strong> (Interest charged on initial 50k every month)</div>
+              <div>• True Reducing APR: <strong style="color: #dc2626;">~18.46% APR</strong></div>
+            </div>
+            <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
+              💡 <strong>Why?</strong> In a flat rate, you pay interest on money you have already repaid during the year. FinEngine automatically reveals the true effective APR.
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase;">💻 Student Budgeting</span>
+              <span style="font-size: 10px; background: rgba(16, 185, 129, 0.12); color: #10b981; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Debt Burden Ratio</span>
+            </div>
+            <h3>Case 2: Laptop &amp; Study Financing Plan</h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
+              A student purchases an engineering laptop for <strong>BDT 85,000</strong> on a 12-month 0% card installment or a 12% student micro-loan. How does the EMI impact a BDT 25,000 monthly allowance?
+            </p>
+            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Monthly EMI: <strong>BDT 7,552 / month</strong></div>
+              <div>• Debt Burden Ratio (DBR): <strong style="color: #1f7a5c;">30.2% of Income</strong> (Healthy range)</div>
+            </div>
+            <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
+              💡 <strong>Guideline:</strong> Financial prudence recommends keeping personal debt installments below 35% of reliable recurring cash inflow.
+            </div>
+          </article>
+
+          <!-- Case 3 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #3b82f6; text-transform: uppercase;">🔬 Precision Engineering</span>
+              <span style="font-size: 10px; background: rgba(59, 130, 246, 0.12); color: #3b82f6; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Float Audit</span>
+            </div>
+            <h3>Case 3: The "Missing Poisha" in Bank Portfolios</h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
+              When calculating daily compounding interest across 10,000 corporate accounts, standard floating-point numbers (`0.1 + 0.2 === 0.30000000000000004`) cause audit reconciliations to fail.
+            </p>
+            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Standard IEEE-754: <strong>0.30000000000000004</strong> (Drift: 5.5e-17)</div>
+              <div>• FinEngine Integer Poisha: <strong>Exact 30 Poisha</strong> (Terminal B_n === 0.00)</div>
+            </div>
+            <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
+              💡 <strong>Core Rule:</strong> FinEngine scales all calculations into discrete integer sub-units (Poisha: 1 BDT = 100 Poisha) to ensure 100% audit closure.
+            </div>
+          </article>
+
+          <!-- Case 4 -->
+          <article class="info-panel static-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #a855f7; text-transform: uppercase;">📈 Project Valuation</span>
+              <span style="font-size: 10px; background: rgba(168, 85, 247, 0.12); color: #a855f7; padding: 2px 6px; border-radius: 4px; font-weight: 700;">Newton-Raphson</span>
+            </div>
+            <h3>Case 4: Irregular Cashflows &amp; XIRR</h3>
+            <p style="font-size: 12.5px; line-height: 1.55; color: var(--muted); margin-bottom: 12px;">
+              Traditional IRR assumes payments occur at equal intervals (e.g. exactly every 30 days). In real commerce, investments and revenues occur on irregular calendar dates.
+            </p>
+            <div style="background: var(--bg, #ffffff); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px;">
+              <div>• Simple ROI: <strong>Ignores precise timing and duration</strong></div>
+              <div>• Actuarial XIRR: <strong>Day-count accurate annualized return</strong></div>
+            </div>
+            <div style="font-size: 11.5px; color: var(--text); line-height: 1.45;">
+              💡 <strong>Solver:</strong> FinEngine uses a hybrid Newton-Raphson solver with bisection guarantees to converge on exact yield rates.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. CLASSROOM RESOURCES & CLOUD TOOLS -->
+      <section class="doc-card" id="classroom-tools">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">Educator &amp; Student Toolbox</div>
+            <h2>Ready-to-Use Classroom Downloads &amp; Sandboxes</h2>
+            <p>
+              Free resources designed for lecture slides, homework assignments, and academic research papers.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2 compact-grid">
+          <div class="info-panel static-panel">
+            <h3>📊 Google Sheets &amp; Excel Add-on</h3>
+            <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+              Give your students custom spreadsheet formulas like <code>=FINENGINE_EMI(500000, 9%, 36)</code> and <code>=FINENGINE_BDT(12500000)</code> for assignment work.
+            </p>
+            <a class="button secondary" href="../examples/google-sheets/" style="font-size: 12px; padding: 6px 14px;">View Apps Script Code &amp; Guide →</a>
+          </div>
+
+          <div class="info-panel static-panel">
+            <h3>🐍 Google Colab Python Jupyter Lab</h3>
+            <p style="font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;">
+              Launch an interactive Python Jupyter notebook in 1-click. Compute Pandas amortization schedules and thin-file credit risk scores.
+            </p>
+            <a class="button secondary" href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 6px 14px;">Open in Google Colab ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. INTERACTIVE QUIZ & KNOWLEDGE CHECK -->
+      <section class="doc-card" id="knowledge-check">
+        <div class="section-head" style="margin-bottom: 16px;">
+          <div>
+            <div class="eyebrow eyebrow-blue">Knowledge Check</div>
+            <h2>Test Your Financial Math Intuition</h2>
+            <p>Test your understanding with instant feedback.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
+          <div style="font-size: 14px; font-weight: 750; color: var(--text); margin-bottom: 12px;">
+            Question: If a borrower extends their loan tenure from 24 months to 48 months at the same annual interest rate, what happens to the monthly payment and total interest?
+          </div>
+
+          <div id="quiz-options">
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false, 'Extending tenure reduces the monthly payment because the principal is spread over more months.')">
+              A) Monthly payment increases, total interest decreases
+            </button>
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, true, 'Correct! Longer tenures reduce the monthly EMI burden, but you pay substantially higher cumulative interest.')">
+              B) Monthly payment decreases, total interest increases (Correct)
+            </button>
+            <button type="button" class="quiz-option-btn" onclick="checkQuiz(this, false, 'Total interest always rises with longer tenures because balance remains outstanding longer.')">
+              C) Both monthly payment and total interest decrease
+            </button>
+          </div>
+
+          <div id="quiz-feedback" style="display: none; margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 12.5px; line-height: 1.5;"></div>
+        </div>
+      </section>
+
+      <!-- 5. ACADEMIC CITATION -->
+      <section class="doc-card">
+        <h2>Cite FinEngine in Academic Theses &amp; Term Papers</h2>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 14px;">
+          If you use FinEngine in university term papers, MBA theses, or economics coursework, use the permanent Crossref DOI citation below:
+        </p>
+        <div class="bento-code-snippet">
+          <pre><code><span class="hero-comment">% BibTeX Citation for Academic Papers</span>
+@techreport{rafi2026finengine,
+  author      = {Rafi, Md Golam Mubasshir},
+  title       = {FinEngine: A Deterministic Computational Framework for Client-Side Financial Interfaces},
+  institution = {Centre for Fintech and Strategic Business Research (CFSBR)},
+  year        = {2026},
+  doi         = {10.67226/cfsbr.fe.2026.001.v1},
+  url         = {https://finengine.js.org/methodology/}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <!-- Client-Side Interactive Logic -->
+    <script>
+      function calculateEMI(p, rAnnual, n) {
+        const r = (rAnnual / 100) / 12;
+        if (p <= 0 || n <= 0) return { emi: 0, totalInterest: 0, totalPayable: 0 };
+        if (r === 0) return { emi: p / n, totalInterest: 0, totalPayable: p };
+        const emi = (p * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
+        const totalPayable = emi * n;
+        const totalInterest = totalPayable - p;
+        return {
+          emi: Math.round(emi),
+          totalInterest: Math.round(totalInterest),
+          totalPayable: Math.round(totalPayable)
+        };
+      }
+
+      function updateExplorer() {
+        const p = Number(document.getElementById('slider-principal').value);
+        const r = Number(document.getElementById('slider-rate').value);
+        const n = Number(document.getElementById('slider-tenure').value);
+
+        document.getElementById('val-principal').textContent = 'BDT ' + p.toLocaleString('en-US');
+        document.getElementById('val-rate').textContent = r.toFixed(1) + '%';
+        document.getElementById('val-tenure').textContent = n + ' Months (' + (n / 12).toFixed(1) + ' Yrs)';
+
+        document.getElementById('formula-p').textContent = 'BDT ' + p.toLocaleString('en-US');
+        document.getElementById('formula-r').textContent = (r / 12).toFixed(2) + '%';
+        document.getElementById('formula-n').textContent = n;
+
+        const res = calculateEMI(p, r, n);
+        document.getElementById('out-emi').textContent = 'BDT ' + res.emi.toLocaleString('en-US');
+        document.getElementById('out-interest').textContent = 'BDT ' + res.totalInterest.toLocaleString('en-US');
+
+        const pPct = Math.round((p / res.totalPayable) * 100);
+        const iPct = 100 - pPct;
+
+        document.getElementById('split-p-pct').textContent = pPct + '%';
+        document.getElementById('split-i-pct').textContent = iPct + '%';
+        document.getElementById('bar-principal').style.width = pPct + '%';
+        document.getElementById('bar-interest').style.width = iPct + '%';
+      }
+
+      document.getElementById('slider-principal').addEventListener('input', updateExplorer);
+      document.getElementById('slider-rate').addEventListener('input', updateExplorer);
+      document.getElementById('slider-tenure').addEventListener('input', updateExplorer);
+
+      function checkQuiz(btn, isCorrect, explanation) {
+        document.querySelectorAll('.quiz-option-btn').forEach(b => {
+          b.classList.remove('is-correct', 'is-wrong');
+        });
+        const fb = document.getElementById('quiz-feedback');
+        fb.style.display = 'block';
+
+        if (isCorrect) {
+          btn.classList.add('is-correct');
+          fb.style.background = 'rgba(16, 185, 129, 0.12)';
+          fb.style.border = '1px solid #10b981';
+          fb.style.color = '#059669';
+          fb.innerHTML = '<strong>✅ ' + explanation + '</strong>';
+        } else {
+          btn.classList.add('is-wrong');
+          fb.style.background = 'rgba(239, 68, 68, 0.1)';
+          fb.style.border = '1px solid #ef4444';
+          fb.style.color = '#dc2626';
+          fb.innerHTML = '<strong>❌ ' + explanation + '</strong>';
+        }
+      }
+
+      // Initial run
+      updateExplorer();
+    </script>
+
+    <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+  </body>
+</html>
