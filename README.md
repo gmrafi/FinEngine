@@ -25,6 +25,8 @@
 <p align="center">
   <a href="https://stackblitz.com/github/gmrafi/FinEngine?file=examples/quickstart.ts"><img src="https://img.shields.io/badge/StackBlitz-Open_TypeScript_Sandbox-1389FD?logo=stackblitz&logoColor=white" alt="Open in StackBlitz" /></a>
   <a href="https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb"><img src="https://img.shields.io/badge/Google_Colab-Open_Python_Notebook-F9AB00?logo=googlecolab&logoColor=white" alt="Open in Colab" /></a>
+  <a href="examples/mcp-server/"><img src="https://img.shields.io/badge/MCP_Server-Claude_%26_Cursor_Tools-10B981?logo=anthropic&logoColor=white" alt="MCP Server for AI Agents" /></a>
+  <a href="examples/google-sheets/"><img src="https://img.shields.io/badge/Google_Sheets-Custom_Formulas-34A853?logo=googlesheets&logoColor=white" alt="Google Sheets Add-on" /></a>
   <a href="https://cdn.jsdelivr.net/npm/@finengine/math@0.3.0/+esm"><img src="https://img.shields.io/badge/jsDelivr-CDN_ESM_Module-E84D3D?logo=jsdelivr&logoColor=white" alt="jsDelivr CDN" /></a>
 </p>
 
@@ -37,12 +39,13 @@
 <p align="center">
   <a href="#key-guarantees">Key Guarantees</a> &middot;
   <a href="#monorepo-packages">Packages</a> &middot;
+  <a href="#ai-agent--llm-integrations-mcp-function-calling">AI Agents &amp; MCP</a> &middot;
+  <a href="#spreadsheet-integrations-google-sheets--excel">Google Sheets</a> &middot;
   <a href="#python-sdk--quant-finance">Python SDK</a> &middot;
   <a href="#installation">Installation</a> &middot;
   <a href="#quickstart-examples">Quickstart</a> &middot;
   <a href="#live-interactive-surfaces">Live Tools</a> &middot;
-  <a href="#academic-backing--citation">Citation</a> &middot;
-  <a href="#local-development">Development</a>
+  <a href="#academic-backing--citation">Citation</a>
 </p>
 
 ---
@@ -94,6 +97,62 @@ FinEngine is architected as an offline-capable monorepo dividing mathematical pr
 - `@finengine/microfinance`: Actuarial translation modules converting flat interest structures into true reducing APR.
 - `@finengine/ratios`: Deterministic financial ratio engines for working capital liquidity and DuPont decomposition.
 - `@finengine/tax`: NBR-compliant TDS/VDS and corporate tax calculation primitives.
+
+---
+
+## AI Agent &amp; LLM Integrations (MCP &amp; Function Calling)
+
+FinEngine provides zero-hallucination execution tools for autonomous financial agents, Claude Desktop, Cursor IDE, and OpenAI/Gemini models:
+
+### 1. Model Context Protocol (MCP) Server for Claude &amp; Cursor
+
+Connect FinEngine directly to **Claude Desktop** or **Cursor IDE** via Model Context Protocol:
+
+```json
+// Add to Claude Desktop claude_desktop_config.json or .cursor/mcp.json
+{
+  "mcpServers": {
+    "finengine": {
+      "command": "npx",
+      "args": ["-y", "@finengine/mcp-server"]
+    }
+  }
+}
+```
+
+- **Tools Included:** `calculate_amortization`, `calculate_xirr`, `format_bdt_currency`, `assess_credit_risk`.
+- **Directory & Quickstart:** [`examples/mcp-server/`](examples/mcp-server/)
+
+### 2. LangChain &amp; LlamaIndex Python Tool Wrapper
+
+```python
+from langchain.tools import tool
+from finengine.math import calculate_amortization
+
+@tool
+def finengine_amortize(principal: float, annual_rate: float, tenure_months: int) -> dict:
+    """Deterministic loan amortization and repayment schedule generator."""
+    plan = calculate_amortization(principal=principal, annual_rate=annual_rate, tenure_months=tenure_months)
+    return {"monthly_payment": plan.monthly_payment, "total_interest": plan.total_interest}
+```
+
+- **Full AI Lab & Function Calling Schemas:** [https://finengine.js.org/ai/](https://finengine.js.org/ai/)
+
+---
+
+## Spreadsheet Integrations (Google Sheets &amp; Excel)
+
+Bring deterministic financial math and Bangladeshi Taka (BDT) Lakh/Crore formatting directly into spreadsheet workbooks:
+
+```excel
+=FINENGINE_EMI(500000, 9%, 36)            // Output: 15899.86
+=FINENGINE_TOTAL_INTEREST(500000, 9%, 36) // Output: 72394.96
+=FINENGINE_BDT(12500000)                  // Output: "BDT 1,25,00,000.00"
+=FINENGINE_XIRR(A2:A10, B2:B10)           // Output: 0.2845 (28.45%)
+```
+
+- **Installation:** Paste [`examples/google-sheets/FinEngine.gs`](examples/google-sheets/FinEngine.gs) into Google Sheets (**Extensions** &rarr; **Apps Script**).
+- **Documentation:** [`examples/google-sheets/README.md`](examples/google-sheets/)
 
 ---
 

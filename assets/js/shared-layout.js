@@ -441,7 +441,7 @@ function renderFooter() {
             </li>
             <li>
               <a href="${root}ai/" style="text-decoration: none; display: block;">
-                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">AI &amp; Models Lab <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(99,102,241,0.1); color: #6366f1; font-weight: 700; margin-left: 4px;">Coming Soon</span></div>
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">AI &amp; Models Lab <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(31,122,92,0.1); color: #1f7a5c; font-weight: 700; margin-left: 4px;">MCP &amp; Agent</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Alternative credit risk and agentic tools</div>
               </a>
             </li>

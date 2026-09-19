@@ -160,21 +160,21 @@
         >
           <a
             class="button primary"
+            href="#agent-tools"
+            style="padding: 10px 18px; font-size: 13px"
+            >AI Agent &amp; MCP Tools ↓</a
+          >
+          <a
+            class="button secondary"
             href="#research-pillars"
             style="padding: 10px 18px; font-size: 13px"
-            >Explore AI Research Pillars ↓</a
+            >Research Pillars ↓</a
           >
           <a
             class="button secondary"
             href="../python/#python-quickstart"
             style="padding: 10px 18px; font-size: 13px"
-            >Test Python Risk API Preview ↗</a
-          >
-          <a
-            class="button secondary"
-            href="../methodology/"
-            style="padding: 10px 18px; font-size: 13px"
-            >Read Academic Methodology Paper ↗</a
+            >Python SDK (PyPI) ↗</a
           >
         </div>
       </section>
@@ -383,6 +383,113 @@ assessment = assess_credit_risk(profile=profile, requested_amount=<span class="h
         </div>
       </section>
 
+      <!-- AGENTIC AI & PROTOCOL INTEGRATION HUB -->
+      <section class="doc-card" id="agent-tools">
+        <div class="section-head" style="margin-bottom: 16px">
+          <div>
+            <div class="eyebrow eyebrow-blue">Agentic AI &amp; Protocol Integration</div>
+            <h2>Zero-Hallucination Tool Calling for AI Agents</h2>
+            <p>
+              Eliminate financial hallucination in LLM agents. Connect FinEngine as an audited deterministic execution tool via MCP, OpenAI Function Calling, LangChain, or Spreadsheets.
+            </p>
+          </div>
+        </div>
+
+        <!-- TABS NAV -->
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 10px;">
+          <button type="button" class="ai-tab-btn is-active" data-ai-tab="mcp" style="padding: 6px 14px; font-size: 12.5px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line); background: var(--panel-soft); color: var(--text); cursor: pointer;">Claude &amp; Cursor (MCP)</button>
+          <button type="button" class="ai-tab-btn" data-ai-tab="openai" style="padding: 6px 14px; font-size: 12.5px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;">OpenAI Function Calling</button>
+          <button type="button" class="ai-tab-btn" data-ai-tab="langchain" style="padding: 6px 14px; font-size: 12.5px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;">LangChain Python</button>
+          <button type="button" class="ai-tab-btn" data-ai-tab="sheets" style="padding: 6px 14px; font-size: 12.5px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;">Google Sheets Add-on</button>
+        </div>
+
+        <!-- TAB PANELS -->
+        <div class="ai-tab-pane" data-ai-pane="mcp" style="display: block;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--muted);">Claude Desktop / Cursor configuration (<code>claude_desktop_config.json</code>)</span>
+            <button type="button" class="button secondary" style="font-size: 11px; padding: 4px 10px;" onclick="navigator.clipboard.writeText(document.getElementById('code-mcp').innerText); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Config', 1500);">Copy Config</button>
+          </div>
+          <div class="bento-code-snippet">
+            <pre><code id="code-mcp"><span class="hero-comment">// Add to Claude Desktop claude_desktop_config.json or .cursor/mcp.json</span>
+{
+  <span class="hero-string">"mcpServers"</span>: {
+    <span class="hero-string">"finengine"</span>: {
+      <span class="hero-string">"command"</span>: <span class="hero-string">"npx"</span>,
+      <span class="hero-string">"args"</span>: [<span class="hero-string">"-y"</span>, <span class="hero-string">"@finengine/mcp-server"</span>]
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="ai-tab-pane" data-ai-pane="openai" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--muted);">OpenAI &amp; Gemini Function Calling JSON Schema</span>
+            <button type="button" class="button secondary" style="font-size: 11px; padding: 4px 10px;" onclick="navigator.clipboard.writeText(document.getElementById('code-openai').innerText); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Schema', 1500);">Copy Schema</button>
+          </div>
+          <div class="bento-code-snippet">
+            <pre><code id="code-openai">{
+  <span class="hero-string">"type"</span>: <span class="hero-string">"function"</span>,
+  <span class="hero-string">"function"</span>: {
+    <span class="hero-string">"name"</span>: <span class="hero-string">"calculate_loan_amortization"</span>,
+    <span class="hero-string">"description"</span>: <span class="hero-string">"Deterministic loan calculation for repayment schedules, EMI, and interest."</span>,
+    <span class="hero-string">"parameters"</span>: {
+      <span class="hero-string">"type"</span>: <span class="hero-string">"object"</span>,
+      <span class="hero-string">"properties"</span>: {
+        <span class="hero-string">"principal"</span>: { <span class="hero-string">"type"</span>: <span class="hero-string">"number"</span>, <span class="hero-string">"description"</span>: <span class="hero-string">"Loan principal (e.g. 50000)"</span> },
+        <span class="hero-string">"annual_rate"</span>: { <span class="hero-string">"type"</span>: <span class="hero-string">"number"</span>, <span class="hero-string">"description"</span>: <span class="hero-string">"Annual interest rate as decimal (e.g. 0.09 for 9%)"</span> },
+        <span class="hero-string">"tenure_months"</span>: { <span class="hero-string">"type"</span>: <span class="hero-string">"integer"</span>, <span class="hero-string">"description"</span>: <span class="hero-string">"Tenure duration in months (e.g. 12, 24, 36)"</span> }
+      },
+      <span class="hero-string">"required"</span>: [<span class="hero-string">"principal"</span>, <span class="hero-string">"annual_rate"</span>, <span class="hero-string">"tenure_months"</span>]
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="ai-tab-pane" data-ai-pane="langchain" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--muted);">LangChain / LlamaIndex Python Tool Wrapper</span>
+            <button type="button" class="button secondary" style="font-size: 11px; padding: 4px 10px;" onclick="navigator.clipboard.writeText(document.getElementById('code-langchain').innerText); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Python', 1500);">Copy Python</button>
+          </div>
+          <div class="bento-code-snippet">
+            <pre><code id="code-langchain"><span class="hero-keyword">from</span> langchain.tools <span class="hero-keyword">import</span> tool
+<span class="hero-keyword">from</span> finengine.math <span class="hero-keyword">import</span> calculate_amortization, calculate_xirr
+
+<span class="hero-keyword">@tool</span>
+<span class="hero-keyword">def</span> <span class="hero-function">finengine_amortize</span>(principal: <span class="hero-keyword">float</span>, annual_rate: <span class="hero-keyword">float</span>, tenure_months: <span class="hero-keyword">int</span>) -&gt; <span class="hero-keyword">dict</span>:
+    <span class="hero-string">"""Deterministic loan amortization and repayment schedule generator."""</span>
+    schedule = calculate_amortization(principal=principal, annual_rate=annual_rate, tenure_months=tenure_months)
+    <span class="hero-keyword">return</span> {
+        <span class="hero-string">"monthly_payment"</span>: schedule.monthly_payment,
+        <span class="hero-string">"total_interest"</span>: schedule.total_interest,
+        <span class="hero-string">"total_payable"</span>: schedule.total_payable,
+    }</code></pre>
+          </div>
+        </div>
+
+        <div class="ai-tab-pane" data-ai-pane="sheets" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: var(--muted);">Google Sheets (Extensions -&gt; Apps Script -&gt; Paste)</span>
+            <button type="button" class="button secondary" style="font-size: 11px; padding: 4px 10px;" onclick="navigator.clipboard.writeText(document.getElementById('code-sheets').innerText); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy Formula Script', 1500);">Copy Formula Script</button>
+          </div>
+          <div class="bento-code-snippet">
+            <pre><code id="code-sheets"><span class="hero-comment">/**
+ * In Google Sheets: Extensions -&gt; Apps Script -&gt; Paste this script
+ * Usage in cells: =FINENGINE_EMI(500000, 9%, 36)
+ */</span>
+<span class="hero-keyword">function</span> <span class="hero-function">FINENGINE_EMI</span>(principal, annualRate, tenureMonths) {
+  <span class="hero-keyword">var</span> p = Number(principal);
+  <span class="hero-keyword">var</span> r = Number(annualRate) &gt; 1 ? Number(annualRate) / 100 / 12 : Number(annualRate) / 12;
+  <span class="hero-keyword">var</span> n = Number(tenureMonths);
+  <span class="hero-keyword">if</span> (p &lt;= 0 || n &lt;= 0) <span class="hero-keyword">return</span> 0;
+  <span class="hero-keyword">var</span> emi = (p * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
+  <span class="hero-keyword">return</span> Math.round(emi * 100) / 100;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
       <!-- RESEARCH ROADMAP & CALIBRATION TIMELINE -->
       <section class="doc-card">
         <h2>Model Calibration &amp; Release Timeline</h2>
@@ -504,6 +611,24 @@ assessment = assess_credit_risk(profile=profile, requested_amount=<span class="h
     </main>
 
     <div data-site-footer></div>
+    <script>
+      document.querySelectorAll('.ai-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.dataset.aiTab;
+          document.querySelectorAll('.ai-tab-btn').forEach(b => {
+            b.classList.remove('is-active');
+            b.style.background = 'transparent';
+            b.style.color = 'var(--muted)';
+          });
+          btn.classList.add('is-active');
+          btn.style.background = 'var(--panel-soft)';
+          btn.style.color = 'var(--text)';
+          document.querySelectorAll('.ai-tab-pane').forEach(pane => {
+            pane.style.display = pane.dataset.aiPane === tab ? 'block' : 'none';
+          });
+        });
+      });
+    </script>
     <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
   </body>
 </html>

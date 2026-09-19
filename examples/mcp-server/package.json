@@ -1,0 +1,31 @@
+{
+  "name": "@finengine/mcp-server",
+  "version": "0.3.0",
+  "description": "Model Context Protocol (MCP) server for FinEngine financial math, BDT localization, and alternative credit risk modeling",
+  "type": "module",
+  "main": "index.mjs",
+  "bin": {
+    "finengine-mcp": "./index.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "cursor",
+    "antigravity",
+    "ai-agents",
+    "financial-math",
+    "amortization",
+    "xirr",
+    "bdt-currency",
+    "credit-risk"
+  ],
+  "author": "Md Golam Mubasshir Rafi <gmrafi45@gmail.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://finengine.js.org/ai/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmrafi/FinEngine.git",
+    "directory": "examples/mcp-server"
+  }
+}
