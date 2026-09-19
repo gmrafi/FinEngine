@@ -12,6 +12,7 @@ const NAV_ITEMS = [
 const MOBILE_EXTRA_ITEMS = [
   { label: "Student & Educator Lab", path: "student/" },
   { label: "DSE Econometric Feed", path: "dse/" },
+  { label: "Finance Repositories (500)", path: "repositories/" },
   { label: "Strategic Roadmap", path: "roadmap/" },
   { label: "Python SDK & Quant", path: "python/" },
   { label: "Cloud Sandboxes & CDN", path: "docs/#cloud-sandboxes" },
@@ -394,6 +395,12 @@ function renderFooter() {
               <a href="${root}dse/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">DSE Econometric Feed <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(2,132,199,0.1); color: #0284c7; font-weight: 700; margin-left: 4px;">Market</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Dhaka Stock Exchange volatility &amp; yield data</div>
+              </a>
+            </li>
+            <li>
+              <a href="${root}repositories/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Finance Repositories <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(16,185,129,0.1); color: #059669; font-weight: 700; margin-left: 4px;">500 Projects</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Curated quant, market data, and AI agents with live stars</div>
               </a>
             </li>
             <li>
