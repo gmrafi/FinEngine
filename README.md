@@ -11,14 +11,15 @@
 </p>
 
 <p align="center">
-  <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1"><img src="https://img.shields.io/badge/DOI-10.67226%2Fcfsbr.fe.2026.001.v1-2273c3.svg" alt="Crossref DOI" /></a>
-  <a href="https://doi.org/10.5281/zenodo.22769502"><img src="https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.22769502-1F7A5C.svg" alt="CERN Zenodo Archive" /></a>
+  <a href="https://doi.org/10.67226/cfsbr.fe.2026.001.v1"><img src="https://img.shields.io/badge/Crossref_DOI-10.67226%2Fcfsbr.fe.2026.001.v1-2273c3.svg" alt="Crossref DOI" /></a>
+  <a href="https://doi.org/10.5281/zenodo.22769502"><img src="https://img.shields.io/badge/Zenodo_v0.3.0-10.5281%2Fzenodo.22769502-1F7A5C.svg" alt="CERN Zenodo Version DOI" /></a>
+  <a href="https://doi.org/10.5281/zenodo.22769501"><img src="https://img.shields.io/badge/Zenodo_Concept-10.5281%2Fzenodo.22769501-1F7A5C.svg" alt="CERN Zenodo Concept DOI" /></a>
   <a href="https://finengine.js.org/"><img src="https://img.shields.io/badge/domain-finengine.js.org-2273c3.svg" alt="Verified Domain" /></a>
   <a href="https://github.com/gmrafi/FinEngine/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT%20%26%20CC--BY%204.0-blue.svg" alt="License" /></a>
   <a href="https://github.com/gmrafi/FinEngine/actions"><img src="https://img.shields.io/badge/verification-passing-brightgreen.svg" alt="Build Status" /></a>
   <a href="https://www.npmjs.com/org/finengine"><img src="https://img.shields.io/badge/npm-@finengine-cb3837?logo=npm" alt="npm Organization" /></a>
   <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/pypi-v0.1.0-3775A9?logo=pypi&logoColor=white" alt="PyPI Version" /></a>
-  <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/python-%3E%3D3.9-blue.svg?logo=python&logoColor=white" alt="Python &gt;=3.9" /></a>
+  <a href="https://github.com/gmrafi/FinEngine-Py"><img src="https://img.shields.io/badge/GitHub-FinEngine--Py-181717?logo=github&logoColor=white" alt="FinEngine-Py Repository" /></a>
 </p>
 
 <p align="center">

@@ -253,15 +253,15 @@ function renderProofStrip(pageType) {
 
   const trustStrip = [
     {
-      label: "DOI",
+      label: "Crossref DOI",
       value: "10.67226/cfsbr.fe.2026.001.v1",
       href: "https://doi.org/10.67226/cfsbr.fe.2026.001.v1",
       external: true,
     },
     {
-      label: "Archive",
-      value: "CERN / Zenodo: 22769501",
-      href: "https://doi.org/10.5281/zenodo.22769501",
+      label: "Zenodo DOI",
+      value: "10.5281/zenodo.22769502",
+      href: "https://doi.org/10.5281/zenodo.22769502",
       external: true,
     },
     {
@@ -479,8 +479,14 @@ function renderFooter() {
             </li>
             <li>
               <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
-                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">GitHub Repository <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
-                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Source, commits, workflows, issues</div>
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">GitHub Repository (Monorepo) <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Core TypeScript, Web, UI, and docs</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gmrafi/FinEngine-Py" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Python SDK Repository <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Quant finance, Pandas DataFrame, and PyPI</div>
               </a>
             </li>
             <li>
