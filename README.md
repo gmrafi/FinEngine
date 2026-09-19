@@ -22,6 +22,7 @@
   <a href="https://github.com/gmrafi/FinEngine-Py"><img src="https://img.shields.io/badge/GitHub-FinEngine--Py-181717?logo=github&logoColor=white" alt="FinEngine-Py Repository" /></a>
   <a href="https://finengine.js.org/student/"><img src="https://img.shields.io/badge/Student_Lab-Bilingual_Finance-10B981?logo=googleclassroom&logoColor=white" alt="Student & Educator Lab (Bilingual)" /></a>
   <a href="https://finengine.js.org/dse/"><img src="https://img.shields.io/badge/DSE_Feed-Live_Capital_Markets-0284C7?logo=databricks&logoColor=white" alt="DSE Econometric Feed" /></a>
+  <a href="https://finengine.js.org/repositories/"><img src="https://img.shields.io/badge/Finance_Directory-500_Open_Source_Repos-0284C7?logo=github&logoColor=white" alt="500 Open Source Finance Repositories" /></a>
   <a href="https://finengine.js.org/roadmap/"><img src="https://img.shields.io/badge/Roadmap-Strategic_Milestones-8B5CF6?logo=target&logoColor=white" alt="Strategic Roadmap" /></a>
 </p>
 
@@ -51,12 +52,6 @@
   <a href="#academic-backing--citation">Citation</a> &middot;
   <a href="https://finengine.js.org/student/">Student Lab</a> &middot;
   <a href="https://finengine.js.org/dse/">DSE Feed</a> &middot;
-  <a href="https://finengine.js.org/roadmap/">Roadmap</a>
-</p>
-
----
-
-> [!NOTE]
 > **Project Status & Architectural Scope: Developer Preview (v0.x)**
 > FinEngine provides verified, deterministic financial primitives (integer sub-unit money arithmetic, actuarial reducing-balance loan amortization, international day-count conventions, and hybrid robust XIRR solvers). Higher-level machine learning and credit risk scoring modules (`finengine.ai`) are currently positioned as **Research Scaffolds & Baseline Heuristics** under the CFSBR Lab roadmap. FinEngine is an open-source library for developers and researchers, not a regulated credit rating agency or monolithic core banking replacement.
 
@@ -322,11 +317,28 @@ Explore FinEngine live in your browser:
 - **Flagship Portal:** [https://finengine.js.org/](https://finengine.js.org/)
 - **Student &amp; Educator Lab (Bilingual EN/BN):** [https://finengine.js.org/student/](https://finengine.js.org/student/) (Interactive loan decomposition, FinTech coding matrix 2026, and AI in finance curriculum)
 - **Python SDK &amp; Quant Hub:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
+- **Global Open-Source Finance Ecosystem (500 Repositories):** [https://finengine.js.org/repositories/](https://finengine.js.org/repositories/) (Curated catalog of 500 world-class finance libraries with live GitHub stars, category filters, and dynamic search)
 - **Live Loan Simulator:** [https://finengine.js.org/#interactive-simulator](https://finengine.js.org/#interactive-simulator)
 - **VS Code Precision Playground:** [https://finengine.js.org/#precision-playground](https://finengine.js.org/#precision-playground) (Test recipes and custom calculations in-browser with zero latency)
 - **Full Simulation Lab:** [https://finengine.js.org/simulation/](https://finengine.js.org/simulation/)
 - **Technical Working Paper (Methodology):** [https://finengine.js.org/methodology/](https://finengine.js.org/methodology/)
 - **API Documentation:** [https://finengine.js.org/docs/](https://finengine.js.org/docs/)
+
+---
+
+## Global Open-Source Finance Ecosystem (500 Repositories)
+
+FinEngine benchmarks its deterministic calculations, double-entry ledger rules, and AI agent tools against the broader quantitative software ecosystem. We maintain a live-curated index tracking **500 world-class open-source finance repositories** with 100+ GitHub stars:
+
+- **Interactive Directory:** [https://finengine.js.org/repositories/](https://finengine.js.org/repositories/)
+- **Scope & Categorization:**
+  - **Quantitative & Math (193 repos):** Actuarial pricing, numerical solvers, and Black-Scholes/PDE benchmarks (QuantLib, gs-quant, tf-quant-finance, OpenBB).
+  - **Trading & AI Agents (195 repos):** Autonomous LLM financial agents, order execution engines, and algorithmic backtesting (TradingAgents, qlib, Lean, freqtrade, FinRL).
+  - **Market Data & APIs (80 repos):** Historical tick feeds, corporate balance sheets, and real-time quotes (yfinance, FinanceDatabase, hyperswitch).
+  - **Personal Finance & Wealth (22 repos):** Local-first client dashboards, loan amortization trackers, and FIRE calculators (Actual Budget, Maybe Finance, Firefly III).
+  - **Banking & Double-Entry Ledgers (10 repos):** ACID-compliant core banking ledgers and sub-unit currency accounting (Apache Fineract, beancount, ledger).
+- **Interoperability & Synergy:** Every repository includes a documented FinEngine integration thesis (data adapters, MCP tool callers, or floating-point cross-validation benchmarks).
+- **Live GitHub Search:** Explore on-site with instant multi-language filters, or click the "Search on GitHub" action to launch dynamically constructed GitHub search queries.
 
 ---
 
