@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#1f7a5c" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="100" fill="url(#avatarGrad)" />
+  <circle cx="100" cy="100" r="94" fill="none" stroke="url(#ringGrad)" stroke-width="3" stroke-dasharray="6,4" opacity="0.85" />
+  <!-- Silhouette / Monogram -->
+  <circle cx="100" cy="74" r="32" fill="#ffffff" opacity="0.95" />
+  <path d="M 46 166 C 46 128, 70 114, 100 114 C 130 114, 154 128, 154 166 Z" fill="#ffffff" opacity="0.95" />
+  <!-- Verified Badge -->
+  <circle cx="152" cy="152" r="18" fill="#10b981" stroke="#ffffff" stroke-width="2.5" />
+  <path d="M 144 152 L 149 157 L 161 146" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
