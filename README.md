@@ -94,8 +94,9 @@ FinEngine is architected as an offline-capable monorepo dividing mathematical pr
 | [`@finengine/math`](packages/math/)                   | `0.3.0` |  `npm`   | Actuarial reducing-balance loan amortization, EMI schedules, and Newton-Raphson XIRR solvers.           | `amortize`, `monthlyPayment`, `xirr`                              |
 | [`@finengine/ui`](packages/ui/)                       | `0.3.0` |  `npm`   | Accessible, unstyled UI view-models for repayment summaries, debt burden gauges, and schedule previews. | `makeMoneyKpi`, `makeRepaymentSummary`, `makeSchedulePreview`     |
 | [`finengine`](https://github.com/gmrafi/FinEngine-Py) | `0.1.0` |  `PyPI`  | Python actuarial math, integer Poisha scaling, Pandas DataFrames, and alternative credit risk AI.       | `amortize`, `to_dataframe`, `xirr`, `assess_credit_risk`          |
+| [`FinEngine-WP`](https://github.com/gmrafi/FinEngine-WP) | `1.0.0` | `WP.org / GitHub` | Deterministic reducing-balance Loan & EMI Calculator WordPress plugin with Gutenberg block and universal shortcode. | `[finengine_calculator]`, Gutenberg Block |
 
-### Research Pipeline (CFSBR Lab)
+### Research Pipeline (CFSBR)
 
 - `@finengine/risk`: Localized algorithmic scoring matrices for informal and thin-file borrower profiles.
 - `@finengine/microfinance`: Actuarial translation modules converting flat interest structures into true reducing APR.
