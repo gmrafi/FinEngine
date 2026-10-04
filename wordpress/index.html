@@ -12,20 +12,20 @@
       gtag("config", "G-7L1Q5S8MBT");
     </script>
 
-    <title>FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math</title>
+    <title>FinEngine WordPress Ecosystem: Deterministic Computational Engine &amp; FSE Block Theme</title>
     <meta
       name="description"
-      content="FinEngine Calculator v1.0.0: Official WordPress plugin with native Gutenberg block and universal shortcode. Actuarial reducing-balance loan amortization, terminal zero reconciliation, Lakh/Crore BDT grouping, and 100% client-side privacy."
+      content="FinEngine WordPress Ecosystem: Official suite comprising the finengine-calculator plugin (actuarial loan amortization, Poisha integer math, terminal zero reconciliation) and finengine-fintech FSE block theme (theme.json v3, financial block patterns, WCAG AAA accessibility, Elementor canvas)."
     />
     <link rel="canonical" href="https://finengine.js.org/wordpress/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math"
+      content="FinEngine WordPress Ecosystem: Deterministic Computational Engine &amp; FSE Block Theme"
     />
     <meta
       property="og:description"
-      content="FinEngine Calculator v1.0.0: Official WordPress plugin with native Gutenberg block and universal shortcode. Actuarial reducing-balance loan amortization, terminal zero reconciliation, Lakh/Crore BDT grouping, and 100% client-side privacy."
+      content="FinEngine WordPress Ecosystem: Official suite comprising the finengine-calculator plugin (actuarial loan amortization, Poisha integer math, terminal zero reconciliation) and finengine-fintech FSE block theme (theme.json v3, financial block patterns, WCAG AAA accessibility, Elementor canvas)."
     />
     <meta property="og:url" content="https://finengine.js.org/wordpress/" />
     <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
@@ -33,11 +33,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math"
+      content="FinEngine WordPress Ecosystem: Deterministic Computational Engine &amp; FSE Block Theme"
     />
     <meta
       name="twitter:description"
-      content="Official WordPress plugin featuring native Gutenberg block, universal shortcode, integer Poisha precision, and Lakh/Crore formatting."
+      content="Official WordPress suite comprising the finengine-calculator plugin and finengine-fintech Full-Site Editing (FSE) block theme."
     />
     <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
     <meta name="theme-color" content="#0B0F19" />
@@ -240,6 +240,63 @@
         color: #059669;
         border: 1px solid rgba(16, 185, 129, 0.24);
       }
+      .tag-theme-token {
+        background: rgba(14, 165, 233, 0.12);
+        color: #0284c7;
+        border: 1px solid rgba(14, 165, 233, 0.24);
+      }
+      .dual-status-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 768px) {
+        .dual-status-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .dual-status-card {
+        background: var(--panel-soft, #f8fafc);
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: 12px;
+        padding: 18px 20px;
+        border-left: 4px solid #21759b;
+      }
+      .dual-status-card.theme-card {
+        border-left-color: #0f766e;
+      }
+      .arch-box {
+        background: var(--code-bg, #0f172a);
+        color: var(--code-text, #e2e8f0);
+        border-radius: 10px;
+        padding: 18px 22px;
+        font-family: monospace;
+        font-size: 12.5px;
+        line-height: 1.5;
+        overflow-x: auto;
+        border: 1px solid var(--line, #334155);
+        margin: 20px 0;
+      }
+      .pattern-card {
+        background: var(--panel, #ffffff);
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: 12px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .pattern-tag {
+        font-family: monospace;
+        font-size: 12px;
+        font-weight: 700;
+        color: #0f766e;
+        background: rgba(15, 118, 110, 0.1);
+        padding: 3px 8px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
     </style>
   </head>
   <body data-page="wordpress" data-root-path="../">
@@ -250,7 +307,7 @@
       <section class="doc-card page-hero-card">
         <div class="eyebrow eyebrow-blue" style="display: inline-flex; align-items: center; gap: 8px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="#21759b" aria-hidden="true" style="flex-shrink: 0;"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>
-          <span>WordPress Plugin v1.0.0 · Gutenberg Native Block · CFSBR Computational Initiative</span>
+          <span>WordPress Ecosystem v1.0.0 · Plugin &amp; FSE Block Theme · CFSBR Computational Initiative</span>
         </div>
         <h1
           style="
@@ -261,10 +318,10 @@
             letter-spacing: -0.025em;
           "
         >
-          Deterministic Financial Calculations &amp; Loan Amortization for WordPress
+          FinEngine WordPress Ecosystem: Deterministic Computational Engine &amp; FSE Block Theme
         </h1>
         <p style="max-width: 90ch; margin-bottom: 20px; line-height: 1.6; font-size: 15px;">
-          <strong>FinEngine Calculator</strong> (<code>FinEngine-WP</code>) is the official WordPress plugin delivering audited actuarial reducing-balance loan calculators, integer-scaled sub-unit arithmetic (Poisha: 1 BDT = 100 Poisha), terminal zero reconciliation ($B_n \equiv 0.00$), and South Asian Lakh/Crore grouping directly into WordPress CMS pages and WooCommerce storefronts.
+          Conceived and architected by <strong>Md Golam Mubasshir Rafi</strong> under the institutional governance of the <strong>Centre for Fintech and Strategic Business Research (CFSBR)</strong>. An open-source, dual-architecture solution for WordPress delivering audited actuarial reducing-balance loan computation (<strong>finengine-calculator</strong>) and a modern Full-Site Editing block theme (<strong>finengine-fintech</strong>, Trac #293749).
         </p>
 
         <!-- ACTION BUTTONS -->
@@ -301,6 +358,26 @@
 
           <a
             class="button secondary"
+            href="https://themes.trac.wordpress.org/ticket/293749"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 7px;
+              padding: 10px 18px;
+              font-size: 13px;
+              border-color: #0f766e;
+              color: #0f766e;
+            "
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>
+            <span>Theme Trac Ticket #293749</span>
+            <span style="font-size: 11px; opacity: 0.85;">↗</span>
+          </a>
+
+          <a
+            class="button secondary"
             href="https://github.com/gmrafi/FinEngine-WP"
             target="_blank"
             rel="noopener noreferrer"
@@ -317,6 +394,15 @@
             </svg>
             <span>GitHub Repository</span>
             <span style="font-size: 11px; opacity: 0.85;">↗</span>
+          </a>
+
+          <a
+            class="button"
+            href="#block-patterns"
+            style="padding: 10px 18px; font-size: 13px;"
+          >
+            <span>FSE Patterns</span>
+            <span>&darr;</span>
           </a>
 
           <a
@@ -345,8 +431,18 @@
             rel="noopener noreferrer"
           >
             <img
-              src="https://img.shields.io/badge/WordPress.org-Directory_Review_In_Progress-21759B?logo=wordpress&logoColor=white"
-              alt="WordPress Plugin Review in Progress"
+              src="https://img.shields.io/badge/Plugin_Review-Queue_Active-21759B?logo=wordpress&logoColor=white"
+              alt="WordPress Plugin Review Active"
+            />
+          </a>
+          <a
+            href="https://themes.trac.wordpress.org/ticket/293749"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://img.shields.io/badge/Theme_Trac-Ticket_%23293749_PASS-0F766E?logo=wordpress&logoColor=white"
+              alt="Theme Trac Ticket #293749 PASS"
             />
           </a>
           <a
@@ -368,6 +464,10 @@
             alt="GPL-2.0-or-later License"
           />
           <img
+            src="https://img.shields.io/badge/FSE-theme.json_v3-0284C7"
+            alt="Full Site Editing theme.json v3"
+          />
+          <img
             src="https://img.shields.io/badge/Privacy-100%25_Client--Side-green"
             alt="100% Client-Side Privacy"
           />
@@ -378,53 +478,201 @@
         </div>
       </section>
 
-      <!-- STATUS & NOTICE BANNER -->
-      <section
-        class="doc-card"
-        style="
-          margin-bottom: 24px;
-          padding: 18px 24px;
-          border-left: 4px solid #21759b;
-        "
-      >
-        <div style="display: flex; gap: 14px; align-items: flex-start">
-          <div
-            style="
-              width: 24px;
-              height: 24px;
-              border-radius: 50%;
-              background: rgba(33, 117, 155, 0.15);
-              color: #21759b;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-weight: 800;
-              font-size: 13px;
-              flex-shrink: 0;
-            "
-          >
-            i
-          </div>
-          <div style="flex: 1">
-            <div
-              style="
-                font-size: 14px;
-                font-weight: 700;
-                color: var(--text);
-                margin-bottom: 4px;
-              "
-            >
-              Plugin Submission Status: Review Queue (Directory Slug: finengine-calculator)
+      <!-- DUAL STATUS & REVIEW NOTICE BANNER -->
+      <section class="doc-card" style="margin-bottom: 24px; padding: 22px 24px;">
+        <div class="dual-status-grid">
+          <!-- CARD 1: PLUGIN STATUS -->
+          <div class="dual-status-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="tag-pill tag-supported">PCP AUDIT: 100% PASS</span>
+              <span style="font-size: 11.5px; color: var(--muted); font-weight: 600;">Submitted Oct 2, 2026</span>
             </div>
-            <div
-              style="
-                font-size: 13.5px;
-                color: var(--text);
-                opacity: 0.88;
-                line-height: 1.6;
-              "
-            >
-              Submitted to the official WordPress Plugin Directory on <strong>October 2, 2026</strong>. While awaiting directory publication, users and evaluators can immediately test the fully functional plugin in their browser via the <strong>1-click WordPress Playground demo</strong> link above, or install from the <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer">GitHub repository release</a>.
+            <div style="font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 6px;">
+              FinEngine Calculator (Plugin Review Queue)
+            </div>
+            <div style="font-size: 13px; color: var(--text); opacity: 0.88; line-height: 1.6;">
+              Official computational plugin (slug: <code>finengine-calculator</code>). Passed official WordPress Plugin Check (PCP) inspection with <strong>0 errors and 0 warnings</strong>. Executes actuarial reducing-balance amortization, Poisha sub-unit scaling, and guaranteed terminal zero reconciliation ($B_n equiv 0.00$).
+            </div>
+            <div style="margin-top: 12px; font-size: 12px;">
+              <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer" style="color: #21759b; font-weight: 700;">Explore Plugin Repository ↗</a>
+            </div>
+          </div>
+
+          <!-- CARD 2: THEME STATUS -->
+          <div class="dual-status-card theme-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="tag-pill tag-theme-token">SCAN: PASS (TRAC #293749)</span>
+              <span style="font-size: 11.5px; color: var(--muted); font-weight: 600;">Theme Directory Review</span>
+            </div>
+            <div style="font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 6px;">
+              FinEngine Fintech (FSE Block Theme)
+            </div>
+            <div style="font-size: 13px; color: var(--text); opacity: 0.88; line-height: 1.6;">
+              Full-Site Editing (FSE) block theme (slug: <code>finengine-fintech</code>). Automated review check returned <strong>PASS</strong> status. Official Trac review ticket opened under #293749. Powered by <code>theme.json</code> v3 design tokens, WCAG AAA accessibility, and native Elementor canvas support.
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; display: flex; gap: 14px;">
+              <a href="https://themes.trac.wordpress.org/ticket/293749" target="_blank" rel="noopener noreferrer" style="color: #0f766e; font-weight: 700;">Trac Ticket #293749 ↗</a>
+              <a href="https://themes.trac.wordpress.org/browser/finengine-fintech/1.0.0" target="_blank" rel="noopener noreferrer" style="color: #0f766e; font-weight: 700;">Trac Browser ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DUAL ARCHITECTURE SHOWCASE SECTION -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Dual Architectural Design</div>
+        <h2>The FinEngine WordPress Ecosystem</h2>
+        <p style="color: var(--muted); margin-bottom: 16px; line-height: 1.6;">
+          FinEngine decomposes WordPress financial engineering into two interconnected but fully decoupled layers: an audited computational engine for actuarial math and a modern Full-Site Editing theme for corporate finance layout.
+        </p>
+
+        <!-- ASCII ARCHITECTURE BOX -->
+        <div class="arch-box">
+┌─────────────────────────────────────────────────────────────┐
+│                 FinEngine WordPress Suite                   │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+┌─────────────────────────────┐ ┌─────────────────────────────┐
+│    FinEngine Calculator     │ │      FinEngine Fintech      │
+│     (WordPress Plugin)      │ │      (WordPress Theme)      │
+├─────────────────────────────┤ ├─────────────────────────────┤
+│ • Actuarial reducing balance│ │ • Full-Site Editing (FSE)   │
+│ • Integer Poisha arithmetic │ │ • theme.json v3 token system│
+│ • Terminal zero ($B_n=0.00$)│ │ • Financial block patterns  │
+│ • South Asian Lakh/Crore    │ │ • Native Elementor support  │
+│ • Gutenberg Block &amp; Code    │ │ • Zero-bloat system fonts   │
+│ • 100% Client-side privacy  │ │ • WCAG AAA accessible colors│
+└─────────────────────────────┘ └─────────────────────────────┘</div>
+
+        <!-- DUAL CARDS: CARD A & CARD B -->
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 24px;">
+          <!-- CARD A -->
+          <div class="feature-card" style="border-top: 3px solid #21759b;">
+            <div class="feature-num" style="color: #21759b;">Component A · The Computational Engine</div>
+            <h3 class="feature-title" style="font-size: 17px;">FinEngine Calculator (Plugin)</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.55;">
+              Eliminates IEEE-754 binary floating-point drift and enforces zero terminal reconciliation for all multi-year loans and financial schedules.
+            </p>
+            <ul style="padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; color: var(--text);">
+              <li><strong>Sub-Unit Poisha Scaling:</strong> Operates strictly via integer arithmetic (1 BDT = 100 Poisha), eliminating float representation drift.</li>
+              <li><strong>Terminal Zero Balance ($B_n equiv 0.00$):</strong> Enforces rigorous boundary condition so the final installment liquidates the balance to zero.</li>
+              <li><strong>South Asian Numbering:</strong> Native Lakh and Crore grouping (<code>২,৪৫,৮৭,৫০০.০০</code>) for local banking clarity.</li>
+              <li><strong>Dual Embed Options:</strong> Native Gutenberg block with InspectorControls and universal shortcode <code>[finengine_calculator]</code>.</li>
+              <li><strong>Client-Side Privacy:</strong> Zero AJAX, zero server telemetry, and zero database queries.</li>
+            </ul>
+            <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+              <span style="font-weight: 700; color: #21759b;">Directory Slug: finengine-calculator</span>
+              <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer" style="color: #21759b; font-weight: 700;">GitHub Repo ↗</a>
+            </div>
+          </div>
+
+          <!-- CARD B -->
+          <div class="feature-card" style="border-top: 3px solid #0f766e;">
+            <div class="feature-num" style="color: #0f766e;">Component B · The Visual Architecture</div>
+            <h3 class="feature-title" style="font-size: 17px;">FinEngine Fintech (FSE Block Theme)</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.55;">
+              Full-Site Editing (FSE) block theme engineered specifically for banks, microfinance institutions, and quantitative fintech portals.
+            </p>
+            <ul style="padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7; color: var(--text);">
+              <li><strong>Full-Site Editing (FSE):</strong> Modern <code>theme.json</code> v3 token architecture for complete visual and template control.</li>
+              <li><strong>WCAG AAA Color System:</strong> Curated Emerald (<code>#0f766e</code>), Slate Navy (<code>#0f172a</code>), and Cyan (<code>#0ea5e9</code>) meeting highest contrast rules.</li>
+              <li><strong>Pre-Built Financial Patterns:</strong> High-conversion financial hero, actuarial KPI grid, and calculator containers.</li>
+              <li><strong>Elementor Canvas Compatibility:</strong> Dedicated <code>page-elementor-fullwidth.html</code> canvas template for drag-and-drop page builders.</li>
+              <li><strong>Zero-Bloat Performance:</strong> Native system font stack, 0 external CDN requests, and pure CSS variables.</li>
+            </ul>
+            <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+              <span style="font-weight: 700; color: #0f766e;">Directory Slug: finengine-fintech</span>
+              <a href="https://themes.trac.wordpress.org/ticket/293749" target="_blank" rel="noopener noreferrer" style="color: #0f766e; font-weight: 700;">Trac Ticket #293749 ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COHESIVE INTEROPERABILITY SECTION -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">System Integration</div>
+        <h2>Cohesive Interoperability: How They Function Together</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          Both components are engineered to function independently or coalesce into a turnkey financial website solution:
+        </p>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #21759b; margin-bottom: 4px;">Scenario 01</div>
+            <div style="font-weight: 700; font-size: 14.5px; margin-bottom: 6px;">Standalone Plugin</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.6;">
+              Install <code>finengine-calculator</code> on any existing WordPress theme (Astra, GeneratePress, Twenty Twenty-Four, or custom agency themes). The shortcode and Gutenberg block adapt to any stylesheet.
+            </p>
+          </div>
+
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #0f766e; margin-bottom: 4px;">Scenario 02</div>
+            <div style="font-weight: 700; font-size: 14.5px; margin-bottom: 6px;">Standalone Theme</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.6;">
+              Deploy <code>finengine-fintech</code> as a complete, lightweight FSE block theme for corporate banking, investment newsletters, and institutional finance portals with or without loan calculators.
+            </p>
+          </div>
+
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #059669; margin-bottom: 4px;">Scenario 03</div>
+            <div style="font-weight: 700; font-size: 14.5px; margin-bottom: 6px;">Combined Ecosystem</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.6;">
+              When installed together, the theme's <code>calculator-section</code> pattern automatically embeds the plugin's interactive calculator inside a pre-styled, high-contrast financial layout with zero configuration.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRE-BUILT FINANCIAL BLOCK PATTERNS SHOWCASE -->
+      <section class="doc-card" id="block-patterns">
+        <div class="eyebrow eyebrow-blue">Full-Site Editing (FSE) Patterns</div>
+        <h2>Pre-Built Financial Block Patterns</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          <code>finengine-fintech</code> delivers three pre-engineered block patterns built into the WordPress block pattern inserter under the <strong>FinEngine Finance</strong> category:
+        </p>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+          <!-- PATTERN 1 -->
+          <div class="pattern-card">
+            <div>
+              <span class="pattern-tag">finengine-fintech/hero-finance</span>
+              <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--text);">Financial Hero &amp; Metrics</h3>
+              <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 14px 0;">
+                High-conversion landing page hero featuring institutional value propositions, key metrics (BDT volume, reducing balance, precision tier), primary and secondary call-to-action buttons, and trust badges.
+              </p>
+            </div>
+            <div style="font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px;">
+              <strong>Components:</strong> Heading, Metrics Grid, Action CTAs
+            </div>
+          </div>
+
+          <!-- PATTERN 2 -->
+          <div class="pattern-card">
+            <div>
+              <span class="pattern-tag">finengine-fintech/kpi-grid</span>
+              <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--text);">Actuarial KPI Card Grid</h3>
+              <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 14px 0;">
+                3-column precision KPI cards highlighting integer sub-unit Poisha scaling, terminal zero balance guarantee ($B_n equiv 0.00$), and localized South Asian numbering formats for transparent auditing.
+              </p>
+            </div>
+            <div style="font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px;">
+              <strong>Components:</strong> 3 Cards, Metric Counters, Accent Borders
+            </div>
+          </div>
+
+          <!-- PATTERN 3 -->
+          <div class="pattern-card">
+            <div>
+              <span class="pattern-tag">finengine-fintech/calculator-section</span>
+              <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--text);">Loan Calculator Container</h3>
+              <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 14px 0;">
+                A pre-styled, responsive container pre-wired to embed live loan and EMI calculators. Pre-configured with heading, advisory disclaimer copy, and seamless drop-in shortcode or block integration.
+              </p>
+            </div>
+            <div style="font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px;">
+              <strong>Components:</strong> Header, Embed Container, Compliance Notice
             </div>
           </div>
         </div>
@@ -588,7 +836,7 @@
             <div class="feature-num">Guarantee 02</div>
             <h3 class="feature-title">Terminal Reconciliation Rule</h3>
             <p class="feature-desc">
-              Multi-period amortization schedules enforce the CFSBR boundary condition: the remaining principal balance on month n liquidates cleanly to identically zero ($B_n \equiv 0.00$).
+              Multi-period amortization schedules enforce the CFSBR boundary condition: the remaining principal balance on month n liquidates cleanly to identically zero ($B_n equiv 0.00$).
             </p>
           </div>
 
@@ -848,7 +1096,7 @@
         <div class="eyebrow eyebrow-blue">Universal Compatibility</div>
         <h2>WordPress Page Builder &amp; Theme Matrix</h2>
         <p style="color: var(--muted); margin-bottom: 16px;">
-          Rigorous automated testing ensures zero style conflicts with modern WordPress themes and builders:
+          Rigorous automated testing ensures zero style conflicts with modern WordPress themes, site editors, and builders:
         </p>
 
         <div style="overflow-x: auto;">
@@ -863,6 +1111,12 @@
             </thead>
             <tbody>
               <tr>
+                <td><strong>FinEngine Fintech (FSE Theme)</strong></td>
+                <td>Full-Site Editing &amp; Patterns</td>
+                <td><span class="tag-pill tag-supported">100% Native</span></td>
+                <td>Official FSE theme with pre-wired financial block patterns and theme.json v3 tokens</td>
+              </tr>
+              <tr>
                 <td><strong>Gutenberg Block Editor</strong></td>
                 <td>Native React Block &amp; Shortcode</td>
                 <td><span class="tag-pill tag-supported">100% Compatible</span></td>
@@ -876,9 +1130,9 @@
               </tr>
               <tr>
                 <td><strong>Elementor Page Builder</strong></td>
-                <td>Shortcode Widget / HTML Block</td>
+                <td>Canvas Template / Shortcode / HTML</td>
                 <td><span class="tag-pill tag-supported">100% Compatible</span></td>
-                <td>Zero style bleed, fully responsive in mobile editor mode</td>
+                <td>Includes dedicated <code>page-elementor-fullwidth.html</code> canvas template with zero style bleed</td>
               </tr>
               <tr>
                 <td><strong>Divi Builder</strong></td>
@@ -893,10 +1147,77 @@
                 <td>Clean layout scaling without CSS specificity collisions</td>
               </tr>
               <tr>
-                <td><strong>Full Site Editing (FSE) Themes</strong></td>
+                <td><strong>Third-Party FSE Themes</strong></td>
                 <td>Block Theme Templates &amp; Patterns</td>
                 <td><span class="tag-pill tag-supported">100% Compatible</span></td>
-                <td>Twenty Twenty-Four, Astra, GeneratePress, Kadence</td>
+                <td>Twenty Twenty-Four, Astra, GeneratePress, Kadence, Blocksy</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ECOSYSTEM PARITY TABLE -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Ecosystem Parity</div>
+        <h2>FinEngine Computational Parity Matrix</h2>
+        <p style="color: var(--muted); margin-bottom: 16px;">
+          FinEngine maintains identical mathematical parity between client-side JavaScript, Python scientific backends, and WordPress interfaces:
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Package / Repository</th>
+                <th>Version</th>
+                <th>Registry</th>
+                <th>Purpose</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><a href="https://github.com/gmrafi/FinEngine/blob/main/packages/core" target="_blank" rel="noopener noreferrer">@finengine/core</a></strong></td>
+                <td><code>0.3.0</code></td>
+                <td>npm</td>
+                <td>Integer sub-unit arithmetic, BDT currency primitives, double-entry ledger.</td>
+                <td><span class="tag-pill tag-supported">Published</span></td>
+              </tr>
+              <tr>
+                <td><strong><a href="https://github.com/gmrafi/FinEngine/blob/main/packages/math" target="_blank" rel="noopener noreferrer">@finengine/math</a></strong></td>
+                <td><code>0.3.0</code></td>
+                <td>npm</td>
+                <td>Actuarial reducing-balance loan amortization, EMI schedules, XIRR solver.</td>
+                <td><span class="tag-pill tag-supported">Published</span></td>
+              </tr>
+              <tr>
+                <td><strong><a href="https://github.com/gmrafi/FinEngine/blob/main/packages/ui" target="_blank" rel="noopener noreferrer">@finengine/ui</a></strong></td>
+                <td><code>0.3.0</code></td>
+                <td>npm</td>
+                <td>Accessible view-models for repayment summaries and burden gauges.</td>
+                <td><span class="tag-pill tag-supported">Published</span></td>
+              </tr>
+              <tr>
+                <td><strong><a href="https://github.com/gmrafi/FinEngine-Py" target="_blank" rel="noopener noreferrer">finengine (Python)</a></strong></td>
+                <td><code>0.1.1</code></td>
+                <td>PyPI</td>
+                <td>Python actuarial math, Pandas DataFrames, and alternative credit risk AI.</td>
+                <td><span class="tag-pill tag-supported">Published</span></td>
+              </tr>
+              <tr>
+                <td><strong><a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer">finengine-calculator</a></strong></td>
+                <td><code>1.0.0</code></td>
+                <td>WP.org / GitHub</td>
+                <td>Deterministic reducing-balance Loan &amp; EMI Calculator WordPress plugin.</td>
+                <td><span class="tag-pill tag-supported" style="background: rgba(33,117,155,0.12); color: #21759b; border-color: rgba(33,117,155,0.28);">Review Queue</span></td>
+              </tr>
+              <tr>
+                <td><strong><a href="https://themes.trac.wordpress.org/ticket/293749" target="_blank" rel="noopener noreferrer">finengine-fintech</a></strong></td>
+                <td><code>1.0.0</code></td>
+                <td>WP.org / GitHub</td>
+                <td>Full-Site Editing (FSE) block theme for fintech and banking portals (Trac #293749).</td>
+                <td><span class="tag-pill tag-supported" style="background: rgba(15,118,110,0.12); color: #0f766e; border-color: rgba(15,118,110,0.28);">Trac #293749 PASS</span></td>
               </tr>
             </tbody>
           </table>
@@ -908,7 +1229,7 @@
         <div class="eyebrow eyebrow-blue">WebAssembly Sandbox</div>
         <h2>Zero-Install Testing via WordPress Playground</h2>
         <p style="color: var(--muted); margin-bottom: 16px;">
-          WordPress Playground executes full PHP, SQLite, and WordPress inside WebAssembly right in your browser. With our custom <code>blueprint.json</code>, you can evaluate FinEngine Calculator in under 5 seconds:
+          WordPress Playground executes full PHP, SQLite, and WordPress inside WebAssembly right in your browser. With our custom <code>blueprint.json</code>, you can evaluate the FinEngine WordPress suite in under 5 seconds:
         </p>
 
         <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
@@ -930,7 +1251,7 @@
             </a>
           </div>
           <div style="margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.5;">
-            <strong>Blueprint Details:</strong> Provisions WordPress 6.6 with SQLite, clones the plugin from <code>gmrafi/FinEngine-WP</code>, activates the plugin, and routes directly to a pre-configured sample page displaying both the native block and shortcode implementations.
+            <strong>Blueprint Details:</strong> Provisions WordPress 6.6 with SQLite, clones the suite from <code>gmrafi/FinEngine-WP</code>, activates both the plugin and theme, and routes directly to a pre-configured sample page displaying both the native block and shortcode implementations inside the financial layout.
           </div>
         </div>
       </section>
@@ -942,34 +1263,44 @@
           <div class="info-panel static-panel">
             <h3>CFSBR Open Science Integrity</h3>
             <p style="font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.6;">
-              FinEngine Calculator is maintained under the computational research standards of the <strong>Centre for Fintech and Strategic Business Research (CFSBR)</strong>. All mathematical formulations follow deterministic actuarial reducing-balance specifications, permanent CERN Zenodo archival, and Crossref methodology indexing.
+              The FinEngine WordPress Ecosystem is developed and maintained under the institutional governance of the <strong>Centre for Fintech and Strategic Business Research (CFSBR)</strong>. Conceived and architected by <strong>Md Golam Mubasshir Rafi</strong>, the initiative adheres to strict open science principles, deterministic actuarial reducing-balance specifications, and permanent CERN Zenodo archival.
             </p>
             <ul class="checklist compact-list" style="margin-top: 12px;">
               <li><strong>Author &amp; Architect:</strong> Md Golam Mubasshir Rafi (<a href="https://gmrafi.com.bd/" target="_blank" rel="noopener noreferrer">gmrafi.com.bd ↗</a>)</li>
-              <li><strong>Contact:</strong> <a href="mailto:rafi@gmrafi.com.bd">rafi@gmrafi.com.bd</a></li>
+              <li><strong>Institutional Governance:</strong> Centre for Fintech and Strategic Business Research (CFSBR)</li>
               <li><strong>WordPress Profile:</strong> <a href="https://profiles.wordpress.org/gmrafi" target="_blank" rel="noopener noreferrer">profiles.wordpress.org/gmrafi ↗</a></li>
-              <li><strong>License:</strong> GNU General Public License v2 or later (GPL-2.0-or-later)</li>
+              <li><strong>Contact:</strong> <a href="mailto:rafi@gmrafi.com.bd">rafi@gmrafi.com.bd</a></li>
+              <li><strong>Software License:</strong> GNU General Public License v2 or later (GPL-2.0-or-later)</li>
+              <li><strong>Documentation License:</strong> Creative Commons Attribution 4.0 International (CC-BY 4.0)</li>
             </ul>
           </div>
 
           <div class="info-panel static-panel">
-            <h3>Community &amp; Source Code</h3>
+            <h3>Official Resources &amp; Repositories</h3>
             <ul class="checklist compact-list" style="margin-top: 8px;">
               <li>
-                <strong>Plugin Repository:</strong>
+                <strong>Theme Trac Ticket:</strong>
+                <a href="https://themes.trac.wordpress.org/ticket/293749" target="_blank" rel="noopener noreferrer">Trac #293749 (Review Queue) ↗</a>
+              </li>
+              <li>
+                <strong>Theme Trac Browser:</strong>
+                <a href="https://themes.trac.wordpress.org/browser/finengine-fintech/1.0.0" target="_blank" rel="noopener noreferrer">finengine-fintech/1.0.0 ↗</a>
+              </li>
+              <li>
+                <strong>Central WordPress Suite Repo:</strong>
                 <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer">gmrafi/FinEngine-WP ↗</a>
               </li>
               <li>
-                <strong>Monorepo &amp; Core Engine:</strong>
+                <strong>FinEngine Core Monorepo:</strong>
                 <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">gmrafi/FinEngine ↗</a>
               </li>
               <li>
-                <strong>Issue Tracker &amp; Bug Intake:</strong>
-                <a href="https://github.com/gmrafi/FinEngine-WP/issues" target="_blank" rel="noopener noreferrer">FinEngine-WP Issues ↗</a>
+                <strong>Methodology Working Paper:</strong>
+                <a href="https://finengine.js.org/methodology/">CFSBR-FE-2026-001 (DOI: 10.67226/cfsbr.fe.2026.001.v1) ↗</a>
               </li>
               <li>
-                <strong>Methodology Working Paper:</strong>
-                <a href="https://finengine.js.org/methodology/">CFSBR-FE-2026-001 ↗</a>
+                <strong>Zenodo Concept Archive:</strong>
+                <a href="https://doi.org/10.5281/zenodo.22769501" target="_blank" rel="noopener noreferrer">DOI: 10.5281/zenodo.22769501 ↗</a>
               </li>
             </ul>
           </div>
