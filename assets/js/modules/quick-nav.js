@@ -32,6 +32,7 @@ export function initQuickNav() {
       { label: "Documentation Hub", group: "Pages", href: `${root}docs/` },
       { label: "Methodology", group: "Pages", href: `${root}methodology/` },
       { label: "Python SDK & Quant", group: "Pages", href: `${root}python/` },
+      { label: "WordPress Plugin & Gutenberg", group: "Pages", href: `${root}wordpress/` },
       {
         label: "AI & Models Lab (Coming Soon)",
         group: "Pages",
@@ -91,6 +92,11 @@ export function initQuickNav() {
         href: "https://colab.research.google.com/github/gmrafi/FinEngine/blob/main/examples/finengine_quickstart.ipynb",
       },
       {
+        label: "WordPress Playground Demo (1-Click)",
+        group: "Cloud Sandboxes",
+        href: "https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json",
+      },
+      {
         label: "jsDelivr & unpkg CDN Guides",
         group: "Cloud Sandboxes",
         href: `${root}docs/#cloud-sandboxes`,
@@ -104,6 +110,11 @@ export function initQuickNav() {
         label: "GitHub repository",
         group: "Resources",
         href: "https://github.com/gmrafi/FinEngine",
+      },
+      {
+        label: "WordPress Plugin GitHub Repo",
+        group: "Resources",
+        href: "https://github.com/gmrafi/FinEngine-WP",
       },
     );
     return QUICK_ENTRIES;
