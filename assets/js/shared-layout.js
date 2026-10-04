@@ -7,7 +7,6 @@ const NAV_ITEMS = [
   { label: "Simulations", path: "simulation/", key: "simulation" },
   { label: "Docs", path: "docs/", key: "docs" },
   { label: "Methodology", path: "methodology/", key: "methodology" },
-  { label: "WordPress", path: "wordpress/", key: "wordpress" },
 ];
 
 const MOBILE_EXTRA_ITEMS = [
