@@ -2,6 +2,7 @@ const TAB_FILES = {
   shell: "quickstart.sh",
   js: "quickstart.mjs",
   cdn: "./",
+  wp: "shortcode.txt",
 };
 
 export function initTerminalMorph() {
