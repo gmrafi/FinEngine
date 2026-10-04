@@ -305,6 +305,29 @@
   <span class="hero-keyword">const</span> r = amortize(<span class="hero-cdata">{ principal: 500000, annualRate: 13.5, months: 36 }</span>);
 <span class="hero-tag">&lt;/script&gt;</span></code></pre>
               </div>
+              <div
+                class="hero-terminal-pane"
+                data-hero-pane="wp"
+                role="tabpanel"
+                hidden
+              >
+                <button
+                  type="button"
+                  class="hero-terminal-copy"
+                  data-hero-copy
+                  data-copy-target="hero-wp-code"
+                >
+                  Copy
+                </button>
+                <pre
+                  class="hero-terminal-pre"
+                ><code id="hero-wp-code"><span class="hero-comment">&lt;!-- FinEngine WordPress Shortcode --&gt;</span>
+<span class="hero-cmd">[finengine_loan principal="500000" rate="13.5" tenure="36" currency="BDT" scheme="equal_installment"]</span>
+
+<span class="hero-comment">&lt;!-- Or Gutenberg Block: FinEngine Financial Calculator --&gt;</span>
+<span class="hero-comment">&lt;!-- Zero PHP dependencies, zero backend bloat, 100% deterministic --&gt;</span>
+<span class="hero-output">→ Embed interactive loan, EMI, and savings calculators anywhere in WP</span></code></pre>
+              </div>
             </div>
           </div>
         </div>
