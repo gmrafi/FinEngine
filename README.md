@@ -101,6 +101,17 @@ FinEngine is architected as an offline-capable monorepo dividing mathematical pr
 | [`finengine-calculator`](https://github.com/gmrafi/FinEngine-WP) | `1.0.0` | `WP.org (Queue) / GitHub` | Deterministic reducing-balance Loan & EMI Calculator WordPress plugin with Gutenberg block and universal shortcode. | `[finengine_calculator]`, Gutenberg Block |
 | [`finengine-fintech`](https://themes.trac.wordpress.org/ticket/293749) | `1.0.0` | `WP.org (Trac) / GitHub` | Full-Site Editing (FSE) block theme with theme.json v3 design tokens, WCAG AAA colors, and Elementor canvas. | 3 Financial Block Patterns, FSE Templates |
 
+### Strategic Expansion Pipeline (2026-2027+)
+
+Following our foundational footprint across JavaScript (npm), Python (PyPI), and WordPress (Plugin &amp; FSE Theme), CFSBR defines 4 strategic expansion horizons:
+
+| Priority | Ecosystem | Project | Target Audience | Primary Focus | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1st Priority** | **WooCommerce** | `FinEngine EMI for WooCommerce` | E-commerce merchants &amp; online shops | Product page &amp; checkout installment simulation (Daraj-style bank EMI breakdown) | Specification Stage |
+| **2nd Priority** | **Java (Maven)** | `finengine-java` (Spring Boot Starter) | Enterprise banking &amp; payment gateways | Core Banking Systems (CBS: Infosys Finacle, Temenos T24, Flexcube) with BigDecimal integer scaling | Architecture Draft |
+| **3rd Priority** | **Flutter (Dart)** | `finengine_flutter` (pub.dev) | MFS (bKash, Nagad) &amp; microfinance (MFI) | Offline-first field loan collection &amp; installment schedule engine for credit officers | Prototype Design |
+| **4th Priority** | **Spreadsheets** | Google Sheets &amp; Excel 365 Add-ins | Finance educators, students &amp; branch officers | Deterministic custom formulas (`=FINENGINE_EMI()`, `=FINENGINE_BDT()`) for classrooms &amp; treasury | Prototype Ready |
+
 ### Research Pipeline (CFSBR)
 
 - `@finengine/risk`: Localized algorithmic scoring matrices for informal and thin-file borrower profiles.
