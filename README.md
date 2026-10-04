@@ -20,9 +20,9 @@
   <a href="https://www.npmjs.com/org/finengine"><img src="https://img.shields.io/badge/npm-@finengine-cb3837?logo=npm" alt="npm Organization" /></a>
   <a href="https://pypi.org/project/finengine/"><img src="https://img.shields.io/badge/pypi-v0.1.0-3775A9?logo=pypi&logoColor=white" alt="PyPI Version" /></a>
   <a href="https://github.com/gmrafi/FinEngine-Py"><img src="https://img.shields.io/badge/GitHub-FinEngine--Py-181717?logo=github&logoColor=white" alt="FinEngine-Py Repository" /></a>
-  <a href="https://finengine.js.org/wordpress/"><img src="https://img.shields.io/badge/WordPress-v1.0.0-21759b?logo=wordpress&logoColor=white" alt="WordPress Plugin" /></a>
-  <a href="https://github.com/gmrafi/FinEngine-WP"><img src="https://img.shields.io/badge/GitHub-FinEngine--WP-181717?logo=github&logoColor=white" alt="WordPress Plugin Repository" /></a>
-  <a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json"><img src="https://img.shields.io/badge/WP_Playground-1--Click_Demo-3858e9?logo=wordpress&logoColor=white" alt="1-Click WordPress Playground Demo" /></a>
+  <a href="https://finengine.js.org/wordpress/"><img src="https://img.shields.io/badge/WordPress-v1.0.0-21759B?logo=wordpress&logoColor=white" alt="WordPress Plugin" /></a>
+  <a href="https://github.com/gmrafi/FinEngine-WP"><img src="https://img.shields.io/badge/GitHub-FinEngine--WP-181717?logo=github&logoColor=white" alt="FinEngine-WP Repository" /></a>
+  <a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json"><img src="https://img.shields.io/badge/WordPress_Playground-1--Click_Demo-21759B?logo=wordpress&logoColor=white" alt="1-Click WordPress Playground Demo" /></a>
   <a href="https://finengine.js.org/student/"><img src="https://img.shields.io/badge/Student_Lab-Bilingual_Finance-10B981?logo=googleclassroom&logoColor=white" alt="Student & Educator Lab (Bilingual)" /></a>
   <a href="https://finengine.js.org/dse/"><img src="https://img.shields.io/badge/DSE_Feed-Live_Capital_Markets-0284C7?logo=databricks&logoColor=white" alt="DSE Econometric Feed" /></a>
   <a href="https://finengine.js.org/repositories/"><img src="https://img.shields.io/badge/Finance_Directory-500_Open_Source_Repos-0284C7?logo=github&logoColor=white" alt="500 Open Source Finance Repositories" /></a>
@@ -49,14 +49,17 @@
   <a href="#ai-agent--llm-integrations-mcp-function-calling">AI Agents &amp; MCP</a> &middot;
   <a href="#spreadsheet-integrations-google-sheets--excel">Google Sheets</a> &middot;
   <a href="#python-sdk--quant-finance">Python SDK</a> &middot;
+  <a href="#cms--wordpress-integration-finengine-calculator">WordPress Plugin</a> &middot;
   <a href="#installation">Installation</a> &middot;
   <a href="#quickstart-examples">Quickstart</a> &middot;
-  <a href="#live-interactive-surfaces">Live Tools</a> &middot;
   <a href="#academic-backing--citation">Citation</a> &middot;
   <a href="https://finengine.js.org/student/">Student Lab</a> &middot;
   <a href="https://finengine.js.org/dse/">DSE Feed</a> &middot;
+  <a href="https://finengine.js.org/wordpress/">WordPress Showcase</a>
+</p>
+
 > **Project Status & Architectural Scope: Developer Preview (v0.x)**
-> FinEngine provides verified, deterministic financial primitives (integer sub-unit money arithmetic, actuarial reducing-balance loan amortization, international day-count conventions, and hybrid robust XIRR solvers). Higher-level machine learning and credit risk scoring modules (`finengine.ai`) are currently positioned as **Research Scaffolds & Baseline Heuristics** under the CFSBR Lab roadmap. FinEngine is an open-source library for developers and researchers, not a regulated credit rating agency or monolithic core banking replacement.
+> FinEngine provides verified, deterministic financial primitives (integer sub-unit money arithmetic, actuarial reducing-balance loan amortization, international day-count conventions, and hybrid robust XIRR solvers). Higher-level machine learning and credit risk scoring modules (`finengine.ai`) are currently positioned as **Research Scaffolds & Baseline Heuristics** under the CFSBR roadmap. FinEngine is an open-source library for developers and researchers, not a regulated credit rating agency or monolithic core banking replacement.
 
 ## Why FinEngine?
 
@@ -200,6 +203,50 @@ print(df.head())
 
 ---
 
+## CMS & WordPress Integration (FinEngine Calculator)
+
+FinEngine brings verified, actuarial reducing-balance loan calculations and localized currency formatting directly into the WordPress ecosystem with official plugin integration:
+
+- **Plugin Name:** FinEngine Calculator
+- **WordPress.org Directory Slug:** `finengine-calculator` (Submitted on October 2, 2026, awaiting directory review)
+- **GitHub Repository:** [https://github.com/gmrafi/FinEngine-WP](https://github.com/gmrafi/FinEngine-WP)
+- **Interactive Showcase Page:** [https://finengine.js.org/wordpress/](https://finengine.js.org/wordpress/)
+
+### 1. Instant 1-Click Browser Demo (WordPress Playground)
+
+Launch a complete, disposable WordPress sandbox preloaded with the FinEngine Calculator plugin in WebAssembly via WordPress Playground:
+
+[![Launch 1-Click WordPress Playground](https://img.shields.io/badge/WordPress_Playground-Launch_1--Click_Demo-21759B?style=for-the-badge&logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json)
+
+### 2. Universal Drop-In Shortcode
+
+Embed a responsive actuarial loan calculator on any page, post, widget, or template:
+
+```html
+[finengine_calculator currency="BDT" default_principal="500000" default_rate="12.0" default_tenure="36"]
+```
+
+#### Shortcode Attributes
+
+| Attribute | Default | Description |
+| :--- | :---: | :--- |
+| `currency` | `BDT` | ISO currency code (`BDT`, `USD`, `EUR`, `GBP`, `INR`) |
+| `default_principal` | `500000` | Initial loan principal amount |
+| `default_rate` | `12.0` | Annual interest rate (percentage) |
+| `default_tenure` | `36` | Loan tenure in months |
+| `locale` | `bn-BD` | Locale format for numbers and comma grouping |
+| `primary_color` | `#10b981` | Accent color for slider tracks, KPI metrics, and buttons |
+| `show_schedule` | `true` | Display or hide the month-by-month repayment breakdown table |
+
+### 3. Native Gutenberg Block & Page Builder Compatibility
+
+- **Gutenberg Block Editor:** Search for `FinEngine Loan Calculator` or `finengine/calculator` in the block inserter. Configure loan parameters and color styling with live sidebar InspectorControls.
+- **Broad Page Builder Support:** Fully compatible with Gutenberg Block Editor, Classic Editor, Elementor, Divi Builder, Beaver Builder, and Oxygen.
+- **100% Client-Side Privacy:** All math runs locally in vanilla JavaScript. No borrower inquiries, loan amounts, or telemetry metrics ever leave the user browser.
+- **Deterministic Math:** Integer Poisha sub-unit scaling prevents floating-point inaccuracies, with guaranteed terminal reconciliation ($B_n \equiv 0.00$) and South Asian Lakh/Crore grouping.
+
+---
+
 ## Installation
 
 Install foundational packages via npm, yarn, or pnpm:
@@ -321,6 +368,7 @@ Explore FinEngine live in your browser:
 - **Flagship Portal:** [https://finengine.js.org/](https://finengine.js.org/)
 - **Student &amp; Educator Lab (Bilingual EN/BN):** [https://finengine.js.org/student/](https://finengine.js.org/student/) (Interactive loan decomposition, FinTech coding matrix 2026, and AI in finance curriculum)
 - **Python SDK &amp; Quant Hub:** [https://finengine.js.org/python/](https://finengine.js.org/python/)
+- **WordPress Plugin & Gutenberg Showcase:** [https://finengine.js.org/wordpress/](https://finengine.js.org/wordpress/) (Actuarial loan & EMI calculator with 1-click Playground demo)
 - **Global Open-Source Finance Ecosystem (500 Repositories):** [https://finengine.js.org/repositories/](https://finengine.js.org/repositories/) (Curated catalog of 500 world-class finance libraries with live GitHub stars, category filters, and dynamic search)
 - **Live Loan Simulator:** [https://finengine.js.org/#interactive-simulator](https://finengine.js.org/#interactive-simulator)
 - **VS Code Precision Playground:** [https://finengine.js.org/#precision-playground](https://finengine.js.org/#precision-playground) (Test recipes and custom calculations in-browser with zero latency)
