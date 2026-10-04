@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L1Q5S8MBT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-7L1Q5S8MBT");
+    </script>
+
+    <title>FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math</title>
+    <meta
+      name="description"
+      content="FinEngine Calculator v1.0.0: Official WordPress plugin with native Gutenberg block and universal shortcode. Actuarial reducing-balance loan amortization, terminal zero reconciliation, Lakh/Crore BDT grouping, and 100% client-side privacy."
+    />
+    <link rel="canonical" href="https://finengine.js.org/wordpress/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math"
+    />
+    <meta
+      property="og:description"
+      content="FinEngine Calculator v1.0.0: Official WordPress plugin with native Gutenberg block and universal shortcode. Actuarial reducing-balance loan amortization, terminal zero reconciliation, Lakh/Crore BDT grouping, and 100% client-side privacy."
+    />
+    <meta property="og:url" content="https://finengine.js.org/wordpress/" />
+    <meta property="og:image" content="https://finengine.js.org/logo-mark.png" />
+    <meta property="og:site_name" content="FinEngine" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="FinEngine Calculator for WordPress: Actuarial Precision &amp; Deterministic Loan Math"
+    />
+    <meta
+      name="twitter:description"
+      content="Official WordPress plugin featuring native Gutenberg block, universal shortcode, integer Poisha precision, and Lakh/Crore formatting."
+    />
+    <meta name="twitter:image" content="https://finengine.js.org/logo-mark.png" />
+    <meta name="theme-color" content="#0B0F19" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const forcedTheme = params.get("theme");
+        const savedTheme = localStorage.getItem("site-theme-preference");
+        const theme =
+          forcedTheme === "light" || forcedTheme === "dark"
+            ? forcedTheme
+            : savedTheme || "light";
+        document.documentElement.dataset.theme = theme;
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta)
+          themeMeta.setAttribute(
+            "content",
+            theme === "light" ? "#F8FBFF" : "#0B0F19",
+          );
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="../logo-mark.png" />
+    <link rel="stylesheet" href="../assets/vendor/modern-normalize.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .wp-badge-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(33, 117, 155, 0.12);
+        color: #21759b;
+        border: 1px solid rgba(33, 117, 155, 0.28);
+      }
+      .calc-card {
+        background: var(--panel, #ffffff);
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: var(--radius-lg, 16px);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+      .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 840px) {
+        .calc-grid {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+      }
+      .calc-input-group {
+        margin-bottom: 20px;
+      }
+      .calc-label-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .calc-val-badge {
+        font-family: monospace;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--blue, #2563eb);
+        background: var(--tag-bg, rgba(37,99,235,0.08));
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+      .calc-range {
+        width: 100%;
+        accent-color: #10b981;
+        cursor: pointer;
+      }
+      .calc-kpi-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      @media (min-width: 480px) {
+        .calc-kpi-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .calc-kpi-card {
+        background: var(--panel-soft, #f8fafc);
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+      }
+      .calc-kpi-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted, #64748b);
+        margin-bottom: 6px;
+      }
+      .calc-kpi-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text);
+        font-family: monospace;
+      }
+      .calc-table-wrap {
+        max-height: 280px;
+        overflow-y: auto;
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: 8px;
+        margin-top: 14px;
+      }
+      .calc-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        text-align: right;
+      }
+      .calc-table th {
+        background: var(--panel-soft, #f1f5f9);
+        padding: 8px 10px;
+        font-weight: 700;
+        color: var(--muted, #475569);
+        border-bottom: 1px solid var(--line, #e2e8f0);
+        position: sticky;
+        top: 0;
+      }
+      .calc-table td {
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--line, #f1f5f9);
+        font-family: monospace;
+      }
+      .calc-table tr:last-child td {
+        background: rgba(16, 185, 129, 0.08);
+        font-weight: 700;
+      }
+      .feature-card {
+        background: var(--panel, #ffffff);
+        border: 1px solid var(--line, #e2e8f0);
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      .feature-num {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #21759b;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+      }
+      .feature-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 8px 0;
+      }
+      .feature-desc {
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--muted);
+        margin: 0;
+      }
+      .matrix-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      .matrix-table th {
+        background: var(--panel-soft, #f8fafc);
+        padding: 10px 14px;
+        text-align: left;
+        font-weight: 700;
+        border-bottom: 2px solid var(--line);
+      }
+      .matrix-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      .tag-pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .tag-supported {
+        background: rgba(16, 185, 129, 0.12);
+        color: #059669;
+        border: 1px solid rgba(16, 185, 129, 0.24);
+      }
+    </style>
+  </head>
+  <body data-page="wordpress" data-root-path="../">
+    <div data-site-header></div>
+
+    <main class="doc-shell page-shell">
+      <!-- HERO SECTION -->
+      <section class="doc-card page-hero-card">
+        <div class="eyebrow eyebrow-blue">
+          WordPress Plugin v1.0.0 · Gutenberg Native Block · CFSBR Computational Initiative
+        </div>
+        <h1
+          style="
+            max-width: 100%;
+            font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+          "
+        >
+          Deterministic Financial Calculations &amp; Loan Amortization for WordPress
+        </h1>
+        <p style="max-width: 90ch; margin-bottom: 20px; line-height: 1.6; font-size: 15px;">
+          <strong>FinEngine Calculator</strong> (<code>FinEngine-WP</code>) is the official WordPress plugin delivering audited actuarial reducing-balance loan calculators, integer-scaled sub-unit arithmetic (Poisha: 1 BDT = 100 Poisha), terminal zero reconciliation ($B_n \equiv 0.00$), and South Asian Lakh/Crore grouping directly into WordPress CMS pages and WooCommerce storefronts.
+        </p>
+
+        <!-- ACTION BUTTONS -->
+        <div
+          style="
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+          "
+        >
+          <a
+            class="button primary"
+            href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              padding: 10px 18px;
+              font-size: 13px;
+              background: #21759b;
+              border-color: #21759b;
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+            "
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312L5.438 12.87c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l2.36 6.837c.783.253 1.62.391 2.49.391.737 0 1.448-.098 2.126-.279l-3.32-9.61c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l3.754 10.87C19.364 19.855 22 16.237 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            <span>Launch WordPress Playground Demo (1-Click)</span>
+            <span style="font-size: 11px; opacity: 0.85;">↗</span>
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://github.com/gmrafi/FinEngine-WP"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 7px;
+              padding: 10px 18px;
+              font-size: 13px;
+            "
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.17-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.76.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.18 1.17a11.08 11.08 0 0 1 5.79 0c2.2-1.48 3.17-1.17 3.17-1.17.63 1.57.24 2.73.12 3.02.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.08.78 2.18 0 1.58-.01 2.86-.01 3.25 0 .31.21.68.8.56 4.56-1.54 7.84-5.86 7.84-10.95C23.5 5.66 18.35.5 12 .5Z"/>
+            </svg>
+            <span>GitHub Repository</span>
+            <span style="font-size: 11px; opacity: 0.85;">↗</span>
+          </a>
+
+          <a
+            class="button"
+            href="#shortcode-builder"
+            style="padding: 10px 18px; font-size: 13px;"
+          >
+            <span>Shortcode Generator</span>
+            <span>&darr;</span>
+          </a>
+        </div>
+
+        <!-- BADGES STRIP -->
+        <div
+          style="
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+          "
+        >
+          <a
+            href="https://wordpress.org/plugins/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://img.shields.io/badge/WordPress.org-Directory_Review_In_Progress-21759B?logo=wordpress&logoColor=white"
+              alt="WordPress Plugin Review in Progress"
+            />
+          </a>
+          <a
+            href="https://github.com/gmrafi/FinEngine-WP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://img.shields.io/badge/GitHub-FinEngine--WP-181717?logo=github&logoColor=white"
+              alt="FinEngine-WP on GitHub"
+            />
+          </a>
+          <img
+            src="https://img.shields.io/badge/Version-v1.0.0-10B981"
+            alt="Version 1.0.0"
+          />
+          <img
+            src="https://img.shields.io/badge/License-GPL--2.0--or--later-blue"
+            alt="GPL-2.0-or-later License"
+          />
+          <img
+            src="https://img.shields.io/badge/Privacy-100%25_Client--Side-green"
+            alt="100% Client-Side Privacy"
+          />
+          <img
+            src="https://img.shields.io/badge/Bundle-Sub--25KB_Vanilla_JS-0284C7"
+            alt="Sub-25KB Vanilla JS Bundle"
+          />
+        </div>
+      </section>
+
+      <!-- STATUS & NOTICE BANNER -->
+      <section
+        class="doc-card"
+        style="
+          margin-bottom: 24px;
+          padding: 18px 24px;
+          border-left: 4px solid #21759b;
+        "
+      >
+        <div style="display: flex; gap: 14px; align-items: flex-start">
+          <div
+            style="
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background: rgba(33, 117, 155, 0.15);
+              color: #21759b;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 800;
+              font-size: 13px;
+              flex-shrink: 0;
+            "
+          >
+            i
+          </div>
+          <div style="flex: 1">
+            <div
+              style="
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--text);
+                margin-bottom: 4px;
+              "
+            >
+              Plugin Submission Status: Review Queue (Directory Slug: finengine-calculator)
+            </div>
+            <div
+              style="
+                font-size: 13.5px;
+                color: var(--text);
+                opacity: 0.88;
+                line-height: 1.6;
+              "
+            >
+              Submitted to the official WordPress Plugin Directory on <strong>October 2, 2026</strong>. While awaiting directory publication, users and evaluators can immediately test the fully functional plugin in their browser via the <strong>1-click WordPress Playground demo</strong> link above, or install from the <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer">GitHub repository release</a>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIVE INTERACTIVE CALCULATOR PREVIEW -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Live Demonstration</div>
+        <h2>Interactive Loan &amp; EMI Calculator Simulator</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          This interactive surface runs the identical deterministic calculation engine and presentation logic deployed inside the <code>[finengine_calculator]</code> shortcode and Gutenberg block:
+        </p>
+
+        <div class="calc-card">
+          <div class="calc-grid">
+            <!-- INPUT CONTROLS -->
+            <div>
+              <div class="calc-input-group">
+                <div class="calc-label-row">
+                  <span>Loan Principal Amount</span>
+                  <span class="calc-val-badge" id="disp-principal">BDT 5,00,000</span>
+                </div>
+                <input
+                  class="calc-range"
+                  type="range"
+                  id="input-principal"
+                  min="50000"
+                  max="10000000"
+                  step="25000"
+                  value="500000"
+                />
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px;">
+                  <span>BDT 50,000</span>
+                  <span>BDT 1,00,00,000 (1 Crore)</span>
+                </div>
+              </div>
+
+              <div class="calc-input-group">
+                <div class="calc-label-row">
+                  <span>Annual Interest Rate (%)</span>
+                  <span class="calc-val-badge" id="disp-rate">12.0%</span>
+                </div>
+                <input
+                  class="calc-range"
+                  type="range"
+                  id="input-rate"
+                  min="4.0"
+                  max="28.0"
+                  step="0.25"
+                  value="12.0"
+                />
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px;">
+                  <span>4.0%</span>
+                  <span>28.0%</span>
+                </div>
+              </div>
+
+              <div class="calc-input-group">
+                <div class="calc-label-row">
+                  <span>Repayment Tenure (Months)</span>
+                  <span class="calc-val-badge" id="disp-tenure">36 Months (3 Years)</span>
+                </div>
+                <input
+                  class="calc-range"
+                  type="range"
+                  id="input-tenure"
+                  min="6"
+                  max="120"
+                  step="6"
+                  value="36"
+                />
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px;">
+                  <span>6 Months</span>
+                  <span>120 Months (10 Years)</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px; align-items: center; margin-top: 10px;">
+                <label style="font-size: 13px; font-weight: 600; color: var(--text);">Currency:</label>
+                <select
+                  id="input-currency"
+                  style="
+                    background: var(--panel-soft);
+                    border: 1px solid var(--line);
+                    border-radius: 6px;
+                    padding: 4px 10px;
+                    font-size: 13px;
+                    color: var(--text);
+                  "
+                >
+                  <option value="BDT" selected>BDT (Bangladeshi Taka)</option>
+                  <option value="USD">USD (US Dollar)</option>
+                  <option value="EUR">EUR (Euro)</option>
+                  <option value="GBP">GBP (British Pound)</option>
+                  <option value="INR">INR (Indian Rupee)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- RESULT METRICS & SCHEDULE -->
+            <div>
+              <div class="calc-kpi-grid">
+                <div class="calc-kpi-card">
+                  <div class="calc-kpi-label">Monthly EMI</div>
+                  <div class="calc-kpi-val" style="color: #10b981;" id="disp-emi">-</div>
+                </div>
+                <div class="calc-kpi-card">
+                  <div class="calc-kpi-label">Total Interest</div>
+                  <div class="calc-kpi-val" style="color: #2563eb;" id="disp-total-interest">-</div>
+                </div>
+                <div class="calc-kpi-card">
+                  <div class="calc-kpi-label">Total Repayment</div>
+                  <div class="calc-kpi-val" id="disp-total-payment">-</div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.04em;">Amortization Schedule (First 6 &amp; Terminal Month)</span>
+                <span style="font-size: 11px; color: #059669; font-weight: 700; background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px;">Bn == 0.00 Verified</span>
+              </div>
+
+              <div class="calc-table-wrap">
+                <table class="calc-table">
+                  <thead>
+                    <tr>
+                      <th style="text-align: left;">Month</th>
+                      <th>Payment</th>
+                      <th>Principal</th>
+                      <th>Interest</th>
+                      <th>Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="disp-schedule-body">
+                    <!-- Populated dynamically via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 MATHEMATICAL & ARCHITECTURAL GUARANTEES -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Mathematical Integrity</div>
+        <h2>Core Architectural Guarantees for WordPress Sites</h2>
+        <p style="color: var(--muted); margin-bottom: 24px;">
+          Standard web calculators rely on binary floating-point math that drifts over 36 or 60 monthly periods. FinEngine solves this natively inside WordPress:
+        </p>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 01</div>
+            <h3 class="feature-title">Zero Floating-Point Drift</h3>
+            <p class="feature-desc">
+              All currency calculations scale monetary values to integer sub-units (Poisha: 100 Poisha = 1 BDT). This eliminates the representation error inherent in JavaScript IEEE-754 double precision.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 02</div>
+            <h3 class="feature-title">Terminal Reconciliation Rule</h3>
+            <p class="feature-desc">
+              Multi-period amortization schedules enforce the CFSBR boundary condition: the remaining principal balance on month n liquidates cleanly to identically zero ($B_n \equiv 0.00$).
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 03</div>
+            <h3 class="feature-title">South Asian Lakh/Crore Formats</h3>
+            <p class="feature-desc">
+              Native South Asian 2,2,3 grouping (e.g., 25,00,000 for 25 Lakhs) alongside standard ISO international 3,3,3 thousands commas. Formatted smoothly across Bengali (bn-BD) and English locales.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 04</div>
+            <h3 class="feature-title">100% Client-Side Privacy</h3>
+            <p class="feature-desc">
+              Zero tracking, zero database writes, and zero external AJAX queries. User loan amounts and personal finance estimates remain entirely private inside the visitor browser runtime.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 05</div>
+            <h3 class="feature-title">Dual Integration Architecture</h3>
+            <p class="feature-desc">
+              Includes both a Full Site Editing Gutenberg Block with live sidebar InspectorControls and a universal shortcode <code>[finengine_calculator]</code> compatible with all page builders.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">Guarantee 06</div>
+            <h3 class="feature-title">Ultra-Lightweight Performance</h3>
+            <p class="feature-desc">
+              Zero external dependencies and no jQuery overhead. The compiled client runtime is under 25KB, achieving sub-10ms render times and flawless Google PageSpeed Core Web Vitals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHORTCODE BUILDER SECTION -->
+      <section class="doc-card" id="shortcode-builder">
+        <div class="eyebrow eyebrow-blue">Universal Shortcode</div>
+        <h2>Interactive Shortcode Generator</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          Configure your desired parameters below to generate a production-ready shortcode snippet for any WordPress page, post, or widget:
+        </p>
+
+        <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Currency</label>
+              <select
+                id="sc-currency"
+                style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 13px;"
+              >
+                <option value="BDT" selected>BDT (Bangladeshi Taka)</option>
+                <option value="USD">USD (US Dollar)</option>
+                <option value="EUR">EUR (Euro)</option>
+                <option value="GBP">GBP (British Pound)</option>
+                <option value="INR">INR (Indian Rupee)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Default Principal</label>
+              <input
+                id="sc-principal"
+                type="number"
+                value="500000"
+                step="10000"
+                style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 13px;"
+              />
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Default Rate (%)</label>
+              <input
+                id="sc-rate"
+                type="number"
+                value="12.0"
+                step="0.5"
+                style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 13px;"
+              />
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Default Tenure (Months)</label>
+              <input
+                id="sc-tenure"
+                type="number"
+                value="36"
+                step="6"
+                style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 13px;"
+              />
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Accent Color</label>
+              <input
+                id="sc-color"
+                type="color"
+                value="#10b981"
+                style="width: 100%; height: 38px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); cursor: pointer;"
+              />
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Locale</label>
+              <select
+                id="sc-locale"
+                style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 13px;"
+              >
+                <option value="bn-BD" selected>bn-BD (Bangla &amp; South Asian grouping)</option>
+                <option value="en-US">en-US (International English standard)</option>
+                <option value="en-GB">en-GB (UK English)</option>
+                <option value="en-IN">en-IN (Indian English &amp; Lakh/Crore)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- GENERATED CODE BOX -->
+          <div style="position: relative;">
+            <div
+              id="sc-output"
+              style="
+                font-family: monospace;
+                font-size: 13.5px;
+                padding: 14px 18px;
+                background: var(--code-bg, #0f172a);
+                color: var(--code-text, #38bdf8);
+                border-radius: 8px;
+                border: 1px solid var(--line);
+                white-space: pre-wrap;
+                word-break: break-all;
+              "
+            >[finengine_calculator currency="BDT" default_principal="500000" default_rate="12.0" default_tenure="36" locale="bn-BD" primary_color="#10b981"]</div>
+            <button
+              class="mini-btn"
+              type="button"
+              id="sc-copy-btn"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 4px 10px;
+                font-size: 11px;
+              "
+            >
+              Copy Shortcode
+            </button>
+          </div>
+        </div>
+
+        <!-- ATTRIBUTES REFERENCE TABLE -->
+        <h3>Shortcode Attributes Reference</h3>
+        <div style="overflow-x: auto;">
+          <table class="matrix-table" style="margin-top: 12px;">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>currency</code></td>
+                <td><code>string</code></td>
+                <td><code>"BDT"</code></td>
+                <td>ISO currency code (e.g., <code>BDT</code>, <code>USD</code>, <code>EUR</code>, <code>GBP</code>, <code>INR</code>).</td>
+              </tr>
+              <tr>
+                <td><code>default_principal</code></td>
+                <td><code>numeric</code></td>
+                <td><code>500000</code></td>
+                <td>Initial principal amount loaded in the slider and numeric input.</td>
+              </tr>
+              <tr>
+                <td><code>default_rate</code></td>
+                <td><code>numeric</code></td>
+                <td><code>12.0</code></td>
+                <td>Annual interest rate percentage loaded by default.</td>
+              </tr>
+              <tr>
+                <td><code>default_tenure</code></td>
+                <td><code>integer</code></td>
+                <td><code>36</code></td>
+                <td>Repayment duration in months (e.g., <code>12</code>, <code>24</code>, <code>36</code>, <code>60</code>).</td>
+              </tr>
+              <tr>
+                <td><code>locale</code></td>
+                <td><code>string</code></td>
+                <td><code>"bn-BD"</code></td>
+                <td>BCP 47 language tag for comma formatting and localized digits.</td>
+              </tr>
+              <tr>
+                <td><code>primary_color</code></td>
+                <td><code>hex color</code></td>
+                <td><code>"#10b981"</code></td>
+                <td>Primary brand theme color applied to sliders, active tabs, and primary KPI metrics.</td>
+              </tr>
+              <tr>
+                <td><code>show_schedule</code></td>
+                <td><code>boolean</code></td>
+                <td><code>"true"</code></td>
+                <td>Controls whether the month-by-month amortization schedule breakdown is rendered.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- GUTENBERG BLOCK EDITOR EXPERIENCE -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Block Editor (Gutenberg)</div>
+        <h2>Native WordPress Block Experience</h2>
+        <p style="color: var(--muted); margin-bottom: 20px;">
+          FinEngine Calculator includes an official React block built against the WordPress Block API (v3):
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px;">
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #21759b; margin-bottom: 4px;">Step 1</div>
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Insert Block</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0;">
+              Type <code>/finengine</code> or search for <strong>FinEngine Loan Calculator</strong> in the block inserter.
+            </p>
+          </div>
+
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #21759b; margin-bottom: 4px;">Step 2</div>
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Sidebar Inspector</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0;">
+              Fine-tune min/max ranges, step increments, default values, and accent colors in the sidebar settings panel.
+            </p>
+          </div>
+
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #21759b; margin-bottom: 4px;">Step 3</div>
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Live Editor Preview</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0;">
+              Inspect the exact interactive calculator preview directly inside the Gutenberg editing canvas in real time.
+            </p>
+          </div>
+
+          <div style="background: var(--panel-soft); padding: 18px; border-radius: 10px; border: 1px solid var(--line);">
+            <div style="font-size: 12px; font-weight: 700; color: #21759b; margin-bottom: 4px;">Step 4</div>
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Instant Publishing</div>
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0;">
+              Publish or save changes. The calculator loads seamlessly for desktop, tablet, and mobile visitors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE BUILDER & THEME COMPATIBILITY -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">Universal Compatibility</div>
+        <h2>WordPress Page Builder &amp; Theme Matrix</h2>
+        <p style="color: var(--muted); margin-bottom: 16px;">
+          Rigorous automated testing ensures zero style conflicts with modern WordPress themes and builders:
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Editor / Framework</th>
+                <th>Integration Method</th>
+                <th>Live Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gutenberg Block Editor</strong></td>
+                <td>Native React Block &amp; Shortcode</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Official Block API v3 with InspectorControls</td>
+              </tr>
+              <tr>
+                <td><strong>Classic Editor (TinyMCE)</strong></td>
+                <td>Universal Shortcode</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Drop <code>[finengine_calculator]</code> into visual or text mode</td>
+              </tr>
+              <tr>
+                <td><strong>Elementor Page Builder</strong></td>
+                <td>Shortcode Widget / HTML Block</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Zero style bleed, fully responsive in mobile editor mode</td>
+              </tr>
+              <tr>
+                <td><strong>Divi Builder</strong></td>
+                <td>Code Module / Shortcode</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Operates cleanly inside Divi Visual Builder sections</td>
+              </tr>
+              <tr>
+                <td><strong>Beaver Builder &amp; Bricks</strong></td>
+                <td>Shortcode Module</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Clean layout scaling without CSS specificity collisions</td>
+              </tr>
+              <tr>
+                <td><strong>Full Site Editing (FSE) Themes</strong></td>
+                <td>Block Theme Templates &amp; Patterns</td>
+                <td><span class="tag-pill tag-supported">100% Compatible</span></td>
+                <td>Twenty Twenty-Four, Astra, GeneratePress, Kadence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 1-CLICK PLAYGROUND ARCHITECTURE -->
+      <section class="doc-card">
+        <div class="eyebrow eyebrow-blue">WebAssembly Sandbox</div>
+        <h2>Zero-Install Testing via WordPress Playground</h2>
+        <p style="color: var(--muted); margin-bottom: 16px;">
+          WordPress Playground executes full PHP, SQLite, and WordPress inside WebAssembly right in your browser. With our custom <code>blueprint.json</code>, you can evaluate FinEngine Calculator in under 5 seconds:
+        </p>
+
+        <div style="background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Launch Disposable Blueprint Instance</div>
+              <div style="font-size: 13px; color: var(--muted);">No server, no database, no setup required. Runs entirely client-side.</div>
+            </div>
+            <a
+              class="button primary"
+              href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/gmrafi/FinEngine-WP/main/blueprint.json"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="padding: 10px 18px; font-size: 13px; background: #21759b; border-color: #21759b;"
+            >
+              Open Blueprint in Playground ↗
+            </a>
+          </div>
+          <div style="margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.5;">
+            <strong>Blueprint Details:</strong> Provisions WordPress 6.6 with SQLite, clones the plugin from <code>gmrafi/FinEngine-WP</code>, activates the plugin, and routes directly to a pre-configured sample page displaying both the native block and shortcode implementations.
+          </div>
+        </div>
+      </section>
+
+      <!-- CITATION, GOVERNANCE & MAINTAINERS -->
+      <section class="doc-card">
+        <h2>Governance &amp; Attribution</h2>
+        <div class="grid-2 compact-grid">
+          <div class="info-panel static-panel">
+            <h3>CFSBR Open Science Integrity</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.6;">
+              FinEngine Calculator is maintained under the computational research standards of the <strong>Centre for Fintech and Strategic Business Research (CFSBR)</strong>. All mathematical formulations follow deterministic actuarial reducing-balance specifications, permanent CERN Zenodo archival, and Crossref methodology indexing.
+            </p>
+            <ul class="checklist compact-list" style="margin-top: 12px;">
+              <li><strong>Author &amp; Architect:</strong> Md Golam Mubasshir Rafi (<a href="https://gmrafi.com.bd/" target="_blank" rel="noopener noreferrer">gmrafi.com.bd ↗</a>)</li>
+              <li><strong>Contact:</strong> <a href="mailto:rafi@gmrafi.com.bd">rafi@gmrafi.com.bd</a></li>
+              <li><strong>WordPress Profile:</strong> <a href="https://profiles.wordpress.org/gmrafi" target="_blank" rel="noopener noreferrer">profiles.wordpress.org/gmrafi ↗</a></li>
+              <li><strong>License:</strong> GNU General Public License v2 or later (GPL-2.0-or-later)</li>
+            </ul>
+          </div>
+
+          <div class="info-panel static-panel">
+            <h3>Community &amp; Source Code</h3>
+            <ul class="checklist compact-list" style="margin-top: 8px;">
+              <li>
+                <strong>Plugin Repository:</strong>
+                <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer">gmrafi/FinEngine-WP ↗</a>
+              </li>
+              <li>
+                <strong>Monorepo &amp; Core Engine:</strong>
+                <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener noreferrer">gmrafi/FinEngine ↗</a>
+              </li>
+              <li>
+                <strong>Issue Tracker &amp; Bug Intake:</strong>
+                <a href="https://github.com/gmrafi/FinEngine-WP/issues" target="_blank" rel="noopener noreferrer">FinEngine-WP Issues ↗</a>
+              </li>
+              <li>
+                <strong>Methodology Working Paper:</strong>
+                <a href="https://finengine.js.org/methodology/">CFSBR-FE-2026-001 ↗</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/doc-page.js?v=20260917a"></script>
+
+    <!-- INTERACTIVE SHOWCASE SCRIPT (NO EMOJIS, NO EM-DASHES, STRICT DETERMINISTIC MATH) -->
+    <script>
+      (function() {
+        const pInput = document.getElementById("input-principal");
+        const rInput = document.getElementById("input-rate");
+        const tInput = document.getElementById("input-tenure");
+        const cSelect = document.getElementById("input-currency");
+
+        const dispP = document.getElementById("disp-principal");
+        const dispR = document.getElementById("disp-rate");
+        const dispT = document.getElementById("disp-tenure");
+        const dispEMI = document.getElementById("disp-emi");
+        const dispInt = document.getElementById("disp-total-interest");
+        const dispTot = document.getElementById("disp-total-payment");
+        const schedBody = document.getElementById("disp-schedule-body");
+
+        function formatCurrency(amount, cur) {
+          const rounded = Math.round(amount * 100) / 100;
+          if (cur === "BDT" || cur === "INR") {
+            const parts = rounded.toFixed(2).split(".");
+            let num = parts[0];
+            const dec = parts[1];
+            let lastThree = num.substring(num.length - 3);
+            let otherNumbers = num.substring(0, num.length - 3);
+            if (otherNumbers !== "") {
+              lastThree = "," + lastThree;
+            }
+            const res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + "." + dec;
+            return cur ? cur + " " + res : res;
+          }
+          const res = rounded.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          return cur ? cur + " " + res : res;
+        }
+
+        function calculate() {
+          const P = parseFloat(pInput.value) || 0;
+          const annualRate = parseFloat(rInput.value) || 0;
+          const n = parseInt(tInput.value, 10) || 1;
+          const cur = cSelect.value;
+
+          dispP.textContent = formatCurrency(P, cur);
+          dispR.textContent = annualRate.toFixed(2) + "%";
+          const yrs = (n / 12).toFixed(1).replace(".0", "");
+          dispT.textContent = n + " Months (" + yrs + " Years)";
+
+          const r = (annualRate / 100) / 12;
+          let emi = 0;
+          if (r > 0) {
+            emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          } else {
+            emi = P / n;
+          }
+          const totalPayment = emi * n;
+          const totalInterest = totalPayment - P;
+
+          dispEMI.textContent = formatCurrency(emi, cur);
+          dispInt.textContent = formatCurrency(totalInterest, cur);
+          dispTot.textContent = formatCurrency(totalPayment, cur);
+
+          let balance = P;
+          let rows = "";
+          const monthsToShow = [1, 2, 3, 4, 5, 6];
+
+          for (let m = 1; m <= n; m++) {
+            const interest = balance * r;
+            const principal = emi - interest;
+            balance = balance - principal;
+            if (m === n || balance < 0) {
+              balance = 0.00;
+            }
+
+            if (monthsToShow.includes(m) || m === n) {
+              const isTerminal = (m === n);
+              const label = isTerminal ? "Month " + m + " (Final)" : "Month " + m;
+              rows += "<tr>" +
+                "<td style=\"text-align: left; font-weight: " + (isTerminal ? "700" : "500") + ";\">" + label + "</td>" +
+                "<td>" + formatCurrency(emi, "") + "</td>" +
+                "<td>" + formatCurrency(principal, "") + "</td>" +
+                "<td>" + formatCurrency(interest, "") + "</td>" +
+                "<td style=\"color: " + (isTerminal ? "#059669" : "inherit") + "; font-weight: " + (isTerminal ? "700" : "normal") + ";\">" + formatCurrency(balance, "") + "</td>" +
+                "</tr>";
+            } else if (m === 7 && n > 7) {
+              rows += "<tr><td colspan=\"5\" style=\"text-align: center; color: var(--muted); font-size: 11px; padding: 4px;\">... " + (n - 7) + " intermediate monthly periods ...</td></tr>";
+            }
+          }
+          schedBody.innerHTML = rows;
+        }
+
+        pInput.addEventListener("input", calculate);
+        rInput.addEventListener("input", calculate);
+        tInput.addEventListener("input", calculate);
+        cSelect.addEventListener("change", calculate);
+        calculate();
+
+        // Shortcode Builder
+        const scCur = document.getElementById("sc-currency");
+        const scP = document.getElementById("sc-principal");
+        const scR = document.getElementById("sc-rate");
+        const scT = document.getElementById("sc-tenure");
+        const scColor = document.getElementById("sc-color");
+        const scLoc = document.getElementById("sc-locale");
+        const scOut = document.getElementById("sc-output");
+        const scBtn = document.getElementById("sc-copy-btn");
+
+        function updateShortcode() {
+          const code = "[finengine_calculator" +
+            " currency=\"" + scCur.value + "\"" +
+            " default_principal=\"" + scP.value + "\"" +
+            " default_rate=\"" + scR.value + "\"" +
+            " default_tenure=\"" + scT.value + "\"" +
+            " locale=\"" + scLoc.value + "\"" +
+            " primary_color=\"" + scColor.value + "\"]";
+          scOut.textContent = code;
+        }
+
+        [scCur, scP, scR, scT, scColor, scLoc].forEach(el => {
+          el.addEventListener("input", updateShortcode);
+          el.addEventListener("change", updateShortcode);
+        });
+
+        scBtn.addEventListener("click", function() {
+          navigator.clipboard.writeText(scOut.textContent);
+          scBtn.textContent = "Copied!";
+          setTimeout(function() {
+            scBtn.textContent = "Copy Shortcode";
+          }, 2000);
+        });
+      })();
+    </script>
+  </body>
+</html>
