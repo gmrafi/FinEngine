@@ -760,6 +760,30 @@
           <span style="font-size: 12px; color: var(--muted);">Click any link to test live surfaces</span>
         </div>
 
+                <div class="checklist-tab-bar" role="tablist" aria-label="Release Checklist Tabs">
+          <button type="button" class="tab-pill active" onclick="filterChecklist('all', this)">
+            <span class="lang-en">All Releases</span>
+            <span class="lang-bn">সবগুলো রিলিজ</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('v0.3.0', this)">
+            <span>v0.3.0 Baseline</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('v0.4.0', this)">
+            <span>v0.4.0 Python &amp; Labs</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('wordpress', this)" style="border-color: #21759b; color: #21759b; font-weight: 750;">
+            <span>WordPress v1.0.0 (New)</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('v0.5.0', this)">
+            <span>v0.5.0 DSE Markets</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('v0.6.0', this)">
+            <span>v0.6.0 AI &amp; MCP</span>
+          </button>
+          <button type="button" class="tab-pill" onclick="filterChecklist('future', this)">
+            <span>v0.7.0+ Future Pipeline</span>
+          </button>
+        </div>
         <table class="checklist-table">
           <thead>
             <tr>
@@ -2228,6 +2252,26 @@
         const btn = document.getElementById("btn-lang-" + currentLang);
         if (btn) btn.classList.add("active");
       });
-    </script>
+        function filterChecklist(target, btn) {
+      const bar = btn.parentElement;
+      if (bar) {
+        bar.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
+      }
+      btn.classList.add('active');
+      const rows = document.querySelectorAll('.checklist-table tbody tr');
+      rows.forEach(r => {
+        const rel = r.getAttribute('data-rel');
+        if (!rel) return;
+        if (target === 'all') {
+          r.style.display = '';
+        } else if (rel === target) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+    window.filterChecklist = filterChecklist;
+</script>
   </body>
 </html>
