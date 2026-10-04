@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { label: "Simulations", path: "simulation/", key: "simulation" },
   { label: "Docs", path: "docs/", key: "docs" },
   { label: "Methodology", path: "methodology/", key: "methodology" },
+  { label: "WordPress", path: "wordpress/", key: "wordpress" },
 ];
 
 const MOBILE_EXTRA_ITEMS = [
@@ -15,6 +16,7 @@ const MOBILE_EXTRA_ITEMS = [
   { label: "Finance Repositories (500)", path: "repositories/" },
   { label: "Strategic Roadmap", path: "roadmap/" },
   { label: "Python SDK & Quant", path: "python/" },
+  { label: "WordPress Plugin", path: "wordpress/" },
   { label: "Cloud Sandboxes & CDN", path: "docs/#cloud-sandboxes" },
   { label: "AI & Models Lab", path: "ai/" },
   { label: "@finengine/core", path: "docs/core/" },
@@ -99,9 +101,10 @@ function renderHeader(pageType) {
   const logoPath = `${root}logo-mark.png`;
   const isPython = pageType === "python";
   const isAI = pageType === "ai";
-  const isJS = !isPython && !isAI;
+  const isWP = pageType === "wordpress";
+  const isJS = !isPython && !isAI && !isWP;
   const isEntryPage =
-    pageType === "home" || pageType === "python" || pageType === "ai";
+    pageType === "home" || pageType === "python" || pageType === "ai" || pageType === "wordpress";
 
   const nav = NAV_ITEMS.map((item) => {
     const href = root + item.path;
@@ -146,7 +149,18 @@ function renderHeader(pageType) {
               ${!isPython ? `<svg class="eco-arrow" width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4.5L12.5 8 9 11.5"/></svg>` : ""}
             </a>
 
-            <a class="eco-secondary-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models &amp; CFSBR Lab Research">
+
+            <a class="eco-secondary-pill ${isWP ? "is-active" : ""}" href="${toRoot("wordpress/")}" title="WordPress Plugin &amp; Gutenberg Block">
+              <span class="eco-icon" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312L5.438 12.87c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l2.36 6.837c.783.253 1.62.391 2.49.391.737 0 1.448-.098 2.126-.279l-3.32-9.61c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l3.754 10.87C19.364 19.855 22 16.237 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+              </span>
+              <span class="eco-subname">WordPress</span>
+              <span class="eco-subtag">v1.0.0</span>
+              ${!isWP ? `<svg class="eco-arrow" width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4.5L12.5 8 9 11.5"/></svg>` : ""}
+            </a>
+            <a class="eco-secondary-pill ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}" title="AI Models &amp; CFSBR Research">
               <span class="eco-icon" aria-hidden="true">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="18" cy="18" r="3"/>
@@ -208,6 +222,13 @@ function renderHeader(pageType) {
                   <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.006 2.75h5.81v.825H3.882S0 5.764 0 11.884c0 6.12 3.393 5.906 3.393 5.906h2.025v-2.845s-.109-3.394 3.34-3.394h5.753v-.853h-8.15V8.28h11.45s3.23.36 3.23-5.624C21.042-2.968 18.008 0 11.914 0zm-3.23 1.705a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.006-2.75h-5.81v-.825h8.134S24 18.236 24 12.116c0-6.12-3.393-5.906-3.393-5.906h-2.025v2.845s.109 3.394-3.34 3.394H9.489v.853h8.15v2.418H6.189s-3.23-.36-3.23 5.624C2.959 26.968 5.992 24 12.086 24zm3.23-1.705a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
                 </svg>
                 <span>Python SDK</span>
+              </a>
+
+              <a class="mobile-eco-sub-btn ${isWP ? "is-active" : ""}" href="${toRoot("wordpress/")}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312L5.438 12.87c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l2.36 6.837c.783.253 1.62.391 2.49.391.737 0 1.448-.098 2.126-.279l-3.32-9.61c-.694-1.848-.258-2.67.652-2.67.625 0 1.258.334 1.492 1.002l3.754 10.87C19.364 19.855 22 16.237 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+                <span>WordPress</span>
               </a>
               <a class="mobile-eco-sub-btn ${isAI ? "is-active" : ""}" href="${toRoot("ai/")}">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -465,6 +486,13 @@ function renderFooter() {
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Finance-oriented UI helpers</div>
               </a>
             </li>
+
+            <li>
+              <a href="${root}wordpress/" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">WordPress Plugin <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(33,117,155,0.1); color: #21759b; font-weight: 700; margin-left: 4px;">WP v1.0.0</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Gutenberg block &amp; universal shortcode calculator</div>
+              </a>
+            </li>
             <li>
               <a href="${root}python/" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">Python SDK &amp; Quant</div>
@@ -519,6 +547,13 @@ function renderFooter() {
               <a href="https://github.com/gmrafi/FinEngine" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
                 <div style="font-size: 13px; font-weight: 600; color: #0f172a;">GitHub Repository (Monorepo) <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
                 <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Core TypeScript, Web, UI, and docs</div>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <div style="font-size: 13px; font-weight: 600; color: #0f172a;">WordPress Plugin Repo <span style="font-size: 10px; color: #94a3b8;">&#8599;</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">FinEngine Calculator on GitHub &amp; WP.org</div>
               </a>
             </li>
             <li>
