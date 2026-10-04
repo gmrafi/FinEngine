@@ -760,7 +760,7 @@
           <span style="font-size: 12px; color: var(--muted);">Click any link to test live surfaces</span>
         </div>
 
-                <div class="checklist-tab-bar" role="tablist" aria-label="Release Checklist Tabs">
+        <div class="checklist-tab-bar" role="tablist" aria-label="Release Checklist Tabs">
           <button type="button" class="tab-pill active" onclick="filterChecklist('all', this)">
             <span class="lang-en">All Releases</span>
             <span class="lang-bn">সবগুলো রিলিজ</span>
@@ -983,7 +983,7 @@
                 Integer Poisha scaling, terminal zero reconciliation ($B_n \equiv 0.00$), and South Asian Lakh/Crore formatting with 100% client-side privacy.
               </td>
               <td>Actuarial Kernel</td>
-              <td><a href="../wordpress/#math-kernel" style="color: #21759b; font-weight: 600;">Poisha Math ↗</a></td>
+              <td><a href="https://github.com/gmrafi/FinEngine-WP" target="_blank" rel="noopener noreferrer" style="color: #21759b; font-weight: 600;">GitHub Repo ↗</a></td>
             </tr>
             <!-- v0.5.0 Section Header -->
             <tr data-rel="v0.5.0" style="background: rgba(31, 122, 92, 0.04);">
@@ -1178,16 +1178,16 @@
             </div>
             <ul class="toc-link-list">
               <li class="toc-link-item">
-                <a href="../wordpress/">
-                  <span>● <strong>WordPress Plugin &amp; Gutenberg</strong></span>
-                </a>
-                <span class="toc-badge chip-live" style="background: rgba(33, 117, 155, 0.15); color: #21759b; border-color: rgba(33, 117, 155, 0.3);">v1.0.0</span>
-              </li>
-              <li class="toc-link-item">
                 <a href="../python/">
                   <span>● <strong>Python Quant Lab (finengine-py)</strong></span>
                 </a>
                 <span class="toc-badge chip-live" style="font-weight: 800;">v0.4.0</span>
+              </li>
+              <li class="toc-link-item">
+                <a href="../wordpress/">
+                  <span>● <strong>WordPress Plugin &amp; Gutenberg</strong></span>
+                </a>
+                <span class="toc-badge chip-live" style="font-weight: 800; background: rgba(33,117,155,0.12); color: #21759b; border: 1px solid rgba(33,117,155,0.28);">v1.0.0</span>
               </li>
               <li class="toc-link-item">
                 <a href="../ai/">
@@ -1400,6 +1400,32 @@
             </div>
           </div>
 
+          <!-- Release: FinEngine-WP v1.0.0 (CMS & WordPress Integration) -->
+          <div class="release-card" style="border-top: 3px solid #21759b; background: rgba(33, 117, 155, 0.03);">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-family: ui-monospace, monospace; font-size: 13px; font-weight: 800; color: #21759b;">FinEngine-WP v1.0.0</span>
+                <span class="deliverable-chip chip-preview" style="font-weight: 800; background: rgba(33,117,155,0.1); color: #21759b; border-color: rgba(33,117,155,0.28);">Review Queue</span>
+              </div>
+              <h3 style="font-size: 1.05rem; margin: 0 0 6px; color: var(--text);">
+                <span class="lang-en">WordPress &amp; CMS Calculator Ecosystem</span>
+                <span class="lang-bn">ওয়ার্ডপ্রেস ও CMS ক্যালকুলেটর ইকোসিস্টেম</span>
+              </h3>
+              <p style="font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 12px;">
+                <span class="lang-en">Official WordPress plugin bringing actuarial reducing-balance loan calculations, zero floating-point drift, and South Asian Lakh/Crore formatting to WordPress CMS sites via Gutenberg Block (v3 API) and universal shortcodes.</span>
+                <span class="lang-bn">অফিশিয়াল ওয়ার্ডপ্রেস প্লাগইন: গুটেনবার্গ ব্লক (v৩ API) ও ইউনিভার্সাল শর্টকোডের মাধ্যমে ওয়ার্ডপ্রেস সাইটে অ্যাকচুয়ারি লোন ক্যালকুলেটর, জিরো ফ্লোটিং-পয়েন্ট ড্রিফ্ট এবং লাখ/কোটি কারেন্সি ফরম্যাটিং।</span>
+              </p>
+              <ul style="padding-left: 16px; margin: 0; font-size: 12px; color: var(--muted); line-height: 1.6;">
+                <li>Official plugin directory submission: <code>finengine-calculator</code>.</li>
+                <li>1-click WebAssembly demo via WordPress Playground blueprint.</li>
+                <li>Compatible with Gutenberg, Elementor, Divi, and Classic Editor.</li>
+              </ul>
+            </div>
+            <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+              <span style="color: var(--muted);">Scope: WordPress, Gutenberg, CMS</span>
+              <a href="../wordpress/" style="color: #21759b; font-weight: 700; text-decoration: none;">Launch WP Showcase →</a>
+            </div>
+          </div>
           <!-- Release 2: v0.4.5 (DSE Capital Market & Econometric Hub) -->
           <div class="release-card" style="border-top: 3px solid #1f7a5c;">
             <div>
@@ -1839,7 +1865,34 @@
               <span style="font-size: 11.5px; color: var(--muted);">Module: <code>@finengine/math/smart</code></span>
               <span style="font-size: 11px; font-weight: 700; color: #1f7a5c;">Formula Verified</span>
             </div>
+          
+          <!-- Milestone 1.11: CMS & WordPress Plugin Ecosystem Integration -->
+          <article class="milestone-card" id="rfc-wordpress">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span class="deliverable-chip chip-ready" style="background: rgba(33, 117, 155, 0.12); color: #21759b; border-color: rgba(33, 117, 155, 0.3);">Milestone 1.11 &middot; Production Ready</span>
+                <span style="font-size: 11px; font-weight: 700; color: #21759b;">Release: FinEngine-WP v1.0.0</span>
+              </div>
+              <h3 style="font-size: 1.12rem; margin: 0 0 8px; color: var(--text);">
+                <span class="lang-en">FinEngine-WP: WordPress Plugin &amp; Gutenberg Block Suite</span>
+                <span class="lang-bn">FinEngine-WP: ওয়ার্ডপ্রেস প্লাগইন ও গুটেনবার্গ ব্লক স্যুট</span>
+              </h3>
+              <p style="font-size: 13px; line-height: 1.65; color: var(--muted); margin-bottom: 14px;">
+                <span class="lang-en">Production-grade WordPress plugin (<code>finengine-calculator</code>) delivering client-side financial computation without PHP memory overhead or backend REST bottlenecks. Features 3 shortcodes, native Gutenberg blocks, and instant Elementor/Divi embed support.</span>
+                <span class="lang-bn">প্রোডাকশন-গ্রেড ওয়ার্ডপ্রেস প্লাগইন (<code>finengine-calculator</code>) যা কোনো পিএইচপি মেমোরি খরচ বা ব্যাকএন্ড লেটেন্সি ছাড়াই ব্রাউজারে আর্থিক গণনা চালায়। ৩টি শর্টকোড, গুটেনবার্গ ব্লক এবং এলিমেন্টর সাপোর্ট অন্তর্ভুক্ত।</span>
+              </p>
+              <ul style="padding-left: 18px; margin: 0 0 14px; font-size: 12.5px; color: var(--muted); line-height: 1.65;">
+                <li>Three shortcodes: <code>[finengine_loan]</code>, <code>[finengine_savings]</code>, and <code>[finengine_dps]</code>.</li>
+                <li>Native Gutenberg editor block with live visual inspector controls and preset schemes.</li>
+                <li>Zero PHP dependencies, sub-50ms render, CSP Level 3 safe, and 1-click WebAssembly Playground demo.</li>
+              </ul>
+            </div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 11.5px; color: var(--muted);">Slug: <code>finengine-calculator</code></span>
+              <a href="../wordpress/" class="button primary" style="font-size: 11px; padding: 3px 8px; background: #21759b; border-color: #21759b; color: #fff;">Showcase Page ↗</a>
+            </div>
           </article>
+</article>
         </div>
       </section>
 
@@ -2300,26 +2353,6 @@
         const btn = document.getElementById("btn-lang-" + currentLang);
         if (btn) btn.classList.add("active");
       });
-        function filterChecklist(target, btn) {
-      const bar = btn.parentElement;
-      if (bar) {
-        bar.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
-      }
-      btn.classList.add('active');
-      const rows = document.querySelectorAll('.checklist-table tbody tr');
-      rows.forEach(r => {
-        const rel = r.getAttribute('data-rel');
-        if (!rel) return;
-        if (target === 'all') {
-          r.style.display = '';
-        } else if (rel === target) {
-          r.style.display = '';
-        } else {
-          r.style.display = 'none';
-        }
-      });
-    }
-    window.filterChecklist = filterChecklist;
-</script>
+    </script>
   </body>
 </html>
