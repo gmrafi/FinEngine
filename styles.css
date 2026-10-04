@@ -3474,6 +3474,13 @@ html[data-theme="light"] .field-error {
   border-color: #f59e0b;
   color: #f59e0b;
 }
+.hero-sandbox-btn.btn-wp svg {
+  color: #21759b;
+}
+.hero-sandbox-btn.btn-wp:hover {
+  border-color: #21759b;
+  color: #21759b;
+}
 .hero-sandbox-btn.btn-cdn:hover {
   border-color: #ef4444;
   color: #ef4444;
