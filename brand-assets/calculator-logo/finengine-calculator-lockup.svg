@@ -1,0 +1,25 @@
+<svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- FinEngine Calculator - horizontal lockup (icon + wordmark) -->
+  <!-- Icon -->
+  <g>
+    <rect width="160" height="160" rx="36" fill="#0C1320"/>
+    <g stroke="#0EA5E9" stroke-opacity="0.07" stroke-width="1.2">
+      <path d="M40 0V160M80 0V160M120 0V160M0 40H160M0 80H160M0 120H160"/>
+    </g>
+    <rect x="44" y="35" width="72" height="90" rx="9" fill="#14202F" stroke="#33465E" stroke-width="3"/>
+    <rect x="51" y="44" width="58" height="24" rx="5" fill="#0C1320" stroke="#33465E" stroke-width="2"/>
+    <path d="M56 62 L69 55 L80 60 L91 50" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g fill="#3D5273">
+      <circle cx="61" cy="84" r="5"/>
+      <circle cx="80" cy="84" r="5"/>
+      <circle cx="99" cy="84" r="5"/>
+      <circle cx="61" cy="103" r="5"/>
+      <circle cx="80" cy="103" r="5"/>
+    </g>
+    <circle cx="99" cy="103" r="5" fill="#0EA5E9"/>
+    <rect x="56" y="113" width="48" height="8" rx="4" fill="#10B981"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="184" y="72" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#0C1320">FinEngine</text>
+  <text x="184" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#10B981" letter-spacing="4">CALCULATOR</text>
+</svg>

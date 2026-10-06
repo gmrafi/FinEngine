@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- FinEngine Calculator - deterministic loan & EMI engine -->
+  <!-- Brand tile -->
+  <rect width="512" height="512" rx="116" fill="#0C1320"/>
+  <!-- Blueprint precision grid -->
+  <g stroke="#0EA5E9" stroke-opacity="0.07" stroke-width="2">
+    <path d="M128 0V512M256 0V512M384 0V512M0 128H512M0 256H512M0 384H512"/>
+  </g>
+  <!-- Calculator body -->
+  <rect x="140" y="112" width="232" height="288" rx="30" fill="#14202F" stroke="#33465E" stroke-width="6"/>
+  <!-- Display screen -->
+  <rect x="164" y="140" width="184" height="76" rx="16" fill="#0C1320" stroke="#33465E" stroke-width="4"/>
+  <!-- Rising amortization curve (zero-drift schedule) -->
+  <path d="M180 192 L220 170 L260 184 L300 154 L332 166" stroke="#10B981" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Keypad -->
+  <g fill="#3D5273">
+    <circle cx="196" cy="258" r="13"/>
+    <circle cx="256" cy="258" r="13"/>
+    <circle cx="316" cy="258" r="13"/>
+    <circle cx="196" cy="316" r="13"/>
+    <circle cx="256" cy="316" r="13"/>
+  </g>
+  <!-- Cyan accent key -->
+  <circle cx="316" cy="316" r="13" fill="#0EA5E9"/>
+  <!-- Equals bar (exact reconciliation) -->
+  <rect x="180" y="352" width="152" height="26" rx="13" fill="#10B981"/>
+</svg>
